@@ -29,6 +29,7 @@ AIエージェント向けプロジェクトガイド。
 | sandbox WIP デプロイ                                                            | `/github-sandbox-wip-deploy` |
 | コミット後の反映（PR + sandbox）                                                | `/git-reflect-after-commit`  |
 | GCP Cloud Logging ERROR 取得・解析（gcloud / JSON 添付）                        | `/gcp-logging-error-analysis` |
+| サービスセキュリティ診断（CVE・Rules・認可・秘密情報。報告のみ）                | `/shokujii-security-audit`   |
 | 日本語の推敲（UI文言・仕様・PR説明。意味と条件は変えない）                     | `/yomiyasu`                   |
 
 ## 推奨スキル（技術スタック別）
