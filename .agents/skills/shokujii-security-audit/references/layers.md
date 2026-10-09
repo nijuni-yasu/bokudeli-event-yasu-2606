@@ -22,18 +22,28 @@ npm audit --json
 
 ## 秘密情報
 
-追跡されているファイルだけを見る。`git grep` は未追跡と gitignore を見ない。
+追跡されているファイルだけを見る。一致した行の内容は、コマンドの標準出力にもレポートにも出さない。`git grep -n` のように行全体を表示するコマンドは使わない。`.secret`、`.env`、`.env.*`、`.firebaserc`、`credentials.json` は開かない。
+
+禁止ファイル名は、中身を読まずに追跡されているかだけを見る。名前がヒットしたら、値を見ずに high の所見にする。
 
 ```bash
-git grep -n -E 'sk_live_[0-9A-Za-z]|sk_test_[0-9A-Za-z]|whsec_[0-9A-Za-z]|SG\.[0-9A-Za-z_-]{10,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----|xox[baprs]-' \
-  -- ':!node_modules' ':!package-lock.json' ':!*.lock'
+git ls-files | grep -E '(^|/)\.env($|\.)|(^|/)\.secret$|(^|/)\.firebaserc$|(^|/)credentials\.json$'
 ```
 
-- ヒットした行の値は表示しない。マスクして種別だけ書く
-- `.secret` / `.env` / `credentials.json` へのパスが手順やコメントに出ても、そのファイルは開かない
-- テストの `sk_test_dummy` や `example` など、明らかに偽物の値は info
-- クライアントに載る Firebase の Web API キー（`AIza`）は、このコマンドでは探さない。公開前提の設定と、秘密鍵や service account を混ぜない
-- `sk_live_`、`whsec_`、秘密鍵、SendGrid の `SG.` がアプリやドキュメントの平文にあるときは high 以上
+トークン形式は、先にファイル名だけを取る。禁止パスは pathspec で除外する。
+
+```bash
+git grep -l -E 'sk_live_[0-9A-Za-z]|sk_test_[0-9A-Za-z]|whsec_[0-9A-Za-z]|SG\.[0-9A-Za-z_-]{10,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----|xox[baprs]-' \
+  -- ':!node_modules' ':!package-lock.json' ':!*.lock' \
+  ':!.secret' ':!.env' ':!.env.*' ':!**/.env' ':!**/.env.*' ':!.firebaserc' ':!**/.firebaserc' ':!**/credentials.json'
+```
+
+禁止パスに当たるファイルは、ここで開かない。それ以外は、一致文字列を出力しない処理で、パス・行番号・パターン名・文字数だけを集計する。
+
+- レポートに書くのは種別、ファイル、行、文字数だけにする。値もその先頭も書かない
+- テストの `example` や明らかなダミーは、値を表示せず info にする
+- クライアントに載る Firebase の Web API キー（`AIza`）は、この検索では探さない。公開前提の設定と、秘密鍵や service account を混ぜない
+- `sk_live_`、`whsec_`、秘密鍵、SendGrid の `SG.` がアプリやドキュメントの平文にあるときは high 以上。根拠はパスと行番号だけにする
 
 ## Rules
 
