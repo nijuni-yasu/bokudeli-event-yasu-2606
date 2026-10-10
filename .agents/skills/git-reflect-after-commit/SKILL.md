@@ -9,7 +9,7 @@ description: コミット完了後の次ステップ。origin へ push して PR
 コミット作成自体（新規/分割/fixup/squash）はこのスキルの範囲外で、完了済みを前提とする。
 それぞれの詳細手順は委譲先スキルに従い、本スキルはルールを上書きしない。
 
-標準フローの実装依頼の入口でもある（新しい委譲スキルは作らない）。A（PR）と B（予約してデプロイ）を同じターンで始め、レビュー待ちをデプロイの前条件にしない。修正で HEAD が変わったら同じ予約で再デプロイし、PR HEAD とデプロイ SHA を揃える。予約正本はメインクローンの `.agents/state/sandbox-reservations.json`（[sandbox-pool.md](../../../documents/AIエージェント/02_pstack/records/sandbox-pool.md)）。候補は selectable な環境だけ（現状 sandbox2603）。2606〜2608 へはデータ構築の別 PR まで push しない。
+標準フローの実装依頼の入口でもある（新しい委譲スキルは作らない）。A（PR）と B（予約してデプロイ）を同じターンで始め、レビュー待ちをデプロイの前条件にしない。修正で HEAD が変わったら同じ予約で再デプロイし、PR HEAD とデプロイ SHA を揃える。予約正本はメインクローンの `.agents/state/sandbox-reservations.json`（[sandbox-pool.md](../../../documents/AIエージェント/02_pstack/records/sandbox-pool.md)）。候補は selectable な環境だけ（sandbox2603〜2608）。空きが無ければデプロイせず報告する。
 
 ## 本番リポジトリは対象外（厳守）
 
