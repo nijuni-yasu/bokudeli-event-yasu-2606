@@ -26,6 +26,10 @@ PR #2439 の外部レビュー評価。診断記録の前提を直した項目�
 | [x] | RC-18 | 5477879651 | 👌 修正不要 | — | — | — | 👀 確認のみ | — | Copilot の overview が S-2 と S-6 の整合を求めている<br>open findings は 0<br>具体的な文面は RC-16 と RC-17<br>overview 自体には追加の差分が無い |
 | [x] | RC-19 | 4236648341 | 🚨 必須修正 | ✅ 対応済み | 📌 スコープ内 | — | 🔧 微修正 | S | letter.test.ts の mock が hoist 前の変数を参照する<br>CI で `@shokujii/common` が解決できると収集時に落ちる<br>`HttpsError` と同じ `vi.hoisted` に mock を移した |
 | [x] | RC-20 | 4236648342 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | — | 📄 ドキュメントのみ | S | RC-10 と RC-13 の記録が実装後の差分と食い違う<br>RC-10 は関数を直したのにドキュメントのみと書いていた<br>RC-13 は lockfile を変えたのに変えていないと書いていた<br>通しサマリと判断理由を最終差分に合わせた |
+| [x] | RC-21 | 4237145940 | 🚨 必須修正 | 📤 #2451 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | Enterprise 従業員が `deleteUserAccount` で自己削除できる<br>UI 非表示だけでは拒否できずメンバーが残る<br>実装は [#2451](https://github.com/nijuniinc/bokudeli-event-new/issues/2451) |
+| [x] | RC-22 | 4237145942 | 🚨 必須修正 | 📤 #2452 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | コミュニティ作成で `is_approved` を自己 true にできる<br>承認待ちとイベント作成ゲートを迂回できる<br>実装は [#2452](https://github.com/nijuniinc/bokudeli-event-new/issues/2452) |
+| [x] | RC-23 | 4237145937 | 🚨 必須修正 | 📤 #2453 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | Enterprise OTP も PF と同様に総当たり可能<br>S-9（#2443）だけでは経路が残る<br>実装は [#2453](https://github.com/nijuniinc/bokudeli-event-new/issues/2453) |
+| [x] | RC-24 | 4237145933 | 🚨 必須修正 | 📤 #2454 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | `/users` の read/list が未認証でも許可<br>エンプラのテナント制約を Firestore 直読みで迂回<br>実装は [#2454](https://github.com/nijuniinc/bokudeli-event-new/issues/2454) |
 
 ---
 
@@ -745,5 +749,144 @@ Functions 側を firebase-admin の更新で直そうとして経路が残る
 **想定工数**: S
 
 **判断理由**: RC-10 と RC-13 は評価時点の記録のままだった。通しサマリの種別と要約、各ブロックの判断理由を、このブランチでの実装後の差分に合わせた。評価は変えていない。
+
+---
+
+## 評価セッション（2026-10-10 18:20・review-comments-evaluate）
+
+- **評価日時**: 2026-10-10 18:20 JST
+- **評価者**: Cursor Agent（`/review-comments-evaluate` auto）
+- **ブランチ名**: `doc/security-diagnosis`
+- **PR**: https://github.com/nijuniinc/bokudeli-event-new/pull/2439
+- **since**: 2026-10-10T09:09:10Z
+- **partial**: false
+- **Outdated 除外件数**: 0
+- **レビュー非該当スキップ件数**: 3
+  - GitHub id 6095980174（issue comment）: レビュー依頼の定型文
+  - GitHub id 5478434556（review）: Codex の接続案内ボイラープレートのみ
+  - GitHub id 6095993562（issue comment）内の letter 確認文: 新規指摘なし（本文は下記重複除外）
+- **重複除外**:
+  - GitHub id 6095993562 の S-2 指摘 → 既存 RC-16（差分なし）
+  - GitHub id 6095993562 の namesprint 指摘 → 既存 RC-17（差分なし）
+- **手順 4a 自動修正**: なし（RC-21〜24 は新規 Issue 作成が必要。RC-16/17 は 📑 仕様書ラベルで自動修正対象外）
+
+### RC 一覧（サマリ）
+
+| 対応 | RC | GitHub id | 評価 | ステータス | PRスコープ | ラベル | 種別 | 工数 | 要約 |
+|:----:|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| [x] | RC-21 | 4237145940 | 🚨 必須修正 | 📤 #2451 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | Enterprise 従業員が `deleteUserAccount` で自己削除できる<br>UI 非表示だけでは拒否できずメンバーが残る<br>実装は [#2451](https://github.com/nijuniinc/bokudeli-event-new/issues/2451) |
+| [x] | RC-22 | 4237145942 | 🚨 必須修正 | 📤 #2452 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | コミュニティ作成で `is_approved` を自己 true にできる<br>承認待ちとイベント作成ゲートを迂回できる<br>実装は [#2452](https://github.com/nijuniinc/bokudeli-event-new/issues/2452) |
+| [x] | RC-23 | 4237145937 | 🚨 必須修正 | 📤 #2453 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | Enterprise OTP も PF と同様に総当たり可能<br>S-9（#2443）だけでは経路が残る<br>実装は [#2453](https://github.com/nijuniinc/bokudeli-event-new/issues/2453) |
+| [x] | RC-24 | 4237145933 | 🚨 必須修正 | 📤 #2454 別Issue化 | 📤 スコープ外 | 🔒 セキュリティ | 📄 ドキュメントのみ | M | `/users` の read/list が未認証でも許可<br>エンプラのテナント制約を Firestore 直読みで迂回<br>実装は [#2454](https://github.com/nijuniinc/bokudeli-event-new/issues/2454) |
+
+**識別子**: RC-21（GitHub id: 4237145940）
+
+**レビュワー**: Codex
+
+**指摘箇所**: `documents/セキュリティ診断/2026-10-10.md` 行 6 付近（診断対象の記述）
+
+**該当コード（レビュー時点の diff）**: 診断文書全体の新規追加 hunk（先頭省略）
+
+**レビュワーのコメント（原文）**: Enterprise ユーザーの自己削除経路を所見に追加する（`deleteUserAccount` が enterprise claim を見ない。`documents/08_エンタープライズ/10_仕様/05_認証・テナント.md:654-657` との不整合）。high 所見と対応 Issue を追加してください。
+
+**コメント要約**: Enterprise 従業員が Callable で自己削除でき、EnterpriseMember が残る
+
+**評価**: 🚨 必須修正
+
+**ステータス**: 📤 #2451 別Issue化
+
+**PRスコープ**: 📤 スコープ外
+
+**ラベル**: 🔒 セキュリティ
+
+**変更種別**: 📄 ドキュメントのみ
+
+**想定工数**: M
+
+**判断理由**: 診断のスコープ（Callable とテナント）に合う追加所見。実装は [#2451](https://github.com/nijuniinc/bokudeli-event-new/issues/2451) に切り出した。
+
+---
+
+**識別子**: RC-22（GitHub id: 4237145942）
+
+**レビュワー**: Codex
+
+**指摘箇所**: `documents/セキュリティ診断/2026-10-10.md` イシュー表（S-1 付近）
+
+**該当コード（レビュー時点の diff）**: 同上
+
+**レビュワーのコメント（原文）**: コミュニティの自己承認も所見に追加する（`is_approved` 制約なし、マネージャ update で承認値を変えられる）。独立 high 所見と Rules テストを追加してください。
+
+**コメント要約**: コミュニティ管理者が SDK で自己承認しイベント作成ゲートを迂回できる
+
+**評価**: 🚨 必須修正
+
+**ステータス**: 📤 #2452 別Issue化
+
+**PRスコープ**: 📤 スコープ外
+
+**ラベル**: 🔒 セキュリティ
+
+**変更種別**: 📄 ドキュメントのみ
+
+**想定工数**: M
+
+**判断理由**: S-1 と別経路の Rules 不備。実装は [#2452](https://github.com/nijuniinc/bokudeli-event-new/issues/2452) に切り出した。
+
+---
+
+**識別子**: RC-23（GitHub id: 4237145937）
+
+**レビュワー**: Codex
+
+**指摘箇所**: `documents/セキュリティ診断/2026-10-10.md` 行 145 付近（S-9 節）
+
+**該当コード（レビュー時点の diff）**: 同上
+
+**レビュワーのコメント（原文）**: Enterprise OTP の総当たり経路も所見に追加する（`requestEnterpriseEmailLogin` / `confirmEnterpriseEmailLogin`）。S-9 だけでは残る。独立 high 所見として記録し試行制限を対応範囲に含めてください。
+
+**コメント要約**: Enterprise メール OTP も PF と同様にブルートフォース可能
+
+**評価**: 🚨 必須修正
+
+**ステータス**: 📤 #2453 別Issue化
+
+**PRスコープ**: 📤 スコープ外
+
+**ラベル**: 🔒 セキュリティ
+
+**変更種別**: 📄 ドキュメントのみ
+
+**想定工数**: M
+
+**判断理由**: S-9（#2443）とは別経路。実装は [#2453](https://github.com/nijuniinc/bokudeli-event-new/issues/2453) に切り出した。
+
+---
+
+**識別子**: RC-24（GitHub id: 4237145933）
+
+**レビュワー**: Codex
+
+**指摘箇所**: `documents/セキュリティ診断/2026-10-10.md` 行 193 付近
+
+**該当コード（レビュー時点の diff）**: 同上
+
+**レビュワーのコメント（原文）**: エンタープライズの公開ユーザー文書を所見に追加する（`/users` read/list が未認証でも許可。Callable のテナント制約を迂回）。high 所見と対応 Issue を追加してください。
+
+**コメント要約**: Firestore の `/users` 公開 read がエンプラプロフィール漏えいになる
+
+**評価**: 🚨 必須修正
+
+**ステータス**: 📤 #2454 別Issue化
+
+**PRスコープ**: 📤 スコープ外
+
+**ラベル**: 🔒 セキュリティ
+
+**変更種別**: 📄 ドキュメントのみ
+
+**想定工数**: M
+
+**判断理由**: `users_personal_information` 以外の `/users` 公開は診断で未記載。実装は [#2454](https://github.com/nijuniinc/bokudeli-event-new/issues/2454) に切り出した。
 
 ---
