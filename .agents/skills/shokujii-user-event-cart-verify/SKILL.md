@@ -5,7 +5,7 @@ description: Shokujii user アプリで、注文受付中イベントのメニ�
 
 # user イベント → カート検証
 
-正本はこのファイル。正本経路は **予約 sandbox**（selectable な sandbox2603〜2608 のうち、台帳の現行予約）。`feature-map.md` は機能の地図、実行ログは `documents/AIエージェント/02_pstack/records/` に置く。予約のない環境へ push / seed / `FUNCTIONS_ENV` 変更をしない。
+正本はこのファイル。正本経路は **予約 sandbox**（selectable な sandbox2603〜2608 のうち、台帳の現行予約）。無人ログインは受け口 `VERIFICATION_TEST_OUTBOX_MODE=record_skip_send` が Functions に載っている予約環境だけ進める。未設定なら OTP 発行前に停止する。`feature-map.md` は機能の地図、実行ログは `documents/AIエージェント/02_pstack/records/` に置く。予約のない環境へ push / seed / `FUNCTIONS_ENV` 変更をしない。
 
 D-05 / D-14 によりローカル UI と予約 sandbox の両方で C1〜C3 を証明する。現時点の成功記録は sandbox のみであり、ローカルの接続先・実機証拠が揃うまでフェーズ1全体は未完了（末尾の「ローカル」参照）。
 
@@ -19,7 +19,7 @@ D-05 / D-14 によりローカル UI と予約 sandbox の両方で C1〜C3 を�
 
 dev サーバーは起動しない。ブラウザは Hosting URL を開く。
 
-1. [sandbox-pool.md](../../../documents/AIエージェント/02_pstack/records/sandbox-pool.md) で予約を確認する。正本 JSON の現在の作業ブランチに対応する予約 ID・世代・環境を取得する。#2398 の過去の予約 ID をコピーしない。候補は **sandbox2603〜2608**。予約のない環境へ push / dispatch しない。
+1. [sandbox-pool.md](../../../documents/AIエージェント/02_pstack/records/sandbox-pool.md) で予約を確認する。正本 JSON の現在の作業ブランチに対応する予約 ID・世代・環境を取得する。#2398 の過去の予約 ID をコピーしない。デプロイ予約の候補は **sandbox2603〜2608**。予約のない環境へ push / dispatch しない。無人ログインの受け口が未設定の環境（2026-10-10 時点の sandbox2607 / sandbox2608）では C1 に進まず停止する。selectable を外さない。
 2. `git rev-parse HEAD` で対象 SHA を記録する。未コミット差分がある場合は証拠に明記する。
 3. 作業ブランチを、現行予約のロックを保持する `sandbox_reservation.py run -- ...` 経由で sandbox リモートへ push する。手順は [github-actions-deploy](../github-actions-deploy/SKILL.md)。
 4. 最低限 `deploy_user.yml` / `deploy_functions.yml` / `deploy_firestore.yml` を発火する。`deploy_enterprise.yml` は sandbox で hosting target 未設定のためスキップしてよい。
@@ -85,7 +85,7 @@ python3 .agents/scripts/sandbox_reservation.py run \
 4. 既存の Application Default Credentials（ADC）の Firestore 読取権限で OTP を取得する。公開 Callable は廃止。事前に `npm -w common run build` と `npm -w functions/default run build` を実行する。ADC 未設定・権限不足なら停止し、不足を報告する。追加権限を自動付与しない。トークン・コードを実行記録に残さず取得成否だけ書く。
 
 ```text
-GCLOUD_PROJECT=bokudeli-event-yasu-2603 node scripts/pstack/fetch-test-pass-code.mjs \
+GCLOUD_PROJECT="$GCLOUD_PROJECT" node scripts/pstack/fetch-test-pass-code.mjs \
   --email pstack.participant@verify.shokujii.test --run-id {RUN_ID}
 ```
 
