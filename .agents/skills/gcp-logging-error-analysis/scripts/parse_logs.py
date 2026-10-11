@@ -112,6 +112,7 @@ def classify_tier(entry: dict[str, Any], message: str) -> str:
             return "noise"
         if any(pattern in lower for pattern in CLIENT_ERROR_NOISE_PATTERNS):
             return "noise"
+        # 単体 "Failed to fetch" はノイズにしない。ログ解析では P1。メールは Monitoring の人数アラート側
         return "P1"
 
     if module == "slackMessage" and json_payload.get("status") is not None:
@@ -319,12 +320,16 @@ def summarize_client_errors(entries: list[dict[str, Any]]) -> dict[str, Any]:
     actionable_count = 0
     fingerprint_counts: Counter[str] = Counter()
     fingerprint_samples: dict[str, dict[str, Any]] = {}
+    fingerprint_users: dict[str, set[str]] = defaultdict(set)
 
     for entry in client_entries:
         message = extract_message(entry)
         tier = classify_tier(entry, message)
         json_payload = entry.get("jsonPayload") or {}
         fingerprint = str(json_payload.get("fingerprint", "unknown"))
+        user_id = str(json_payload.get("user_id") or "")
+        if user_id:
+            fingerprint_users[fingerprint].add(user_id)
         fingerprint_counts[fingerprint] += 1
         if tier == "noise":
             noise_count += 1
@@ -337,8 +342,10 @@ def summarize_client_errors(entries: list[dict[str, Any]]) -> dict[str, Any]:
                 "error_message": mask_sensitive(str(json_payload.get("error_message", ""))[:160]),
                 "route": str(json_payload.get("route", "")),
                 "app": str(json_payload.get("app", "")),
+                "unique_users": 0,
             }
         fingerprint_samples[fingerprint]["count"] = fingerprint_counts[fingerprint]
+        fingerprint_samples[fingerprint]["unique_users"] = len(fingerprint_users[fingerprint])
 
     top_fingerprints = sorted(
         fingerprint_samples.values(),
@@ -459,7 +466,7 @@ def render_markdown(summary: dict[str, Any]) -> str:
         )
         for item in client.get("top_fingerprints", [])[:8]:
             lines.append(
-                f"- {item['count']}x [{item['tier']}] {item['error_message']} (route={item.get('route')})"
+                f"- {item['count']}x [{item['tier']}] {item['error_message']} (route={item.get('route')}, users={item.get('unique_users', 0)})"
             )
         lines.append("")
 

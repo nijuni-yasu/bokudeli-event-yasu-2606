@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { computeServerFingerprint } from './clientErrorFingerprint.js'
+import { clientErrorDedupKey, computeServerFingerprint } from './clientErrorFingerprint.js'
 
 const basePayload = {
   app: 'user' as const,
@@ -21,6 +21,23 @@ describe('computeServerFingerprint', () => {
     const serverFingerprint = computeServerFingerprint(basePayload)
     const tampered = computeServerFingerprint({ ...basePayload, fingerprint: 'b'.repeat(64) })
     expect(serverFingerprint).toBe(tampered)
+  })
+
+  it('単体 Failed to fetch はユーザーごとに dedup キーを分ける', () => {
+    const fingerprint = 'a'.repeat(64)
+    expect(clientErrorDedupKey(fingerprint, 'Failed to fetch', 'user-a')).not.toBe(
+      clientErrorDedupKey(fingerprint, 'Failed to fetch', 'user-b'),
+    )
+    expect(clientErrorDedupKey(fingerprint, 'Failed to fetch', 'user-a')).toBe(
+      clientErrorDedupKey(fingerprint, 'Failed to fetch', 'user-a'),
+    )
+  })
+
+  it('単体以外はユーザーが違っても同じ dedup キー', () => {
+    const fingerprint = 'b'.repeat(64)
+    expect(clientErrorDedupKey(fingerprint, 'ZodError', 'user-a')).toBe(
+      clientErrorDedupKey(fingerprint, 'ZodError', 'user-b'),
+    )
   })
 
   it('zod_issues を含む場合も決定的に生成する', () => {

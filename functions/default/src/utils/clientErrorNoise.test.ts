@@ -50,7 +50,7 @@ describe('isClientErrorNoise', () => {
     expect(isClientErrorNoise("null is not an object (evaluating 'h.location')")).toBe(false)
   })
 
-  it('単体 Failed to fetch は false（#2174 調査完了まで ERROR 維持）', () => {
+  it('単体 Failed to fetch は false（ログは ERROR。1件通知は Monitoring で除外）', () => {
     expect(isClientErrorNoise('Failed to fetch')).toBe(false)
   })
 
