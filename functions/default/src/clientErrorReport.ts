@@ -6,7 +6,7 @@ import {
 } from '@shokujii/common/apis/clientError.js'
 import { createModuleLogger } from './utils/logger.js'
 import { shouldReportClientError } from './utils/clientErrorDedup.js'
-import { computeServerFingerprint } from './utils/clientErrorFingerprint.js'
+import { clientErrorDedupKey, computeServerFingerprint } from './utils/clientErrorFingerprint.js'
 import { isClientErrorNoise } from './utils/clientErrorNoise.js'
 
 const logger = createModuleLogger('clientError')
@@ -23,12 +23,12 @@ export const reportClientError = onCall<ClientErrorReportRequest, Promise<Client
     }
 
     const fingerprint = computeServerFingerprint(data)
+    const authenticatedUserId = request.auth?.uid
+    const dedupKey = clientErrorDedupKey(fingerprint, data.message, authenticatedUserId)
 
-    if (!shouldReportClientError(fingerprint, Date.now(), dedupCache)) {
+    if (!shouldReportClientError(dedupKey, Date.now(), dedupCache)) {
       return { accepted: true }
     }
-
-    const authenticatedUserId = request.auth?.uid
 
     const shouldLogAsError = !isClientErrorNoise(data.message, data.error_type)
     const loggedSeverity = shouldLogAsError ? 'error' : 'warn'
