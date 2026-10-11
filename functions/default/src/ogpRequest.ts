@@ -3,12 +3,12 @@ import { getStorage } from 'firebase-admin/storage'
 import { https } from 'firebase-functions/v2'
 import type { HttpsFunction } from 'firebase-functions/v2/https'
 import { getEvent, type ShokujiiEvent } from './stores/event.js'
-import { getCommunityByAccount } from './stores/community.js'
+import { getCommunityByAccount, getPfCommunityByAccount } from './stores/community.js'
 import { convertStoragePathToURL, getEventSiteOrigin } from './utils/urls.js'
 import { getEventCoverStoragePath, getCommunityCoverStoragePath } from '@shokujii/common/utils/storagePaths.js'
 import { createModuleLogger } from './utils/logger.js'
 import { resolveRequestSite } from './utils/resolveRequestSite.js'
-import { injectSeoHtml, type SeoPageContext } from './seo/htmlInjection.js'
+import { injectOgpHtml, injectSeoHtml, type SeoPageContext } from './seo/htmlInjection.js'
 import { DEFAULT_OGP_IMAGE_TYPE, OGP_SITE_NAME, type OgpMetaContext } from './seo/metaTags.js'
 import { toOgpExcerpt, toPlainTextExcerpt } from './seo/escape.js'
 import {
@@ -119,6 +119,22 @@ const sendNoindexSpaHtml = (res: HttpResponse, indexHtmlResponse: Response, html
     .set('X-Robots-Tag', 'noindex, nofollow')
     .set('Content-Type', 'text/html; charset=utf-8')
     .send(html)
+}
+
+const sendManageOgpHtml = (
+  res: HttpResponse,
+  indexHtmlResponse: Response,
+  html: string,
+  context: { pageTitle: string; ogp: OgpMetaContext },
+): void => {
+  forwardSafeHeaders(indexHtmlResponse, res, { excludeCacheControl: true })
+  const injected = injectOgpHtml(html, context)
+  res
+    .status(200)
+    .set('Cache-Control', PRIVATE_CACHE_CONTROL)
+    .set('X-Robots-Tag', 'noindex, nofollow')
+    .set('Content-Type', 'text/html; charset=utf-8')
+    .send(injected)
 }
 
 const toLogContext = (context: OgpErrorContext): OgpErrorContext =>
@@ -453,6 +469,123 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
       sendRecoveredIndexHtml(res, indexResult, {
         path,
         message: 'Unexpected error in community SEO handler',
+        error,
+      })
+    }
+  },
+)
+
+type ManagePath = { kind: 'event'; eventId: string } | { kind: 'community'; account: string } | { kind: 'unknown' }
+
+const parseManagePath = (reqPath: string): ManagePath => {
+  const segments = reqPath.split('/').filter((segment) => segment !== '')
+  if (segments[0] !== 'manage') {
+    return { kind: 'unknown' }
+  }
+  if (segments[1] === 'event' && segments[2] !== undefined && segments[2] !== '') {
+    return { kind: 'event', eventId: segments[2] }
+  }
+  if (segments[1] === 'community' && segments[2] !== undefined && segments[2] !== '') {
+    return { kind: 'community', account: segments[2].toLowerCase() }
+  }
+  return { kind: 'unknown' }
+}
+
+const createDefaultOgp = (site: string, url: string): OgpMetaContext => ({
+  site,
+  url,
+  image: `${site}/shokujii_ogp.png`,
+  imageType: DEFAULT_OGP_IMAGE_TYPE,
+  title: '',
+  description: '',
+})
+
+export const handleManageOgpRequest: HttpsFunction = https.onRequest(
+  {
+    region: 'asia-northeast1',
+    memory: '1GiB',
+  },
+  async (req, res) => {
+    const site = resolveRequestSite(req)
+    if (site == null) {
+      res.status(400).send('Bad Request')
+      return
+    }
+
+    const managePath = parseManagePath(req.path)
+    const path = req.path
+    const eventId = managePath.kind === 'event' ? managePath.eventId : undefined
+
+    let indexResult: IndexHtmlResult | undefined
+    try {
+      indexResult = await fetchIndexHtml()
+      if (indexResult === undefined) {
+        sendMissingIndexHtml(res, { path, eventId })
+        return
+      }
+
+      if (managePath.kind === 'unknown') {
+        sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+        return
+      }
+
+      if (managePath.kind === 'event') {
+        const eventData = await getEvent(managePath.eventId)
+        if (eventData === undefined || eventData.is_deleted || eventData.enterprise_id != null) {
+          sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+          return
+        }
+
+        const canonicalUrl = `${site}/manage/event/${managePath.eventId}`
+        const ogp = createDefaultOgp(site, canonicalUrl)
+        try {
+          const storagePath = getEventCoverStoragePath(eventData.community_id, managePath.eventId)
+          const [metadata] = await getStorage().bucket().file(storagePath).getMetadata()
+          applyCoverImageFromMetadata(ogp, storagePath, metadata)
+        } catch (error) {
+          logger.warn('Failed to get storage metadata for event cover image', { error })
+        }
+
+        sendManageOgpHtml(res, indexResult.response, indexResult.html, {
+          pageTitle: eventData.event_name,
+          ogp: {
+            ...ogp,
+            title: toOgpExcerpt(eventData.event_name),
+            description: toOgpExcerpt(eventData.event_desc),
+          },
+        })
+        return
+      }
+
+      const communityData = await getPfCommunityByAccount(managePath.account)
+      if (communityData === undefined || communityData.enterprise_id != null) {
+        sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+        return
+      }
+
+      const canonicalUrl = `${site}/manage/community/${managePath.account}`
+      const ogp = createDefaultOgp(site, canonicalUrl)
+      try {
+        const storagePath = getCommunityCoverStoragePath(communityData.community_id)
+        const [metadata] = await getStorage().bucket().file(storagePath).getMetadata()
+        applyCoverImageFromMetadata(ogp, storagePath, metadata)
+      } catch (error) {
+        logger.warn('Failed to get storage metadata for community cover image', { error })
+      }
+
+      sendManageOgpHtml(res, indexResult.response, indexResult.html, {
+        pageTitle: communityData.community_name,
+        ogp: {
+          ...ogp,
+          title: toOgpExcerpt(communityData.community_name),
+          description: toOgpExcerpt(communityData.community_desc),
+        },
+      })
+    } catch (error) {
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        eventId,
+        message: 'Unexpected error in manage OGP handler',
         error,
       })
     }

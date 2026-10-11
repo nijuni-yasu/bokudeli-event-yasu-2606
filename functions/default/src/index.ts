@@ -17,7 +17,7 @@ setGlobalOptions({ region: 'asia-northeast1' })
 export const {
   getInvitationUrlForCommunityManager, acceptInvitationForCommunityManager,
   sendTestLetter,
-  handleEventOgpRequest, handleCommunityOgpRequest, handleCommunityListSeoRequest, handleSitemapRequest,
+  handleEventOgpRequest, handleCommunityOgpRequest, handleManageOgpRequest, handleCommunityListSeoRequest, handleSitemapRequest,
   communityAdded, communityContact,
   createStripeCheckoutSession, stripeWebhook, cancelOrders,
   eventInformation, eventInformationPreview,
