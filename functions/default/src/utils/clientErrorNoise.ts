@@ -34,6 +34,8 @@ function isServiceWorkerStandaloneRejected(message: string): boolean {
 /**
  * Cloud Logging ERROR ではなく WARN 格下げすべき clientError か。
  * ZodError と actionable パターンは常に false（ERROR 維持）。
+ * 単体 `Failed to fetch` も false。ログは ERROR のまま残し、1件通知の除外と
+ * 複数ユーザー集計は Monitoring 側で行う（#2174）。
  */
 export function isClientErrorNoise(message: string, errorType?: string): boolean {
   if (errorType === 'ZodError') {

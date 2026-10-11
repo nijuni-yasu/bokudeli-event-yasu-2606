@@ -112,6 +112,7 @@ def classify_tier(entry: dict[str, Any], message: str) -> str:
             return "noise"
         if any(pattern in lower for pattern in CLIENT_ERROR_NOISE_PATTERNS):
             return "noise"
+        # 単体 "Failed to fetch" はノイズにしない。ログ解析では P1。メールは Monitoring の人数アラート側
         return "P1"
 
     if module == "slackMessage" and json_payload.get("status") is not None:

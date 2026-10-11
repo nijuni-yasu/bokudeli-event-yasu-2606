@@ -1,0 +1,20 @@
+{
+  "name": "client_failed_to_fetch",
+  "description": "ログイン済みユーザーの単体 Failed to fetch。user_id ごとに時系列を分け、10分で5人以上のアラートに使う。未ログインは件数に入れない。",
+  "filter": "severity>=ERROR AND jsonPayload.module=\"clientError\" AND jsonPayload.error_message=\"Failed to fetch\" AND jsonPayload.user_id!=\"\"",
+  "metricDescriptor": {
+    "metricKind": "DELTA",
+    "valueType": "INT64",
+    "unit": "1",
+    "labels": [
+      {
+        "key": "user_id",
+        "valueType": "STRING",
+        "description": "Firebase Auth の uid"
+      }
+    ]
+  },
+  "labelExtractors": {
+    "user_id": "EXTRACT(jsonPayload.user_id)"
+  }
+}
