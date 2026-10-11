@@ -9,6 +9,8 @@
 | [x] | RC-3 | 4240499131 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | 新規経路が deprecated alias を使う<br>`handleManageOgpRequest`<br>PF 専用であることが名前から分からない<br>`getPfCommunityByAccount` とテスト mock に差し替える |
 | [x] | RC-4 | 5482144397 | 👌 修正不要 | — | — | — | 👀 確認のみ | — | Copilot overview の目次<br>PR レビュー本文<br>実体は RC-3 の inline と同じ<br>目次自体に追加の修正要求は無い |
 | [x] | RC-5 | 6106173139 | 👌 修正不要 | — | — | 🔒 セキュリティ | 👀 確認のみ | — | 未認証で説明・カバーを返す<br>管理画面 OGP ハンドラ<br>URL を知る第三者からも取得できる<br>Issue / 計画どおりの共有仕様 |
+| [x] | RC-6 | 4240544018 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 🐛 実害 | 🔧 微修正 | S | index.html 取得失敗の error ログに原因が残らない<br>`fetchIndexHtml` の catch と非 2xx<br>500 時に path しか残らず切り分けできない<br>status / error を構造化ログへ渡す |
+| [x] | RC-7 | 5482189360 | 👌 修正不要 | — | — | — | 👀 確認のみ | — | Copilot 再レビューの目次<br>PR レビュー本文<br>実体は RC-1 と RC-6 の inline<br>目次自体に追加の修正要求は無い |
 
 ---
 
@@ -372,3 +374,129 @@ Useful? React with 👍 / 👎.
 **想定工数**: —
 
 **判断理由**: #2082 と計画は、未ログインのクローラがプレビューを作れるよう、限定公開・未承認でも管理 URL では名前・説明・カバーを出すと決めている。`noindex` と `private, no-store` は検索インデックス抑制とキャッシュ抑制であり、URL を知る人への共有を止めるものではない。alias 部分は RC-3 と重複。
+
+---
+
+## 評価セッション（2026-10-11 15:42・review-comments-evaluate）
+
+- **評価日時**: 2026-10-11 15:42 JST
+- **評価者**: Cursor Agent（`/review-comments-evaluate` auto）
+- **ブランチ名**: feat/2082
+- **PR**: https://github.com/nijuniinc/bokudeli-event-new/pull/2468
+- **Outdated 除外件数**: 0
+- **レビュー非該当スキップ件数**: 2
+  - 6106264808 レビュー依頼の定型文
+  - 6106280278 Codex 問題なしのみ（`Didn't find any major issues`）
+- **重複除外**: 6106276089 → RC-1、差分なし。4240543998 → RC-1、差分なし
+- **partial**: true（Codex は no_issues サマリのみ）
+- **手順 4a 自動修正**: RC-6（🚨 0件 / 🟡 1件）。RC-1 は未着手のまま
+
+### RC 一覧（サマリ）
+
+| 対応 | RC | GitHub id | 評価 | ステータス | PRスコープ | ラベル | 種別 | 工数 | 要約 |
+|:----:|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| [x] | RC-6 | 4240544018 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 🐛 実害 | 🔧 微修正 | S | index.html 取得失敗の error ログに原因が残らない<br>`fetchIndexHtml` の catch と非 2xx<br>500 時に path しか残らず切り分けできない<br>status / error を構造化ログへ渡す |
+| [x] | RC-7 | 5482189360 | 👌 修正不要 | — | — | — | 👀 確認のみ | — | Copilot 再レビューの目次<br>PR レビュー本文<br>実体は RC-1 と RC-6 の inline<br>目次自体に追加の修正要求は無い |
+
+---
+
+**識別子**: RC-6（GitHub id: 4240544018）
+
+**レビュワー**: Copilot
+
+**指摘箇所**: `functions/default/src/ogpRequest.ts:98`
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+@@ -77,13 +86,17 @@ const sendNotFound = (res: HttpResponse): void => {
+     .send('<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>')
+ }
+ 
+-const fetchIndexHtml = async (): Promise<{ html: string; response: Response } | undefined> => {
+-  const response = await fetch(`${getEventSiteOrigin()}/index.html`)
+-  if (!response.ok) {
++const fetchIndexHtml = async (): Promise<IndexHtmlResult | undefined> => {
++  try {
++    const response = await fetch(`${getEventSiteOrigin()}/index.html`)
++    if (!response.ok) {
++      return undefined
++    }
++    const html = await response.text()
++    return { html, response }
++  } catch {
+     return undefined
+```
+
+**レビュワーのコメント（原文）**:
+
+[imo] この `catch` で例外原因を破棄し、非 2xx 分岐でも HTTP status を残していないため、index.html 取得だけが 500 になった場合の error ログには path/eventId しか残りません。#2163 の発端だった原因不明を解消できず、ネットワーク例外・本文読取失敗・Origin の 503 を区別できないので、失敗結果に status/error を保持して `sendMissingIndexHtml` の構造化ログへ渡してください。
+
+**コメント要約**: index.html 取得失敗の error ログに原因が残らない。`fetchIndexHtml` の catch と非 2xx。500 時に path しか残らず切り分けできない。status / error を構造化ログへ渡す。
+
+**評価**: 🟡 修正提案
+
+**ステータス**: ✅ 対応済み
+
+**PRスコープ**: 📌 スコープ内
+
+**ラベル**: 🐛 実害
+
+**変更種別**: 🔧 微修正
+
+**想定工数**: S
+
+**判断理由**: 500 の切り分けに status と例外メッセージが要る指摘は妥当。`fetchIndexHtml` が失敗理由を返し、`sendMissingIndexHtml` の構造化ログへ渡すよう直した。
+
+---
+
+**識別子**: RC-7（GitHub id: 5482189360）
+
+**レビュワー**: Copilot
+
+**指摘箇所**: （インライン指摘なし）
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+（インライン指摘なし）
+```
+
+**レビュワーのコメント（原文）**:
+
+<!-- ccr-overview-v2 -->
+
+### 🟡 Changes recommended
+
+user Hostingへのrewrite反映とFunctions後のデプロイ順序が保証されていません。
+
+<details open>
+<summary><strong>2 open findings</strong></summary>
+
+- <picture><source media="(prefers-color-scheme: dark)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/high-v2-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/high-v2-light.svg"><img src="https://github.githubassets.com/static/images/icons/copilot-code-review/high-v2-light.png" alt="High severity" width="62" height="18" align="texttop"></picture> [Functionsデプロイ後にHosting設定を確実にデプロイする](https://github.com/nijuniinc/bokudeli-event-new/pull/2468#discussion_r4240543998) · New
+- <picture><source media="(prefers-color-scheme: dark)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-light.svg"><img src="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-light.png" alt="Low severity" width="62" height="18" align="texttop"></picture> [index.html取得失敗時にHTTPステータスとエラー原因をログへ残す](https://github.com/nijuniinc/bokudeli-event-new/pull/2468#discussion_r4240544018) · New
+</details>
+
+<details>
+<summary><strong>1 resolved since last review</strong></summary>
+
+- <picture><source media="(prefers-color-scheme: dark)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-light.svg"><img src="https://github.githubassets.com/static/images/icons/copilot-code-review/low-v2-light.png" alt="Low severity" width="62" height="18" align="texttop"></picture> [Replace deprecated getCommunityByAccount alias with getPfCommunityByAccount](https://github.com/nijuniinc/bokudeli-event-new/pull/2468#discussion_r4240499131)
+</details>
+
+🧠 **Review effort:** Balanced
+
+**コメント要約**: Copilot 再レビューの目次。PR レビュー本文。実体は RC-1 と RC-6 の inline。目次自体に追加の修正要求は無い。
+
+**評価**: 👌 修正不要
+
+**ステータス**: —
+
+**PRスコープ**: —
+
+**ラベル**: —
+
+**変更種別**: 👀 確認のみ
+
+**想定工数**: —
+
+**判断理由**: `#discussion_r4240543998` は RC-1 の再掲。`#discussion_r4240544018` は RC-6。overview 本文にそれ以外の修正要求は無い。
