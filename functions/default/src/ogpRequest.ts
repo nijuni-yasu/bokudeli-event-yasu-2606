@@ -28,9 +28,15 @@ const PRIVATE_CACHE_CONTROL = 'private, no-store'
 
 type IndexHtmlResult = { html: string; response: Response }
 
+type IndexHtmlFetchResult =
+  | { ok: true; html: string; response: Response }
+  | { ok: false; status?: number; error?: string }
+
 type OgpErrorContext = {
   path: string
   eventId?: string
+  status?: number
+  errorMessage?: string
 }
 
 /**
@@ -86,16 +92,16 @@ const sendNotFound = (res: HttpResponse): void => {
     .send('<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>')
 }
 
-const fetchIndexHtml = async (): Promise<IndexHtmlResult | undefined> => {
+const fetchIndexHtml = async (): Promise<IndexHtmlFetchResult> => {
   try {
     const response = await fetch(`${getEventSiteOrigin()}/index.html`)
     if (!response.ok) {
-      return undefined
+      return { ok: false, status: response.status }
     }
     const html = await response.text()
-    return { html, response }
-  } catch {
-    return undefined
+    return { ok: true, html, response }
+  } catch (error) {
+    return { ok: false, error: toErrorMessage(error) }
   }
 }
 
@@ -137,8 +143,35 @@ const sendManageOgpHtml = (
     .send(injected)
 }
 
-const toLogContext = (context: OgpErrorContext): OgpErrorContext =>
-  context.eventId === undefined ? { path: context.path } : { path: context.path, eventId: context.eventId }
+const toLogContext = (context: OgpErrorContext): Record<string, string | number> => {
+  const log: Record<string, string | number> = { path: context.path }
+  if (context.eventId !== undefined) {
+    log.eventId = context.eventId
+  }
+  if (context.status !== undefined) {
+    log.status = context.status
+  }
+  if (context.errorMessage !== undefined) {
+    log.error = context.errorMessage
+  }
+  return log
+}
+
+const resolveIndexHtml = (
+  fetched: IndexHtmlFetchResult,
+  res: HttpResponse,
+  context: OgpErrorContext,
+): IndexHtmlResult | undefined => {
+  if (fetched.ok) {
+    return { html: fetched.html, response: fetched.response }
+  }
+  sendMissingIndexHtml(res, {
+    ...context,
+    status: fetched.status,
+    errorMessage: fetched.error,
+  })
+  return undefined
+}
 
 const sendMissingIndexHtml = (res: HttpResponse, context: OgpErrorContext): void => {
   logger.error('Could not retrieve index.html', toLogContext(context))
@@ -179,9 +212,8 @@ const isCommunitySpaSubpath = (paths: string[]): boolean => {
 const sendSpaFallback = async (res: HttpResponse, context: OgpErrorContext): Promise<void> => {
   let indexResult: IndexHtmlResult | undefined
   try {
-    indexResult = await fetchIndexHtml()
+    indexResult = resolveIndexHtml(await fetchIndexHtml(), res, context)
     if (indexResult === undefined) {
-      sendMissingIndexHtml(res, context)
       return
     }
     sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
@@ -334,9 +366,8 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
 
     let indexResult: IndexHtmlResult | undefined
     try {
-      indexResult = await fetchIndexHtml()
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path, eventId })
       if (indexResult === undefined) {
-        sendMissingIndexHtml(res, { path, eventId })
         return
       }
 
@@ -427,9 +458,8 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
 
     let indexResult: IndexHtmlResult | undefined
     try {
-      indexResult = await fetchIndexHtml()
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path })
       if (indexResult === undefined) {
-        sendMissingIndexHtml(res, { path })
         return
       }
 
@@ -518,9 +548,8 @@ export const handleManageOgpRequest: HttpsFunction = https.onRequest(
 
     let indexResult: IndexHtmlResult | undefined
     try {
-      indexResult = await fetchIndexHtml()
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path, eventId })
       if (indexResult === undefined) {
-        sendMissingIndexHtml(res, { path, eventId })
         return
       }
 
