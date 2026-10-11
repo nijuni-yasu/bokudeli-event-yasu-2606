@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,公式,https://help.luma.com/p/searching-for-events,アプリのDiscoverタブと、都市・カテゴリページ内でキーワード検索できる。カテゴリページ(AI・tech・wellness等)あり
+DS02,✅,公式,https://help.luma.com/p/searching-for-events,位置情報を考慮した検索、地図の移動、都市ページ。luma.com/discover に東京・大阪などの都市ページがある(2026-10確認)
+DS03,△,公式,https://help.luma.com/p/searching-for-events,オンライン(Virtual Events)と地域の絞り込み、Calendarページのタグ絞り込みはある。日付・価格の汎用絞り込みは公式ヘルプに記載なし
+DS04,✅,公式,https://help.luma.com/p/discovering-events,フォローしたCalendarと購読した都市・カテゴリに基づくHomeフィード(アプリ)と週次ダイジェスト。閲覧履歴ベースの推薦は未確認
+DS05,✅,公式,https://help.luma.com/p/luma-calendar-overview,主催者のCalendarページをFollowすると、そのイベント・ニュースレター・リマインドを受け取れる
+DS06,？,なし,,公式ヘルプ(discovering-events、searching-for-events)に保存・ブックマーク機能の記載を確認できず
+DS07,✅,公式,https://help.luma.com/p/featuring-your-event-on-luma,50都市超のexploreページとカテゴリページがある。公開イベントは検索エンジンにインデックスされうる(setting-your-event-visibility)
+DS08,✅,公式,https://help.luma.com/p/featuring-your-event-on-luma,キュレーションチームまたは自動キュレーションが都市ページに掲載。提出不要・保証なし。週次の都市ニュースレターに約20件を載せる
+JN01,✅,公式,https://help.luma.com/p/event-registration-process,名前とメールだけで登録でき、Lumaアカウントやサインインは不要。グロース根拠あり(牽引機能として既存ノートに記載)
+JN02,✅,公式,https://help.luma.com/p/signing-in,メールの6桁コード、電話(SMS・WhatsApp・Telegram)、Google・Apple、パスキー、任意のパスワードでログインできる
+JN03,✅,公式,https://help.luma.com/p/setting-up-ticket-types,券種ごとに承認制(Require Approval)を設定でき、無料・有料とも対象。有料は承認時にカードを課金する(Freeプランでも利用可=pricing)
+JN04,✅,公式,https://help.luma.com/p/waitlist,定員超過で待機リストに入り、ホストが個別・一括で承認する。有料でも可(与信保留→承認時に課金)。暗号資産建てチケットは不可
+JN05,？,なし,,定員の設定と待機リストは確認できたが、参加者向けの定員・残席の表示は公式ヘルプで確認できず(既存ノート03に「残席・早割の推奨」の記載のみ)
+JN06,△,公式,https://help.luma.com/p/collect-registration-questions,登録質問(テキスト・選択式・SNS等)は可。券種別の質問・条件分岐は非対応、同行者ごとの氏名入力も「未対応」と明記(group-registration)
+JN07,△,公式,https://help.luma.com/p/refunding-a-guest,ゲスト自身の登録キャンセル・待機リスト取消は可。返金はホストがGuestsタブかStripeで実施し、返金ポリシーは文書のみで自動返金なし
+JN08,✅,公式,https://help.luma.com/p/ical-syncing,確認メールに自動追加されるカレンダー招待、iCal購読(個人・Calendar・都市単位)、Apple/Googleウォレットパスがある
+JN09,✅,公式,https://help.luma.com/p/update-to-reminders-on-luma,1日前と1時間前にメール・SMS・プッシュで自動リマインド。ホストは編集不可でブラストで代替。承認待ち・待機中には送られない
+JN10,✅,公式,https://help.luma.com/p/check-in,登録時にQRコードが発行され、Lumaのスキャナーで受付。ウォレットパスのQRはオフラインでも表示できる
+JN11,✅,公式,https://help.luma.com/p/event-guest-list,イベントページに参加人数と一部ゲストの名前・写真を表示。全リストはホストと承認済みゲストのみ。ホストが非表示にもできる
+JN12,✅,公式,https://help.luma.com/p/collect-feedback-from-your-event-guests,終了後にフィードバックメール(絵文字評価+コメント)を自動送信しInsightsで集計。終了後7日以内はブラストも可。写真アルバムは確認できず
+SH01,✅,公式,https://help.luma.com/p/updating-social-images,カバー画像とイベント名からOGP用のプレビュー画像を自動生成する。公開URLはluma.com/xxxx形式
+SH02,△,公式,https://help.luma.com/p/promote-your-event,iOSアプリの共有ボタンとポスター画像の共有(Instagramストーリーズ等)を公式ヘルプで確認。Web・Androidでの共有ボタンは公式ヘルプで未確認(アプリ限定の条件付き)
+SH03,✅,公式,https://help.luma.com/p/event-referrals,登録直後にゲストへ友人招待リンクの共有を促す。ホストも招待メールを送れ、開封・クリック・登録を追跡する(promote-your-event)
+SH04,✅,公式,https://help.luma.com/p/event-referrals,ゲスト個別の紹介リンクで誰が誰を招待したかをInsightsとゲストプロフィールに表示。報酬なし。公開イベントのみ対象
+SH05,✅,公式,https://help.luma.com/p/inviting-and-adding-guests-to-your-event,Googleコンタクト(Web)・電話の連絡先(iOS)・CSVから招待できる。電話番号のみの連絡先も可(importing-contacts)
+SH06,✅,公式,https://help.luma.com/p/event-guest-list,イベントページに参加人数と一部ゲストの名前を表示(例: 162 Going。luma.com/kue3uokk で確認)
+SH07,△,公式,https://help.luma.com/p/promote-your-event,iOSアプリでQRコード表示・ポスター画像の自動生成、UTM付きリンクの作成を確認(アプリ限定の条件付き)。カスタムURLはPlus限定、短縮URL機能の説明は確認できず
+SH08,✅,公式,https://help.luma.com/p/embed-luma-on-your-website,登録ボタン・イベントページ・Calendar一覧を外部サイトに埋め込める。Apple Payは埋め込み内で非表示
+OP01,✅,公式,https://help.luma.com/p/creating-an-event,タイトル・日時・場所・カバー画像・テーマ(40種超)を選ぶだけで即時に作成・公開できる。テンプレートの明記はなし
+OP02,✅,公式,https://help.luma.com/p/cloning-events,イベント複製(参加者とブラスト以外を全コピー)、Webで最大30件の日程・繰り返しパターンを一括作成できる
+OP03,✅,公式,https://help.luma.com/p/setting-your-event-visibility,公開、非公開(URL限定・どのCalendarにも非掲載)、会員限定を設定できる。下書き状態は公式ヘルプで確認できず
+OP04,？,なし,,AIによるイベントページ・文面・画像の生成は公式ヘルプ(creating-an-event、event-themes-and-customization)と検索で確認できず。読み取り専用のMCPサーバーはあるが作成支援ではない
+OP05,✅,公式,https://help.luma.com/p/adding-hosts-and-managers-to-your-event,共同ホスト・マネージャーは無制限(Free)。Manager/非Managerの権限差あり。受付専任のcheck-inスタッフ権限はPlus限定
+OP06,✅,公式,https://help.luma.com/p/managing-your-guest-list,ゲスト一覧の絞り込み・一括ステータス更新・CSV出力ができる(Calendar Peopleも別途CSV出力)
+OP07,✅,公式,https://help.luma.com/p/sending-or-scheduling-event-blasts,"メール・SMS・プッシュでブラスト送信、ステータスや券種で宛先を絞れる。チャネルはゲストの通知設定次第。送信上限はFree週500件・Plus週5,000件(send-limits)"
+OP08,✅,公式,https://help.luma.com/p/check-in,QRスキャナー(Standard/Express)と名前検索、受付スタッフ権限(Plus)。外部受付システム連携とハードウェアスキャナー(Enterprise)もある
+OP09,✅,公式,https://help.luma.com/p/understanding-payouts-and-event-proceeds,PaymentタブでSales HistoryとPayout Historyを確認。入金はStripe管理のローリングスケジュール(通常は翌営業日前後)。Instant Payoutsは自社比較ページ(luma-vs-eventbrite)の主張で、Stripe対象アカウントのみ
+OP10,✅,公式,https://help.luma.com/p/event-insights,ページビュー、流入元、上位都市、登録推移(アプリのみ)、紹介元をInsightsで確認できる。UTMはutm_sourceのみ表示
+OP11,✅,公式,https://help.luma.com/p/luma-calendar-overview,Calendarごとに公開ページ(今後のイベント一覧・タグ絞り込み・地図・フォロー)を持つ。Tech Weeksはこれを都市単位で束ねる。グロース根拠あり(既存ノートで牽引機能)
+OP12,△,公式,https://help.luma.com/p/integrations,Zoom・iCal・埋め込みはFree。API・Zapier・WebhooksはPlus限定、HubSpot・SalesforceはEnterprise限定(有料プラン限定の条件付き)。読み取り専用MCPサーバーあり(Google Meetはヘルプ見出しのみ確認)
+AC01,✅,公式,https://luma.com/pricing,Freeプランはイベント・ゲスト無制限で、手数料は有料イベントのみ(5%+Stripe)。Freeの上限は週500件の送信とCalendar管理者3名
+AC02,❌,公式,https://help.luma.com/p/creating-a-paid-event,「手数料を上乗せする選択肢はない」と明記。価格を引き上げて実質転嫁する方法を案内し、購入者には常に総額を提示する
+AC03,✅,公式,https://help.luma.com/p/managing-your-guest-list,ゲスト一覧のCSV出力、Calendar PeopleのCSV出力・取込ができる。ゲストは自動でPeopleに蓄積される(managing-calendar-contacts)
+AC04,△,公式,https://help.luma.com/p/luma-vs-eventbrite,Eventbrite・Meetup専用の自動移行はない。参加者CSVからの招待と、大量移行のサポート相談を案内(自社比較ページ。2025-06時点の記述)
+AC05,？,なし,,主催者紹介報酬・アフィリエイト・アンバサダー制度は公式ヘルプで確認できず。2024-02にCity Leads募集があったと既存ノートにあるが、運用上の位置づけは不明
+AC06,✅,公式,https://help.luma.com/p/case-studies,ヘルプセンターの集客ガイド(promote-your-event)、ケーススタディ、非営利向け案内、他社比較ページがある
+AC07,△,公式,https://luma.com/pricing,配信枠を増やす有料アドオン(週1万〜10万件、月$50〜$800)がある。有料掲載・広告・ブースト商品は確認できず
+AC08,？,なし,,Luma自身が主催・共催する公式イベントの記載は確認できず。Tech Weeksはコミュニティ主催で、中央チームが1つのカレンダーに編成する形(tech-weeks)
+CR01,✅,公式,https://help.luma.com/p/discovering-events,都市を購読すると毎週日曜夜に翌週のイベント予習メールが届く。購読カテゴリはフィードに反映される
+CR02,✅,公式,https://help.luma.com/p/managing-calendar-contacts,イベント登録・Followした人は自動でCalendarのPeopleに追加され、ニュースレターや招待の対象になる
+CR03,△,公式,https://help.luma.com/p/unlock-codes,隠しチケットとアンロックコードで特定の人に限定販売でき、Peopleやタグ単位で招待できる。過去参加者への自動の優先案内は未確認
+CR04,✅,公式,https://help.luma.com/p/managing-calendar-contacts,Peopleにタグ・会員ティアを付けてセグメント配信できる。CSV取込、参加回数での並べ替えも可。HubSpot・SalesforceはEnterprise
+CR05,△,公式,https://help.luma.com/p/managing-calendar-contacts,ホスト側のPeopleで参加回数・チェックイン回数を確認できる。ゲスト向けのバッジ・実績表示は確認できず(プロフィールは自己紹介とSNSのみ=managing-your-profile)
+CR06,△,公式,https://help.luma.com/p/collect-feedback-from-your-event-guests,参加後の絵文字評価とコメントを主催者が収集する。ホストだけが閲覧でき、公開レビュー・店舗評価はない
+CR07,✅,公式,https://help.luma.com/p/event-chat,イベントチャット(アプリから開始、承認ゲストを自動追加)、ダイレクトメッセージ、グループチャットがある(chat)
+CR08,？,なし,,Wrapped型の振り返り機能は公式ページ・ヘルプ・検索で確認できず(「Luma Wrapped」系の検索は無関係の結果のみ)。2026-10確認
+TS01,△,公式,https://help.luma.com/p/signing-in,メール・電話のコード認証でログイン(電話は任意)。実名・ID確認は必須でなく、アカウント審査の異議申立て時に任意で本人確認できる程度
+TS02,△,公式,https://help.luma.com/p/send-limits,"Calendar検証(イベントと連絡先リストの説明を提出)で送信上限が週15件から500・5,000件へ段階的に開放される。認定バッジは確認できず"
+TS03,✅,公式,https://help.luma.com/p/blocking-users,ユーザーのブロック、イベントページのReport Eventリンク(実ページで確認)、自動検知とアカウント審査・停止(account-review-and-appeals)がある
+TS04,✅,公式,https://help.luma.com/p/refunding-a-guest,有料チケットの事前決済、Calendar単位の返金ポリシー表示(自動返金なし)、承認制での与信保留。欠席料・デポジットは確認できず
+TS05,✅,公式,https://help.luma.com/p/event-guest-list,ゲスト一覧の非表示が可能でメールアドレスは常に非表示。承認前は詳細な会場住所を隠せる(hiding-your-event-location)
+TS06,△,公式,https://help.luma.com/p/featuring-your-event-on-luma,都市ページへの掲載は、登録が全てLuma上で完結する公開イベントに限る。一般的な外部取引の禁止規約は確認できず
+FD01,△,公式,https://help.luma.com/p/collect-registration-questions,メニュー注文機能はない。選択式の登録質問や券種で希望を聞くことはできる
+FD02,△,公式,https://help.luma.com/p/collect-registration-questions,専用のアレルギー登録はない。汎用の登録質問で食事制限を聞き、ゲスト一覧・CSVでホストが確認できる
+FD03,？,なし,,店舗向けの管理画面は確認できず(イベント主催者向けの機能のみ。非対応の明記もない)
+FD04,？,なし,,人数・注文を店舗へ自動通知・集計する機能は確認できず
+FD05,？,なし,,店舗の席・貸切の確保と連動する機能は確認できず
+FD06,？,なし,,コース・固定メニューを選ばせる専用機能は確認できず(券種で代用は可能だが機能としての記載なし)
+FD07,？,なし,,割り勘・個別会計の機能は確認できず
+FD08,？,なし,,店探し・店選びを支援する機能は確認できず
+FD09,△,公式,https://help.luma.com/p/setting-up-ticket-types,券種ごとの枚数上限と売り切れ表示はある。メニュー(料理)単位の在庫・限定数管理は確認できず
+FD10,？,なし,,イートイン・テイクアウト等の提供形態を選ぶ機能は確認できず(イベント形式のIn-Person/Online/Hybridのみ=creating-an-event)
+MN01,✅,公式,https://luma.com/pricing,有料イベントはFreeが5%+Stripe手数料、Plusが0%+Stripe。購入者には総額を事前表示(creating-a-paid-event)。グロース根拠あり(牽引機能として既存ノート)
+MN02,✅,公式,https://luma.com/pricing,Luma Plus 月$59(年払い)。API・Zapier・カスタムURL・税徴収・check-inスタッフ等。Enterpriseは別途見積。グロース根拠あり(既存ノート)
+MN03,△,公式,https://help.luma.com/p/setting-up-ticket-types,最低額と推奨額を設定でき、寄付型の価格(無料登録も可)に対応。購入への任意チップの上乗せ機能は確認できず
+MN04,✅,公式,https://help.luma.com/p/create-coupons-for-paid-events,クーポン(無料・割合・定額、利用回数上限、リンクで自動適用)と販売期間(早割。setting-up-ticket-types)。CSV一括取込はPlus
+MN05,△,公式,https://help.luma.com/p/calendar-memberships,ホスト単位の会員制度(無料・月額・買い切り)で会員限定のイベント・チケット・ニュースレターを出せる。プラットフォーム共通のポイント・特典は確認できず

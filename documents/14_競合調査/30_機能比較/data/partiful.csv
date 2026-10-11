@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,？,なし,,ExploreとDiscoverのページに検索窓・絞り込みは確認できず、ヘルプ(How do I find events to go to)にも検索の記載なし
+DS02,△,公式,https://help.partiful.com/en-us/articles/15525566-how-can-i-change-my-location-for-the-partiful-explore-page,Exploreの都市ページは米英9都市(NYC・LA・SF・Boston・DC・Chicago・London・Miami・Austin。2026-10)で、My locationで都市を指定できる(地域限定)。現在地の自動検出と地図は未確認
+DS03,？,なし,,日付・価格・カテゴリでの絞り込みは公式ページ・ヘルプで確認できず
+DS04,△,公式,https://help.partiful.com/en-us/articles/15525568-what-is-the-partiful-explore-page,Exploreが地域の公開イベントと友人(Mutuals)の参加予定を表示する。個人の興味・履歴に基づく推薦アルゴリズムの公式記述は確認できず
+DS05,？,なし,,主催者・組織・会場のフォロー機能は公式ヘルプで確認できず(Mutualsを通じて公開イベントの友人参加が見える)
+DS06,✅,公式,https://help.partiful.com/en-us/articles/15525563-what-is-a-public-event,公開イベントでInterestedにすると保存でき、自動リマインドの対象になる
+DS07,△,公式,https://help.partiful.com/en-us/articles/15525563-what-is-a-public-event,公開イベントは検索エンジンにクロールされ、都市別Exploreページ(partiful.com/explore/nyc等)が公開されている。ただし都市ページは米英9都市のみ(地域限定)。SEO設計の意図は未確認
+DS08,✅,公式,https://partiful.com/blog/post/heres-how-to-actually-grow-your-audience,公開イベントを編集チームが審査して選定する(2026-10公式ブログ)。提出トグルあり。グロース根拠あり(Discoverの手作業キュレーションとして既存ノート)
+JN01,△,公式,https://help.partiful.com/en-us/articles/15525328-do-my-guests-need-to-download-the-app,アプリは不要でブラウザからRSVPできる(公式)。アカウント要否は公式に明記なく、二次情報では認証済み電話番号が必要とされる(既存ノート03)。グロース根拠あり(アカウント不要RSVP+SMSとして既存ノート)
+JN02,✅,公式,https://help.partiful.com/en-us/articles/15525626-i-m-not-receiving-the-text-verification-codes-to-log-in,電話番号宛てのSMS認証コードでログインする。メール・SNSログインの公式記述は確認できず
+JN03,✅,公式,https://help.partiful.com/en-us/articles/15525360-how-can-i-use-guest-approval-and-waitlist-at-the-same-time,Guest Approvalで承認・保留・待機を管理できる。チケット販売イベントでの承認制設定のヘルプもある(17234427の見出しのみ確認)
+JN04,✅,公式,https://help.partiful.com/en-us/articles/15525364-how-does-the-waitlist-move-my-guests-off-of-the-list,定員を設定すると自動で待機リストに入り、初回RSVP順に繰り上げ(ホストは手動で上書き可)。チケット販売イベントでの待機リストは公式で未確認(Luma比較ページは「ない」と主張=競合発信)
+JN05,？,なし,,定員(最大人数)は設定できるが、参加者への残席表示は公式ヘルプで確認できず。参加人数(# Going)は表示・非表示を選べる(15525441)
+JN06,✅,公式,https://help.partiful.com/en-us/articles/15525424-collecting-guest-info-dietary-restrictions-names-of-1s-etc,RSVP時のゲスト向けアンケート(Questionnaire)と、+1の氏名の必須化(15525407)ができる。回答はホストのみ閲覧
+JN07,△,公式,https://help.partiful.com/en-us/articles/15525553-can-i-get-a-refund-if-i-can-no-longer-attend,RSVPの変更・イベントからの退出は自分でできる。チケットは「All ticket sales are final」で原則返金不可、ホストに依頼する
+JN08,✅,公式,https://help.partiful.com/en-us/articles/15525658-add-single-event-to-a-calendar,単発イベントのカレンダー追加と、Google・Apple・Outlookカレンダー同期の設定がある(同期手順はヘルプ見出しのみ確認)
+JN09,✅,公式,https://help.partiful.com/en-us/articles/15525436-what-event-reminders-do-you-send,「行く」ゲストへ開催2時間前、「たぶん・未回答」へ約1週間前に自動リマインド。SMS・iMessage・WhatsApp(国による)またはプッシュで、メールは非対象
+JN10,△,公式,https://help.partiful.com/en-us/articles/15525340-how-does-check-in-work-for-ticketed-events,購入者ごとに一意のQRコードをアプリでスキャンして受付。チケット販売は米国・英国のホストのみ(地域限定)。スタッフ追加と手動チェックインも可
+JN11,✅,公式,https://help.partiful.com/en-us/articles/15525441-can-i-hide-the-guest-list-or-guest-count-on-the-party-page,ゲスト一覧と参加人数(# Going)を表示でき、ホストが非表示にもできる
+JN12,✅,公式,https://help.partiful.com/en-us/articles/15525446-how-do-i-upload-photos-to-my-event-page,ゲストとホストが写真を共有アップロードでき、イベント後60日までテキストブラストを送れる(15525395)。レビュー機能は確認できず
+SH01,△,公式,https://partiful.com/ticketing,共有・発見を意図した公開イベントページがある。画像付きOGPカードの表示は公式で確認できず
+SH02,✅,公式,https://partiful.com/,招待をメール・テキスト・Instagram・WhatsApp・電話の連絡先から共有できる。グロース根拠あり(招待リンクのバイラルとして既存ノート)
+SH03,✅,公式,https://help.partiful.com/en-us/articles/15525322-how-many-people-can-my-guests-invite-to-my-event,ゲストは既定でMutualsを最大15人まで招待できる(ホストが無効化可)。招待者の追跡は記載なし
+SH04,？,なし,,誰が連れてきたかを追跡・表示する機能は公式ヘルプで確認できず(15525322にも追跡の記載なし)
+SH05,✅,公式,https://help.partiful.com/en-us/articles/15525668-how-can-i-invite-my-phone-contacts,アプリで電話の連絡先を同期して招待できる。招待された人にはSMSでリンクが届く
+SH06,✅,公式,https://help.partiful.com/en-us/articles/15525441-can-i-hide-the-guest-list-or-guest-count-on-the-party-page,ゲスト一覧と参加人数を表示(ホストが非表示可)。有料のPeekで招待済みの人が事前に一覧を見られる(17033211)
+SH07,△,公式,https://help.partiful.com/en-us/articles/15525327-how-do-i-generate-a-qr-code-that-i-can-use-to-share-my-event,アプリの共有メニューにダウンロード可能なQRコードがある。Web版は非対応(アプリのみの条件付き)
+SH08,？,なし,,外部サイトへ埋め込むウィジェット・ボタンは公式ヘルプで確認できず
+OP01,✅,公式,https://partiful.com/,テンプレート・背景・フォント・アニメーションを選んで招待ページを作れる。グロース根拠あり(デザイン・ブランドとして既存ノート)
+OP02,△,公式,https://help.partiful.com/en-us/articles/15525373-can-i-set-up-recurring-events,Clone eventで複製できる(ゲストは複製されず再招待。過去イベントから絞り込み可)。定例イベントは「we don't offer recurring events」と明記
+OP03,✅,公式,https://help.partiful.com/en-us/articles/15525563-what-is-a-public-event,公開範囲(Public/限定)を設定でき、パスワード保護イベントもある(17033211の制約記述)。下書き保存は公式で確認できず
+OP04,？,なし,,AI生成の公式機能は公式ページ・ヘルプ・検索で確認できず(Partiful公式記事は「AI生成コンテンツは避ける」と助言=15525571)
+OP05,✅,公式,https://help.partiful.com/en-us/articles/15525429-how-do-i-make-someone-a-cohost-or-become-a-cohost,共同ホスト(リンクまたは招待)は設定変更とテキストブラストが可能。Org Profileは複数管理者、チェックインスタッフ権限もある。共同ホストの権限の細分化は未確認
+OP06,✅,公式,https://help.partiful.com/en-us/articles/15525376-how-can-i-export-my-guest-list,ゲスト一覧からCSV出力(RSVP種別を選択)。チェックイン状態を含むCSVも可(15525408)
+OP07,✅,公式,https://help.partiful.com/en-us/articles/15525387-who-can-i-send-text-blasts-to,RSVP済み・招待済みのゲスト宛てにテキストブラストを送れ、終了後60日まで可。イベント当たりの回数上限あり(15525389の見出し)
+OP08,✅,公式,https://help.partiful.com/en-us/articles/15525340-how-does-check-in-work-for-ticketed-events,QRスキャン、手動チェックイン、複数スタッフでの同時受付(ヘルプ見出し)。Webからのチェックインも可(15525408)
+OP09,△,公式,https://help.partiful.com/en-us/articles/15525384-when-do-i-get-paid,売上はイベント別・全体で確認でき、入金はイベント終了の3〜7営業日後(初回は最大14日)。チケット販売は米国・英国のホストのみ(地域限定)。即時入金の記述は確認できず
+OP10,△,公式,https://help.partiful.com/en-us/articles/15525382-how-do-i-track-my-revenue,チケット売上・販売数・入金状況の確認のみ。流入元・UTM・閲覧から申込への分析は公式で確認できず
+OP11,✅,公式,https://partiful.com/org-profiles,Org Profileで1つのリンクから全イベントを見せられ、複数管理者と個人・組織の切替がある。公開ページの詳細(過去イベント一覧・フォロワー)は未確認
+OP12,△,公式,https://help.partiful.com/en-us/articles/15525654-how-can-i-customize-my-calendar-sync-settings,Google・Apple・Outlookカレンダー同期のみ確認。API・Webhook・Zoom等の公式記述は確認できず(Luma比較ページは公開APIなしと主張=競合発信)
+AC01,✅,公式,https://help.partiful.com/en-us/articles/15525405-are-there-fees-for-free-events,無料イベントの主催・参加は無料(プレミアム招待デザインは任意の有料)
+AC02,△,公式,https://help.partiful.com/en-us/articles/15525399-who-pays-the-ticket-service-fee,サービス手数料の負担者(ホストか購入者)をホストが選べる(You receiveまたはTicket priceを入力)。ただし有料チケット販売は米国・英国のホストのみ(地域限定)
+AC03,✅,公式,https://help.partiful.com/en-us/articles/15525376-how-can-i-export-my-guest-list,ゲスト一覧のCSV出力ができる(含まれる列は公式で未確認)
+AC04,？,なし,,他サービスからの移行・インポート支援は公式ヘルプで確認できず(メールアドレスの一括招待はある=15525326)
+AC05,？,なし,,主催者向けのアンバサダー・紹介報酬制度は確認できず。ブランド提携の窓口(15525618)とクリエイターのFTC規定(15525620)のみ。Campus Growth職の求人は二次情報(既存ノート04)
+AC06,✅,公式,https://partiful.com/blog/post/heres-how-to-actually-grow-your-audience,ホスト向けの成長ガイド記事(2026-10)、ヘルプセンターのホスト向け111記事、Explore掲載のためのチェックリスト(15525571)がある
+AC07,？,なし,,有料掲載・広告・ブーストなどの集客支援商品は確認できず
+AC08,？,なし,,Partiful自身が主催・共催する公式イベントの記載は確認できず(Exploreに「Partiful主催でない」と注記した公共イベントを載せる例はある)
+CR01,？,なし,,新着・おすすめを定期的に届けるダイジェストやプッシュの公式記述は確認できず(Interestedの自動リマインドのみ)
+CR02,△,公式,https://help.partiful.com/en-us/articles/15525549-what-are-mutuals,参加するとMutuals(同席者)としてつながり、公開イベントの参加予定が互いに見える。主催者のフォロー・購読による次回案内は確認できず
+CR03,✅,公式,https://help.partiful.com/en-us/articles/15525381-how-do-i-duplicate-an-event,過去イベントで絞り込んで過去ゲストを一括再招待できる。チケットは券種の先行アクセスも可(partiful.com/ticketing)
+CR04,△,公式,https://help.partiful.com/en-us/articles/15525329-can-i-save-my-guests-to-different-lists-groups,ゲストを名前付きリストに保存する機能は「ない」と明記。過去イベント単位の絞り込み再招待のみ。セグメント配信は未確認
+CR05,△,公式,https://help.partiful.com/en-us/articles/15525633-can-i-hide-which-events-i-ve-attended-from-other-users,プロフィールに共有イベント(Shared Events)を表示する。参加回数・バッジ・実績の公式記述は確認できず
+CR06,？,なし,,主催者・参加者・店舗へのレビュー・評価機能は公式ヘルプで確認できず
+CR07,✅,公式,https://partiful.com/,ゲスト一覧・コメント・返信・リアクション(アクティビティフィード)と個別メッセージがある
+CR08,？,なし,,Wrapped型の振り返り機能は公式ページ・ヘルプ・検索で確認できず(2026-10確認)
+TS01,✅,公式,https://help.partiful.com/en-us/articles/15525626-i-m-not-receiving-the-text-verification-codes-to-log-in,ログインは電話番号宛てのSMS認証コード。実名・ID確認はなし
+TS02,？,なし,,主催者の審査・認定バッジは確認できず(チケット販売は米英のホスト限定=15525289。フラグ検知はTrust & Safetyが対応=16823960)
+TS03,✅,公式,https://help.partiful.com/en-us/articles/15525537-how-do-i-report-an-event,イベント報告(アプリ→メール)、ホストやユーザーのブロック、Trust & Safetyによるフラグ・削除、ディープフェイク報告の記事(16548605の見出し)がある
+TS04,△,公式,https://help.partiful.com/en-us/articles/15525401-what-is-your-refund-policy,チケットは「返金不可」が原則(イベント中止時は全額自動返金)で、ホスト独自の返金ポリシーを購入時に提示できる。有料チケットは米国・英国のホストのみ(地域限定)。欠席料・デポジットは確認できず
+TS05,✅,公式,https://help.partiful.com/en-us/articles/15525441-can-i-hide-the-guest-list-or-guest-count-on-the-party-page,ゲスト一覧・人数の非表示、公開範囲の設定がある。Peekはゲスト一覧非表示や承認制の場合は利用不可(17033211)
+TS06,✅,公式,https://help.partiful.com/en-us/articles/16825273-why-can-t-i-link-out-to-promote-events-on-other-platforms,RSVPとチケットはPartiful上で行う規約で、外部ページへの誘導を禁止。違反イベントはTrust & Safetyがフラグ・削除(16823960)
+FD01,△,公式,https://help.partiful.com/en-us/articles/15525424-collecting-guest-info-dietary-restrictions-names-of-1s-etc,メニュー注文機能はない。RSVP時のアンケートで希望(食事など)を聞くことはできる
+FD02,△,公式,https://help.partiful.com/en-us/articles/15525424-collecting-guest-info-dietary-restrictions-names-of-1s-etc,ヘルプの見出しにdietary restrictionsの収集例がある。専用のアレルギー登録・店舗共有はなく、汎用アンケートで代用。回答はホストのみ閲覧
+FD03,？,なし,,店舗向けの管理画面は確認できず(イベント主催者向けの機能のみ。非対応の明記もない)
+FD04,？,なし,,人数・注文を店舗へ自動通知・集計する機能は確認できず
+FD05,？,なし,,店舗の席・貸切の確保と連動する機能は確認できず
+FD06,？,なし,,コース・固定メニューを選ばせる専用機能は確認できず
+FD07,△,公式,https://help.partiful.com/en-us/articles/15525460-how-do-i-use-the-chip-in-feature,Chip Inは1人あたり金額を設定しVenmo・Cash App・PayPal等へ誘導して会費を集める。Partifulは支払いを検証しない。個別会計・精算機能ではない
+FD08,？,なし,,店探し・店選びを支援する機能は確認できず(日程調整のFind a Timeはある=15525423見出し)
+FD09,△,公式,https://help.partiful.com/en-us/articles/15525379-how-can-i-limit-group-size,定員・待機リスト・+1数の上限は設定できる。メニュー単位の在庫・限定数管理は確認できず
+FD10,？,なし,,イートイン・テイクアウト等の提供形態を選ぶ機能は確認できず
+MN01,△,公式,https://help.partiful.com/en-us/articles/15525398-what-fees-does-partiful-charge,表示価格が最終金額(税別)で手数料は購入時に別行表示される。料率は非公開(イベント規模・価格で変動)。Luma比較ページは10%+$2/枚と主張(競合発信=二次)
+MN02,△,公式,https://help.partiful.com/en-us/articles/15525599-does-partiful-cost-money,コア機能は無料で、主催者向けサブスク・有料プランは確認できず。プレミアム招待デザインの任意購入のみ。参加者向けの有料機能Peekがある(17033211)
+MN03,△,公式,https://help.partiful.com/en-us/articles/15525460-how-do-i-use-the-chip-in-feature,Chip Inは「払える額でよい」設定が可能(外部決済・未検証)。チケット購入への任意チップ上乗せは確認できず
+MN04,△,公式,https://help.partiful.com/en-us/articles/15525305-how-do-i-create-a-promo-code,プロモコード(割合1〜100%または定額、利用上限、券種限定)を設定できる。有料チケット販売は米国・英国のホストのみ(地域限定)
+MN05,？,なし,,ポイント・ロイヤルティ・会員特典は確認できず

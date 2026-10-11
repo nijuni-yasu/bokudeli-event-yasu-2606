@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,公式,https://help.meetup.com/hc/en-us/articles/39235072484109-Finding-an-event,Find ページの検索バーでキーワード検索(グループ名・説明に一致)、グループカテゴリで絞り込める
+DS02,✅,公式,https://help.meetup.com/hc/en-us/articles/39235072484109-Finding-an-event,位置情報ベースの表示と距離フィルタ(2〜100マイル)。国をまたぐ検索は都市単位。イベントに会場ピン(地図)を設定可。グロース根拠あり(創業期の ZIP×トピックで5人から成立する設計[2002年〜])
+DS03,△,公式,https://help.meetup.com/hc/en-us/articles/39235072484109-Finding-an-event,日付範囲・種別(オンライン/対面)・距離・カテゴリで絞り込み、アプリは時間帯も可。価格での絞り込みは記載なし
+DS04,✅,公式,https://help.meetup.com/hc/en-us/articles/39489043789325-How-can-I-improve-visibility-for-my-events-and-groups,個人の好みと過去の行動に基づく personalized recommendation model で新規イベントを提案する、と公式ヘルプに記載
+DS05,✅,公式,https://help.meetup.com/hc/en-us/articles/39792225676813-Announcing-your-events,グループに参加(メンバー化)すると新規イベントの通知を受け取る。専用の「フォロー」ボタン名は確認できず
+DS06,✅,公式,https://help.meetup.com/hc/en-us/articles/39235072484109-Finding-an-event,Your events ページに Saved フィルタ(保存したイベント)、アプリのカレンダーにも Events you've saved
+DS07,✅,公式,https://www.meetup.com/,ホームから /cities(都市別)・/topics(トピック別)・都市×カテゴリの find ページへ導線。「トピック×都市ページが検索で強い」という通説は裏づけなし(既存ノート)
+DS08,△,公式,https://www.meetup.com/,ホームに Local guides などのブログカテゴリ(編集コンテンツ)あり。運営の手動ランキング・特集の運用は確認できず
+JN01,❌,公式,https://help.meetup.com/hc/en-us/articles/360003883411-Enable-a-Waitlist-for-your-Meetup-event,グループの会員のみイベントに参加可と明記。RSVPすると自動でグループ会員になる(Finding an event)ため、アカウントが必須
+JN02,✅,実機,https://www.meetup.com/login/,Google・Apple・Facebook でのログインとメールログインを確認(2026-10)
+JN03,✅,公式,https://help.meetup.com/hc/en-us/articles/360002878091-Controlling-who-joins-a-Meetup-group,新規メンバーの手動承認(New member approval)、プロフィール写真必須、最大5問のプロフィール質問。承認はイベント単位ではなくグループ単位
+JN04,△,公式,https://help.meetup.com/hc/en-us/articles/360003883411-Enable-a-Waitlist-for-your-Meetup-event,定員設定があるイベントで自動ウェイトリスト。必須参加費ありのイベントでは設定不可。Meetup+会員が繰り上げで優先
+JN05,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,Attendee limit(定員)を設定でき、ホーム・一覧のイベントカードに参加者数を表示(実機)。残席数の表示は未確認
+JN06,✅,公式,https://help.meetup.com/hc/en-us/articles/360022471332-Profile-and-event-questions,イベント質問(回答は任意)、Allow guests(同行者)、Pro は参加者情報収集。機微情報の収集は非推奨と明記
+JN07,✅,公式,https://help.meetup.com/hc/en-us/articles/44014195643661-Request-a-refund-for-an-event-fee,RSVP変更・キャンセル(Manage attendance)と、参加費は設定画面から主催者へ返金申請。返金ポリシーは主催者ごと
+JN08,✅,公式,https://help.meetup.com/hc/en-us/articles/39237118960013-Exporting-an-event-to-your-calendar,イベント単位の Add to Calendar と、グループのカレンダー購読(開催/RSVPの購読)。RSVPメールの Google カレンダー自動追加(2025)
+JN09,✅,公式,https://help.meetup.com/hc/en-us/articles/40708711774221-What-notifications-Meetup-can-send,RSVP済み(Yes/Maybe)の会員へ、通常7日前・1日前・数時間前にリマインド(メール/プッシュ。2025-10 時点の記載)
+JN10,△,公式,https://help.meetup.com/hc/en-us/articles/45352867716621-Your-event-ticket-and-QR-code,RSVP確定でQR付きチケットを自動生成。主催者のQRスキャンはモバイルアプリのみ(Webは手動)。Apple/Google Wallet は未対応と明記(2026)
+JN11,△,公式,https://help.meetup.com/hc/en-us/articles/34744060726669-Meetup-vs-Free-Plan-Members-Key-Differences-and-Benefits,出席者リスト・グループ会員リスト・Who will be there は Meetup+(有料)でフルアクセス、無料プランは制限あり
+JN12,✅,公式,https://help.meetup.com/hc/en-us/articles/360013054151-Viewing-event-feedback-from-members,イベント後に評価・レビューを依頼(2025-04 以降は公開)。イベント写真アルバム、イベントチャットも終了後しばらく利用可
+SH01,✅,実機,https://www.meetup.com/ja/tokyo-international-party-shibuya/events/315750739/,og:title・og:description・og:image と schema.org(FoodEvent・BreadcrumbList)を確認。Share a flyer ボタンあり(2026-10 実機)
+SH02,✅,公式,https://help.meetup.com/hc/en-us/articles/360002882691-Sharing-an-event-on-social-media,イベント共有で Facebook・Twitter・LinkedIn へ直接投稿またはリンクコピー、フライヤー保存(Webのみ)。LINE・WhatsApp 専用ボタンは確認できず
+SH03,△,公式,https://help.meetup.com/hc/en-us/articles/39792225676813-Announcing-your-events,イベント告知後に共有モーダルが自動表示される(主催者向け)。参加者が申込後に友人を招待する専用導線は確認できず
+SH04,？,なし,,紹介リンク・紹介元の追跡・可視化は公式資料で確認できず(Allow guests の同行者人数のみ)
+SH05,？,なし,,連絡先・SNS連携による友人発見は公式資料で確認できず
+SH06,✅,実機,https://www.meetup.com/ja/tokyo-international-party-shibuya/events/315750739/,"イベントページにRSVP人数、グループ評価(4.0・1,114件)、主催者バッジ(スーパーオーガナイザー)を表示。Who will be there は一部 Meetup+"
+SH07,✅,公式,https://help.meetup.com/hc/en-us/articles/360002882691-Sharing-an-event-on-social-media,イベントフライヤーを生成・保存できる(Webのみ)。QRコード・短縮URLは未確認
+SH08,△,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,Pro 限定の Meetup API で外部ページへデータ提供できる。埋め込みウィジェット・申込ボタンは確認できず
+OP01,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,ステップ式のイベント作成、Meet and Greet テンプレート、過去イベントのコピー、AI生成。タイトル・日時・場所・説明を入力して公開
+OP02,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,過去イベントのコピー(Create event メニュー)と Repeat event(繰り返しイベント)。Pro はイベントテンプレート・ネットワークイベント
+OP03,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,下書き保存、公開後に告知のタイミングを選べる、非公開(プライベート)グループ。URL限定公開は確認できず
+OP04,△,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,説明文の ChatGPT 連携生成は作成画面にある。AI によるイベント丸ごと生成(AI events)は Pro 限定
+OP05,✅,公式,https://help.meetup.com/hc/en-us/articles/360002879411-Managing-a-leadership-team,Organizer・Co-Organizer・Assistant Organizer・Event Organizer の役割と、イベント単位のホスト。共同ホストは Standard/Pro とも無制限
+OP06,✅,公式,https://help.meetup.com/hc/en-us/articles/39887158477965-How-do-I-download-print-my-event-attendee-list,出席者リストを Attendee details からスプレッドシートでダウンロード・印刷。メールアドレスは Pro のみ(Contact members の記事)
+OP07,✅,公式,https://help.meetup.com/hc/en-us/articles/39285624029837-How-can-I-send-emails-to-my-members,Contact members(全員・リーダーシップ・カスタムリスト・RSVP状況別・休眠会員)とイベントチャット(内蔵/WhatsApp・Discord・LINE 等のリンク)
+OP08,✅,公式,https://help.meetup.com/hc/en-us/articles/45352992737677-Introducing-the-new-attendee-list-and-QR-code-check-in,出席者リストとチェックインを統合、モバイルでQRスキャン、不参加(Absent)記録(2026)
+OP09,✅,公式,https://help.meetup.com/hc/en-us/articles/360002866392-Managing-a-group-s-Money-page,Money ページで会費・参加費・スポンサー収入を管理し、Payments received で売上を確認、返金処理も可。Stripe で受取(2024-09 に PayPal から移行)。入金サイクルの詳細は未確認
+OP10,✅,公式,https://help.meetup.com/hc/en-us/articles/360002862532-How-do-I-see-my-Meetup-group-s-stats,グループ統計(新規加入・RSVP・アクティブ会員)を最大3年分CSVで出力。Pro はダッシュボード・高度な分析
+OP11,✅,公式,https://help.meetup.com/hc/en-us/articles/360013054151-Viewing-event-feedback-from-members,グループページにイベント一覧・平均評価・レビューを表示。Pro はブランド付きネットワークプロフィール(料金表の記事)
+OP12,△,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,Zoom 連携は利用可。Mailchimp 連携と Meetup API は Pro 限定。komoot 経路埋め込み(ベータ)
+AC01,△,公式,https://help.meetup.com/hc/en-us/articles/40514667096589-I-used-to-have-access-to-the-free-plan-but-now-don-t-see-it-anymore-can-I-get-it-back,無料の Starter プランは初めての主催者のみ。以降は Standard 月$29.99〜(2024-06 値上げ)。グロース根拠あり(負の事例: 主催者課金後の離脱[OWASP が2026-01廃止]・2019年の参加者課金テストで反発)
+AC02,❌,公式,https://help.meetup.com/hc/en-us/articles/39489419634189--Event-fees-Why-does-Meetup-charge-a-service-fee-for-ticketed-events,サービス料は参加者がRSVP時に負担し、主催者は払わないと明記。主催者負担への切替は記載なし
+AC03,△,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,メーリングリストのエクスポートは Pro のみ。Pro 以外は会員のメールが見えずダウンロード不可と明記(Contact members の記事)
+AC04,？,なし,,他サービスからのインポート・移行支援は公式資料で確認できず
+AC05,？,なし,,主催者紹介報酬・アンバサダー制度は公式資料で確認できず(Pro のスポンサー募集は別機能)
+AC06,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,Meet and Greet テンプレート、成功のコツ、可視性向上ガイド、Meetup Organizer Community(Discord)への案内
+AC07,△,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,Pro 限定の Paid promotions(有料イベント促進)とスポンサー募集
+AC08,？,なし,,運営自身のイベント主催・共催は公式資料で確認できず
+CR01,✅,公式,https://help.meetup.com/hc/en-us/articles/40708711774221-What-notifications-Meetup-can-send,"新規イベント告知をメール・プッシュ・受信箱で通知。通知数を絞る方針(fewer, more impactful)を公式が説明。メンバーの Ads もメールから除去(2025)"
+CR02,✅,公式,https://help.meetup.com/hc/en-us/articles/39235072484109-Finding-an-event,イベントにRSVPすると自動でそのグループの会員になり、以後の開催通知を受け取る
+CR03,△,公式,https://help.meetup.com/hc/en-us/articles/34744060726669-Meetup-vs-Free-Plan-Members-Key-Differences-and-Benefits,RSVP状況別に過去参加者へ連絡でき、Meetup+会員は新規イベントを先に通知される(First to Know)。主催者が前回参加者を優先する機能は確認できず
+CR04,✅,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,Contact members(カスタムリスト・RSVP別)。Pro はセグメント配信・メーリングリスト出力・Mailchimp 連携
+CR05,✅,公式,https://help.meetup.com/hc/en-us/articles/360002879411-Managing-a-leadership-team,主催者は会員の出席履歴を閲覧できる。プロフィールの Meetup+ バッジ、イベントページの Super Organizer バッジ(実機)
+CR06,✅,公式,https://help.meetup.com/hc/en-us/articles/360013054151-Viewing-event-feedback-from-members,グループ・イベントの評価とレビュー(2025-04 以降は公開)。悪質レビューの通報あり
+CR07,✅,公式,https://help.meetup.com/hc/en-us/articles/48377081479693-Setting-up-event-chats-and-third-party-messaging-on-Meetup,イベントチャット(内蔵/外部リンク)、グループディスカッション、メンバー間DM
+CR08,？,なし,,年間まとめ・振り返り共有は公式資料で確認できず
+TS01,？,なし,,電話番号・ID・実名などによる利用者確認は公式資料で確認できず(任意のプロフィール写真必須設定のみ)
+TS02,✅,公式,https://help.meetup.com/hc/en-us/articles/42035449507853-FAQs-around-the-newly-released-Super-Organizer-badge,Super Organizer バッジ(2025-12 ヘルプ)。直近の参加人数の多さに基づき四半期ごとに再審査(米国は未提供と記載)。日本語のイベントページで表示を実機確認。新規メンバー承認・プロフィール質問でグループ側の審査も可
+TS03,✅,公式,https://help.meetup.com/hc/en-us/articles/43041158507661-How-we-moderate-Meetup-to-keep-interactions-meaningful-and-safe,グループ・イベント・メンバーの通報、ブロック、Trust & Safety による自動+人手のモデレーションを公式が説明
+TS04,△,公式,https://help.meetup.com/hc/en-us/articles/45352992737677-Introducing-the-new-attendee-list-and-QR-code-check-in,RSVP後の欠席(Absent)・チェックイン済の記録と出席履歴、有料イベントの前払い。欠席料・デポジットは確認できず
+TS05,✅,公式,https://help.meetup.com/hc/en-us/articles/360002921751-Key-differences-between-Public-Groups-and-Private-Groups,プライベートグループは会員名・プロフィール回答・イベント場所・説明を非会員に非公開。プロフィールのグループ一覧・興味も非表示にできる
+TS06,？,なし,,外部取引の抑止を目的とする規約・仕組みは確認できず(参加費はオフライン徴収も許容)
+FD01,？,なし,,RSVP時に料理・ドリンクを選ぶ機能は公式資料で確認できず(東京の交流パーティーは説明文とRSVP割引で運用: 実機)
+FD02,△,公式,https://help.meetup.com/hc/en-us/articles/360022471332-Profile-and-event-questions,イベント質問で任意に聞けるが、健康情報など機微情報の収集は非推奨と明記。専用のアレルギー登録は確認できず
+FD03,？,なし,,店舗向けの管理画面は確認できず(主催者・リーダーシップ向けの汎用ツールのみ)
+FD04,？,なし,,人数・注文の店舗通知・仕込み数集計は公式資料で確認できず
+FD05,？,なし,,席・貸切の確保と連動する機能は公式資料で確認できず(会場の追加・ピン設定のみ)
+FD06,？,なし,,コース・固定メニューの選択は公式資料で確認できず
+FD07,？,なし,,割り勘・個別会計は公式資料で確認できず
+FD08,？,なし,,店探し・店選び支援は確認できず(会場の検索・追加のみ)
+FD09,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,Attendee limit(定員)、Allow guests、RSVP開始/終了時刻を設定でき、満席でウェイトリストへ回る
+FD10,？,なし,,提供形態の選択は確認できず(対面/オンライン/ハイブリッドの選択はあるが飲食の提供形態ではない)
+MN01,✅,公式,https://help.meetup.com/hc/en-us/articles/39489419634189--Event-fees-Why-does-Meetup-charge-a-service-fee-for-ticketed-events,参加者のサービス料の例($10→$1.62)と transaction fees table を公開。主催者プランの料金も公開(料金表の記事)
+MN02,✅,公式,https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview,Standard 月$29.99〜・Pro 月$55〜(グループ単位)。地域・時期で変動。グロース根拠あり(負の事例: 課金後の離脱)
+MN03,✅,公式,https://help.meetup.com/hc/en-us/articles/39790436736525-Creating-an-event,イベント作成画面の Fundraising(任意寄付)と、グループ会費(member dues)・Pledge donations
+MN04,？,なし,,クーポン・割引コードは公式資料で確認できず(割引は主催者が説明文で運用する例を実機で確認)
+MN05,✅,公式,https://help.meetup.com/hc/en-us/articles/34744060726669-Meetup-vs-Free-Plan-Members-Key-Differences-and-Benefits,Meetup+(会員向けサブスク): 有料イベントのサービス料免除、ウェイトリスト優先、First to Know、バッジ、広告なし

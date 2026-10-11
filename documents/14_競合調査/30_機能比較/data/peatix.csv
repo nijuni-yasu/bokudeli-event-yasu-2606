@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,実機,https://peatix.com/search?q=%E9%A3%9F%E4%BA%8B%E4%BC%9A&country=JP,検索ボックスでキーワード検索でき、カテゴリ選択もある(『食事会』で検索して結果表示を確認。ブラウザで実ページを確認、スクショIDなし)
+DS02,✅,実機,https://peatix.com/search?q=%E9%A3%9F%E4%BA%8B%E4%BC%9A&country=JP,『近く』でエリアを指定して探せ、2026-05のホーム刷新で『Near me』から別エリアへ切替可(公式ヘルプ)。イベントページに地図リンクあり。地図上で探すUIや駅指定は未確認
+DS03,✅,実機,https://peatix.com/search?q=%E9%A3%9F%E4%BA%8B%E4%BC%9A&country=JP,日付(『今後すべて』等)と開催形式(対面/オンライン、2026-01に対面のみフィルタ追加)で絞り込める。価格帯フィルタは確認できず
+DS04,△,公式,https://learning.peatix.com/ja/how-to-use/free-customer-attraction,同じカテゴリのイベントに参加したユーザーへ自動送信するおすすめイベントメールがある。ホームは2026-05にテーマ別表示へ刷新。個別の推薦フィードは確認できず。グロース根拠あり(取扱の約15%が発見機能経由、2015-03、自社発表の二次情報)
+DS05,✅,実機,https://peatix.com/group/16556640,グループにフォローボタンとフォロワー数(実例135)があり『開催予定のイベントの通知を受け取る』。新規イベント公開時に自動メール(2014年に導入)。グロース根拠は事例のみで数値なし
+DS06,✅,公式,https://help-attendee.peatix.com/en/support/solutions/articles/44002476895-about-the-watch-list-feature,イベントページの『お気に入り』(ハート)でウォッチリストに保存でき、開催72時間前と売り切れ間近に自動メール。確認・解除はアプリのみ。定期開催イベントはお気に入り不可(実機でお気に入りボタンも確認)
+DS07,△,実機,https://peatix.com/event/5191994,カテゴリ/タグ別の検索URL(peatix.com/search?cc=jp&tags=…)があり『近くの食事会のイベントを探そう』のようなタイトルの検索ページが出る。検索流入向けの都市×カテゴリ専用ディレクトリは確認できず
+DS08,✅,公式,https://learning.peatix.com/ja/,公式noteで『おすすめイベント特集』『新着イベント』(週次号)を編集して紹介。有料のピックアップイベント枠(請求書払い対象)とオンラインセレクトストア『Peatixマルシェ』もある
+JN01,❌,公式,https://help-attendee.peatix.com/en/support/solutions/articles/44002430435-how-to-create-a-peatix-account,"チケット注文にはPeatixアカウントが必須と公式ヘルプに明記(To order tickets, you need a Peatix account)。外部リンク誘導(有料オプション)で別フォームに申込を移す運用はあるが標準機能ではない"
+JN02,✅,公式,https://help-attendee.peatix.com/en/support/solutions/articles/44002430435-how-to-create-a-peatix-account,メールのほか Google/Apple アカウントで作成・ログインできる(2026年時点のヘルプ)。古い参加者向けヘルプには Facebook/Twitter も記載があり食い違う。LINE・電話番号ログインは確認できず
+JN03,❌,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44002019732-feature-overview,選考機能(申込期間を設けアンケートから参加者を選ぶ)は『現在利用不可』と公式ヘルプに記載。主催者が承認する標準フローは確認できず
+JN04,？,なし,,キャンセル待ち機能は機能一覧・Sell ticketsフォルダに記載がなく確認できず(販売の一時停止/再開のみ確認)
+JN05,？,なし,,チケット枚数で定員管理するが、残席の自動表示は確認できず(公式ヘルプは説明文に『チケット残り◯枚』と手書きする運用を紹介)
+JN06,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821720-how-to-use-a-form-to-collect-information-from-attendees,事前アンケート(チケット選択後の注文手続き内)で最大32問、ラジオ/プルダウン/短文/長文、必須指定ができる。チケットごと・同行者ごとの入力は確認できず
+JN07,△,公式,https://help-attendee.peatix.com/en/support/solutions/articles/44001822284-how-to-make-ticket-cancellation-requests,参加者は主催者へメッセージで依頼し、キャンセルは主催者のみが実行(参加者が自分では不可)。返金はカード会社経由で、購入50日超の有料チケットは日本340円の手数料
+JN08,✅,実機,https://peatix.com/event/5191994,イベントページに『カレンダーに追加』ボタンがある(形式はICS/Google等まで未確認)
+JN09,✅,公式,https://learning.peatix.com/ja/how-to-use/sell-more-tickets,開始24時間前にアプリプッシュとメールで自動リマインド。ウォッチリスト登録者へ72時間前と売り切れ間近、未申込フォロワーへ72時間前にメール(2023-05追加)。LINEでの通知は確認できず
+JN10,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821727-how-to-check-in-attendees,QRコードチケット(アプリ表示/印刷)をiPhone『Peatix Organizer』/Android『Peatix Scan』でスキャン、タップ受付(2025-11に主方式化)、名前検索、紙リストの4方式。複数スタッフ用のアシスタントモードあり
+JN11,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,参加者名(ニックネーム)と人数をイベントページに表示するかを主催者が設定できる。申込ウィジェットにも参加者リスト表示の切替がある。実際のイベントでは非表示のものが多い
+JN12,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821756-how-to-send-messages-to-attendees,イベント終了後30日まで参加者へ事後メッセージを送れる。グループページに写真付き投稿(2026-02)とコンテンツ紹介ページ(2026-07-31)でレポート発信も可。参加者のレビューやアルバム機能は確認できず
+SH01,✅,実機,https://peatix.com/event/5191994,イベントページとグループページに og:image(カバー)/og:title/og:description と twitter:card=summary_large_image を設定。schema.org Event の構造化データは見つからず
+SH02,✅,実機,https://peatix.com/event/5205318,『共有』から Facebook と Twitter(X) へのシェアボタンがある。LINE共有ボタンは確認できず
+SH03,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821760-about-the-transfer-feature,複数枚購入分を友人へチケット譲渡できる(主催者は作成時にオフ可)。申込後に友人を招く専用導線は確認できず。2014年にSNS拡散で10%割引のプログラムを実施(二次、現行は不明)
+SH04,？,なし,,紹介者の追跡・可視化機能は確認できず(2014年のソーシャル拡散プログラムは過去施策で現行は不明)
+SH05,？,なし,,連絡先やSNSの友人から招待・発見する機能は確認できず
+SH06,✅,実機,https://peatix.com/group/16556640,グループページにフォロワー数(実例135)を表示。参加者名・人数の表示も主催者設定(JN11)でできる
+SH07,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,イベントURLを任意の文字列に変えるカスタムURLがある(定期開催では不可)。QR・チラシの生成は確認できず(QRは当日受付用のみ)
+SH08,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821748-how-to-embed-widget-in-an-external-site,公開済みイベントのチケット申込ウィジェットを自サイトへ埋め込める(サイズ、ライト/ダーク、チケット種別・参加者リストの表示切替)。複数イベントの一覧埋め込みは確認できず
+OP01,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44002019732-feature-overview,グループ内で短時間(公式の記載は5分以内)にイベントページを作成できる。サービス紹介ページは『最短5分で申込受付・販売開始』と記載(自社主張)
+OP02,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44002645658-how-to-create-recurring-events,定期開催(2025-11提供、1ページ最大50回、2026-04にオンライン種別も対応)がある。複製の記事は題名のみ確認。定期開催は回ごとの個別設定・カスタムURL・お気に入りが不可
+OP03,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,公開範囲は公開/限定公開(unlisted)/パスワード保護。プレビューの『Share URL』でURLを知る人だけが閲覧でき、公開前の下書き状態もある(売上受取記事の記述)
+OP04,？,なし,,AIによる文面・画像の作成支援は公式ヘルプ・機能紹介で確認できず(検索でも該当なし)
+OP05,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821768-how-to-manage-events-with-multiple-users-adding-co-organizers,共同主催者は最大2名で、権限は1種類(グループ/イベント編集・販売情報と参加者情報・販売管理)。細かい権限分けは確認できず。受付スタッフ向けにはアシスタントモードがある
+OP06,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821754-how-to-download-the-attendee-list,参加者リストをCSV出力(売上ID、ユーザーID、氏名、チケット、割引コード、フォーム回答など)。メールアドレスは含まれず、フォームで取得する必要がある
+OP07,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821756-how-to-send-messages-to-attendees,参加者(販売リストはチケット種別/注文状況で絞込)とグループのフォロワーへメールを一斉送信。終了後30日まで、添付不可、予約送信の記載なし。主催者アプリからも全員へ一斉送信可(App Store説明)。LINE一斉配信は確認できず
+OP08,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821727-how-to-check-in-attendees,当日運営はQRスキャン、タップ受付、PCの名前検索、紙の名簿。複数スタッフはログイン情報を共有せず使えるアシスタントモードがある。主催者向けアプリ(iPhone/Android)あり
+OP09,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821780-how-to-receive-the-ticket-sales-for-your-event,販売状況をリアルタイムに確認でき入金明細も見られる。入金はイベント終了後5営業日以内で、終了日より前には払われない(即時入金なし)。日本は銀行口座へ振込(振込手数料210円)
+OP10,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44002019732-feature-overview,ページビュー数と流入元ドメイン(リファラー)を確認でき、ホーム画面で上位リファラーを見られる。UTMやGA連携は確認できず
+OP11,✅,実機,https://peatix.com/group/16556640,グループページ(紹介文・開催予定イベント・フォロワー・アクティビティ。2023-10に再設計、2026-05にコンテンツタブ追加)がある
+OP12,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821717-what-payment-methods-are-available-on-peatix-,"外部連携はVimeo/YouTube埋め込み・外部配信リンク・申込ウィジェットに限られ、API/Webhook、Zoom・Slack・Mailchimp連携は確認できず(検索でも該当なし)。日本固有: 決済はカード(JCB・Diners含む)・PayPal・コンビニ/ATM(購入者330円)・銀行振込(2025-08末開始、購入者が振込手数料負担、決済額は提供開始月の約3倍=二次でグロース根拠あり)。請求書払いは法人主催者向け集客サービスの支払い(2025-07、5,500円以上、二次)。SNSはFacebook/Xの共有ボタンのみでLINE/X連携は確認できず。グループ/フォロワー機能はDS05・CR02。オンライン配信対応は2020コロナ期に週5万→8.5万人(外部ショックが主因)"
+AC01,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821779-peatix-pricing,無料チケットのみのイベントは手数料なし、登録料・月額費もなし。有料と無料が混在する場合は有料注文分のみ課金
+AC02,？,なし,,公式料金ページは『購入者は予約手数料なし』と記載(実質は主催者控除)。負担者を選ぶ機能は確認できず。コンビニ/ATM払いのみ購入者に330円
+AC03,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821754-how-to-download-the-attendee-list,参加者CSVは出力できるがメールアドレスが含まれず、フォームで取得が必要。フォーム回答はイベント終了30日後に自動削除。フォロワーへは継続的に連絡できる
+AC04,△,二次,https://internet.watch.impress.co.jp/docs/yajiuma/1229961.html,2020-01のATND閉鎖時に、初回イベント手数料無料とATND過去イベントのデータ移行サービスを提供(二次、締切2020-02-28)。恒常的なインポート機能は確認できず。グロース根拠は効果数値なし
+AC05,？,なし,,主催者紹介報酬・アンバサダー制度は確認できず(既存調査でも未確認)
+AC06,✅,公式,https://learning.peatix.com/ja/,Peatix U(使い方、集客ナレッジセンター、ノウハウ、活用事例)、15分電話サポート、集客用オンライン面談、機能紹介動画がある。テンプレートやウェビナーは確認できず
+AC07,✅,公式,https://services.peatix.com/ja/pricing,"カテゴリ上位掲載(1,100〜6,600円/日)、イベント紹介メール(8,800〜110,000円)、成果報酬プラン、クイックプラン/法人プランがある。既存ノートの『1,300社超』は集客サービスページで確認できず"
+AC08,✅,公式,https://eventsalon.peatix.com/,『ピーティックス主催 コミュニティテラス/イベントサロン』のページがある(事業者向けコミュニティ)。ほかオンラインセレクトストア『Peatixマルシェ』。イベントの中身までは未確認
+CR01,✅,公式,https://learning.peatix.com/ja/how-to-use/free-customer-attraction,Peatixが自動送信するおすすめイベントメール(同カテゴリ参加者が対象)と、ウォッチリスト/フォロワー向けの自動メールがある。配信数は非公開。グロース根拠あり(取扱の約15%が発見機能経由、2015-03、自社発表の二次)
+CR02,✅,公式,https://services.peatix.com/ja,公式に『過去イベントの参加者はフォロワーとして溜まり、次回以降のイベントページ公開時に自動で告知が届く』と記載。ヘルプでは注文画面からのフォローも記載(自動付与かオプトインかは未確認)。公開直後と72時間前(未申込フォロワー)にメール。2014年に申込時のフォロー促進を導入。グロース根拠は事例のみで数値なし
+CR03,？,なし,,過去参加者への先行・優先案内の機能は確認できず(販売開始日の設定とフォロワー通知のみ)
+CR04,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821756-how-to-send-messages-to-attendees,販売リストをチケット種別・注文状況で絞って送信でき、フォロワーへ一斉送信、定額課金メンバー向けメッセージもある。蓄積はフォロワー単位で、タグ等によるセグメントや外部CRM連携は確認できず
+CR05,？,なし,,参加回数・バッジ・実績の表示は確認できず
+CR06,？,なし,,主催者・参加者へのレビュー/評価機能は確認できず
+CR07,△,公式,https://learning.peatix.com/ja/how-to-use/member-lounge,メンバーラウンジ(招待制のグループ内スペース、投稿・コメント・リアクション)がある。料金は限定モニター向け『3か月無料』の記載のみで有料サービスとして案内。Peatix Liveにライブチャットあり。一般的な参加者同士の掲示板は確認できず
+CR08,？,なし,,年間まとめ・振り返りの共有機能は確認できず
+TS01,？,なし,,利用者の本人確認は確認できず(主催者は売上受取用の口座登録のみ)
+TS02,△,公式,https://learning.peatix.com/ja/how-to-use/free-customer-attraction,検索・関連イベント・メルマガへの掲載は、公開設定とカテゴリ設定をしたうえでPeatixの審査(2営業日程度)を通ったイベントのみ。告知ページ作成自体は事前審査なし。認定バッジは確認できず
+TS03,△,公式,https://help-organizer.peatix.com/en/support/solutions/folders/44001221694,ヘルプに『TOS/ガイドライン違反の報告』フォルダと手順記事(題名のみ確認、本文は未読)がある。コミュニティガイドラインとDMCAの案内もある。ブロック機能は確認できず
+TS04,✅,公式,https://help-attendee.peatix.com/en/support/solutions/articles/44001822284-how-to-make-ticket-cancellation-requests,有料チケットは事前決済で、カード/コンビニ/ATM/銀行振込(期限内に未払いなら自動キャンセル)。キャンセル可否は主催者のキャンセルポリシーによる。無料イベントの欠席料・デポジットは確認できず
+TS05,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,参加者名・人数のイベントページ表示は主催者が設定できる。参加者プロフィールは既定で『グループメンバーのみ』公開(公開/グループメンバーのみ/自分のみから選択)
+TS06,？,なし,,プラットフォーム外取引を抑える規約・仕組みは、利用規約を読めておらず確認できず
+FD01,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821720-how-to-use-a-form-to-collect-information-from-attendees,"料理選択の専用機能はない。チケット種別(コース別)や事前アンケートのラジオ/プルダウンで代用できる。実例の食事会は『料理4種盛り+1ドリンク』を1チケット(5,500円)で販売"
+FD02,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821720-how-to-use-a-form-to-collect-information-from-attendees,アレルギー登録の専用機能は確認できず。事前アンケート(自由記述/選択)で収集でき、CSVに含まれる(終了30日後に自動削除)
+FD03,？,なし,,店舗向けの管理画面は確認できず(主催者向け管理画面のみ)
+FD04,？,なし,,人数・注文を店舗へ自動通知し集計する機能は確認できず
+FD05,？,なし,,店舗の席・貸切の確保と連動する機能は確認できず
+FD06,△,実機,https://peatix.com/event/5191994,"固定コースはチケット種別として作成できる(実例: 料理4種盛り+1ドリンクの5,500円チケット)。コース選択の専用UIは確認できず"
+FD07,？,なし,,割り勘・個別会計の機能は確認できず
+FD08,？,なし,,店探し・店選びの支援機能は確認できず(会場は主催者が住所入力)
+FD09,△,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,チケットごとに販売枚数(限定数)を設定でき、売り切れで申込終了になる。メニュー単位の在庫管理は確認できず
+FD10,？,なし,,対面/オンラインの開催形式の選択のみ。イートイン/テイクアウト/デリバリーの選択は確認できず
+MN01,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821779-peatix-pricing,"日本は4.9%+99円/枚(決済手数料込み)で無料は0円、購入者は予約手数料なし。2013-02に6%→2.9%+70円/注文へ値下げし5か月で累計5,000→10,000イベント(相関のみ、グロース根拠あり)、2026年は4.9%+99円/枚。ページ表記は©2024だが2026-06の変更予告を含む"
+MN02,❌,公式,https://services.peatix.com/ja/pricing,料金ページに『初期登録料、月額費無料』と明記。有料は集客サービス(従量)のみで、主催者向けのサブスクプランはない
+MN03,？,なし,,チップ・寄付の上乗せ機能は確認できず。2014年に『イベントカンパ機能』ベータ(二次)。定額課金は返礼のない寄付・募金には使えないと公式に記載
+MN04,✅,公式,https://help-organizer.peatix.com/en/support/solutions/articles/44001821716-how-to-create-a-group-an-event-physical-event-,割引コードの作成と先行販売期間(早割)の設定ができる。割引コードで無料になった有料チケットは手数料がかからない
+MN05,△,公式,https://services.peatix.com/ja/subscription,定額課金プラン(月額/年額会費・入会費、会員限定メッセージ、CSV、手数料10%)で会員向け特典を主催者が設定できる。ポイント/ロイヤルティ制度は確認できず
