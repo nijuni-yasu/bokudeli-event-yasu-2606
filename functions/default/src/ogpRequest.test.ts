@@ -212,6 +212,47 @@ describe('handleEventOgpRequest', () => {
 
     expect(recorded.status).toBe(404)
   })
+
+  it('getEvent が失敗しても取得済み index.html を 200 で返す', async () => {
+    vi.mocked(getEvent).mockRejectedValue(new Error('firestore unavailable'))
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.body).toBe(INDEX_HTML)
+  })
+
+  it('index.html の取得失敗だけ 500 を返す', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('unavailable', { status: 503 })),
+    )
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(500)
+    expect(recorded.body).toBe('Could not retrieve index.html')
+    expect(getEvent).not.toHaveBeenCalled()
+  })
+
+  it('index.html の fetch 例外も 500 を返す', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => {
+        throw new Error('network')
+      }),
+    )
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(500)
+    expect(recorded.body).toBe('Could not retrieve index.html')
+    expect(getEvent).not.toHaveBeenCalled()
+  })
 })
 
 describe('handleCommunityOgpRequest', () => {
@@ -268,5 +309,16 @@ describe('handleCommunityOgpRequest', () => {
     const missingRes = createRes()
     await communityHandler({ path: '/c/acct' }, missingRes.res)
     expect(missingRes.recorded.status).toBe(404)
+  })
+
+  it('getCommunityByAccount が失敗しても取得済み index.html を 200 で返す', async () => {
+    vi.mocked(getCommunityByAccount).mockRejectedValue(new Error('firestore unavailable'))
+    const { res, recorded } = createRes()
+
+    await communityHandler({ path: '/c/acct' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.body).toBe(INDEX_HTML)
   })
 })

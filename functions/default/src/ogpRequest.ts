@@ -26,6 +26,13 @@ const SEO_CACHE_CONTROL = 'public, max-age=600, s-maxage=600'
 /** 限定公開・未承認ページは共有 URL を知る人にだけ配信するため、CDN・共有キャッシュに載せない */
 const PRIVATE_CACHE_CONTROL = 'private, no-store'
 
+type IndexHtmlResult = { html: string; response: Response }
+
+type OgpErrorContext = {
+  path: string
+  eventId?: string
+}
+
 /**
  * Firebase Hosting から取得したレスポンスヘッダを、圧縮や接続制御に関するものだけ除外して転送する。
  * これにより、Content-Security-Policy などのセキュリティ関連ヘッダは維持される。
@@ -54,6 +61,8 @@ const forwardSafeHeaders = (from: Response, to: HttpResponse, options?: { exclud
   })
 }
 
+const toErrorMessage = (error: unknown): string => (error instanceof Error ? error.message : String(error))
+
 const resolveOgpImageType = (contentType: string | undefined | null): string => {
   if (contentType == null || contentType === '') {
     return DEFAULT_OGP_IMAGE_TYPE
@@ -77,13 +86,17 @@ const sendNotFound = (res: HttpResponse): void => {
     .send('<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>')
 }
 
-const fetchIndexHtml = async (): Promise<{ html: string; response: Response } | undefined> => {
-  const response = await fetch(`${getEventSiteOrigin()}/index.html`)
-  if (!response.ok) {
+const fetchIndexHtml = async (): Promise<IndexHtmlResult | undefined> => {
+  try {
+    const response = await fetch(`${getEventSiteOrigin()}/index.html`)
+    if (!response.ok) {
+      return undefined
+    }
+    const html = await response.text()
+    return { html, response }
+  } catch {
     return undefined
   }
-  const html = await response.text()
-  return { html, response }
 }
 
 const sendSeoHtml = (res: HttpResponse, indexHtmlResponse: Response, html: string, context: SeoPageContext): void => {
@@ -108,6 +121,33 @@ const sendNoindexSpaHtml = (res: HttpResponse, indexHtmlResponse: Response, html
     .send(html)
 }
 
+const toLogContext = (context: OgpErrorContext): OgpErrorContext =>
+  context.eventId === undefined ? { path: context.path } : { path: context.path, eventId: context.eventId }
+
+const sendMissingIndexHtml = (res: HttpResponse, context: OgpErrorContext): void => {
+  logger.error('Could not retrieve index.html', toLogContext(context))
+  res.status(500).send('Could not retrieve index.html')
+}
+
+const sendRecoveredIndexHtml = (
+  res: HttpResponse,
+  indexResult: IndexHtmlResult | undefined,
+  context: OgpErrorContext & { message: string; error: unknown },
+): void => {
+  logger.warn(context.message, {
+    ...toLogContext(context),
+    error: toErrorMessage(context.error),
+  })
+  if (res.headersSent) {
+    return
+  }
+  if (indexResult !== undefined) {
+    sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+    return
+  }
+  sendMissingIndexHtml(res, { path: context.path, eventId: context.eventId })
+}
+
 /** `/c/:account/e/:eventId/members` 等、canonical 詳細以外の公開 SPA 子パス（末尾スラッシュ許容） */
 const isEventSpaSubpath = (paths: string[]): boolean => {
   const segments = paths.filter((segment) => segment !== '')
@@ -120,13 +160,22 @@ const isCommunitySpaSubpath = (paths: string[]): boolean => {
   return segments.length === 3 && segments[0] === 'c' && segments[2] === 'invites' && segments[1] !== ''
 }
 
-const sendSpaFallback = async (res: HttpResponse): Promise<void> => {
-  const indexResult = await fetchIndexHtml()
-  if (indexResult === undefined) {
-    res.status(500).send('Could not retrieve index.html')
-    return
+const sendSpaFallback = async (res: HttpResponse, context: OgpErrorContext): Promise<void> => {
+  let indexResult: IndexHtmlResult | undefined
+  try {
+    indexResult = await fetchIndexHtml()
+    if (indexResult === undefined) {
+      sendMissingIndexHtml(res, context)
+      return
+    }
+    sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+  } catch (error) {
+    sendRecoveredIndexHtml(res, indexResult, {
+      ...context,
+      message: 'Unexpected error in SPA fallback',
+      error,
+    })
   }
-  sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
 }
 
 const buildEventSeoContext = (params: {
@@ -254,14 +303,7 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
 
     if (paths[1] !== 'c' || paths[3] !== 'e' || paths.length !== 5) {
       if (isEventSpaSubpath(paths)) {
-        try {
-          await sendSpaFallback(res)
-        } catch (error) {
-          logger.warn('Unexpected error in event SPA subpath handler', { error })
-          if (!res.headersSent) {
-            res.status(500).send('Internal Server Error')
-          }
-        }
+        await sendSpaFallback(res, { path, eventId: paths[4] })
         return
       }
       sendNotFound(res)
@@ -274,10 +316,11 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
       return
     }
 
+    let indexResult: IndexHtmlResult | undefined
     try {
-      const indexResult = await fetchIndexHtml()
+      indexResult = await fetchIndexHtml()
       if (indexResult === undefined) {
-        res.status(500).send('Could not retrieve index.html')
+        sendMissingIndexHtml(res, { path, eventId })
         return
       }
 
@@ -320,10 +363,12 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
       const context = buildEventSeoContext({ canonicalUrl, eventData, ogp })
       sendSeoHtml(res, indexResult.response, indexResult.html, context)
     } catch (error) {
-      logger.warn('Unexpected error in event SEO handler', { error })
-      if (!res.headersSent) {
-        res.status(500).send('Internal Server Error')
-      }
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        eventId,
+        message: 'Unexpected error in event SEO handler',
+        error,
+      })
     }
   },
 )
@@ -355,14 +400,7 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
 
     if (paths[1] !== 'c' || paths.length !== 3 || paths[2] === undefined || paths[2] === '') {
       if (isCommunitySpaSubpath(paths)) {
-        try {
-          await sendSpaFallback(res)
-        } catch (error) {
-          logger.warn('Unexpected error in community SPA subpath handler', { error })
-          if (!res.headersSent) {
-            res.status(500).send('Internal Server Error')
-          }
-        }
+        await sendSpaFallback(res, { path })
         return
       }
       sendNotFound(res)
@@ -371,10 +409,11 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
 
     const communityAccount = paths[2]
 
+    let indexResult: IndexHtmlResult | undefined
     try {
-      const indexResult = await fetchIndexHtml()
+      indexResult = await fetchIndexHtml()
       if (indexResult === undefined) {
-        res.status(500).send('Could not retrieve index.html')
+        sendMissingIndexHtml(res, { path })
         return
       }
 
@@ -411,10 +450,11 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
       const context = buildCommunitySeoContext({ canonicalUrl, communityData, ogp })
       sendSeoHtml(res, indexResult.response, indexResult.html, context)
     } catch (error) {
-      logger.warn('Unexpected error in community SEO handler', { error })
-      if (!res.headersSent) {
-        res.status(500).send('Internal Server Error')
-      }
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        message: 'Unexpected error in community SEO handler',
+        error,
+      })
     }
   },
 )
