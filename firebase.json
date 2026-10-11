@@ -136,6 +136,16 @@
           "region": "asia-northeast1"
         },
         {
+          "source": "/manage/event/**",
+          "function": "handleManageOgpRequest",
+          "region": "asia-northeast1"
+        },
+        {
+          "source": "/manage/community/**",
+          "function": "handleManageOgpRequest",
+          "region": "asia-northeast1"
+        },
+        {
           "source": "/c/**/e/**",
           "function": "handleEventOgpRequest",
           "region": "asia-northeast1"

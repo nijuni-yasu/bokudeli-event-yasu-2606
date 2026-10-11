@@ -3,12 +3,12 @@ import { getStorage } from 'firebase-admin/storage'
 import { https } from 'firebase-functions/v2'
 import type { HttpsFunction } from 'firebase-functions/v2/https'
 import { getEvent, type ShokujiiEvent } from './stores/event.js'
-import { getCommunityByAccount } from './stores/community.js'
+import { getCommunityByAccount, getPfCommunityByAccount } from './stores/community.js'
 import { convertStoragePathToURL, getEventSiteOrigin } from './utils/urls.js'
 import { getEventCoverStoragePath, getCommunityCoverStoragePath } from '@shokujii/common/utils/storagePaths.js'
 import { createModuleLogger } from './utils/logger.js'
 import { resolveRequestSite } from './utils/resolveRequestSite.js'
-import { injectSeoHtml, type SeoPageContext } from './seo/htmlInjection.js'
+import { injectOgpHtml, injectSeoHtml, type SeoPageContext } from './seo/htmlInjection.js'
 import { DEFAULT_OGP_IMAGE_TYPE, OGP_SITE_NAME, type OgpMetaContext } from './seo/metaTags.js'
 import { toOgpExcerpt, toPlainTextExcerpt } from './seo/escape.js'
 import {
@@ -25,6 +25,19 @@ const SEO_CACHE_CONTROL = 'public, max-age=600, s-maxage=600'
 
 /** 限定公開・未承認ページは共有 URL を知る人にだけ配信するため、CDN・共有キャッシュに載せない */
 const PRIVATE_CACHE_CONTROL = 'private, no-store'
+
+type IndexHtmlResult = { html: string; response: Response }
+
+type IndexHtmlFetchResult =
+  | { ok: true; html: string; response: Response }
+  | { ok: false; status?: number; error?: string }
+
+type OgpErrorContext = {
+  path: string
+  eventId?: string
+  status?: number
+  errorMessage?: string
+}
 
 /**
  * Firebase Hosting から取得したレスポンスヘッダを、圧縮や接続制御に関するものだけ除外して転送する。
@@ -54,6 +67,8 @@ const forwardSafeHeaders = (from: Response, to: HttpResponse, options?: { exclud
   })
 }
 
+const toErrorMessage = (error: unknown): string => (error instanceof Error ? error.message : String(error))
+
 const resolveOgpImageType = (contentType: string | undefined | null): string => {
   if (contentType == null || contentType === '') {
     return DEFAULT_OGP_IMAGE_TYPE
@@ -77,13 +92,17 @@ const sendNotFound = (res: HttpResponse): void => {
     .send('<!doctype html><title>404 Not Found</title><h1>404 Not Found</h1>')
 }
 
-const fetchIndexHtml = async (): Promise<{ html: string; response: Response } | undefined> => {
-  const response = await fetch(`${getEventSiteOrigin()}/index.html`)
-  if (!response.ok) {
-    return undefined
+const fetchIndexHtml = async (): Promise<IndexHtmlFetchResult> => {
+  try {
+    const response = await fetch(`${getEventSiteOrigin()}/index.html`)
+    if (!response.ok) {
+      return { ok: false, status: response.status }
+    }
+    const html = await response.text()
+    return { ok: true, html, response }
+  } catch (error) {
+    return { ok: false, error: toErrorMessage(error) }
   }
-  const html = await response.text()
-  return { html, response }
 }
 
 const sendSeoHtml = (res: HttpResponse, indexHtmlResponse: Response, html: string, context: SeoPageContext): void => {
@@ -108,6 +127,76 @@ const sendNoindexSpaHtml = (res: HttpResponse, indexHtmlResponse: Response, html
     .send(html)
 }
 
+const sendManageOgpHtml = (
+  res: HttpResponse,
+  indexHtmlResponse: Response,
+  html: string,
+  context: { pageTitle: string; ogp: OgpMetaContext },
+): void => {
+  forwardSafeHeaders(indexHtmlResponse, res, { excludeCacheControl: true })
+  const injected = injectOgpHtml(html, context)
+  res
+    .status(200)
+    .set('Cache-Control', PRIVATE_CACHE_CONTROL)
+    .set('X-Robots-Tag', 'noindex, nofollow')
+    .set('Content-Type', 'text/html; charset=utf-8')
+    .send(injected)
+}
+
+const toLogContext = (context: OgpErrorContext): Record<string, string | number> => {
+  const log: Record<string, string | number> = { path: context.path }
+  if (context.eventId !== undefined) {
+    log.eventId = context.eventId
+  }
+  if (context.status !== undefined) {
+    log.status = context.status
+  }
+  if (context.errorMessage !== undefined) {
+    log.error = context.errorMessage
+  }
+  return log
+}
+
+const resolveIndexHtml = (
+  fetched: IndexHtmlFetchResult,
+  res: HttpResponse,
+  context: OgpErrorContext,
+): IndexHtmlResult | undefined => {
+  if (fetched.ok) {
+    return { html: fetched.html, response: fetched.response }
+  }
+  sendMissingIndexHtml(res, {
+    ...context,
+    status: fetched.status,
+    errorMessage: fetched.error,
+  })
+  return undefined
+}
+
+const sendMissingIndexHtml = (res: HttpResponse, context: OgpErrorContext): void => {
+  logger.error('Could not retrieve index.html', toLogContext(context))
+  res.status(500).send('Could not retrieve index.html')
+}
+
+const sendRecoveredIndexHtml = (
+  res: HttpResponse,
+  indexResult: IndexHtmlResult | undefined,
+  context: OgpErrorContext & { message: string; error: unknown },
+): void => {
+  logger.warn(context.message, {
+    ...toLogContext(context),
+    error: toErrorMessage(context.error),
+  })
+  if (res.headersSent) {
+    return
+  }
+  if (indexResult !== undefined) {
+    sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+    return
+  }
+  sendMissingIndexHtml(res, { path: context.path, eventId: context.eventId })
+}
+
 /** `/c/:account/e/:eventId/members` 等、canonical 詳細以外の公開 SPA 子パス（末尾スラッシュ許容） */
 const isEventSpaSubpath = (paths: string[]): boolean => {
   const segments = paths.filter((segment) => segment !== '')
@@ -120,13 +209,21 @@ const isCommunitySpaSubpath = (paths: string[]): boolean => {
   return segments.length === 3 && segments[0] === 'c' && segments[2] === 'invites' && segments[1] !== ''
 }
 
-const sendSpaFallback = async (res: HttpResponse): Promise<void> => {
-  const indexResult = await fetchIndexHtml()
-  if (indexResult === undefined) {
-    res.status(500).send('Could not retrieve index.html')
-    return
+const sendSpaFallback = async (res: HttpResponse, context: OgpErrorContext): Promise<void> => {
+  let indexResult: IndexHtmlResult | undefined
+  try {
+    indexResult = resolveIndexHtml(await fetchIndexHtml(), res, context)
+    if (indexResult === undefined) {
+      return
+    }
+    sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+  } catch (error) {
+    sendRecoveredIndexHtml(res, indexResult, {
+      ...context,
+      message: 'Unexpected error in SPA fallback',
+      error,
+    })
   }
-  sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
 }
 
 const buildEventSeoContext = (params: {
@@ -254,14 +351,7 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
 
     if (paths[1] !== 'c' || paths[3] !== 'e' || paths.length !== 5) {
       if (isEventSpaSubpath(paths)) {
-        try {
-          await sendSpaFallback(res)
-        } catch (error) {
-          logger.warn('Unexpected error in event SPA subpath handler', { error })
-          if (!res.headersSent) {
-            res.status(500).send('Internal Server Error')
-          }
-        }
+        await sendSpaFallback(res, { path, eventId: paths[4] })
         return
       }
       sendNotFound(res)
@@ -274,10 +364,10 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
       return
     }
 
+    let indexResult: IndexHtmlResult | undefined
     try {
-      const indexResult = await fetchIndexHtml()
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path, eventId })
       if (indexResult === undefined) {
-        res.status(500).send('Could not retrieve index.html')
         return
       }
 
@@ -320,10 +410,12 @@ export const handleEventOgpRequest: HttpsFunction = https.onRequest(
       const context = buildEventSeoContext({ canonicalUrl, eventData, ogp })
       sendSeoHtml(res, indexResult.response, indexResult.html, context)
     } catch (error) {
-      logger.warn('Unexpected error in event SEO handler', { error })
-      if (!res.headersSent) {
-        res.status(500).send('Internal Server Error')
-      }
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        eventId,
+        message: 'Unexpected error in event SEO handler',
+        error,
+      })
     }
   },
 )
@@ -355,14 +447,7 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
 
     if (paths[1] !== 'c' || paths.length !== 3 || paths[2] === undefined || paths[2] === '') {
       if (isCommunitySpaSubpath(paths)) {
-        try {
-          await sendSpaFallback(res)
-        } catch (error) {
-          logger.warn('Unexpected error in community SPA subpath handler', { error })
-          if (!res.headersSent) {
-            res.status(500).send('Internal Server Error')
-          }
-        }
+        await sendSpaFallback(res, { path })
         return
       }
       sendNotFound(res)
@@ -371,10 +456,10 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
 
     const communityAccount = paths[2]
 
+    let indexResult: IndexHtmlResult | undefined
     try {
-      const indexResult = await fetchIndexHtml()
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path })
       if (indexResult === undefined) {
-        res.status(500).send('Could not retrieve index.html')
         return
       }
 
@@ -411,10 +496,127 @@ export const handleCommunityOgpRequest: HttpsFunction = https.onRequest(
       const context = buildCommunitySeoContext({ canonicalUrl, communityData, ogp })
       sendSeoHtml(res, indexResult.response, indexResult.html, context)
     } catch (error) {
-      logger.warn('Unexpected error in community SEO handler', { error })
-      if (!res.headersSent) {
-        res.status(500).send('Internal Server Error')
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        message: 'Unexpected error in community SEO handler',
+        error,
+      })
+    }
+  },
+)
+
+type ManagePath = { kind: 'event'; eventId: string } | { kind: 'community'; account: string } | { kind: 'unknown' }
+
+const parseManagePath = (reqPath: string): ManagePath => {
+  const segments = reqPath.split('/').filter((segment) => segment !== '')
+  if (segments[0] !== 'manage') {
+    return { kind: 'unknown' }
+  }
+  if (segments[1] === 'event' && segments[2] !== undefined && segments[2] !== '') {
+    return { kind: 'event', eventId: segments[2] }
+  }
+  if (segments[1] === 'community' && segments[2] !== undefined && segments[2] !== '') {
+    return { kind: 'community', account: segments[2].toLowerCase() }
+  }
+  return { kind: 'unknown' }
+}
+
+const createDefaultOgp = (site: string, url: string): OgpMetaContext => ({
+  site,
+  url,
+  image: `${site}/shokujii_ogp.png`,
+  imageType: DEFAULT_OGP_IMAGE_TYPE,
+  title: '',
+  description: '',
+})
+
+export const handleManageOgpRequest: HttpsFunction = https.onRequest(
+  {
+    region: 'asia-northeast1',
+    memory: '1GiB',
+  },
+  async (req, res) => {
+    const site = resolveRequestSite(req)
+    if (site == null) {
+      res.status(400).send('Bad Request')
+      return
+    }
+
+    const managePath = parseManagePath(req.path)
+    const path = req.path
+    const eventId = managePath.kind === 'event' ? managePath.eventId : undefined
+
+    let indexResult: IndexHtmlResult | undefined
+    try {
+      indexResult = resolveIndexHtml(await fetchIndexHtml(), res, { path, eventId })
+      if (indexResult === undefined) {
+        return
       }
+
+      if (managePath.kind === 'unknown') {
+        sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+        return
+      }
+
+      if (managePath.kind === 'event') {
+        const eventData = await getEvent(managePath.eventId)
+        if (eventData === undefined || eventData.is_deleted || eventData.enterprise_id != null) {
+          sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+          return
+        }
+
+        const canonicalUrl = `${site}/manage/event/${managePath.eventId}`
+        const ogp = createDefaultOgp(site, canonicalUrl)
+        try {
+          const storagePath = getEventCoverStoragePath(eventData.community_id, managePath.eventId)
+          const [metadata] = await getStorage().bucket().file(storagePath).getMetadata()
+          applyCoverImageFromMetadata(ogp, storagePath, metadata)
+        } catch (error) {
+          logger.warn('Failed to get storage metadata for event cover image', { error })
+        }
+
+        sendManageOgpHtml(res, indexResult.response, indexResult.html, {
+          pageTitle: eventData.event_name,
+          ogp: {
+            ...ogp,
+            title: toOgpExcerpt(eventData.event_name),
+            description: toOgpExcerpt(eventData.event_desc),
+          },
+        })
+        return
+      }
+
+      const communityData = await getPfCommunityByAccount(managePath.account)
+      if (communityData === undefined || communityData.enterprise_id != null) {
+        sendNoindexSpaHtml(res, indexResult.response, indexResult.html)
+        return
+      }
+
+      const canonicalUrl = `${site}/manage/community/${managePath.account}`
+      const ogp = createDefaultOgp(site, canonicalUrl)
+      try {
+        const storagePath = getCommunityCoverStoragePath(communityData.community_id)
+        const [metadata] = await getStorage().bucket().file(storagePath).getMetadata()
+        applyCoverImageFromMetadata(ogp, storagePath, metadata)
+      } catch (error) {
+        logger.warn('Failed to get storage metadata for community cover image', { error })
+      }
+
+      sendManageOgpHtml(res, indexResult.response, indexResult.html, {
+        pageTitle: communityData.community_name,
+        ogp: {
+          ...ogp,
+          title: toOgpExcerpt(communityData.community_name),
+          description: toOgpExcerpt(communityData.community_desc),
+        },
+      })
+    } catch (error) {
+      sendRecoveredIndexHtml(res, indexResult, {
+        path,
+        eventId,
+        message: 'Unexpected error in manage OGP handler',
+        error,
+      })
     }
   },
 )

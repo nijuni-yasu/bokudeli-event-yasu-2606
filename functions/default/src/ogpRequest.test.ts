@@ -24,6 +24,7 @@ vi.mock('./stores/event.js', () => ({
 
 vi.mock('./stores/community.js', () => ({
   getCommunityByAccount: vi.fn(),
+  getPfCommunityByAccount: vi.fn(),
 }))
 
 vi.mock('./utils/urls.js', () => ({
@@ -44,8 +45,8 @@ vi.mock('./utils/logger.js', () => ({
 }))
 
 import { getEvent } from './stores/event.js'
-import { getCommunityByAccount } from './stores/community.js'
-import { handleCommunityOgpRequest, handleEventOgpRequest } from './ogpRequest.js'
+import { getCommunityByAccount, getPfCommunityByAccount } from './stores/community.js'
+import { handleCommunityOgpRequest, handleEventOgpRequest, handleManageOgpRequest } from './ogpRequest.js'
 
 const INDEX_HTML =
   '<!doctype html><html><head><title>shokujii</title><!-- OGP_BEGIN_TAG --><!-- OGP_END_TAG -->' +
@@ -55,6 +56,7 @@ type OgpHandler = (req: { path: string }, res: HttpResponse) => Promise<void>
 
 const eventHandler = handleEventOgpRequest as unknown as OgpHandler
 const communityHandler = handleCommunityOgpRequest as unknown as OgpHandler
+const manageHandler = handleManageOgpRequest as unknown as OgpHandler
 
 type Recorded = {
   status: number | undefined
@@ -128,6 +130,7 @@ const buildCommunity = (overrides: Record<string, unknown>) =>
 beforeEach(() => {
   vi.mocked(getEvent).mockReset()
   vi.mocked(getCommunityByAccount).mockReset()
+  vi.mocked(getPfCommunityByAccount).mockReset()
   vi.stubGlobal(
     'fetch',
     vi.fn(async () => new Response(INDEX_HTML, { status: 200 })),
@@ -212,6 +215,47 @@ describe('handleEventOgpRequest', () => {
 
     expect(recorded.status).toBe(404)
   })
+
+  it('getEvent が失敗しても取得済み index.html を 200 で返す', async () => {
+    vi.mocked(getEvent).mockRejectedValue(new Error('firestore unavailable'))
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.body).toBe(INDEX_HTML)
+  })
+
+  it('index.html の取得失敗だけ 500 を返す', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('unavailable', { status: 503 })),
+    )
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(500)
+    expect(recorded.body).toBe('Could not retrieve index.html')
+    expect(getEvent).not.toHaveBeenCalled()
+  })
+
+  it('index.html の fetch 例外も 500 を返す', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => {
+        throw new Error('network')
+      }),
+    )
+    const { res, recorded } = createRes()
+
+    await eventHandler({ path: '/c/acct/e/evt1' }, res)
+
+    expect(recorded.status).toBe(500)
+    expect(recorded.body).toBe('Could not retrieve index.html')
+    expect(getEvent).not.toHaveBeenCalled()
+  })
 })
 
 describe('handleCommunityOgpRequest', () => {
@@ -268,5 +312,117 @@ describe('handleCommunityOgpRequest', () => {
     const missingRes = createRes()
     await communityHandler({ path: '/c/acct' }, missingRes.res)
     expect(missingRes.recorded.status).toBe(404)
+  })
+
+  it('getCommunityByAccount が失敗しても取得済み index.html を 200 で返す', async () => {
+    vi.mocked(getCommunityByAccount).mockRejectedValue(new Error('firestore unavailable'))
+    const { res, recorded } = createRes()
+
+    await communityHandler({ path: '/c/acct' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.body).toBe(INDEX_HTML)
+  })
+})
+
+describe('handleManageOgpRequest', () => {
+  it('イベント管理画面は noindex 付きでイベント名の OGP を返す', async () => {
+    vi.mocked(getEvent).mockResolvedValue(buildEvent({}))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/event/evt1' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.headers['cache-control']).toBe('private, no-store')
+    expect(recorded.body).toContain('<title>イベント | shokujii</title>')
+    expect(recorded.body).toContain('property="og:title" content="イベント"')
+    expect(recorded.body).toContain('property="og:url" content="https://shokujii.jp/manage/event/evt1"')
+    expect(recorded.body).not.toContain('application/ld+json')
+  })
+
+  it('イベント管理の子パスはタブを除いた URL を og:url にする', async () => {
+    vi.mocked(getEvent).mockResolvedValue(buildEvent({}))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/event/evt1/invoice' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.body).toContain('property="og:url" content="https://shokujii.jp/manage/event/evt1"')
+    expect(recorded.body).toContain('property="og:title" content="イベント"')
+  })
+
+  it('限定公開イベントでも管理画面は固有 OGP を返す', async () => {
+    vi.mocked(getEvent).mockResolvedValue(buildEvent({ is_public: false }))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/event/evt1' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.body).toContain('property="og:title" content="イベント"')
+  })
+
+  it('コミュニティ管理画面は noindex 付きでコミュニティ名の OGP を返す', async () => {
+    vi.mocked(getPfCommunityByAccount).mockResolvedValue(buildCommunity({}))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/community/acct' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+    expect(recorded.body).toContain('<title>コミュニティ | shokujii</title>')
+    expect(recorded.body).toContain('property="og:title" content="コミュニティ"')
+    expect(recorded.body).toContain('property="og:url" content="https://shokujii.jp/manage/community/acct"')
+  })
+
+  it('未承認コミュニティでも管理画面は固有 OGP を返す', async () => {
+    vi.mocked(getPfCommunityByAccount).mockResolvedValue(buildCommunity({ is_approved: false, is_public: false }))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/community/acct/form/new' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.body).toContain('property="og:title" content="コミュニティ"')
+    expect(recorded.body).toContain('property="og:url" content="https://shokujii.jp/manage/community/acct"')
+  })
+
+  it('削除済み・エンプラ配下・不在のイベントは素の SPA を 200 で返す', async () => {
+    const cases: Array<Partial<ShokujiiEvent> | undefined> = [
+      { is_deleted: true },
+      { enterprise_id: 'ent1' },
+      undefined,
+    ]
+    for (const overrides of cases) {
+      vi.mocked(getEvent).mockResolvedValue(overrides === undefined ? undefined : buildEvent(overrides))
+      const { res, recorded } = createRes()
+      await manageHandler({ path: '/manage/event/evt1' }, res)
+      expect(recorded.status).toBe(200)
+      expect(recorded.headers['x-robots-tag']).toBe('noindex, nofollow')
+      expect(recorded.body).toBe(INDEX_HTML)
+    }
+  })
+
+  it('getEvent が失敗しても取得済み index.html を 200 で返す', async () => {
+    vi.mocked(getEvent).mockRejectedValue(new Error('firestore unavailable'))
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/event/evt1' }, res)
+
+    expect(recorded.status).toBe(200)
+    expect(recorded.body).toBe(INDEX_HTML)
+  })
+
+  it('index.html の取得失敗だけ 500 を返す', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('unavailable', { status: 503 })),
+    )
+    const { res, recorded } = createRes()
+
+    await manageHandler({ path: '/manage/event/evt1' }, res)
+
+    expect(recorded.status).toBe(500)
+    expect(recorded.body).toBe('Could not retrieve index.html')
   })
 })

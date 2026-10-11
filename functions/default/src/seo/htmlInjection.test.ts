@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  injectOgpHtml,
   injectSeoHtml,
   SEO_BODY_BEGIN,
   SEO_BODY_END,
@@ -22,6 +23,7 @@ const SAMPLE_HTML = `<!doctype html>
     <meta property="og:title" content="default" />
     ${OGP_END_TAG}
     ${SEO_HEAD_BEGIN}
+    <script type="application/ld+json">{"@type":"WebSite"}</script>
     ${SEO_HEAD_END}
   </head>
   <body>
@@ -125,6 +127,30 @@ describe('injectSeoHtml', () => {
     })
     expect(result).toContain('"name":"<\\/script><script>alert(1)"')
     expect(result).not.toMatch(/<script type="application\/ld\+json">[^<]*<\/script><script>/)
+  })
+})
+
+describe('injectOgpHtml', () => {
+  it('replaces title and OGP without JSON-LD or prerender', () => {
+    const result = injectOgpHtml(SAMPLE_HTML, {
+      pageTitle: '管理イベント',
+      ogp: baseContext.ogp,
+    })
+    expect(result).toContain('<title>管理イベント | shokujii</title>')
+    expect(result).toContain('property="og:title" content="テストイベント"')
+    expect(result).not.toContain('application/ld+json')
+    expect(result).not.toContain('"@type":"WebSite"')
+    expect(result).not.toContain('<h1>テストイベント</h1>')
+    expect(result).toContain(SEO_HEAD_BEGIN)
+    expect(result).toContain(SEO_BODY_BEGIN)
+  })
+
+  it('keeps the static meta description', () => {
+    const result = injectOgpHtml(SAMPLE_HTML, {
+      pageTitle: '管理イベント',
+      ogp: baseContext.ogp,
+    })
+    expect(result).toContain('幹事向けプラットフォーム')
   })
 })
 

@@ -17,6 +17,11 @@ export interface SeoPageContext {
   ogp: OgpMetaContext
 }
 
+export interface OgpPageContext {
+  pageTitle: string
+  ogp: OgpMetaContext
+}
+
 const replaceSection = (html: string, beginMarker: string, endMarker: string, replacement: string): string => {
   const beginIndex = html.indexOf(beginMarker)
   if (beginIndex === -1) {
@@ -44,6 +49,16 @@ export const stripStaticMetaDescription = (html: string): string =>
  * 残すとページ固有 canonical と 2 本になり、矛盾する canonical は無視される。
  */
 export const stripStaticCanonicalLink = (html: string): string => html.replace(/<link\s+rel="canonical"[^>]*>\s*/i, '')
+
+/** 管理画面向け: title と OGP だけ差し替える。静的 JSON-LD / プリレンダーは残さない */
+export const injectOgpHtml = (html: string, context: OgpPageContext): string => {
+  const documentTitle = buildDocumentTitle(context.pageTitle)
+  const ogpBlock = buildOgpMetaTags(context.ogp)
+  let result = replaceTitle(html, documentTitle)
+  result = replaceSection(result, OGP_BEGIN_TAG, OGP_END_TAG, ogpBlock)
+  result = replaceSection(result, SEO_HEAD_BEGIN, SEO_HEAD_END, '\n')
+  return result
+}
 
 export const injectSeoHtml = (html: string, context: SeoPageContext): string => {
   const documentTitle = buildDocumentTitle(context.pageTitle)
