@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,公式,https://intercom.help/eatwith/en/articles/432377-how-do-i-search-for-an-event,検索欄は都市・日付・人数・ホスト名/イベント名。体験の種類(料理教室・フードツアー・ディナー等)や料理でも絞り込み。
+DS02,✅,公式,https://intercom.help/eatwith/en/articles/8279528-how-do-i-use-the-filters-and-the-map-to-find-an-experience,都市検索に加え、結果の右側に地図(ピン→プレビュー→詳細)。
+DS03,✅,公式,https://intercom.help/eatwith/en/articles/432377-how-do-i-search-for-an-event,フィルタ: 種類・価格帯・即時予約・ホスト言語・イベント種別・料理・特別食・設備。日付は検索欄で指定。
+DS04,？,なし,,パーソナライズ推薦の記述なし。
+DS05,？,なし,,ホストのフォロー機能は確認できず。
+DS06,✅,公式,https://intercom.help/eatwith/en/articles/1422053-how-do-i-add-an-experience-to-my-wishlist,ハートアイコンでウィッシュリストに保存。複数リスト作成可。
+DS07,✅,公式,https://www.eatwith.com/l/destinations/paris,都市別・カテゴリ別の公開ページがある(例: /l/destinations/paris、/paris/food-tours、/paris/gastronomic-dinners)。
+DS08,△,公式,https://intercom.help/eatwith/en/articles/3055059-who-can-get-a-star-chef-experience-badge,コミュニティマネージャーが基準(プロシェフ・レビュー20件以上で平均4.7・60日内に6日以上開催等)を満たす体験に Star Chef バッジを付与。都市ページにホスト紹介の枠あり。特集・ランキングの編集面は確認できず。
+JN01,？,なし,,予約手順の記述にアカウントの要否がなく不明(予約後は My Reservations でログインして確認)。
+JN02,？,なし,,ログイン手段(SNS・電話等)の記述なし。
+JN03,✅,公式,https://intercom.help/eatwith/en/articles/1930220-what-happens-once-i-ve-made-a-booking-request,リクエスト予約制(ホストが承認または辞退、保留は72時間で失効)。即時予約の体験は承認不要。
+JN04,？,なし,,ウェイトリストの記述なし(満席時の挙動は未記載)。
+JN05,△,公式,https://intercom.help/eatwith/en/articles/434101-how-can-i-book-an-experience,予約ボックスに予約可能な日付と既存の参加者を表示。残席数の明示は確認できず。ホストが最小・最大人数を設定。
+JN06,△,公式,https://intercom.help/eatwith/en/articles/434101-how-can-i-book-an-experience,予約時の入力は人数・日付・支払いのみ。食事制限などはホストへメッセージで伝える(予約時または予約後)。専用の入力欄は確認できず。
+JN07,✅,公式,https://intercom.help/eatwith/en/articles/986192-what-is-the-cancellation-policy,My Reservations からキャンセル。イベントごとの期限前は全額返金、期限後は返金なし(期限はチェックアウト画面に表示)。ホスト設定の既定は48時間前。
+JN08,？,なし,,カレンダー追加の記述なし。
+JN09,？,なし,https://intercom.help/eatwith/en/articles/434146-when-will-i-receive-the-booking-details-and-exact-experience-location-information,予約確定メール(住所・ホストの連絡先)はあるが、開催前リマインドの記述は確認できず。
+JN10,？,なし,,QRチケット・当日受付の記述なし(支払いはオンライン完結)。
+JN11,△,公式,https://intercom.help/eatwith/en/articles/434101-how-can-i-book-an-experience,予約ボックスに既存の参加者が表示される(表示内容の詳細は未確認)。ホスト・ゲスト双方がプロフィールを持つ(guest trust 記事)。
+JN12,✅,公式,https://intercom.help/eatwith/en/articles/434160-how-do-i-leave-a-review,開催後にレビュー依頼メール(星評価と文章)。ホストからゲストへのレビューもある。写真・アルバム機能は確認できず。
+SH01,？,なし,,共有URL・OGPの記述なし(ホストがInstagramプロフィールにリンクを貼る運用を案内)。
+SH02,？,なし,,共有ボタンの記述なし。
+SH03,✅,公式,https://intercom.help/eatwith/en/articles/2206180-refer-a-friend-give-10-get-10,Refer a Friend: ログイン後に個人コードをメール・SNSで友人へ送る。友人は初回体験(€90超)が€10引き。
+SH04,✅,公式,https://intercom.help/eatwith/en/articles/2206180-refer-a-friend-give-10-get-10,個人の紹介コードで紹介を追跡し、紹介残高・クーポンを Refer a Friend 画面で確認できる。紹介者は友人の初回体験の後に€10(1クーポン上限€60、他割引と併用不可)。
+SH05,？,なし,,連絡先・SNS連携の記述なし。
+SH06,△,公式,https://www.eatwith.com/l/destinations/paris,都市ページにゲストレビューのカルーセル、予約ボックスに既存の参加者。星評価・日付は表示されない。
+SH07,？,なし,https://intercom.help/eatwith/en/articles/3675985-marketing-toolkit-for-hosts,ホスト向けツールキットは QR・チラシ・共有素材に言及なし(ウィジェット・SNSリンクのみ)。
+SH08,✅,公式,https://intercom.help/eatwith/en/articles/3675985-marketing-toolkit-for-hosts,予約ウィジェットをホストのサイトに埋め込める(無料。公開中の体験を全部または一部表示、プライベートイベントの依頼フォームあり)。
+OP01,△,公式,https://intercom.help/eatwith/en/articles/1423009-how-do-i-create-a-new-experience,4ステップ(プロフィール→説明→写真10〜15枚→場所)で作成。提出後に運営の手動審査(最大14営業日)。短時間作成ではない。
+OP02,△,公式,https://intercom.help/eatwith/en/articles/8032004-hosts-calendar-how-to-manage-your-availability,曜日ごとの既定の開催可能日を設定して定例化、期間指定で休みを設定。過去イベントの複製は確認できず。
+OP03,✅,公式,https://intercom.help/eatwith/en/articles/5662208-hosting-private-and-or-open-events-on-eatwith,プライベートイベント(非公開・共有リンクで案内)と公開イベント、非表示(Hidden)設定、体験の一時非公開、提出前の下書き。
+OP04,？,なし,,AI作成支援の記述なし。
+OP05,？,なし,,共同主催・権限分けの記述なし。
+OP06,△,公式,https://intercom.help/eatwith/en/articles/432225-where-can-i-find-the-contact-details-of-my-guests,予約確定後にインボックスとカレンダーでゲストの連絡先を確認。CSV等の名簿出力は確認できず。
+OP07,？,なし,https://intercom.help/eatwith/en/articles/432223-how-can-i-communicate-with-my-guests,インボックスでの1対1メッセージのみ記載。一斉送信の記述なし。
+OP08,？,なし,,当日受付ツールの記述なし。
+OP09,✅,公式,https://intercom.help/eatwith/en/articles/432236-how-do-payments-work-for-hosts,支払い履歴の確認あり。イベント後2営業日にStripe経由で銀行へ振込(銀行により最大5営業日)。現金払いは禁止。
+OP10,？,なし,,流入・申込の分析機能の記述なし。
+OP11,✅,公式,https://intercom.help/eatwith/en/articles/3675985-marketing-toolkit-for-hosts,ホストのプロフィールページ(Eatwith profile)があり、ホスト自身のサイトからリンクして問い合わせへ誘導できる。
+OP12,△,公式,https://intercom.help/eatwith/en/articles/3865728-does-eatwith-have-integrations-with-fareharbor-bokun-rezby-or-tock,FareHarbor・Bokun・Rezby・Tockとは非連携と明記(独自の予約・空き管理)。API記載なし。予約ウィジェットとパートナーサイトへの空き状況の自動同期はあり。グロース根拠あり(TripAdvisor等のパートナー掲載が成長経路として既存ノートに記載)。
+AC01,△,公式,https://intercom.help/eatwith/en/articles/432349-how-much-does-it-cost-to-host-with-eatwith,ホストの掲載・手数料は『Zero』(設定価格の100%を受け取る)。無料イベントを前提とした記述はなし。
+AC02,❌,公式,https://intercom.help/eatwith/en/articles/4118435-pricing-your-experiences,ゲストが30%を上乗せして支払う方式に固定(ホスト負担を選ぶ記述なし)。例: 設定$20→ゲスト$26。パートナーサイト掲載時の料率は記事内で記述が混在(要確認)。
+AC03,△,公式,https://intercom.help/eatwith/en/articles/432225-where-can-i-find-the-contact-details-of-my-guests,予約確定後にゲストの連絡先を見られるが、エクスポート・外部利用の可否は記述なし。確定前の連絡先共有は禁止。
+AC04,？,なし,,他サービスからの移行機能・支援は確認できず。
+AC05,△,二次,https://travelpayouts.com/blog/eatwith-affiliate-program/,二次: Travelpayouts経由のアフィリエイト(成果報酬6%、事前承認、2021年更新)。公式ではゲスト向け紹介(€10/€10)のみ確認(SH04)。主催者の紹介報酬は確認できず。グロース根拠あり(既存ノート: アフィリエイト6〜10%[要約])。
+AC06,✅,公式,https://intercom.help/eatwith/en/collections/128277-eatwith-hosts,Host Toolkit(タイトル・説明・写真・メニュー・価格の書き方、ホストの進め方)、デモイベントの勧め、マーケティングツールキット、キャンセルポリシー設定の解説。
+AC07,△,公式,https://intercom.help/eatwith/en/articles/432210-how-can-i-promote-my-event,運営がニュースレター・広告・ツアー会社との提携で露出を支援(月4回超の開催と良質な写真のホストを後押し)。ホストが購入する商品ではない。ホテル向け割引コードの依頼は可。
+AC08,？,なし,,運営主催イベントの記述なし。EF・ACIS等のパートナー団体の予約を扱う記事はある。
+CR01,？,なし,,ダイジェスト・おすすめ通知の記述なし。
+CR02,？,なし,,自動メンバー化の記述なし。
+CR03,？,なし,,前回参加者への優先案内の記述なし。
+CR04,？,なし,,主催者CRM・購読者リストの記述なし。
+CR05,△,公式,https://intercom.help/eatwith/en/articles/3055059-who-can-get-a-star-chef-experience-badge,ホスト向けのStar Chefバッジとレビュー数。ゲスト側の参加履歴・バッジは確認できず。
+CR06,✅,公式,https://intercom.help/eatwith/en/articles/1497789-write-reviews-for-your-guests,ゲストがホストを星評価と文章で評価、ホストもゲストをレビュー(公開)。
+CR07,✅,公式,https://intercom.help/eatwith/en/articles/432223-how-can-i-communicate-with-my-guests,インボックスでホストとゲストが1対1でメッセージ(メール通知付き)。確定前は連絡先の共有禁止で、やり取りはサイト内に限る。グループチャットは確認できず。
+CR08,？,なし,,年間振り返りの記述なし。
+TS01,✅,公式,https://intercom.help/eatwith/en/articles/432234-how-do-i-know-if-a-guest-can-be-trusted,ホストもゲストも本人確認が必須(確認方法の記述はなし)。ホストは運営の審査も受ける。
+TS02,✅,公式,https://intercom.help/eatwith/en/articles/2680329-how-do-i-become-an-eatwith-host,コミュニティチームがホストを審査(最大14営業日)、デモイベントの推奨、Star Chefバッジ、衛生・食品安全の要件ページ。
+TS03,△,公式,https://intercom.help/eatwith/en/articles/432235-what-happens-if-i-have-a-bad-experience-with-a-guest,"問題はコミュニティチーム/サポートへメールで連絡(ホストに『対立を避けて』と案内)。ホスト側の問題は調査・返金・再発防止を保証(trust 記事)。ゲスト・ホストとも€3,000,000の保証(保険)の対象(開催中の事故・食品安全等)。アプリ内の通報・ブロック機能は確認できず。"
+TS04,✅,公式,https://intercom.help/eatwith/en/articles/986192-what-is-the-cancellation-policy,キャンセル期限ポリシー(期限前は全額返金・期限後は返金なし)で、ゲストの無断欠席・遅刻は返金なしかつホストに支払い(no-show 記事)。ホストが期限を設定可(既定48時間前)。
+TS05,✅,公式,https://intercom.help/eatwith/en/articles/432234-how-do-i-know-if-a-guest-can-be-trusted,ホストの住所・連絡先はホストが予約を承認するまでゲストに開示されない。確定前の連絡先共有は禁止。
+TS06,✅,公式,https://intercom.help/eatwith/en/articles/432243-are-payments-in-cash-allowed,オフライン・現金払いは規約で禁止(違反ホストは削除の可能性)。確定前の連絡先共有も禁止でやり取りはサイト内に限る。
+FD01,？,なし,https://intercom.help/eatwith/en/articles/432393-what-is-included-in-the-price-of-an-experience,価格に食事・飲み物を含むのが基本(ホストの記載による)。ゲストが料理を選ぶ・注文する機能は確認できず。
+FD02,△,公式,https://intercom.help/eatwith/en/articles/8287460-how-do-i-know-if-my-host-can-accommodate-my-allergies-dietary-restrictions,検索フィルタ『特別食』と、体験ページ下部に対応可能なアレルギー・食事制限を表示。予約時または予約後にホストへメッセージで申告(承認はホストの返信)。登録フォーム・プロフィール保存は確認できず。
+FD03,△,公式,https://intercom.help/eatwith/en/articles/429231-i-m-a-professional-chef-and-or-i-have-a-restaurant-can-i-be-a-host,個人ホスト向けにカレンダー・予約・支払い・インボックスのダッシュボードあり。『レストランは掲載不可』と明記(2018年11月の記事、現行は要確認)。店舗向けの画面ではない。
+FD04,△,公式,https://intercom.help/eatwith/en/articles/8032004-hosts-calendar-how-to-manage-your-availability,ホストのカレンダーに予約人数が表示され、予約リクエストが通知される。仕込み数などの集計・店舗への自動通知は記述なし。
+FD05,✅,公式,https://intercom.help/eatwith/en/articles/5662208-hosting-private-and-or-open-events-on-eatwith,ホストの席を予約する形。公開イベントは他のゲストと相席、プライベートイベントは貸切(最小人数を満たす団体)。店舗ではなく個人ホストの自宅等が主。
+FD06,✅,公式,https://intercom.help/eatwith/en/articles/1441940-how-to-display-your-menu,体験ごとに固定メニュー(コース名・料理名・材料)をホストが掲載し、価格に食事・飲み物を含む。ゲストが品目を選ぶ形ではない。
+FD07,△,公式,https://intercom.help/eatwith/en/articles/4155989-managing-payments-for-private-events,プライベートイベントではゲスト同士が費用を分割して支払える(2020年6月の記事)。公開イベントは各自が席を購入。
+FD08,✅,公式,https://intercom.help/eatwith/en/articles/8279528-how-do-i-use-the-filters-and-the-map-to-find-an-experience,都市・日付・人数・料理・価格・特別食・地図で比較検索。団体の幹事向けにプライベートイベントの依頼導線(ホストへ事前メッセージも可)。
+FD09,✅,公式,https://intercom.help/eatwith/en/articles/5662208-hosting-private-and-or-open-events-on-eatwith,ホストが最小・最大人数を設定、日付を閉じる・凍結、即時予約の設定。残席表示は確認できず。
+FD10,？,なし,https://intercom.help/eatwith/en/articles/429237-what-type-of-experience-can-i-offer,提供形態の選択は確認できず。体験は1日完結の会食・料理教室・ツアーで、オンライン・テイクアウト・デリバリーの記述なし(二次: 2021年にオンライン体験のアフィリエイト記事あり)。
+MN01,✅,公式,https://intercom.help/eatwith/en/articles/4118435-pricing-your-experiences,ホスト手数料なしで、ゲストが30%を上乗せ(表示価格=設定価格+30%、例$20→$26)。他の手数料なし。fee記事(2023-09)には『パートナーサイト掲載時は30%に引き上げ』とも書かれ記述が混在。
+MN02,❌,公式,https://intercom.help/eatwith/en/articles/432349-how-much-does-it-cost-to-host-with-eatwith,ホスト向けサブスク・有料プランの記述なし(ホストは設定価格の100%を受け取り他の手数料なし)。
+MN03,？,なし,https://intercom.help/eatwith/en/articles/8279504-should-i-tip-the-host-after-an-eatwith-experience-gratuity,チップは任意(現金)とされ、アプリ内のチップ上乗せ機能は確認できず。多くの都市で不要とする案内。
+MN04,✅,公式,https://intercom.help/eatwith/en/articles/1421963-how-do-i-purchase-a-gift-card,プロモコード、ギフトカード(任意額またはプリセット)、紹介クーポン。キャンセル時はギフトカード残高に戻る。
+MN05,？,なし,,ポイント・会員特典は確認できず(ギフトカード・紹介クーポン・ホスト都合キャンセルのクレジットはあるが別機能)。

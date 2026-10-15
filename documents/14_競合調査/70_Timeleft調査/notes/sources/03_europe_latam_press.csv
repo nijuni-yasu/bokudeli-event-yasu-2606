@@ -1,0 +1,27 @@
+outlet,country,language,date,url,type,key_points,reliability,read_depth
+Time Out Lisboa,ポルトガル,ポルトガル語,2023-11-19,https://www.timeout.pt/lisboa/pt/noticias/timeleft-o-sucesso-meteorico-dos-jantares-com-estranhos-111923,press,"リスボン週約600人・ポルト約160人(主催者発表)。1人€12.90。女性約60%・30〜60歳。シティマネージャー1名。マッチング不正確、請求書・納税への批判",中,本文
+Correio Braziliense (BBC Brasil),ブラジル,ポルトガル語,2024-05-30,https://www.correiobraziliense.com.br/mundo/2024/05/amp/6867706-por-que-as-pessoas-estao-pagando-para-jantar-com-desconhecidos.html,press,"2024年3月ブラジル進出。R$39.90。2か月余で9000人超。25〜50歳。Confra(R$29.90・金曜)と比較。ヴィーガン退席など批判",中,本文
+Bloomberg Línea Brasil,ブラジル,ポルトガル語,2024-07-14,https://www.bloomberglinea.com.br/tech/jantares-e-encontros-com-estranhos-ao-vivo-buscam-ser-alternativa-a-apps-como-bumble/,press,"150都市・50か国。ブラジル登録3万人・11都市。創業者『収益化に近い』。We Met IRL等と比較",中,本文
+Guía del Ocio,スペイン,スペイン語,2024-02-08,https://guiadelocio.es/madrid/cenando-con-desconocidos-timeleft/,press,"スペイン6都市・600人超・50店。女性68%。40都市9か国・累計2.5万人(自社)。価格・批判なし",中,本文
+Xataka Móvil,スペイン,スペイン語,2024-08-26,https://www.xatakamovil.com/movil-y-sociedad/novedad-aplicaciones-sociales-encontrar-gente-que-compartir-comida-objetivo-luchar-soledad,press,"185都市。スペイン10都市。競合 The Breakfast(17都市・招待制)・Bumble・Meetup",中,本文
+Barcelona Urbana,スペイン,スペイン語,不明,https://barcelonaurbana.com/blog/conocer-gente-barcelona-de-noche,press,"1回€12.99または月€19.99(検索結果の要約のみ)",低,要約のみ
+El Observador (Uruguay),ウルグアイ,スペイン語,2026-03-23,https://www.elobservador.com.uy/opinion/20-euros-cenar-alguien-que-no-te-odie-n6038484,press,"意見記事。マドリードで€20。275都市60か国・月1万回との記述(取り違えの可能性)。403で本文取得失敗",低,要約のみ
+El Observador (BBC Mundo転載),ウルグアイ,スペイン語,2024-06-11,https://www.elobservador.com.uy/las-personas-que-pagan-comer-desconocidos-y-asi-combatir-la-soledad-n5945233,press,"BBC Mundo系。中南米の展開都市(BA・CDMX・モンテビデオ等)。403で本文取得失敗",中,要約のみ
+Expansión (México),メキシコ,スペイン語,2024-06-25,https://expansion.mx/tecnologia/2024/06/25/ante-la-soledad-la-amistad-en-la-era-digital-cobra-tarifa,press,"2024-04開始。7都市。140/230/480/730ペソ。対象区が狭い・欠席・外国人不在・割高などの批判。参加者証言",高,本文
+CDMX Secreta,メキシコ,スペイン語,2024-06-22,https://cdmxsecreta.com/timeleft-cdmx/,press,"同価格表。25〜63歳。90都市18か国40万人超(自社由来と推測)。画像に提供表記があり宣伝色強い",低,本文
+Primicias,エクアドル,スペイン語,2024-07-02,https://primicias.ec/noticias/entretenimiento/cenas-desconocidos-quito-guayaquil-timeleft-app,press,"2024-07-03キト・グアヤキル開始。USD 7.49/11.49/23.99/36.99。140都市25か国(自社)。グアテマラ・ペルー予定",中,本文
+Primicias (更新2025-04-06),エクアドル,スペイン語,2025-04-06,https://www.primicias.ec/sociedad/adios-tinder-aplicacion-cenar-desconocidos-quito-92623,press,"キトの体験記。会場 Boccatto・二次会 Love Me Rooftop。参加者27歳・25歳。男女比の偏りの指摘",中,本文
+Time Out Buenos Aires,アルゼンチン,スペイン語,2025-10-02,https://www.timeout.com/es/buenos-aires/conocer-gente-citas-vino-con-chamuyo-extranos-a-la-carta,press,"Timeleft言及なし。ローカル企画 Extraños a la Carta・Vino con Chamuyo(水曜・25〜35歳)",中,本文
+Timeleft ブログ(イタリア),イタリア,英語,2024(推測),https://timeleft.com/post/timeleft-blossoms-in-italy-enchanting-evenings-of-community-and-cuisine/,official,"ローマ6/19・ミラノ6/26・他5都市7/3開始と告知。月額€12.99から。年記載なし(ページ日付2025-12-15は再掲日と見られる)",中,本文
+Balarm,イタリア,イタリア語,不明,https://www.balarm.it/eventi/il-giropizza-piu-social-della-citta-la-cena-degli-sconosciuti-torna-ai-vecchietti-di-minchiapititto-104195,press,"パレルモのローカル競合『La cena degli sconosciuti』30〜50歳・€16(検索結果の要約のみ)",低,要約のみ
+Timeleft ブログ(ベルリン等),ドイツ,英語,2024-03-01,https://timeleft.com/blog/2024/03/01/timeleft-is-coming-to-berlin-seize-your-opportunity-and-take-a-seat/,official,"ベルリン・フランクフルト・ミュンヘン・シュトゥットガルト・ハンブルク・ケルン開始告知。取得時404",中,要約のみ
+Timeleft ブログ(ウィーン),オーストリア,英語,2024-03-04,https://timeleft.com/blog/2024/03/04/experience-vienna-like-never-before-unlock-a-new-social-era-starting-march-6th/,official,"ウィーン3月6日開始の告知(検索結果の要約のみ)",中,要約のみ
+Timeleft ブログ(アムステルダム),オランダ,英語,2024-03-21,https://timeleft.com/blog/2024/03/21/lights-canals-action-amsterdams-social-revolution-starts-march-20th-with-timeleft/,official,"アムステルダム・ロッテルダム3月20日開始の告知。取得時404",中,要約のみ
+The Brussels Times,ベルギー,英語,2024-08-06,http://www.brusselstimes.com/1160308/table-for-six-strangers-fighting-urban-loneliness-over-dinner,press,"€12.99。Benelux担当 Aya Tohme。店は月2卓以上の保証と引き換えに手数料を支払う。情報開示が多いほど欠席が増えた。参加者2名の声",高,本文
+Paperjam,ルクセンブルク,フランス語,不明(2024前半と推測),https://paperjam.lu/article/timeleft-ou-comment-contrer-so,press,"1回€13.99・月€19.99。上陸2か月で80人強・女性60%・評価4.6/5。約60都市・5万人・従業員15人。提携店の条件。日付は取得時の閲覧日表示で不明",中,本文
+PURO Mag,ポーランド,英語,不明,https://purohotels.com/en/puro-mag/timeleft/,press,"ポーランド6都市・ワルシャワ週約100人・世界週約17000人。店は現地確認で選定。Aleksander Dunin 氏インタビュー。PURO提携",中,本文
+Luma (Timeleft x PURO),ポーランド,英語,不明(11/13水曜=2024年と推測),https://luma.com/bm6s5f8t,official,"5都市同時の特別ディナー250人・完売。コース3品+ワイン1杯",中,本文
+newmoney.gr,ギリシャ,ギリシャ語,2026-03-17,https://www.newmoney.gr/journal/το-τέλος-της-δωρεάν-παρέας-και-η-μεγάλη/,press,"アテネで毎週水曜・席代€10〜15。孤独市場の解説記事で個別の批判や証言なし",中,本文
+Timeleft(ブラジル向けトップ),グローバル,英語・日本語混在,2026-10-14取得,https://timeleft.com/br/,official,"200都市以上・52か国・4M+・80000+ディナー。国別都市一覧(約195都市)。イタリア2・エクアドルなし・メキシコ5・スペイン9",中,本文
+Timeleft(日本向けトップ),グローバル,英語・日本語混在,2026-10-14取得,https://timeleft.com/jp/,official,"同一の都市一覧を再確認。キト・メリダ・ムルシア・フィレンツェ等は掲載なし",中,本文
+Trustpilot,グローバル,英語,2026-10-14取得,https://www.trustpilot.com/review/timeleft.com,review,"3.2/5・766件。自動更新・解約・返金、サポート遅延、会場、年齢性別の偏り、ポーランドの安全の訴え。投稿は自己申告",中,本文

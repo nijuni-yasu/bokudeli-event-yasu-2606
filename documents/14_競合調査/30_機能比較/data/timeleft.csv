@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,△,公式,https://help.timeleft.com/hc/en-150/articles/28532932215964-How-Do-I-Book-an-Event,予約画面でイベント種別(夕食・コーヒー・ラン・ドリンク)と日付を選ぶ形。キーワード検索は確認できず。
+DS02,✅,公式,https://timeleft.com/locations/,都市別の選択(52か国・200都市超、都市別ページ)と、予約時の近隣エリア選択(App Store)。地図・駅検索は確認できず。
+DS03,△,公式,https://help.timeleft.com/hc/en-150/articles/28532932215964-How-Do-I-Book-an-Event,日付・言語・予算帯・食の希望を予約条件として指定する方式。一覧を絞り込むUIではない。東京は曜日固定の開催(水・金の夕食など)。
+DS04,？,なし,,イベント推薦フィードの記述なし。『推薦』は卓編成(約50問の性格テストによる人のマッチング)であり、イベント推薦とは別。
+DS05,？,なし,,主催者・店のフォローは確認できず。同卓者は終了後に自動でConnection(JN12・CR02)になる。
+DS06,？,なし,,ブックマーク・ウィッシュリストの記述なし。
+DS07,✅,公式,https://timeleft.com/locations/,都市ごとの公開ページ(/tokyo/ /nyc/ など約195都市)を持ち、検索流入と登録導線になる。
+DS08,△,公式,https://timeleft.com/tokyo/,運営が店を選定し東京ページで会員の人気店を紹介。イベントの特集・ランキング面は確認できず。
+JN01,❌,公式,https://help.timeleft.com/hc/en-150/articles/28530549963804-How-Do-I-Sign-Up,予約にはアカウント(メールまたはソーシャルログイン)と有効なサブスクリプションが必要。アカウントは先に作り購読は後でも可。
+JN02,✅,公式,https://help.timeleft.com/hc/en-150/articles/28530549963804-How-Do-I-Sign-Up,メールまたはソーシャルログインで登録。電話番号認証は予約前に必須(TS01)。
+JN03,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。参加者の可否は運営のマッチング(卓編成)が決める。
+JN04,△,公式,https://apps.apple.com/us/app/timeleft-make-new-friends-irl/id6466442949,App Store の更新履歴に『一部都市でウェイトリスト機能』(v5.7.0)。満席時のキャンセル待ちか未提供都市の待機かは未詳。サインアップ時に未提供都市向けの待機登録もある(ヘルプ)。
+JN05,？,なし,,定員・残席の表示は確認できず。卓は4〜6人(日本ページ・App Store)。予約は開催13時間前に締切。
+JN06,✅,公式,https://help.timeleft.com/hc/en-150/articles/27957183804828-How-Do-I-Invite-a-Guest,予約時に言語・予算・食の希望を入力。サインアップに約5分のアンケート。+1(同行者)を最大5人のConnectionまたはリンクで招待。
+JN07,✅,公式,https://help.timeleft.com/hc/en-150/articles/28536868572444-How-Do-I-Cancel-or-Modify-My-Reservation,アプリでキャンセル可。48時間超は無料、24〜48時間は罰則の可能性、24時間未満は欠席料の可能性(TS04)。サブスク料は原則返金不可。
+JN08,？,なし,,カレンダー追加の記述なし。iOS はロック画面のカウントダウン(Live Activity)あり(App Store)。
+JN09,✅,公式,https://help.timeleft.com/hc/en-150/articles/28541783156380-How-Do-I-Manage-My-Notifications-and-Emails,開催前にプッシュ・メールでリマインド。開催24時間前にメールで会場詳細、卓番号はアプリで1時間前に開示。日本は会場を12時間前に開示(東京ページ)。
+JN10,？,なし,https://help.timeleft.com/hc/en-150/articles/28538239191068-I-Arrived-and-No-One-Showed-Up,当日は店員に『Timeleft の予約』と伝え、卓番号をアプリで確認する方式。QR受付の記述なし。欠席は同卓者の報告で記録(TS04)。
+JN11,△,公式,https://timeleft.com/safety-guidelines/,意図的に事前非公開。氏名・写真は開催後まで見えず、写真は開始の1時間30分後に表示(ヘルプ)。当日に卓の属性(業種・国籍など)が分かる(二次: Inquirer 2024)。同伴招待したConnectionのみParticipantsに表示。
+JN12,✅,公式,https://help.timeleft.com/hc/en-150/articles/28540292815772-What-are-Post-Events-Connections-and-Impressions,Impressions(印象を共有→1対1チャット)、イベント・店のフィードバック、卓のグループチャットは開催後も継続、Connection化。
+SH01,？,なし,,都市別の公開ページはあるが、共有時のOGPカードの記述は確認できず。
+SH02,△,公式,https://help.timeleft.com/hc/en-150/articles/27957183804828-How-Do-I-Invite-a-Guest,+1リンクをコピーまたは他アプリ経由で共有できる。LINE・X等の個別ボタンは確認できず。
+SH03,✅,公式,https://help.timeleft.com/hc/en-150/articles/27957183804828-How-Do-I-Invite-a-Guest,予約後に+1招待(リンクまたは最大5人のConnection)。Repeatで過去の同卓者を次回に招待。招待された人は簡易登録で参加。
+SH04,△,公式,https://timeleft.com/affiliate/,参加者向けの紹介報酬・紹介の可視化は確認できず(ヘルプに報酬の記述なし)。アンバサダー向けに紹介リンクとリアルタイムの成果ダッシュボード(売上の50%)がある(AC05)。
+SH05,❌,公式,https://help.timeleft.com/hc/en-150/articles/28540389917852-How-do-I-add-or-remove-a-connection,Connectionは同卓者に限られ、アプリ内で外部の人を検索・招待する手段はない(ヘルプ)。連絡先・SNS同期の記述なし。+1リンクは外部の人を招けるが友人発見ではない。
+SH06,△,公式,https://timeleft.com/tokyo/,東京ページに月間予約数・新規参加者数・開催数を表示。公式サイトに会員4M+・ディナー8万回超(2026-10取得時)と口コミ。イベント単位での他者参加の表示は参加者非公開のため確認できず。
+SH07,？,なし,,QR・短縮URL・チラシ生成の記述なし(アンバサダーに専用リンクと資料はあるが参加者・主催者向けではない)。
+SH08,？,なし,,埋め込みウィジェットの記述なし。
+OP01,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP02,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。定例は運営が固定曜日(水曜夕食など)で開催。
+OP03,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP04,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP05,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP06,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP07,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。運営が卓のグループチャットを開設する(CR07)。
+OP08,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。店員への申告と卓番号確認で運用(JN10)。
+OP09,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。食事代は参加者が店へ直接支払う。
+OP10,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+OP11,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。運営の都市ページ(DS07)のみ。
+OP12,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+AC01,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。主催者手数料の概念がなく、収益は参加者のサブスク(MN01)。
+AC02,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。手数料の負担者選択はなし。予約手数料もなし(公式ブログ)。
+AC03,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+AC04,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+AC05,✅,公式,https://timeleft.com/affiliate/,アンバサダー(アフィリエイト)制度: 紹介リンク経由の売上の50%、月次自動払い、承認制、成果ダッシュボード。参加者獲得用で主催者向けではない。グロース根拠あり(効いたチャネルとして日本語ページのアフィリエイトが挙がる。効果の定量は未確認)。
+AC06,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。店舗向けは問い合わせフォームのみ(店舗向けガイドは確認できず)。
+AC07,△,公式,https://timeleft.com/brand-partnerships/,ブランド向けスポンサー商品(イベントへの組込み、アプリ内プッシュ・メール・SNS露出、予算<$25K〜$500K+)。主催者向けの集客商品ではない。
+AC08,✅,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,Timeleft が夕食・ドリンク・コーヒー・ラン・ウォーク・女性限定・LGBTQ+など全イベントを自社開催。
+CR01,△,公式,https://help.timeleft.com/hc/en-150/articles/28541783156380-How-Do-I-Manage-My-Notifications-and-Emails,マーケティング・ニュースレターのメールとプッシュあり。おすすめ・新着ダイジェストの内容は確認できず。
+CR02,△,公式,https://help.timeleft.com/hc/en-150/articles/28540389917852-How-do-I-add-or-remove-a-connection,同卓者は終了後に自動でConnectionになりチャット可。次回はRepeatで手動招待(自動で案内が届く仕組みは確認できず)。
+CR03,△,公式,https://help.timeleft.com/hc/en-150/articles/27957183804828-How-Do-I-Invite-a-Guest,Repeat(既存Connectionを次回イベントに招待)とワンタップ再予約(App Store)。過去参加者への先行案内ではない。
+CR04,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,【モデル上なし】Timeleft 運営がイベントを自社開催し利用者は予約するだけ(ヘルプの仕組み説明)。
+CR05,△,公式,https://help.timeleft.com/hc/en-150/articles/28540292815772-What-are-Post-Events-Connections-and-Impressions,他者からのImpressions(印象の要約)あり。参加回数・バッジ・実績の表示は確認できず。
+CR06,✅,公式,https://timeleft.com/post/timeleft-algorithm-the-maestro-of-your-dinners/,開催後に店と同卓者との相性を評価し、結果が次回マッチングに反映される。Impressions、店・イベントのフィードバックもある。
+CR07,✅,公式,https://help.timeleft.com/hc/en-150/articles/29192588664860-How-Do-Group-Chats-Work,卓のグループチャットが開始30分前に開設され開催後も継続、Connectionとの1対1チャット、リアクション・返信、AI/人によるモデレーション。アンケートによる卓編成: 約50問の性格テスト(既存ノート)で卓を組み、年齢差5〜7歳・性別・内向外向を混合、卓は4〜6人(通常6人)。グロース根拠あり(固定曜日・6人卓の型で拡大)。
+CR08,？,なし,,Wrapped型の年間振り返りは公式ページ・App Store説明・検索で確認できず。
+TS01,✅,公式,https://timeleft.com/blog/is-timeleft-safe/,予約前に電話番号認証が必須(番号は他会員に非表示)、実名登録、必要時にID確認。ヘルプは参加前の本人確認を明記。18歳以上(UAEは21歳以上)。登録手順のヘルプには認証の記述がなく表現にばらつきあり。
+TS02,△,公式,https://help.timeleft.com/hc/en-150/articles/27963850159516-Partnering-with-Timeleft-Venues-and-Bars,主催者は存在しないが、提携店は訪問・審査して採用(少人数対応・個別会計・品質を基準)。店の提案・避けたい店の連絡を受け付ける。
+TS03,✅,公式,https://help.timeleft.com/hc/en-150/articles/29193330963868-How-Are-Group-Chats-Moderated,メッセージ長押しで通報(通報先は非通知・自動ブロック)、ブロック、チャットの自動フィルタ、Trust & Safetyチーム審査、3段階の処分(教育的警告→正式警告→永久BAN)と異議申し立て。
+TS04,△,公式,https://help.timeleft.com/hc/en-150/articles/25012703925148-What-Is-the-No-Show-Penalty-Fee,無断欠席料=1か月サブスク料金の35%(米国を除く。予約前に警告が出た場合のみ)。同卓の2人以上が欠席を報告すると記録され、マッチング優先度に影響(検索要約)。キャンセル期限は48時間超で無料。繰り返しは停止の可能性(公式ブログ)。ヘルプ本文は403のため検索要約と公式ブログで確認。グロース根拠あり(欠席対策として既存ノートに記載)。
+TS05,✅,公式,https://timeleft.com/safety-guidelines/,氏名・写真・プロフィールは開催後まで非公開で1対1メッセージも不可、電話番号は他会員に非表示。共有は名前のみを推奨。
+TS06,△,公式,https://timeleft.com/safety-guidelines/,『公式チャネル以外で予約・支払いをしない』という利用者向け注意。他プラットフォームでの無断連絡はコミュニティ規約違反。主催者向けの外部誘導禁止規約は確認できず(主催者がいないため)。
+FD01,❌,公式,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,料理・飲み物の事前注文なし。サブスクは参加枠のみで、食事代は当日店で各自が支払う(ヘルプ・FAQ)。
+FD02,△,公式,https://help.timeleft.com/hc/en-150/articles/27959212422044-Dietary-Preferences-and-Food-Restrictions,予約ごとに食の希望を選択(ベジタリアン・ヴィーガン・グルテンフリー・ハラール・コーシャの5種)。プロフィールには保存されない。アレルギー専用欄はなく、重度は会場情報の受領後に店へ直接連絡。店・同卓者への共有方法は未記載。
+FD03,？,なし,,店舗向け管理画面の記述なし(提携は問い合わせフォーム、苦情は担当者・フォーム: ヘルプ)。OpenTable経由で予約が入るとの店主証言(二次: Inquirer 2024)。
+FD04,△,公式,https://timeleft.com/,運営が卓と店を確保する(FAQ:『店を予約する』)。店への人数通知・集計の仕組みは公式に確認できず。二次: 店主は Timeleft 側から OpenTable 経由で予約が入ると証言(Inquirer 2024)。
+FD05,✅,公式,https://timeleft.com/,席のみ確保型。Timeleft が店・卓・時間を手配し、食事代は各自が店で支払う。店には対価を払わず毎週グループを送客(ヘルプ検索要約・既存ノート)。注文しない参加者が多いと店が提携終了を申し出る例あり(既存ノート)。少人数卓(4〜6人)。グロース根拠あり(卓確保型でARR €18M自己申告。都市あたり週50人以上の密度設計)。
+FD06,❌,公式,https://help.timeleft.com/hc/en-150/articles/28532932215964-How-Do-I-Book-an-Event,コース・固定メニューの選択はなし。予約時に選べるのは予算帯などの条件のみで、料理は店で各自が注文。
+FD07,△,公式,https://help.timeleft.com/hc/en-150/articles/27959085490588-The-Venue-Wouldn-t-Split-the-Bill,個別会計に対応できる店を選定(提携条件)。店ごとに方針が異なり不可の店もある。アプリ内の割り勘・精算機能はなく、現地で個別会計か参加者間で精算。
+FD08,△,公式,https://help.timeleft.com/hc/en-150/articles/27958879824796-Venue-Rotation-and-Suggestions,店は運営が予算帯・エリア・食の希望で割り当て(3〜4週間は同じ店を割り当てない)。利用者は選べず、店の提案・避けたい店の連絡のみ可。幹事向けの比較機能はなし。
+FD09,？,なし,,売り切れ・限定数の管理の記述なし(卓は4〜6人、予約は開催13時間前に締切)。
+FD10,❌,公式,https://help.timeleft.com/hc/en-150/articles/28532667896988-What-types-of-events-does-Timeleft-offer,提供形態の選択なし。全て対面(店内の食事・ドリンク・コーヒー、ラン・ウォーク)。テイクアウト・デリバリーの記述なし。
+MN01,✅,公式,https://timeleft.com/blog/how-much-does-a-supper-club-cost/,"料金を公開: 米国は月額$19.99(公式ブログ 2026-09)、予約手数料なし。App Storeの課金項目は$19.99/$46.99/$62.99(内訳は未記載。プランは1・3・6か月)。日本は金額が公式ページに出ずアプリ内表示のみ(二次: 参加者体験記事で1回¥1,890・月額¥2,290)。"
+MN02,❌,公式,https://help.timeleft.com/hc/en-150/articles/27963865308060-What-Subscription-Plans-Are-Available,主催者向けプランはなし(定義上の機能はなし)。代わりに参加者向けサブスク(1・3・6か月)が主収益。食事・飲み物・会場費は別払い。
+MN03,？,なし,,任意のチップ・寄付の記述なし。
+MN04,✅,公式,https://help.timeleft.com/hc/en-150/articles/28540951555612-My-Promo-Code-Isn-t-Working,プロモコード(サブスク購入・予約時のチェックアウト欄)。新規向け€5割引コードの案内あり(二次寄り: 2023年パリ記事、既存ノート)。
+MN05,△,公式,https://help.timeleft.com/hc/en-150/articles/27963870649244-How-Do-I-Use-a-Credit,クレジット残高があり次回請求を自動で減額(取得条件は未記載)。キャンセル時の補償もプラン依存。ポイント・ロイヤルティ制度は確認できず。

@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,？,なし,,キーワード・カテゴリ検索の記述なし(App Store説明はフィード中心)。公式サイトはSPAで本文を取得できず。
+DS02,△,公式,https://apps.apple.com/app/id1509667820,提供都市は Chicago・Austin・Bay Area・Columbus(他都市は順次)。地図・都市での絞り込みUIの記述は確認できず。
+DS03,？,なし,,日付・価格での絞り込みの記述なし(イベントは主に無料)。
+DS04,✅,公式,https://apps.apple.com/app/id1509667820,興味に合う無料の地元イベントを出すパーソナライズ・フィード(友人・友人の友人の参加予定を表示)。2025-12に『つながりの参加予定が見える』フィードへ変更(二次: TechCrunch 2026-08)。
+DS05,△,公式,https://apps.apple.com/app/id1509667820,Communities(Community Homes)にコミュニティフィードがありグループ単位で新着が流れる(Community Homesは2026-08開始: TechCrunch)。主催者単位のフォローは確認できず。
+DS06,✅,公式,https://apps.apple.com/app/id1509667820,Plans(予定)のブックマーク機能(What's New)。
+DS07,？,なし,,検索流入を受ける公開の都市別・カテゴリ別ページは確認できず(公式サイトがSPAで本文取得不可)。
+DS08,？,なし,,運営の特集・ランキング面は確認できず(Pie自身はイベントを主催せず参加者が作る: 二次 AOL 2024)。
+JN01,？,なし,,アカウント不要の申込は確認できず(サインアップは電話番号: 二次 AOL 2024)。外部のRSVPリンク・チケットへ誘導するイベントもある。
+JN02,△,二次,https://www.aol.com/news/tried-pie-social-million-dollar-130801270.html,二次: 電話番号でサインアップ(Business Insider 2024-11)。公式ストア説明にログイン方式の記述なし。
+JN03,？,なし,,主催者による参加承認の記述なし(イベントは公開・非公開、snowballで拡散)。
+JN04,？,なし,,ウェイトリストの記述なし。
+JN05,？,なし,,定員・残席の表示は確認できず。『一部イベントは参加枠が限られる』との二次報道のみ(AOL 2024)。
+JN06,？,なし,,追加質問・同行者入力の記述なし。『友人同伴可』のイベントがある(二次: AOL 2024)。
+JN07,？,なし,,セルフキャンセル・返金の記述なし(無料イベントが中心)。RSVPはYes/Maybe/Noで変更できる(二次: AOL 2024)。
+JN08,✅,公式,https://apps.apple.com/app/id1509667820,Calendar sync(カレンダーへの追加)とカレンダー購読(What's New)。
+JN09,？,なし,,開催前リマインドの記述なし。
+JN10,△,公式,https://apps.apple.com/app/id1509667820,Apple Walletチケットに対応(What's New)。当日受付の運用は確認できず。外部RSVPリンクでQRを受け取るイベントもある(二次: AOL 2024)。
+JN11,△,公式,https://apps.apple.com/app/id1509667820,友人・友人の友人が参加予定のイベントがフィードに出る。全参加者の一覧ではなく、つながりの範囲に限られる。参加者同士のメッセージあり(二次: AOL 2024)。
+JN12,？,なし,,事後のレビュー・写真アルバムの記述なし(チャットは継続する可能性があるが未確認)。
+SH01,？,なし,,共有URLのOGPカードの記述なし(リンク共有は可: SH02)。
+SH02,✅,公式,https://apps.apple.com/app/id1509667820,リンク・テキストメッセージ・AirDrop・Instagram Storiesで共有。
+SH03,✅,公式,https://apps.apple.com/app/id1509667820,Invites(招待)機能と、非公開イベントを『snowball』モードで友人の友人へ広げる導線。友人(Friends)ページあり(二次: AOL 2024)。
+SH04,△,二次,https://www.mediapost.com/publications/article/416426/can-pie-cure-loneliness-new-cmo-believes-it-can.html,二次: Creators Clubは、RSVP経由で新規アカウントを連れてきたホストに支払う(紹介の追跡あり)。参加者向けの紹介リンク・可視化は確認できず。
+SH05,？,なし,,連絡先・SNS連携による友人発見の記述なし(『友人の友人』グラフはあるが連携方法は未確認)。
+SH06,✅,公式,https://apps.apple.com/app/id1509667820,友人・友人の友人の参加予定をフィードに表示する社会的証明。グロース根拠あり(2025-12のフィード変更後、アプリ滞在が2分→10分と自社発言: TechCrunch 2026-08)。
+SH07,△,公式,https://apps.apple.com/app/id1509667820,コミュニティ共有用のQRコード(What's New)。短縮URL・チラシ/ポスター生成は確認できず。
+SH08,？,なし,,埋め込みウィジェットの記述なし。
+OP01,✅,公式,https://apps.apple.com/app/id1509667820,『+』から作成でき、リンクをインポートしてプランを作成できる(What's New)。タグ付けもある。
+OP02,？,なし,,複製・繰り返し作成の記述なし(Community Homesの『定例』的な使い方は未確認)。
+OP03,✅,公式,https://apps.apple.com/app/id1509667820,非公開イベントと、snowballモードで拡散する公開イベントを選べる。『全てのイベントが公開ではない』(TechCrunch 2024-11)。
+OP04,？,なし,,AI作成支援は確認できず。AIチャット相棒『Pienelope』(v5.24.0)と、マッチングへのChatGPT利用(二次: TechCrunch 2025-03)はあるが、イベント作成支援としての記述なし。
+OP05,✅,公式,https://apps.apple.com/app/id1509667820,共同ホスト(cohosts)を追加できる(What's New)。Community Homesに管理者・メンバー権限(TechCrunch 2026-08)。
+OP06,？,なし,,参加者名簿の管理・出力の記述なし。
+OP07,？,なし,,一斉メッセージの記述なし。グループチャットは『近日』(TechCrunch 2026-08)。
+OP08,？,なし,,当日運営ツールの記述なし。
+OP09,？,なし,,売上・入金管理の記述なし(イベントは主に無料)。Creator Fundの支払い方法は未確認。
+OP10,？,なし,,流入・申込の分析機能の記述なし。
+OP11,✅,公式,https://apps.apple.com/app/id1509667820,Community Homes: 共有できるホームページ・コミュニティフィード・管理ツール(App Store、TechCrunch 2026-08)。お気に入りで公開プロフィールも作れる。
+OP12,△,公式,https://apps.apple.com/app/id1509667820,カレンダー購読とリンクからのプラン取り込みあり。Zoom・Slack・API等の連携は確認できず。
+AC01,△,公式,https://apps.apple.com/app/id1509667820,アプリは無料・アプリ内課金なしで『無料イベント』が中心。主催者の手数料・固定費の記述はなし。外部チケットへ誘導するイベントもある(二次: AOL 2024)。
+AC02,？,なし,,手数料の負担者選択の記述なし。
+AC03,？,なし,,参加者データの所有・出力の記述なし。
+AC04,？,なし,,他サービスからの移行機能は確認できず(リンク取り込みはプラン作成のみ)。
+AC05,△,二次,https://techcrunch.com/2024/11/19/irl-social-app-pie-is-coming-to-sf-to-make-you-less-lonely,"二次: Creator Fund($1M、RSVP1件あたり$5〜10)とCreators Club(RSVP経由で新規アカウントを連れてきたホストに支払い)。公式の募集条件は確認できず。『Creator in Residence』は持分付与(二次: AOL 2024)。グロース根拠あり(約23,000人(2024-10)→13万MAU(2025-03)。既存ノートは相関のみとする)。"
+AC06,？,なし,,主催者向け教育・テンプレートの記述なし。
+AC07,？,なし,,有料の集客支援商品は確認できず(Creator Fundは運営が主催者に支払う側)。
+AC08,△,二次,https://techcrunch.com/2025/03/04/andy-dunns-new-app-pie-uses-ai-to-help-you-make-friends,二次: Pieは自らイベントを主催しないと報じられた(AOL 2024)一方、2025年にはPie運営のマッチング付き会『Sparked by Pie』(Coffee with Strangers等)が登場(TechCrunch 2025-03)。
+CR01,？,なし,,ダイジェスト・おすすめ通知の記述なし。
+CR02,？,なし,,自動メンバー化の記述なし。Community Homesはグループが参加者を束ねる場だが自動参加は未確認。
+CR03,？,なし,,前回参加者への優先案内の記述なし。
+CR04,？,なし,,主催者CRM・購読者リストの記述なし。
+CR05,？,なし,,参加履歴・バッジ・実績の記述なし(お気に入りの興味で公開プロフィールを作れる: TechCrunch 2026-08)。
+CR06,？,なし,,レビュー・評価の記述なし。
+CR07,✅,公式,https://apps.apple.com/app/id1509667820,アプリ内チャット(写真・予定の相談)、Plansで他の参加者へメッセージ(二次: AOL 2024)。アンケートによる卓編成: 『Sparked by Pie』ではRSVP時に1〜5段階のクイズに答え、6人グループに分けてグループチャットを開設(二次: TechCrunch 2025-03)。Community Homesのグループチャットは『近日』。グロース根拠あり(AIクイズが成長要因として既存ノートに記載)。
+CR08,？,なし,,年間振り返りの記述なし(Instagram Stories共有はあるが振り返り機能は未確認)。
+TS01,△,二次,https://www.aol.com/news/tried-pie-social-million-dollar-130801270.html,二次: 電話番号でサインアップ(Business Insider 2024-11)。ID・実名確認は確認できず。
+TS02,？,なし,,主催者の審査・認定の記述なし(Creator Fundは申請制だが審査基準は未確認)。
+TS03,？,なし,,通報・ブロック・モデレーションの記述は取得した範囲に無し(App Store: 18+、メッセージ・ユーザー投稿コンテンツを含む)。
+TS04,？,なし,,ドタキャン対策の記述なし(無料イベントが中心で前払い・欠席料は未確認)。
+TS05,△,二次,https://techcrunch.com/2024/11/19/irl-social-app-pie-is-coming-to-sf-to-make-you-less-lonely,二次: 全イベントが公開ではなく、非公開イベントで場所を限定できる(安全面のレイヤーとして創業者が説明)。参加者情報のぼかし表示等は確認できず。
+TS06,？,なし,,直接取引の抑止の記述なし。
+FD01,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD02,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD03,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD04,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD05,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。席・貸切の確保は確認できず。
+FD06,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD07,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+FD08,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。ディナー等のグループ会は『Sparked by Pie』で扱う(二次)が、店探し支援は確認できず。
+FD09,△,二次,https://www.aol.com/news/tried-pie-social-million-dollar-130801270.html,二次: 一部イベントは参加枠に限りがある(Business Insider 2024-11)。売り切れ・最大数を管理する機能の詳細は確認できず。
+FD10,？,なし,,食事特化機能の記述なし(無料の汎用IRLイベントアプリ。Community Homes も食に特化しない: 既存ノート)。
+MN01,？,なし,,アプリは無料・アプリ内課金なし。手数料・料率の公開は確認できず。
+MN02,？,なし,,主催者向け有料プランの記述なし。
+MN03,？,なし,,任意のチップ・寄付の記述なし。
+MN04,？,なし,,クーポン・割引コードの記述なし(無料イベントが中心)。
+MN05,？,なし,,ポイント・会員特典の記述なし。

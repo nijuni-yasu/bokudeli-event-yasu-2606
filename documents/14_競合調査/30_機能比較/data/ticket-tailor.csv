@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,△,実機,https://www.tickettailor.com/discover,/discover にカテゴリ別の一覧(Theatre・Charity・Workshops & classes 等)。キーワード検索は未確認。公式FAQは組込みの公開イベントマーケットプレイスはないと明記
+DS02,？,なし,,/discover の位置・地図での絞り込みは確認できず(ページ題は Discover Events Near You)
+DS03,？,なし,,日付・価格での絞り込みは /discover で確認できず
+DS04,❌,公式,https://www.tickettailor.com/eventbrite-alternative,公式FAQ: Eventbrite のような組込みの公開イベント発見マーケットプレイスはない(ホワイトラベル型)。推薦機能の記載なし
+DS05,？,なし,,購入者側のフォロー機能は公式資料で確認できず(購入者向けの消費者アプリ・フィードの記載がない)
+DS06,？,なし,,ブックマーク・保存機能は公式資料で確認できず
+DS07,△,実機,https://www.tickettailor.com/discover,/discover/categories/... のカテゴリ別公開ページがある(自社導入イベントのショーケース用途)。都市別は確認できず
+DS08,？,なし,,運営の手動選定・特集は確認できず(/discover は導入事例の一覧で選定基準は不明)
+JN01,✅,公式,https://help.tickettailor.com/en/collections/13514039-support-for-ticket-buyers-and-attendees,購入者はアカウント不要。メールのセキュアリンクでセルフサービス画面に入り、チケットを管理(Find your tickets)
+JN02,✅,公式,https://help.tickettailor.com/en/collections/13514039-support-for-ticket-buyers-and-attendees,メールのセキュアリンクでログイン(パスワード・SNS 不要)
+JN03,？,なし,,参加可否を主催者が承認する機能は公式資料で確認できず
+JN04,✅,公式,https://www.tickettailor.com/features,Waitlist management(売り切れ時に追加需要を取り込む)
+JN05,？,なし,,定員・残席を購入者へ表示する設定は公式資料で確認できず(ticket groups で容量管理はできる)
+JN06,✅,公式,https://www.tickettailor.com/features,Customisable checkout form(ドロップダウン・ラジオ・チェックボックス・T&Cs・オプトイン)。家族/グループ券は Ticket bundles
+JN07,✅,公式,https://www.tickettailor.com/manage-your-orders,購入者セルフサービスで注文の編集・日程変更・キャンセル+自動返金(主催者が条件を設定)
+JN08,✅,公式,https://www.tickettailor.com/features,確認メールに Add to calendar リンクを含められる
+JN09,✅,公式,https://www.tickettailor.com/features,Text reminders(SMS・WhatsApp)と自動メールで開催前に通知。SMS・WhatsApp の料金条件は未確認
+JN10,✅,公式,https://www.tickettailor.com/features,QRコード付きe-ticket、無料 Check-in アプリ(オフライン可)、カスタム Apple Wallet チケット
+JN11,？,なし,,参加者が他の参加者を見られる機能は公式資料で確認できず
+JN12,△,公式,https://www.tickettailor.com/features,予約・即時メール配信で事後の連絡は可能。レビュー・写真アルバム等の専用機能は確認できず
+SH01,✅,実機,https://www.tickettailor.com/events/thebaristaleague/1924213,og:title・og:description・og:image・twitter:card(summary_large_image)と schema.org Event、Share this event ボタンを確認(2026-10 実機)
+SH02,✅,公式,https://www.tickettailor.com/features,Social sharing tools と LinkedIn community builder。共有先の網羅は未確認
+SH03,？,なし,,申込後に友人を招待する導線は公式資料で確認できず
+SH04,△,公式,https://www.tickettailor.com/promote-your-event,チャネル別の referral tags(トラッキングリンク)で売上元を計測、アフィリエイト・紹介プログラム運用にも使える。参加者個人の紹介追跡は未確認
+SH05,？,なし,,連絡先・SNS連携による友人発見は公式資料で確認できず
+SH06,？,なし,,他者の参加を示す表示(アバター・参加人数)は公式資料で確認できず
+SH07,✅,公式,https://www.tickettailor.com/features,Event QR codes(チラシ・ポスター向けにダウンロード)
+SH08,✅,公式,https://www.tickettailor.com/your-event-set-up,チェックアウトを自サイトに埋め込める(Embed checkout)。ウィジェットとしても提供
+OP01,✅,公式,https://www.tickettailor.com/features,Box office design tool(テーマ・色・フォント選択)で数分で公開。イベントとチケット種別は無制限
+OP02,✅,公式,https://www.tickettailor.com/features,Duplicate events(数秒で複製)と Time slot events・Recurring events(繰り返し日程)
+OP03,✅,公式,https://www.tickettailor.com/features,Public or private listings(パスワード保護で検索に出さない)、販売開始・終了の予約、パスワード付きチケット
+OP04,△,公式,https://www.tickettailor.com/features,AI assist(MCPコネクタ)で外部AIツールからイベント作成・チケット更新・売上要約ができる。文面・画像の生成機能そのものではない
+OP05,✅,公式,https://www.tickettailor.com/features,Team permissions(Admin・Event Manager・Order Manager・Overview の4段階)。チームメンバー追加は無料・無制限
+OP06,✅,公式,https://www.tickettailor.com/manage-your-orders,購入者データの検索・CSV出力・カスタムレポート。顧客データは主催者が所有(Ticket Tailor はデータ処理者)
+OP07,✅,公式,https://www.tickettailor.com/features,Email broadcast(無料、予約送信、チケット種別・イベントで絞り込み)と SMS・WhatsApp リマインド
+OP08,✅,公式,https://www.tickettailor.com/features,無料 Check-in アプリ(カメラ/外部スキャナ、オフライン可)、POS(Tap to Pay)、Printable doorlist
+OP09,✅,公式,https://www.tickettailor.com/features,Stripe・PayPal・Square の自アカウントへ直接入金(Ticket Tailor は資金を保持しない)、Revenue reporting
+OP10,✅,公式,https://www.tickettailor.com/promote-your-event,トラッキングリンク、Meta・TikTok ピクセル、GA4、分析ダッシュボード、収益レポート
+OP11,✅,公式,https://www.tickettailor.com/features,Box office(主催者の公開ページ)と複数スタイルの Events calendar、年間ストア。過去イベント一覧は未確認
+OP12,✅,公式,https://www.tickettailor.com/features,Zapier、Mailchimp・HubSpot・Constant Contact・ActiveCampaign、Open API+webhooks。グロース根拠あり(創業者: Wix・WordPress 連携で発見性を確保)
+AC01,△,公式,https://www.tickettailor.com/pricing,"無料チケットは年5,000枚まで無料(同ページのFAQは2,000枚と記載し不一致)。超過分は小額の手数料(要問合せ)"
+AC02,✅,公式,https://www.tickettailor.com/pricing,booking fee として購入者へ転嫁するか、主催者が負担するかを選べる
+AC03,✅,公式,https://www.tickettailor.com/manage-your-orders,顧客データは主催者のもの(Ticket Tailor はデータ処理者・主催者が管理者と明記)。CSV出力可
+AC04,✅,公式,https://www.tickettailor.com/eventbrite-alternative,Importer で Eventbrite の販売中イベントを販売済みチケットごと移行可。Bulk import attendees もある。Eventbrite 売却後に比較記事で乗換え訴求(2026-04)
+AC05,✅,公式,https://www.tickettailor.com/partner-program,アフィリエイト: 紹介先の手数料の20%を毎月支払い、被紹介者に50クレジット。グロース根拠は逆(創業者: 紹介インセンティブは効かなかった)
+AC06,✅,公式,https://www.tickettailor.com/,ヘルプセンター(約400記事)、ウェビナー、ブログ、カスタマーストーリー(トップページの導線)
+AC07,？,なし,,有料掲載・広告・ブーストの商品は公式資料で確認できず(トラッキング・QR等のツールのみ)
+AC08,？,なし,,運営自身のイベント主催・共催は公式資料で確認できず
+CR01,❌,公式,https://www.tickettailor.com/eventbrite-alternative,公式FAQ: 購入者は主催者の顧客で、他イベントの宣伝メールは送らないと明記。推薦・ダイジェスト配信はない
+CR02,？,なし,,参加者の自動メンバー化は確認できず(メンバーシップ/シーズンパスは主催者が発行する別機能)
+CR03,△,公式,https://www.tickettailor.com/features,パスワード付きチケット、バウチャーコード、メンバーシップで限定販売を設定できる。過去参加者への自動の優先案内は確認できず
+CR04,△,公式,https://www.tickettailor.com/promote-your-event,Mailchimp・HubSpot・Constant Contact・ActiveCampaign 連携と、マーケ同意の質問。自前のCRM・セグメントは確認できず
+CR05,？,なし,,参加履歴・バッジ・実績の表示は公式資料で確認できず
+CR06,？,なし,,主催者・イベントへの評価・レビュー機能は公式資料で確認できず
+CR07,？,なし,,参加者同士のチャット・掲示板は公式資料で確認できず(LinkedIn community builder は外部連携)
+CR08,？,なし,,年間まとめ・振り返り共有は公式資料で確認できず
+TS01,？,なし,,利用者の本人確認は公式資料で確認できず(決済は Stripe・PayPal・Square 側の審査に依存)
+TS02,？,なし,,主催者の審査・認定バッジは公式資料で確認できず
+TS03,？,なし,,通報・ブロックの機能は確認できず(Acceptable use policy の存在のみ)
+TS04,✅,公式,https://www.tickettailor.com/manage-your-orders,返金の選択肢と条件を主催者が設定(Set custom business rules)。Refund Protection(保険)、前払い決済、分割払い(Klarna)
+TS05,？,なし,,参加者情報の限定公開・匿名表示は公式資料で確認できず(顧客データは主催者のみ参照)
+TS06,？,なし,,外部取引の抑止を目的とする規約・仕組みは確認できず
+FD01,✅,公式,https://www.tickettailor.com/features-to-help-you-grow,Sell products: チケットと一緒に、または年間ストアで merch から food and drink まで追加商品を注文に加えられる
+FD02,△,公式,https://www.tickettailor.com/features,カスタムチェックアウトフォームで質問を収集できる。専用のアレルギー管理・店舗共有は確認できず
+FD03,△,公式,https://www.tickettailor.com/features,汎用の box office・注文管理・チェックイン。飲食店専用の管理画面ではない
+FD04,？,なし,,人数・注文の店舗通知・仕込み数集計は公式資料で確認できず
+FD05,△,公式,https://www.tickettailor.com/features,Reserved seating(座席表。fundraiser dinners を用途に例示)。店舗の席・貸切管理との連動は確認できず
+FD06,？,なし,,コース・固定メニューの選択は公式資料で確認できず
+FD07,？,なし,,割り勘・個別会計は公式資料で確認できず(Klarna 等の分割払いは購入者個人の支払い方法)
+FD08,？,なし,,店探し・店選び支援は公式資料で確認できず
+FD09,✅,公式,https://www.tickettailor.com/features,Ticket groups・容量管理、ピーク/オフピーク別の価格・容量ルール、販売開始/終了の予約
+FD10,？,なし,,提供形態(イートイン・テイクアウト等)の選択は公式資料で確認できず
+MN01,✅,公式,https://www.tickettailor.com/pricing,£0.60/枚(従量)〜£0.22/枚(前払い)+VAT、サブスクなしと公開。グロース根拠あり(創業者: 低価格・サポートの質・口コミで成長)
+MN02,❌,公式,https://www.tickettailor.com/,月額・契約なしの従量課金と明記。ホワイトラベルは別途少額(For a small fee)
+MN03,✅,公式,https://www.tickettailor.com/features,Donations feature(購入者が寄付を上乗せ。無料機能で寄付に手数料なし)、Gift Aid 対応(英国)
+MN04,✅,公式,https://www.tickettailor.com/promote-your-event,割引コード(定額・割合・期限・利用上限)、早割・学割等のチケット種別、バウチャーコード、ギフトカード
+MN05,△,公式,https://www.tickettailor.com/features,メンバーシップ/シーズンパス、ギフトバウチャーを主催者が発行できる。ポイント制度は確認できず

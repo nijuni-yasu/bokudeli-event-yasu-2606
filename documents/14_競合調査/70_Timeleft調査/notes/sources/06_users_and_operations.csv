@@ -1,0 +1,65 @@
+outlet,country,language,date,url,type,key_points,reliability,read_depth
+Timeleft Help Center (API),global,en,2026-10-14,https://help.timeleft.com/api/v2/help_center/en-150/articles.json?per_page=100,official,"記事63件の一覧(最終更新2026-06〜2026-10)。欠席料記事25012703925148は一覧に無く404",高,本文
+Timeleft Help: What is Timeleft and How Does It Work?,global,en,2026-09-18,https://help.timeleft.com/hc/en-150/articles/28529250732444-What-is-Timeleft-and-How-Does-It-Work,official,"サブスクで席確保→アンケート→数時間前に場所通知。食事代は当日別払い。恋愛は別枠のSingle Dinners",高,本文
+Timeleft Help: How Do I Book an Event?,global,en,2026-09-27,https://help.timeleft.com/hc/en-150/articles/28532932215964-How-Do-I-Book-an-Event,official,"種別・日付・言語・予算・食の希望を選ぶ。24時間前にメール、卓番号は1時間前",高,本文
+Timeleft Help: How Does Timeleft Match Me With a Group?,global,en,2026-07-29,https://help.timeleft.com/hc/en-150/articles/28530361837212-How-Does-Timeleft-Match-Me-With-a-Group,official,"相性と多様性で編成。性別構成・正確な年齢は指定不可。直前の予約とキャンセルで年齢幅が広がる",高,本文
+Timeleft Help: What happens if I get a bad match?,global,en,2026-07-01,https://help.timeleft.com/hc/en-150/articles/28540470340508-What-happens-if-I-get-a-bad-match,official,"事後フィードバックが今後の編成に影響。避けたい人はブロック。同じ人とは必ずしも再会しない",高,本文
+Timeleft Help: My Group Wasn't What I Expected,global,en,2026-07-02,https://help.timeleft.com/hc/en-150/articles/27957593602460-My-Group-Wasn-t-What-I-Expected,official,"年齢・言語・性格で編成するが人数の少ない都市では結果が揺れる。フィードバックを案内",高,本文
+Timeleft Help: How Do I Cancel or Modify My Reservation?,global,en,2026-07-01,https://help.timeleft.com/hc/en-150/articles/28536868572444-How-Do-I-Cancel-or-Modify-My-Reservation,official,"48時間超は無料。24〜48時間は罰則の可能性。24時間未満は欠席料の可能性。無断欠席は自動で欠席料",高,本文
+Timeleft Help: Post-Events Connections and Impressions,global,en,2026-10-07,https://help.timeleft.com/hc/en-150/articles/28540292815772-What-are-Post-Events-Connections-and-Impressions,official,"同席者は自動でConnection。Impressionsは開始1.5時間後から7日間。匿名ではなくプロフィールに特性が出ることがある",高,本文
+Timeleft Help: What Subscription Plans Are Available?,global,en,2026-07-28,https://help.timeleft.com/hc/en-150/articles/27963865308060-What-Subscription-Plans-Are-Available,official,"1・3・6か月。食事・飲み物・会場費は別。管理は Profile→Settings→Subscription",高,本文
+Timeleft Help: How Do I Cancel My Subscription?,global,en,2026-09-25,https://help.timeleft.com/hc/en-150/articles/28541004285724-How-Do-I-Cancel-My-Subscription,official,"自社課金はアプリ内で解約。App Store/Google Play課金は各ストアで解約。期間終了まで利用可",高,本文
+Timeleft Help: Can My Subscription Be Refunded?,global,en,2026-09-03,https://help.timeleft.com/hc/en-150/articles/27963842759452-Can-My-Subscription-Be-Refunded,official,"新しい課金期間後は原則返金不可。誤課金・解約後課金・技術障害は審査。ストア課金は各ストアへ",高,本文
+Timeleft Help: Why Was I Charged Unexpectedly?,global,en,2026-08-05,https://help.timeleft.com/hc/en-150/articles/28540699722268-Why-Was-I-Charged-Unexpectedly,official,"自動更新・ストア課金・複数アカウント・アカウント削除と解約は別操作・失敗決済の再試行を原因に挙げる",高,本文
+Timeleft Help: Partnering with Timeleft Venues and Bars,global,en,2026-07-23,https://help.timeleft.com/hc/en-150/articles/27963850159516-Partnering-with-Timeleft-Venues-and-Bars,official,"店の条件は少人数対応・個別会計・品質。申込みは問い合わせフォーム",高,本文
+Timeleft Help: I'm a Venue Partner and Have a Complaint,global,en,2026-06-13,https://help.timeleft.com/hc/en-150/articles/27963886982940-I-m-a-Venue-Partner-and-Have-a-Complaint,official,"提携店の窓口はcity managerか提携チーム。無ければフォーム",高,本文
+Timeleft Help: Keeping the Timeleft Community Safe,global,en,2026-06-29,https://help.timeleft.com/hc/en-150/articles/27963681898652-Keeping-the-Timeleft-Community-Safe,official,"認証つきサインアップ・Trust & Safetyが全通報を審査・警告か永久追放",高,本文
+Timeleft Help: How Do I Report a Safety Incident?,global,en,2026-06-29,https://help.timeleft.com/hc/en-150/articles/27963865238812-How-Do-I-Report-a-Safety-Incident,official,"アプリ内4手順で通報またはフォーム。緊急時は現地の緊急通報を先に",高,本文
+Timeleft Help: How Do I Block or Remove Someone?,global,en,2026-07-01,https://help.timeleft.com/hc/en-150/articles/28541427422236-How-Do-I-Block-or-Remove-Someone,official,"ブロックは相手に非通知。プロフィールを隠し今後のマッチングも止める",高,本文
+Timeleft Help: I Arrived and No One Showed Up,global,en,2026-10-10,https://help.timeleft.com/hc/en-150/articles/28538239191068-I-Arrived-and-No-One-Showed-Up,official,"15〜30分は待つよう案内。誰も来なければフォームへ",高,本文
+Timeleft Help: What types of events does Timeleft offer?,global,en,2026-09-20,https://help.timeleft.com/hc/en-150/articles/28532667896988-What-types-of-events-does-Timeleft-offer,official,"夕食・コーヒー・ドリンク・ラン・女性限定・LGBTQ+。都市ごとに差",高,本文
+Timeleft Help: Why Was My Event Cancelled?,global,en,2026-09-30,https://help.timeleft.com/hc/en-150/articles/29422327167772-Why-Was-My-Event-Cancelled-And-What-Happens-Next,official,"最低人数未達か卓が組めない場合に中止。再予約・クレジット返却・補償のいずれか",高,本文
+Timeleft Help: Can I Join Tonight's Event?,global,en,2026-06-30,https://help.timeleft.com/hc/en-150/articles/27957316027292-Can-I-Join-Tonight-s-Event,official,"一部都市(メキシコシティ・リマ・ボゴタ・カナダ3都市)は13時間前まで予約可",高,本文
+Timeleft Help: Is Timeleft Available in My City?,global,en,2026-07-02,https://help.timeleft.com/hc/en-150/articles/28531853103772-Is-Timeleft-Available-in-My-City,official,"アカウントは都市に紐づかない。欧州・中南米・APAC・北米で展開",高,本文
+Timeleft Help: I Couldn't Be Seated at My Event,global,en,2026-07-01,https://help.timeleft.com/hc/en-150/articles/28539903091740-I-Couldn-t-Be-Seated-at-My-Event,official,"原因は店側の過剰予約・予約不達・席不足が主。Timeleftが店にフォロー",高,本文
+Timeleft Help: I Was Charged an Unexpected Amount at the Venue,global,en,2026-07-01,https://help.timeleft.com/hc/en-150/articles/28540012802076-I-Was-Charged-an-Unexpected-Amount-at-the-Venue,official,"サービス料・同卓者の未払い・予算帯より高い店が原因。明細を確認",高,本文
+Timeleft Help: How Do Group Chats Work?,global,en,2026-07-30,https://help.timeleft.com/hc/en-150/articles/29192588664860-How-Do-Group-Chats-Work,official,"開始30分前に開設。1人だけミュート不可。写真は開始1.5時間後に表示",高,本文
+Timeleft Help: No-Show Penalty Fee (search summary),global,en,2026-10-14,https://help.timeleft.com/hc/en-150/articles/25012703925148-What-Is-the-No-Show-Penalty-Fee,official,"1か月サブスク料金の35%。米国除外。同卓2人以上の報告で記録。段階的導入。本文は404で検索要約のみ",中,要約のみ
+Timeleft Help: Food or Drinks purchase / venue economics (search summary),global,en,2026-10-14,https://help.timeleft.com/hc/en-150/articles/23810407006236-Do-I-Need-to-Buy-Food-or-Drinks-at-My-Timeleft-Event,official,"店に対価を払わず客の注文が収益。注文が少ないと店が提携終了を申し出る。本文は404/403で検索要約のみ",中,要約のみ
+Timeleft Help: What Age Range Can I Expect (search summary),global,en,2026-10-14,https://help.timeleft.com/hc/en-150/articles/21550527521308-What-Age-Range-Can-I-Expect-at-Timeleft-Dinners,official,"卓の年齢差5〜15歳・18歳から70代。本文は404で検索要約のみ",中,要約のみ
+Timeleft Help: Is Timeleft Safe? (search summary),global,en,2026-10-14,https://help.timeleft.com/hc/en-150/articles/14235930616988-Is-Timeleft-Safe,official,"公共会場のみ・5〜7人の卓・位置共有の推奨。本文は取得できず検索要約のみ",中,要約のみ
+Timeleft Streak,global,ja,2026-02-02,https://www.timeleft.com/jp/post/streak/,official,"8週連続参加の抽選キャンペーン(2026-02-09開始)。賞品は最大約2000ドルの旅行。継続率の実績値は無し",中,本文
+Trustpilot (timeleft.com),global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com,review,"TrustScore 3.2・766件。5つ星48%・1つ星26%。サポート無返信・課金・店・年齢ずれの不満。会社は否定的レビューに返信",中,本文
+Trustpilot (timeleft.com) page 2,global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com?page=2,review,"2026-04〜08のレビュー22件。20回超参加者の不満・店側投稿・自動更新・同じ人の繰り返し",中,本文
+Trustpilot (timeleft.com) page 3,global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com?page=3,review,"2025-10〜2026-03のレビュー24件。10回参加の韓国の声・飲食店側の欠席の訴え・サポート不満",中,本文
+Trustpilot (timeleft.com) page 4,global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com?page=4,review,"2025-11〜12のレビュー23件。単発払い廃止への不満・女性限定の高評価・差別的発言の訴え",中,本文
+Trustpilot (timeleft.com) 1-star filter,global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com?stars=1,review,"2026-05〜10の1つ星20件。年齢ずれ・店変更・AI定型返信・いじめと薬物の懸念",中,本文
+Trustpilot (timeleft.com) 5-star filter,global,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com?stars=5,review,"2025-10〜2026-09の5つ星20件。会話・友人化・女性限定・サポート迅速の評価",中,本文
+Trustpilot UK page 6,global,en,2026-10-14,https://uk.trustpilot.com/review/timeleft.com?page=6,review,"2025-09〜10のレビュー24件。約9か月毎週参加の声・6か月自動更新の不満",中,本文
+Trustpilot UK page 8,global,en,2026-10-14,https://uk.trustpilot.com/review/timeleft.com?page=8,review,"2025-08〜09のレビュー24件。同じ参加者を避けたい声・3回参加・卓の人数が6人と違う",中,本文
+Trustpilot CA page 9,global,en,2026-10-14,https://ca.trustpilot.com/review/timeleft.com?page=9,review,"2025-08のレビュー24件。十数回参加・店の繰り返し・ベジタリアン希望が外れた例",中,本文
+App Store (US),US,en,2026-10-14,https://apps.apple.com/us/app/timeleft-make-new-friends-irl/id6466442949,review,"平均4.6・8.7千件。課金$19.99/$46.99/$62.99。抜粋レビュー3件",中,本文
+App Store (GB),UK,en,2026-10-14,https://apps.apple.com/gb/app/timeleft-make-new-friends-irl/id6466442949,review,"平均4.5・983件。課金£13.99/£32.99/£44.99。単発購入不可と自動Connectionへの不満",中,本文
+App Store (FR),France,fr,2026-10-14,https://apps.apple.com/fr/app/timeleft-make-new-friends-irl/id6466442949,review,"平均4.4・約1700件。課金€17.99/€41.99/€56.99。約15回参加の内向的な人・事後評価への抵抗",中,本文
+App Store (JP),Japan,ja,2026-10-14,https://apps.apple.com/jp/app/timeleft-make-new-friends-irl/id6466442949,review,"平均4.3・438件。課金¥2290/¥5390/¥7190。京都対象外・大阪週末不可・単発から定額制への不満",中,本文
+Everyday Japanese Podcast #253 (Podwise),Japan,ja,2025-01-20,https://podwise.ai/episodes/2750743,podcast,"東京で体験。多様な人と話せたが人数が少ない・店が騒がしい。旅行者にはすすめるが自分は控える",中,要約のみ
+Personal blog (Paragraph),Japan,en,2025-01-22,https://paragraph.com/@renstern.eth/my-review-of-timeleft,social,"東京の体験。バーに約60人。デートアプリに近い形式・コミュニティ機能なし。新しい都市以外は再利用低い",低,本文
+Tokyo Weekender,Japan,en,2025-07-10,https://www.tokyoweekender.com/?p=271573,press,"東京の体験者(27歳)。5人の卓(女性4男性1)。LINEグループで交流継続。単発¥1890・月額¥2290",中,本文
+Vulcan Post (sponsored),Malaysia,en,2024-08-16,https://vulcanpost.com/867937/timeleft-dinner-with-strangers-review-malaysia,press,"1回RM55・月RM100/250/350。6人の卓。アイスブレイクは有用・割高・参加者は裕福層に偏る見立て",中,本文
+The Nod,India,en,2025-05-05,https://thenodmag.com/content/timeleft-networking-app-dining-with-strangers,press,"ムンバイで2回参加。全員が独身か離婚経験者。店は悪くないが食通向けではない。月₹1099",中,本文
+wherever-i-look,US,en,2024-10-31,https://wherever-i-look.com/articles/experiences/timeleft-the-strangers-meeting-for-dinner-app-review,social,"ニューアーク。6人(男4女2)。提供に約2時間・食事代は無料。当日の連絡窓口なし。1回$16・月$26",低,本文
+Tasting Table,US,en,2025-05-19,https://www.tastingtable.com/1859085/dinner-parties-with-strangers-timeleft,press,"自分を含め3人のみ参加。ホストなし。同席2人と連絡継続",中,本文
+Whatever (Columbus),US,en,2025-09-25,https://whatever.scalzi.com/2025/09/25/having-dinner-with-four-strangers-in-columbus/,social,"男性4人+欠席した女性1人。全員が連絡先交換。再参加の意向",低,本文
+Kansas City Magazine,US,en,2026-04-18,https://kansascitymag.com/every-wednesday-six-strangers-meet-for-dinner-should-you-join/,press,"女性7人の卓(当初6人)。1人が2回目、他は初参加。再会を計画",中,本文
+Cleveland Magazine,US,en,2025-01-29,https://clevelandmagazine.com/articles/a-cleveland-journey-with-timeleft-s-social-dinners/,press,"6人・1人$16。同じグループと後に3回食事。参加前の情報の少なさに不安",中,本文
+Alta Journal,US,en,2025-02-27,https://www.altaonline.com/dispatches/a63924701/strangers-in-the-night/,press,"サンフランシスコ。参加者の約68%が女性・毎週水曜約1.15万人。9回目の参加者が進行役。6人中2人がデート経験",中,本文
+azfamily,US,en,2025-01-30,https://www.azfamily.com/2025/01/30/want-meet-new-people-app-organizes-dinners-with-strangers-phoenix-area,press,"フェニックス。10回以上参加の利用者。夕食後のバーの案内",中,本文
+Raleigh Magazine,US,en,2025-04-29,https://raleighmag.com/2025/04/29/timeleft-raleigh-app/,press,"ダーラム。6人中3人が常連(8回目・4回目・2回目)。毎週水曜約150人・世界で週約2.7万人(会社発言)",中,本文
+Philadelphia Inquirer,US,en,2024-10-22,https://www.inquirer.com/food/timeleft-review-philadelphia-group-dining-20241022.html,press,"店主はOpenTable経由で予約を受けた。選定基準Google4.3以上。15回参加者・WhatsAppグループ100人超。1回$16",高,本文
+Globe and Mail,Canada,en,2024-07-24,https://www.theglobeandmail.com/canada/article-timeleft-app-dinner-strangers,press,"バンクーバー。12人中4人がキャンセル。全員Instagram広告経由。創業者が恋愛目的もあると認める",高,本文
+Connexion France,France,en,2024-12-08,https://connexionfrance.com/news/new-trend-serves-companionship-up-on-a-plate-in-france/682998,press,"フランス。25〜50歳中心・地元70%外国人30%・女性60%。40問の性格診断。1席€12.99・月€14.99",中,本文
+Brussels Times,Belgium,en,2024-08-06,http://www.brusselstimes.com/1160308/table-for-six-strangers-fighting-urban-loneliness-over-dinner,press,"1回€12.99。店が月2卓以上の保証と引き換えに手数料を払うと記述(公式ヘルプと矛盾)。前日に国籍・職業・星座",中,本文
+Paperjam,Luxembourg,fr,不明,https://paperjam.lu/article/timeleft-ou-comment-contrer-so,press,"水曜平均12卓・登録者の60%が女性・25〜50歳が対象。店はGoogle4つ星以上。1回€13.99・月€19.99。記事日付は不明",中,本文
+Dcard,Taiwan,zh,不明,https://www.dcard.tw/f/mood/p/257237433,social,"台湾の個人心得。三男三女・NT$330・約19時から22時半まで会話が続いた。検索要約のみ(本文403)",低,要約のみ
+Timeleft Blog (Repeat),global,en,不明,https://timeleft.com/post/timeleft-repeat-reconnect-with-friends/,official,"同卓者を次回の夕食に招くRepeat機能。検索要約のみ",中,要約のみ
+Timeleft Blog (Porto launch),Portugal,en,2023-09-17,https://timeleft.com/blog/2023/09/17/timeleft-expands-to-porto-join-the-dining-revolution/,official,"リスボンで2か月余りに提携50店・毎週100卓超。ポルト初週35卓",高,要約のみ

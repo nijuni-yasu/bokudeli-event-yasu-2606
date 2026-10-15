@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,ホームフィード上部のカテゴリ(Tonight・This week・New shows・Late night・Culture・Comedy・Festivals)と、アーティスト・会場の検索
+DS02,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,ホームで都市を設定、検索ページを下にスワイプすると出る地図で地域のイベントを探せる(地図は2021年に追加)
+DS03,✅,実機,https://dice.fm/browse,都市の一覧ページに DATE・PRICE フィルタとジャンル(Gigs・Workshop・DJ・Party・Art)の絞り込みがある(2026-10 実機)
+DS04,✅,公式,https://dice.fm/partners/ticketing,Spotify・Apple Music 連携と「into it / not it」でフィードを個別化(ヘルプ)。グロース根拠あり(自社主張: 販売の41%がDiscovery経由)
+DS05,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365422759313-Getting-started-with-DICE,アーティスト・会場・友人をフォローして新着や特別オファーを受け取れる(会場フォローは2021年追加)
+DS06,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365422759313-Getting-started-with-DICE,ハートで保存すると発売前・直前にプッシュとメールでリマインド。Remind me で発売前通知も設定可
+DS07,✅,実機,https://dice.fm/browse,都市別ページ(Popular Events in Seattle 等)とジャンル別ページ、/artists・/venues の一覧ページがある(2026-10 実機)
+DS08,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,メールでDICE insidersのおすすめ・今週のハイライトを配信、Discover に New / Upcoming 区画。グロース根拠あり(創業時に音楽編集者が選んだ「ロンドンのベスト100公演」から開始)
+JN01,❌,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409604062481-Create-an-account,電話番号認証のアカウントとアプリが必須。チケットはアプリ内でのみ受け取れる、とヘルプに明記
+JN02,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409604062481-Create-an-account,電話番号+SMSの4桁コードでログイン(パスワード不要)。氏名・メール・生年月日を登録
+JN03,？,なし,,参加可否を主催者が承認する機能は公式資料で確認できず(ゲストリスト配布はあり)
+JN04,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/19958073128849-The-wait-list-explained,"売り切れ後に返却チケットを待機者へ順番に配分する Wait List。有効化は主催者の判断。グロース根拠あり(自社主張: ウェイトリストで需要を検証し追加公演、Fever は12,000人超の公開前ウェイトリストで完売)"
+JN05,✅,実機,https://dice.fm/event/923pw6-eazybaked-and-distinct-motive-at-exit-206-17th-oct-the-shop-seattle-tickets,イベントページに capacity(例: 2500 capacity)と価格を表示。ティア制で枚数管理。リアルタイムの残席表示は未確認
+JN06,？,なし,,申込時の質問項目・同行者入力は公式資料で確認できず(チケットは購入者のアプリに紐づく。友人へは Send to a friend で転送)
+JN07,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409603669777-When-are-you-entitled-to-a-refund,原則返金不可。中止・延期、主催者設定のクーリングオフ(購入後24時間等)、Wait Listで売れた場合のみ返金。Refund Protection(第三者保険)あり
+JN08,？,なし,,カレンダー追加・購読は公式資料で確認できず(保存イベントのリマインドのみ)
+JN09,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365422759313-Getting-started-with-DICE,保存イベントの直前リマインドをプッシュとメールで送信し、チケット残りわずかも通知。発売前の Remind me もある
+JN10,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22367835146513-Why-we-ask-you-to-download-our-app,アプリ内の電話番号に紐づく固有QRコードで入場。紙・PDF は発行しない
+JN11,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,友人フォロー(フォローリクエスト制)で、友人が保存・購入したイベントを閲覧できる。一般参加者の公開一覧は未確認
+JN12,？,なし,,イベント後のレビュー・写真アルバム・事後メッセージは公式資料で確認できず
+SH01,✅,実機,https://dice.fm/event/923pw6-eazybaked-and-distinct-motive-at-exit-206-17th-oct-the-shop-seattle-tickets,og:title・og:description・og:image(1200×630)・twitter:image と schema.org MusicEvent を確認(2026-10 実機)
+SH02,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,イベントページの Invite friends でアプリから友人へ共有・招待できる。共有先(LINE・X 等)の網羅は未確認
+SH03,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/20137793751441-Create-groups-to-make-plans-with-friends,Invite friends、グループ作成(リンクを知っていれば誰でも参加)、連絡先から友人発見の導線がある
+SH04,△,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,主催者向けトラッキングリンクで購入元を計測(2021年発表)。参加者個人の紹介リンク・紹介報酬は確認できず
+SH05,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22363037002897-How-to-sync-your-contacts-and-find-friends-on-DICE,連絡先同期で DICE 利用中の友人を発見。電話番号は暗号化してマッチングし、サーバーに保存しないと明記
+SH06,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/20137793751441-Create-groups-to-make-plans-with-friends,グループ内で誰がどのイベントに関心があるかを可視化(See who's interested)、友人の保存・購入を閲覧
+SH07,✅,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,購入フローに直結するQRコードを主催者がメール・ポスター等に使える(2021年発表)
+SH08,△,公式,https://dice.fm/partners/ticketing,自社サイトでのチェックアウトと Spotify・YouTube からの購入導線(Smart integrations)。ウィジェットの形態は未確認
+OP01,△,公式,https://dice.fm/partners/work-with-us/promoters,Creator tool(MIO)でイベントを作成・管理。プロモーターアカウント登録後に利用。所要時間・テンプレートは未確認
+OP02,？,なし,,イベントの複製・シリーズ作成は公式資料で確認できず
+OP03,△,実機,https://dice.fm/event/923pw6-eazybaked-and-distinct-motive-at-exit-206-17th-oct-the-shop-seattle-tickets,ロックされたチケット(コード入力)とプリセール設定を確認。下書き・URL限定公開・非公開は公式資料で確認できず
+OP04,？,なし,,AIによる作成支援は公式資料で確認できず
+OP05,？,なし,,共同主催・権限分離は公式ページで確認できず(検索要約にMIOでプロモーターをゲスト招待できるとの記述あり、未確認)
+OP06,△,公式,https://dice.fm/blog/identify-fan-demand-with-the-waiting-list,購入者・チェックイン済・Wait List 登録者の確認ができる(Hackney Church 事例の引用)。名簿のCSV出力は確認できず
+OP07,△,公式,https://dice.fm/blog/identify-fan-demand-with-the-waiting-list,Wait List 登録者などへ DICE 経由でパーソナライズ配信ができる。主催者が自由に一斉送信できるかは未確認
+OP08,✅,公式,https://dice.fm/partners/ticketing,規模に応じた入場ソリューション(Instant access)とアプリ内QR。チェックイン状況の確認は事例引用のみ
+OP09,✅,公式,https://dice.fm/partners/ticketing,リアルタイム売上の確認と payouts(支払い)の管理。入金サイクルの詳細は未確認
+OP10,✅,公式,https://dice.fm/partners/ticketing,リアルタイム売上・マーケティング帰属・オーディエンスインサイト。トラッキングリンク(2021年発表)
+OP11,✅,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,会場・アーティストの公開プロフィール(収容人数・今後のイベント・フォロー)。会場フォロー追加は2021年
+OP12,✅,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,Mailchimp 連携(購買タグ付きでファンをインポート)、Ticket Holder API、Spotify・YouTube 連携(いずれも2021年発表)
+AC01,？,なし,,無料イベントの掲載(Free 表示)は実機で確認したが、主催者手数料・固定費の有無は公式資料で確認できず
+AC02,？,なし,,公式ヘルプは総額表示で、手数料を DICE と主催者で分けると説明。購入者/主催者負担を主催者が選べる記載は確認できず
+AC03,△,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,Ticket Holder API と Mailchimp 連携でファンデータを取得可(2021年発表)。CSV出力の可否は未確認。競合比較表は DICE を No と評価[競合発信]
+AC04,？,なし,,他サービスからの情報・参加者の移行支援は公式資料で確認できず
+AC05,？,なし,,主催者紹介報酬・アンバサダー制度は公式資料で確認できず
+AC06,✅,公式,https://dice.fm/blog/identify-fan-demand-with-the-waiting-list,パートナー向けブログ(Waiting List の活用解説)とケーススタディのダウンロード、成功事例の公開
+AC07,△,公式,https://dice.fm/partners/ticketing,DICE の Discover・コミュニケーションでの露出と、ファンへの直接マーケ支援を提供。料金・ブースト商品としての有無は未確認
+AC08,？,なし,,運営自身のイベント主催・共催は公式資料で確認できず(Fever 傘下での自社制作は別事業)
+CR01,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22365220986897-How-to-find-events-you-ll-love-on-DICE,オプトインで個別化推薦・新着発表・今週のハイライトをメール、プッシュで配信。グロース根拠あり(New Shows Thursday で初週販売+320%[2019年・自社主張])
+CR02,？,なし,,購入者が自動で会場・アーティストのフォロワーになる仕様は公式資料で確認できず
+CR03,✅,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,Promotions で最も忠実なファン向けの限定プリセールやフラッシュセールを主催者が作成できる(2021年発表)
+CR04,△,公式,https://dice.fm/blog/dices-big-fat-2021-product-round-up,Mailchimp 連携でファンを購買・属性タグ付きで取り込みセグメント配信できる。DICE 自体のCRM機能は確認できず
+CR05,？,なし,,参加回数・バッジ・実績の表示は公式資料で確認できず
+CR06,？,なし,,主催者・会場への評価・レビュー機能は公式資料で確認できず
+CR07,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/20137793751441-Create-groups-to-make-plans-with-friends,Groups(イベントの共有・投票・購入通知)がある。チャットや掲示板は確認できず
+CR08,？,なし,,年間まとめ・振り返り共有は公式資料で確認できず
+TS01,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409604062481-Create-an-account,電話番号のSMS認証、氏名(ID記載どおり)・生年月日の登録、QRを電話番号に紐づけ
+TS02,？,なし,,パートナーの審査・認定バッジは公式資料で確認できず(プロモーターアカウントは登録制)
+TS03,？,なし,,通報・ブロックの仕組みは公式ヘルプで確認できず
+TS04,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409603669777-When-are-you-entitled-to-a-refund,原則返金不可+Wait List、主催者設定のクーリングオフ(購入後24時間等)、前払い、Refund Protection(第三者保険)
+TS05,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/20137793751441-Create-groups-to-make-plans-with-friends,友人フォローはリクエスト制、グループ内で共有したイベントのみ見える。参加者一覧の限定公開設定は確認できず
+TS06,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/22367835146513-Why-we-ask-you-to-download-our-app,チケットはアプリ内のみ・電話番号紐づけQRで転売を抑止、Wait List は定価で配分。外部取引全般の抑止は未確認
+FD01,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/43363506255377-Extras,Extras(チケット購入後にアプリで追加): meet&greet・VIP・クローク・food & drink vouchers 等。購入時の選択ではなく購入後の追加形式
+FD02,？,なし,,アレルギー・食の好みの登録は公式資料で確認できず
+FD03,△,公式,https://dice.fm/partners/work-with-us/promoters,会場・プロモーター向けの管理(Creator tool/MIO)があるが、飲食店専用ではない
+FD04,？,なし,,人数・注文の店舗通知・仕込み数集計は公式資料で確認できず
+FD05,？,なし,,席・貸切の確保と連動する機能は公式資料で確認できず
+FD06,？,なし,,コース・固定メニューの選択は公式資料で確認できず
+FD07,？,なし,,割り勘・個別会計は公式資料で確認できず(Groups は共有・投票まで)
+FD08,？,なし,,店探し・店選び支援は公式資料で確認できず
+FD09,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/19919859544337-How-ticket-tiers-work,ティア別の枚数設定(Tier One 50枚→完売後 Tier Two 等)。capacity 表示・同時販売の上限もある
+FD10,？,なし,,提供形態の選択は公式資料で確認できず
+MN01,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/19919684020113-How-DICE-fees-work,総額表示(手数料込み・購入時の追加なし)。料率・固定額は非公開で DICE と主催者で分配と説明。グロース根拠あり(弱: RA の単一価格表示で転換+3〜5%[検索要約])
+MN02,？,なし,,主催者向けの有料プラン・サブスクは公式資料で確認できず(手数料ベースとみられるが明記なし)
+MN03,△,公式,https://dicefm.zendesk.com/hc/en-gb/articles/38838031250833-Venue-Donations,チャリティ登録の会場のみ、任意の寄付をチケットに追加できる(返金不可)
+MN04,✅,公式,https://dicefm.zendesk.com/hc/en-gb/articles/4409672262033-Use-a-promo-code,プロモコード(Got a code?)、ティア制、Promotions によるフラッシュセール・プリセール
+MN05,△,公式,https://dicefm.zendesk.com/hc/en-gb/categories/4409672160529-Payments-pricing-refunds,DICE Credit とギフトカード/バウチャーの記事あり(カテゴリ一覧で確認)。ポイント・ロイヤルティ制度は確認できず

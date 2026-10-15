@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,公式,https://www.doorkeeper.jp/events?q=%E9%A3%9F%E4%BA%8B,検索ボックスでキーワード検索でき、異業種交流・フード・ドリンク・ビジネス・IT・健康のトピックショートカットもある
+DS02,△,公式,https://www.doorkeeper.jp/events/recently_published,都道府県単位(全国+47都道府県)の絞り込みのみ確認。駅・現在地・地図での絞り込みは確認できず(会場の地図表示リンクのみ)
+DS03,△,公式,https://www.doorkeeper.jp/events?q=%E9%A3%9F%E4%BA%8B,『日付で探す』がある。価格・曜日・オンライン/オフラインの絞り込みは確認できず
+DS04,△,公式,https://support.doorkeeper.jp/article/34-promotion,過去の参加履歴やプロフィールに基づくおすすめイベントをログインページ/ニュースレターで紹介(ヘルプ記事、日付不明)。個別の推薦フィードは確認できず
+DS05,✅,公式,https://www.doorkeeper.jp/how-it-works,コミュニティのメンバーになる(『フォロー』ではなくメンバー化)と次回以降の開催通知を受け取れる(自動イベント通知)。申込者は自動でメンバー化(CR02)
+DS06,？,なし,,ブックマーク/お気に入り機能はイベントページ・ヘルプで確認できず
+DS07,✅,公式,https://www.doorkeeper.jp/topics,トピック別の一覧(/topics/{スラッグ}、10カテゴリ)と都道府県別一覧がある。検索流入への効果は未確認で、都市×カテゴリの組み合わせページは確認できず
+DS08,△,公式,https://support.doorkeeper.jp/article/34-promotion,審査に通ったコミュニティのイベントを、カテゴリ別リスト・おすすめ・ニュースレター・外部イベントサイト・X(Twitter)ボットで紹介(集客サポート)。運営の手動特集やランキングは確認できず
+JN01,✅,公式,https://www.doorkeeper.jp/features,『メールアドレスだけで申し込み』と機能一覧に明記(アカウント不要)。ソーシャルログイン(Facebook/X/GitHub/LinkedIn)でも申込可。グロース根拠あり(弱: 数値なし、Luma・Partifulと並ぶ摩擦低減の例)
+JN02,✅,公式,https://manage.doorkeeper.jp/user/sign_in,Facebook/X(Twitter)/GitHub/LinkedIn とメール+パスワードでログイン・申込できる。Google・Apple・LINEログインは確認できず(IT勉強会向けの構成)
+JN03,△,公式,https://support.doorkeeper.jp/article/86-article,明示的な承認制・抽選機能はなく、抽選は『現在サポートしていません』と明記。定員0+キャンセル待ち→手動繰り上げで個別承認を代用できる(却下の機能は記載なし)
+JN04,✅,公式,https://support.doorkeeper.jp/article/70-waitlist,定員超過分は自動でキャンセル待ちになり、空きが出ると登録順に自動繰り上げ(メール通知)。手動繰り上げは定員超過もできる
+JN05,✅,実機,https://techgym.doorkeeper.jp/events/199857,イベントページに『あと5人参加できます。』と残席を表示(ブラウザで実ページを確認、スクショIDなし)。定員はイベント全体とチケット別に設定可
+JN06,✅,公式,https://www.doorkeeper.jp/how-it-works,イベントごとに質問を追加して申込フォームをカスタマイズでき、メンバー登録時の質問も作れる。同行者の入力は確認できず
+JN07,△,公式,https://support.doorkeeper.jp/article/17-cancel-event,無料・会場払い・未払いは参加者が自分でキャンセルでき、メールのリンクからならアカウント不要。前払い済みはDoorkeeper上でキャンセルせず主催者へ直接連絡(返金は主催者が管理画面から実行)
+JN08,✅,実機,https://techgym.doorkeeper.jp/events/199857,イベントページに『Google カレンダーに追加』リンクがある。デジタルチケットのカレンダー/Appleウォレット登録も公式に記載
+JN09,✅,公式,https://support.doorkeeper.jp/article/31-messages,イベント公開時に、開催前日の参加予定者向けリマインドメールが自動設定される(編集・解除可)。送信予約もできる。LINEやプッシュは確認できず
+JN10,✅,公式,https://support.doorkeeper.jp/article/39-checkin-devices,QRコード付きデジタルチケット。iPhoneはDoorkeeperアプリ、AndroidはQRリーダー経由でスキャン、ウェブチェックイン、印刷名簿もある(オンライン開催ではQR発行なし)
+JN11,✅,公式,https://support.doorkeeper.jp/article/67-hide-participation,イベントページに申込者一覧を表示(主催者設定で非公開も可)。参加者は申込時に『参加者一覧でアカウントを公開する』を外して非表示にできる
+JN12,✅,公式,https://www.doorkeeper.jp/features,フォトギャラリー、コメント(開催前後、新着は参加者に通知)、参加者へのメッセージ/アンケート、終了後も参加できるメンバー化がある。レビュー・評価は確認できず
+SH01,✅,実機,https://techgym.doorkeeper.jp/events/199857,og:title/og:image/og:description と twitter:card=summary_large_image を実ページで確認。schema.org Event の JSON-LD も出力
+SH02,✅,実機,https://techgym.doorkeeper.jp/events/199857,Facebookシェアと X(ツイート)のボタンがある。LINE共有ボタンは確認できず
+SH03,△,公式,https://www.doorkeeper.jp/how-it-works,主催者が友人知人向けの案内メールを送れる。参加者が申込後に友人を招く専用導線は確認できず
+SH04,△,公式,https://www.doorkeeper.jp/features,割引コード(割引・無料招待)で流入元を追跡できる。紹介者単位の紹介リンクや可視化ではない
+SH05,？,なし,,連絡先やSNSの友人から招待・発見する機能は確認できず
+SH06,✅,公式,https://support.doorkeeper.jp/article/67-hide-participation,申込者の参加者一覧(アカウント表示)、残席の『あと◯人』、コミュニティのメンバー一覧を表示する。主催者設定で一覧を出さないイベントもある
+SH07,？,なし,,QR・短縮URL・チラシの生成は確認できず(QRは当日受付用のみ)
+SH08,✅,公式,https://www.doorkeeper.jp/features,『申し込みフォームの設置』として、自分のサイトに申込ウィジェットを埋め込める。イベント一覧を取れる公開API(アルファ版)もある
+OP01,✅,公式,https://www.doorkeeper.jp/organizers?locale=ja,主催者向けページはイベントページ作成を前面に出し、既存調査は『コミュニティを約5分で作成』と記載(自社主張、今回の再取得では文言を再確認できず)。作成は基本情報→チケット→会場→公開の短い流れ
+OP02,✅,公式,https://www.doorkeeper.jp/how-it-works,過去イベントのコピー作成機能がある(ヘルプ『過去に作成したイベントをコピーするには』は検索結果で確認)。繰り返し(定期)作成の設定は確認できず
+OP03,✅,公式,https://support.doorkeeper.jp/article/29-event-flow,作成直後は非公開状態で、『イベントを公開』で公開する。コミュニティには公開パスワードを設定でき、スターターでは不可(プロ以上、ヘルプは2019-11更新)。公開前ページの確認用ヘルプの題名も検索で確認
+OP04,？,なし,,AIによる文面・画像の作成支援は公式ページ・ヘルプで確認できず
+OP05,△,公式,https://www.doorkeeper.jp/news/2023/1/17/new-administrator-privileges,コミュニティオーナー/管理者/イベントマネージャー/イベントスタッフの4権限(2023-01-17追加)。プロプラン以上で利用可。共同運営者の招待もある
+OP06,✅,公式,https://support.doorkeeper.jp/article/27-download-member-data,コミュニティメンバーと参加者(ステータス別)をExcelファイルでエクスポートできる(管理者のみ)。ヘルプは2020-03更新で、出力項目にメールが含まれるかは記載なし
+OP07,✅,公式,https://support.doorkeeper.jp/article/31-messages,メールを宛先10区分(参加者/支払済/未払い/キャンセル待ち/キャンセル者の種別/未登録メンバー等)に送信予約付きで送れる。開封率の確認は機能紹介ページに記載。LINE等のメール以外は確認できず
+OP08,✅,公式,https://support.doorkeeper.jp/article/39-checkin-devices,QRコード受付(iPhoneアプリ、Androidは端末登録+QRリーダー)、ウェブチェックイン、印刷した参加者リスト。複数スタッフは端末を事前登録して使う
+OP09,✅,公式,https://www.doorkeeper.jp/pricing,前払い参加費は主催者のStripeアカウントへ直接入金され、集金状況をイベント前に確認できる。返金は管理画面から実行。入金サイクルはStripe依存でヘルプに記載なし
+OP10,✅,公式,https://www.doorkeeper.jp/features,イベント分析とGoogleアナリティクス連携(GA4対応は2023-01)があり、割引コードで流入元も追跡できる
+OP11,✅,公式,https://www.doorkeeper.jp/how-it-works,コミュニティページ(開催予定・過去イベント、メンバー、フォトのタブ。カスタマイズ可)がある
+OP12,△,公式,https://www.doorkeeper.jp/developer/api,公開APIはアルファ版で、公開情報の取得のみ(Bearerトークン、CORS対応、プラン要件の記載なし)。GA4連携、Stripe連携、申込ウィジェットあり。Zoom/Slack/Mailchimp/Webhookは確認できず。日本固有: 決済はクレジット(前払い99円+2.5%+Stripe約3.6%)・コンビニ(2023-01開始、主催者側でStripeの追加審査に21〜35日)・銀行振込(手数料0円、返金は管理画面外)。請求書払いは法人ビジネスプランの料金支払い(2016-08の公式報告)。SNSはFacebook/X共有とログイン、Xボットがイベントを共有。LINE連携はヘルプ検索で0件。メンバー管理・メール配信はCR02/CR04/OP07
+AC01,△,公式,https://www.doorkeeper.jp/pricing,"初めてのイベントは無料で、2回目から有料プラン(月額1,650円〜)が必要。無料・会場払い・銀行振込チケットの手数料は0円。前払いは99円+2.5%(+Stripe)"
+AC02,？,なし,,前払い手数料の負担者を選ぶ機能は確認できず(料金ページの例は主催者受取額から控除)
+AC03,✅,公式,https://www.doorkeeper.jp/features,メンバーのデータにアクセスし、分析用や他ソフト用に出力できると記載。メンバー/参加者のExcelエクスポートは管理者が実行(ヘルプは2020-03更新)。メール項目の有無は未確認
+AC04,△,二次,https://internet.watch.impress.co.jp/docs/yajiuma/1229961.html,2020-01のATND閉鎖時に、ATND公開者へ1年無料キャンペーンを実施(二次: Impress Internet Watch、申込締切4/14)。データ移行ツールは確認できず(Peatixは移行サービスあり)。グロース根拠は効果数値なし
+AC05,？,なし,,主催者紹介報酬・アンバサダー制度は確認できず
+AC06,✅,公式,https://www.doorkeeper.jp/organizer-stories,主催者ストーリー14本、イベント企画ガイド(運営ノウハウ記事4本)、ブログ、勉強会会場の一覧がある
+AC07,△,公式,https://support.doorkeeper.jp/article/34-promotion,Doorkeeperのプロモーション(審査制で一覧・おすすめ・ニュースレター・外部サイト・Xボットに掲載)を集客サポートとして案内。有料の広告・ブーストは確認できず。2016年に企業スポンサー仲介は見送り
+AC08,？,なし,,運営主催のイベントは公式で確認できず(既存調査にミートアップ(2014)の記述があるが未確認)
+CR01,△,公式,https://support.doorkeeper.jp/article/34-promotion,ログインページとニュースレターでおすすめイベントを紹介(頻度・現行運用は未確認)。コミュニティのメンバーへは新着開催を自動通知(機能紹介)
+CR02,✅,公式,https://www.doorkeeper.jp/how-it-works,申込者は自動でコミュニティのメンバーになり、終了後も参加でき、次回以降の告知に使える。2016-08の公式報告は、終了イベントを見た人がコミュニティに参加し次の案内を受けることでメンバーが継続的に増えると説明。グロース根拠あり(創業期から効いたチャネル、既存調査)で、参加率・リピート率の数値は非公開
+CR03,？,なし,,過去参加者への先行・優先案内の機能は確認できず(メンバーへのメッセージ送信のみ)
+CR04,✅,公式,https://support.doorkeeper.jp/article/31-messages,メンバー管理に加え、メールを宛先区分でセグメント送信し開封率を確認できる。定額課金メンバー宛メッセージ(2023-02)、メンバー登録時の質問もある
+CR05,？,なし,,参加回数・バッジ・実績の表示は確認できず
+CR06,？,なし,,主催者・参加者へのレビュー/評価機能は確認できず
+CR07,✅,公式,https://www.doorkeeper.jp/features,イベントのコメント機能(開催前後、新着は参加者に通知)がある。チャット機能は確認できず
+CR08,？,なし,,年間まとめ・振り返りの共有機能は確認できず
+TS01,？,なし,,利用者の本人確認は確認できず(前払い開催にはStripeアカウントと販売事業者情報が必要だが、確認主体はStripe)
+TS02,△,公式,https://support.doorkeeper.jp/article/34-promotion,プロモーション(おすすめ・一覧掲載)の対象は、Doorkeeperの審査で承認されたコミュニティのみ
+TS03,△,公式,https://www.doorkeeper.jp/report_copyright_infringment,著作権侵害の報告窓口(メール)のみ確認。一般的な通報・ブロック機能は確認できず
+TS04,✅,公式,https://support.doorkeeper.jp/article/86-article,前払い(Stripe)を、無料イベントの出席率(40〜60%)を上げる手段として公式が案内。前払いにすると実際に参加する人だけが申し込む。欠席料・デポジットは確認できず
+TS05,✅,公式,https://support.doorkeeper.jp/article/67-hide-participation,参加者一覧のアカウント公開は申込時のチェックで非表示にでき、コミュニティのメンバー公開もプライバシー設定で変えられる。主催者設定で一覧を出さないイベントもある
+TS06,？,なし,,プラットフォーム外取引を抑える規約・仕組みは確認できず(利用規約は未読)
+FD01,△,公式,https://www.doorkeeper.jp/features,料理選択の専用機能はない。複数チケット種別とカスタム申込フォームで代用できる
+FD02,△,公式,https://www.doorkeeper.jp/how-it-works,アレルギー登録の専用機能は確認できず。カスタム申込フォームで質問して収集できる
+FD03,？,なし,,店舗向けの管理画面は確認できず(コミュニティ管理画面のみ)
+FD04,？,なし,,人数・注文を店舗へ自動通知し集計する機能は確認できず
+FD05,？,なし,,店舗の席・貸切の確保と連動する機能は確認できず
+FD06,△,公式,https://www.doorkeeper.jp/features,チケット種別をコースに見立てて複数作成できる(早期割引・学生向けなど)。コース選択の専用機能は確認できず
+FD07,？,なし,,割り勘・個別会計の機能は確認できず(会場払いチケットで当日現地払いにできるのみ)
+FD08,△,公式,https://www.doorkeeper.jp/%E4%BC%9A%E5%A0%B4,勉強会向けの会場一覧(都道府県別、収容人数・料金・最寄駅付き)がある。飲食店の比較・選択支援ではない
+FD09,△,公式,https://support.doorkeeper.jp/article/29-event-flow,チケットごとに定員(限定数)を設定できる。メニュー単位の在庫管理は確認できず
+FD10,？,なし,,イートイン/テイクアウト/デリバリー等の提供形態の選択は確認できず
+MN01,✅,公式,https://www.doorkeeper.jp/pricing,"月額4プラン(1,650/4,400/8,800/17,600円、税込)+前払いチケット99円+2.5%+Stripe3.60%を公開し、5,000円の例で受取額4,596円と表示"
+MN02,✅,公式,https://www.doorkeeper.jp/pricing,"スターター〜ビジネスの月額プラン(開催予定イベント上限5/15/50/200件)がある。初回イベントは無料。2016-07の有料化(当時月額1,500〜16,000円)で2016-08に初の黒字化(契約数は非公表、グロース根拠あり)"
+MN03,△,公式,https://www.doorkeeper.jp/news/2023/1/18/patron-feature,定額課金の『投げ銭課金』(単発)をランクとして設定できる。Doorkeeper手数料0%+Stripe3.60%で全プランで利用可(2023-01)。参加者が任意額を上乗せする型ではない
+MN04,✅,公式,https://www.doorkeeper.jp/features,割引コード(割引・無料招待)と複数チケット(早期割引・学生向けなど)を設定できる
+MN05,△,公式,https://www.doorkeeper.jp/news/2023/1/18/patron-feature,定額課金(月額/年額)の会員ランクごとに、イベントや講座などの特典を設定できる。ポイント/ロイヤルティ制度は確認できず

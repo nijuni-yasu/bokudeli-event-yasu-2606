@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,✅,実機,https://www.eventbrite.com/d/ny--new-york/all-events/,検索バーとカテゴリ(Business・Food & Drink・Health・Music 等)で絞り込める(2026-10 実機)
+DS02,✅,実機,https://www.eventbrite.com/d/ny--new-york/all-events/,都市・地区(Neighborhood)で絞り込み、現在地/都市を選択できる。都市ページあり。イベントページに地図表示(Show map)
+DS03,✅,実機,https://www.eventbrite.com/d/ny--new-york/all-events/,日付(Today・Tomorrow・This weekend・日付指定)、価格(Free/Paid)、形式、言語、通貨、「フォロー中の主催者のみ」で絞り込める
+DS04,✅,公式,https://www.eventbrite.com/d/ny--new-york/events/,アプリで curated event recommendations(都市ページの記載)。グロース根拠あり(自社主張: ML推薦等で発見経由のチケット販売が前年比+10%[2024 Q4]、アプリ利用者はWebより購入確率3倍[2025 Q1])
+DS05,✅,公式,https://www.eventbrite.com/help/en-us/articles/161196/how-to-set-up-your-organizer-profile-page/,主催者プロフィールをフォローすると公開時に通知される。検索に「フォロー中の主催者のみ」フィルタあり(実機)。フォロワー数を表示
+DS06,✅,実機,https://www.eventbrite.com/d/ny--new-york/events/,各イベントカードに Save this event(保存)ボタンがある
+DS07,✅,実機,https://www.eventbrite.com/d/ny--new-york/events/,都市別・カテゴリ別の公開ページ(/d/ny--new-york/events/ 等)と人気検索ワードのリンク群。グロース根拠あり(Google事例: 構造化データ導入後に検索流入が前年比約+100%上乗せ[他施策と切り分け不能]・発券の30%超がEventbrite発見経由[2022年])
+DS08,✅,実機,https://www.eventbrite.com/d/ny--new-york/events/,Editor's Picks・Popular in 都市の編集面、Collections(関連イベントの集約ページ)、Top Organizer バッジ
+JN01,✅,公式,https://www.eventbrite.com/help/en-us/articles/721549/can-i-get-a-refund/,チケット購入時のメールでアカウントが自動作成される(事前登録不要)。飲食イベント向け公式ページに「チケットはリンクで届きログイン不要」の記載
+JN02,✅,実機,https://www.eventbrite.com/signin/,Apple・Google・Facebook でのサインインと、メール+ワンタイムパスワードを確認(2026-10)
+JN03,？,なし,,ヘルプ検索(approve registrations)で参加可否の承認制機能の記載を確認できず。承認ではなく自動登録防止の案内のみ
+JN04,✅,公式,https://www.eventbrite.com/help/en-us/articles/811539/how-to-set-up-an-event-waitlist/,売り切れまたは定員到達で自動起動する Waitlist。登録上限・取得項目・クレーム期限・自動返信を設定可。指定席(Reserved Seating)のイベントでは使えない
+JN05,✅,実機,https://www.eventbrite.com/e/out-abt-halloween-edition-tickets-1996989228540,FEW TICKETS LEFT・Going fast・Almost full・Just added のステータスバッジを表示。残席数そのものの表示は確認できず
+JN06,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Customizable Registration Process(注文フォームで収集項目を設定)。質問を確認前/後のどちらで出すかも選べる(2026-04)
+JN07,△,公式,https://www.eventbrite.com/help/en-us/articles/721549/can-i-get-a-refund/,主催者が許可した場合のみアカウントから返金申請できる。返金ポリシーは主催者が設定。中止または45日超の延期は Eventbrite 経由で申請可
+JN08,？,なし,,Facebook連携時のFacebookカレンダー追加のみ確認。ICS・Google・Apple カレンダーへの追加は公式資料で確認できず
+JN09,✅,公式,https://www.eventbrite.com/organizer/pricing/,Automated event reminders を提供。公開イベントごとにリマインドメールが自動作成され、主催者が編集・削除できる(ヘルプ検索結果)
+JN10,✅,公式,https://www.eventbrite.com/features/recurring-events/,QRコード付きチケットと無料の Organizer アプリでスキャン受付。Apple/Google Wallet 保存は2026-04 の公式ブログに記載
+JN11,△,公式,https://www.eventbrite.com/d/ny--new-york/events/,アプリで友人の参加予定を表示(Find friends and see where they're going)。一般の参加者一覧の公開は確認できず
+JN12,△,公式,https://www.eventbrite.com/help/en-us/search/?q=email%20preferences%20recommended%20events%20notifications,主催者は開催中〜終了後10日まで参加者へメール送信可。レビュー・写真アルバム等の専用機能は確認できず
+SH01,✅,実機,https://www.eventbrite.com/e/out-abt-halloween-edition-tickets-1996989228540,og:title・og:image・og:description・twitter:card(summary_large_image)と schema.org Event を確認(2026-10 実機)
+SH02,✅,実機,https://www.eventbrite.com/e/out-abt-halloween-edition-tickets-1996989228540,Share with friends でリンクコピー・Facebook・Messenger・LinkedIn・X・メールに共有可(LINE・WhatsApp は無し)。グロース根拠あり(2010年: Facebook共有1回あたり平均$1.78[自社計測])
+SH03,？,なし,,申込後・作成後に友人を招待する専用導線は確認できず(共有ボタンのみ)
+SH04,△,公式,https://www.eventbrite.com/help/en-us/articles/835126/how-to-create-promotional-tracking-links/,主催者が作るトラッキングリンクで、リンク単位の訪問・購入を計測できる(アフィリエイト用途も想定)。参加者個人の紹介リンク・紹介元の可視化は確認できず
+SH05,✅,公式,https://www.eventbrite.com/d/ny--new-york/events/,アプリで友人を見つけ参加予定を見られる(都市ページの記載)。連絡先同期は2025-03のアプリ刷新PR(既存ノート)による
+SH06,△,実機,https://www.eventbrite.com/e/out-abt-halloween-edition-tickets-1996989228540,ステータスバッジ(Few tickets left 等)と主催者の followers・total attendees を表示。イベントごとの参加者アバター・人数の表示は確認できず
+SH07,✅,公式,https://www.eventbrite.com/blog/whats-next-at-eventbrite/,QRコード付きの印刷用イベントフライヤー生成ツール(2026-04 公式ブログ)
+SH08,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Embedded Checkout(自サイトを離れずに購入できる埋め込みチェックアウト)
+OP01,✅,公式,https://www.eventbrite.com/blog/whats-next-at-eventbrite/,Event Page Builder。2026-04 に作成画面の読み込みを約40%短縮、全ステップで下書き保存に対応
+OP02,✅,公式,https://www.eventbrite.com/features/recurring-events/,Recurring Events(日・週・月の繰り返しを一度の設定で一括公開)。APIにはイベントコピーもある
+OP03,✅,公式,https://www.eventbrite.com/blog/whats-next-at-eventbrite/,全ステップで下書き保存(2026-04)。権限定義にイベントのプライバシー設定あり。URL限定公開の詳細は未確認
+OP04,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,AI Event Management Tools(イベント作成・広告・メール文面をAIで生成、キャンペーン立ち上げ30%短縮と記載)
+OP05,✅,公式,https://www.eventbrite.com/help/en-us/articles/362073/permissions-definitions/,チームメンバーへ細かな権限(イベント編集・ウェイトリスト・チェックイン・割引コード・報告等)を付与できる
+OP06,✅,公式,https://www.eventbrite.com/help/en-us/articles/496608/download-an-attendees-report/,Attendees レポートを CSV または Excel で出力。複数イベント横断も可
+OP07,✅,公式,https://www.eventbrite.com/help/en-us/articles/362073/permissions-definitions/,"Email attendees(イベントの参加者へメール作成・送信)と Email campaigns。無料は1日250通、Premium は2,000通/日まで(Email Marketing ページ)"
+OP08,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Organizer Check-in App(受付・リアルタイム販売確認)、Tap to Pay、当日券販売、名札出力
+OP09,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Instant Payouts(一部の米国主催者のみ)と事前ペイアウト、Finance 画面で入金管理。標準はイベント終了3営業日後(ヘルプ検索結果)
+OP10,✅,公式,https://www.eventbrite.com/help/en-us/articles/835126/how-to-create-promotional-tracking-links/,トラッキングリンク・トラッキングピクセル(Meta・Google・X)・Traffic and conversion レポート。UTM パラメータ自体の記載は確認できず
+OP11,✅,公式,https://www.eventbrite.com/help/en-us/articles/161196/how-to-set-up-your-organizer-profile-page/,主催者プロフィール(公開イベント一覧・フォロー・フォロワー確認)。2026-04 に刷新(カバー画像・過去イベント写真ギャラリー・統計)
+OP12,✅,公式,https://www.eventbrite.com/platform/api,Public API v3(イベント・参加者・注文・割引・レポート)と Webhooks。App Marketplace、Zoom・Facebook・TikTok・LinkedIn・YouTube 連携、Mailchimp 連携
+AC01,✅,公式,https://www.eventbrite.com/organizer/pricing/,無料イベントは無制限・手数料なし(2024-09 に復活)。グロース根拠あり(負の事例: 2023-24年に無料イベントへ主催者手数料を課し有料チケットが2024年-10%、2024-09撤回。無料を開いた主催者の約17%が12か月以内に有料開催[10-K FY2018])
+AC02,✅,公式,https://www.eventbrite.com/organizer/pricing/,既定は購入者負担。主催者がチケット種別ごとに手数料を吸収できる
+AC03,✅,公式,https://www.eventbrite.com/help/en-us/articles/496608/download-an-attendees-report/,参加者レポートを CSV/Excel で出力でき、購入者はメール購読者リストに自動追加される(Email Marketing ページ)
+AC04,△,公式,https://www.eventbrite.com/organizer/features/email-marketing/,他プラットフォームの連絡先アップロードと過去参加者のインポートでメール配信リストを移せる。他サービスのイベント自体の移行ツールは確認できず
+AC05,？,なし,,主催者の紹介報酬・アンバサダー制度は公式資料で確認できず(B2Bアフィリエイトは既存ノートで資料間不一致)
+AC06,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Organizer 向けリソース(チェックリスト・予算テンプレ・マーケKPI等)、ブログ、新規主催者向けウェビナー(ヘルプ)
+AC07,✅,公式,https://www.eventbrite.com/help/en-us/articles/193833/eventbrites-new-pricing-plans/,Eventbrite Ads(上位掲載、一部市場)、Email Marketing、Smart Audience。Premium は週次ニュースレターの掲載枠・Meta/Google/TikTok 広告枠込み。グロース根拠あり(弱: 自社主張『プレミアムなマーケティングツールを使ったイベントは販売チケットが63%多い』・因果は不明)
+AC08,？,なし,,運営自身によるイベント主催・共催は公式資料で確認できず
+CR01,✅,公式,https://www.eventbrite.com/d/ny--new-york/events/,アプリで curated recommendations を提供。Eventbrite のマーケティングメールは設定で購読可否を選べる(ヘルプ検索結果)。配信頻度・ダイジェスト形式の詳細は未確認
+CR02,？,なし,,参加者が自動で主催者フォロワーになる仕様は確認できず(フォローは任意操作)
+CR03,△,公式,https://www.eventbrite.com/organizer/features/email-marketing/,過去参加者をメールリストへ取り込み再案内でき、Promo Codes の exclusive access(アクセスコード)で限定チケットも公開できる。過去参加者の自動優先枠は確認できず
+CR04,✅,公式,https://www.eventbrite.com/organizer/features/email-marketing/,"購入者が購読者リストに自動追加され、過去の参加・購入行動でセグメント配信できる。無料は1日250通、Premium は2,000通/日(2026-10)"
+CR05,△,公式,https://www.eventbrite.com/blog/whats-next-at-eventbrite/,主催者の Top Organizer バッジと主催者プロフィールの統計。参加者の参加履歴・バッジは確認できず
+CR06,？,なし,,イベント・主催者への評価・レビュー機能は公式資料で確認できず
+CR07,？,なし,,参加者同士のチャット・掲示板は公式資料で確認できず
+CR08,？,なし,,年間まとめ・振り返り共有は公式資料で確認できず
+TS01,△,公式,https://www.eventbrite.com/help/en-us/search/?q=verify%20identity%20payouts,主催者のKYC(Stripe経由で本人・口座を確認、AU/CA/UK/US)。参加者の本人確認は確認できず
+TS02,✅,公式,https://www.eventbrite.com/blog/whats-next-at-eventbrite/,Top Organizer バッジ(2026-04)。イベントページにも表示(実機)。付与基準は公開されていない
+TS03,✅,実機,https://www.eventbrite.com/e/out-abt-halloween-edition-tickets-1996989228540,イベントページに Report this event、Community Guidelines あり。運営による対処手順の詳細は未確認
+TS04,✅,公式,https://www.eventbrite.com/help/en-us/articles/721549/can-i-get-a-refund/,主催者が返金ポリシーを設定しイベントページに表示(例: No refunds)。決済は前払い。欠席料・デポジットは確認できず
+TS05,？,なし,,参加者一覧の限定公開・匿名表示の設定は公式資料で確認できず
+TS06,△,公式,https://www.eventbrite.com/help/en-us/search/?q=approve%20registrations%20manually,非イベント規約でイベントは Eventbrite で登録・発券を提供する必要があると定める(ヘルプ検索結果)。外部誘導の禁止全般は未確認
+FD01,△,公式,https://www.eventbrite.com/organizer/features/all-features/,Sell Merchandise(アドオン)で非チケット商品を追加販売できる。料理・ドリンクの選択専用機能は確認できず
+FD02,△,公式,https://www.eventbrite.com/organizer/features/all-features/,カスタム登録フォームで質問(食事制限等)を収集できる。専用のアレルギー管理・店舗共有機能は確認できず
+FD03,△,公式,https://www.eventbrite.com/organizer/event-industry/food-drink-event-ticketing/,汎用の主催者ダッシュボードで代替(シェフのポップアップ等の飲食イベント向けページはあるが店舗専用の管理画面ではない)
+FD04,？,なし,,人数・注文の店舗への自動通知・仕込み数集計は公式資料で確認できず
+FD05,△,公式,https://www.eventbrite.com/organizer/features/all-features/,Reserved Seating(座席表)と Timed Entry。店舗の席・貸切管理との連動は確認できず
+FD06,？,なし,,コース・固定メニューを選ぶ機能は公式資料で確認できず
+FD07,？,なし,,割り勘・個別会計は公式資料で確認できず
+FD08,？,なし,,店探し・店選びの支援は確認できず(Food & Drink カテゴリはイベントの絞り込みで、店舗比較ではない)
+FD09,✅,公式,https://www.eventbrite.com/help/en-us/articles/362073/permissions-definitions/,チケット種別ごとの数量・容量、チケットホールド、アドオンの管理、数量/容量の上書き(アプリ)
+FD10,？,なし,,イートイン・テイクアウト等の提供形態の選択は公式資料で確認できず
+MN01,✅,公式,https://www.eventbrite.com/organizer/pricing/,有料チケットは3.7%+$1.79/枚、決済2.9%/注文(米国)と公開。購入者負担が既定。競合は買収後も据え置きと報告[競合発信]
+MN02,✅,公式,https://www.eventbrite.com/help/en-us/articles/193833/eventbrites-new-pricing-plans/,Eventbrite Premium(米国 月$69・年$708)。Pro は新規受付終了(旧プラン)。料金ページはProのメール配信を月$15〜と記載しており2資料で食い違い
+MN03,△,公式,https://www.eventbrite.com/help/en-us/articles/460357/how-to-fundraise-and-collect-donations-with-eventbrite/,Donation チケット種別で購入者が任意金額を決められる。カリフォルニア州では利用不可、寄付額に応じて手数料あり
+MN04,✅,公式,https://www.eventbrite.com/organizer/features/all-features/,Promo Codes(割引・早割・限定アクセス)、Early Bird Tickets、Group Tickets
+MN05,？,なし,,ポイント・ロイヤルティ・会員特典は公式資料で確認できず(Premium は主催者向けプラン)

@@ -1,0 +1,78 @@
+feature_id,verdict,evidence_level,evidence_url,note
+DS01,△,公式,https://support.posh.vip/en/articles/10723772-your-guide-to-posh-app-search,アプリでイベント名・組織・キーワード(3文字以上)を検索できる。検索機能はアプリのみでWeb版では使えないと明記(アプリのみの条件付き)
+DS02,✅,公式,https://posh.vip/explore,Exploreに「Nearby」フィルタがあり、位置情報のないイベントは「All Locations」にのみ出る(15089963)。地図表示は未確認
+DS03,△,公式,https://support.posh.vip/en/articles/12460155-discover-more-with-the-new-home-tab,Homeタブのクイックフィルタで日付・価格などを絞れるが、Homeタブは「NYC限定テスト・iOS先行・アプリのみ」。ExploreのWebにも日付・価格の項目表示あり
+DS04,△,公式,https://support.posh.vip/en/articles/12460155-discover-more-with-the-new-home-tab,Homeタブの「For You」が個人向けの推薦(NYC限定テスト)。プラットフォーム紹介ページはMarketplaceフィードがアルゴリズムとカテゴリで露出すると記述
+DS05,✅,公式,https://support.posh.vip/en/articles/10723770-unfollow-users-and-organizers,Followingで主催者・ユーザーをフォロー/解除できる。新着通知の有無は公式ヘルプで未確認
+DS06,✅,公式,https://support.posh.vip/en/articles/10723771-retrieve-your-saved-events-with-ease,アプリのExploreにSavedタブ(保存したイベント)がある
+DS07,△,公式,https://posh.vip/explore,公開のExploreページ(Featured/Trending)と主催者プロフィールはあるが、都市×カテゴリ別の公開一覧ページは確認できず。新規ページは検索インデックスに遅延あり(15089963)
+DS08,✅,公式,https://support.posh.vip/en/articles/12460155-discover-more-with-the-new-home-tab,Posh Selects(運営が注目するイベント)、Featured events、Trendingがある。主催者インタビュー等の編集記事も公開(posh.vip/)
+JN01,❌,公式,https://support.posh.vip/en/articles/10723762-how-to-purchase-tickets-with-posh,チケット購入時はログインが必要と公式ヘルプが明記(アカウントはメール・電話のOTPで自動作成)。Paylink経由の支払いのみアカウント不要(15075861)
+JN02,✅,公式,https://support.posh.vip/en/articles/12005810-getting-started-on-posh-create-an-account-log-in,パスワードなし。電話またはメールのワンタイムコードでログインする(Apple・Google連携の記述はなし)
+JN03,✅,公式,https://support.posh.vip/en/articles/15075671-ticket-management-creating-ticket-tiers-groups-and-advanced-toggles,Require Approvalで購入と無料RSVPを承認制にできる。承認までチケットは発行されない(10723762)
+JN04,△,公式,https://support.posh.vip/en/articles/12063814-waitlist-setup-guide-for-organizers,売り切れ券種にウェイトリスト(申込順に購入オファー、期限30分が既定)。購入者はチケットを返却してプールに戻せる(11880124)。ウェイトリスト経由の購入はPoshアプリのみ(アプリのみの条件付き)
+JN05,？,なし,,Mark as sold outと在庫上限はあるが、参加者向けの残席表示は公式ヘルプで確認できず
+JN06,✅,公式,https://support.posh.vip/en/articles/15076421-checkout-settings-customize-the-attendee-s-experience,チェックアウト質問(必須指定・券種限定)を設定できる。同行者ごとの個別入力は未確認
+JN07,△,公式,https://support.posh.vip/en/articles/10723777-how-to-request-ticket-refunds,購入者が返金を申請し主催者が判断する。売り切れ時はウェイトリスト返却で再販できれば自動返金(11880124)。無料チケットは対象外、Poshの手数料は返金不可
+JN08,✅,公式,https://support.posh.vip/en/articles/15076421-checkout-settings-customize-the-attendee-s-experience,確認メッセージが確認ページ・領収メール・カレンダー招待に載るとヘルプが記述。カレンダー連携の詳細説明は確認できず(根拠は弱い)
+JN09,△,公式,https://support.posh.vip/en/articles/15089436-sms-campaigns-messaging-guidelines-best-practices,イベント更新などのSMS取引通知は届く。開催前の定時リマインドの公式記述は確認できず。カゴ落ちはメール・プッシュで通知(10723762)
+JN10,✅,公式,https://support.posh.vip/en/articles/15090296-scanning-tickets-in-posh-two-ways-to-run-your-event-door,チケットはアプリ・Webに表示され、複数枚はメールのPDFに枚数分のQR。スキャナーPINまたはDoorperson権限で受付
+JN11,✅,公式,https://support.posh.vip/en/articles/10723775-take-control-of-your-privacy-settings,主催者が公開するとWho's Goingに表示される。参加者は自分の表示可否を設定できる
+JN12,△,公式,https://support.posh.vip/en/articles/15089436-sms-campaigns-messaging-guidelines-best-practices,イベント終了後3日まで購入者へSMSを送れる。写真・レビュー・アルバムは確認できず
+SH01,△,公式,https://posh.vip/,各イベントに共有できる公開ページがある。画像付きOGPカードの公式説明は確認できず
+SH02,△,公式,https://posh.vip/,公式サイトの利用者談に「アプリから友人へイベントを送る」とある。共有ボタンの公式説明は確認できず
+SH03,✅,公式,https://posh.vip/university/post/a-guide-to-kickback-at-posh,購入後にTurn Invites into Incomeで紹介リンクを提示する。チケット譲渡(電話番号宛て)も可(10723763)。グロース根拠あり(Kickbackとして既存ノート)
+SH04,✅,公式,https://posh.vip/university/post/a-guide-to-kickback-at-posh,Kickbackダッシュボードで紹介経由の売上・コンバージョンを追跡。トラッキングリンクとHost sales板でも流入元を追跡(15077072)。報酬あり(Poshが報酬額の20%を徴収)。グロース根拠あり
+SH05,△,二次,https://fortune.com/2026/03/19/exclusive-posh-lands-37m-series-b-what-are-we-doing-tonight-problem/,二次: 友人の動きに基づくフィードとソーシャルなゲストリストを報道が記述(既存ノート03)。公式ヘルプのHomeタブは友人セクションを「今後追加」としており連絡先同期は未確認
+SH06,✅,公式,https://posh.vip/,イベントカードに参加予定者と人数を表示する。ゲスト一覧の公開は主催者設定(10723775)
+SH07,✅,公式,https://support.posh.vip/en/articles/15076349-set-up-ad-tracking-pixels-and-promote-your-event,イベントごとの固有QRコード(PNG)、トラッキングリンク、Kickbackリンクがある。フライヤー仕様は15089963
+SH08,✅,公式,https://support.posh.vip/en/articles/15076421-checkout-settings-customize-the-attendee-s-experience,Embed event iFrameで外部サイトにチケット選択を埋め込める(購入はPoshのページへ遷移)
+OP01,△,公式,https://support.posh.vip/en/articles/15089963-creating-customizing-and-managing-your-posh-events-the-complete-guide,作成フロー、ドラフト、複製、フライヤー(静止画・GIF・動画)はある。テンプレートや所要時間の公式記述は確認できず
+OP02,✅,公式,https://support.posh.vip/en/articles/15090389-managing-your-posh-event-series-and-recurring-lineups,単発イベントの複製(券種は引継ぎ、日付・販売データは非複製)と繰り返しシリーズ(Session n of m)がある。シリーズ自体の複製は不可
+OP03,✅,公式,https://support.posh.vip/en/articles/15089963-creating-customizing-and-managing-your-posh-events-the-complete-guide,ドラフト(非公開)、住所の非表示(当日開示)、券種のパスワード保護・非表示、Show on Exploreをオフにして掲載を外せる
+OP04,？,なし,,AI作成支援は確認できず。AI(Posh Atlas、Posh AI beta)は運用Q&Aとデータ分析用で、Atlasは2026-10-13に提供終了(support.posh.vip 14436493)。説明文・画像の生成は記載なし
+OP05,✅,公式,https://support.posh.vip/en/articles/15090297-adding-team-members-and-managing-permissions,Admin・Host・Doorpersonの役割と権限を細分化でき、人数制限なし。Hostには個人のトラッキングリンクが自動付与される
+OP06,✅,公式,https://support.posh.vip/en/articles/15267292-export-event-report-downloading-your-attendee-info,イベント単位のCSV出力(列を選択。氏名・メール・電話・券種・スキャン済み等)。組織横断の出力は不可
+OP07,✅,公式,https://support.posh.vip/en/articles/15089436-sms-campaigns-messaging-guidelines-best-practices,組織レベルのSMS(過去参加者宛て、30日で最大10回)とイベントレベルのSMS(終了3日後まで無制限)。メールはMailchimp。SMS無料・無制限は自社主張(posh-vs-dice)
+OP08,✅,公式,https://support.posh.vip/en/articles/15090296-scanning-tickets-in-posh-two-ways-to-run-your-event-door,スキャナーPIN(ログイン不要)とDoorperson招待、プライベートゲストリスト(+1枠、Web・アプリでチェックイン。15075838)
+OP09,✅,公式,https://support.posh.vip/en/articles/15090213-managing-your-balance-payouts-bank-accounts,"残高・入金履歴、標準入金は無料でACH 3〜5営業日、Instant Payoutは手数料5%(GMV$2,000以上)、日次/手動の入金スケジュール。同日入金・資金前貸しは自社記事の主張(posh-vs-dice)"
+OP10,✅,公式,https://support.posh.vip/en/articles/15089965-tracking-performance-analyzing-brand-event-analytics,売上・閲覧数・コンバージョン・流入元、トラッキングリンク別の集計、Meta・TikTok・Google広告ピクセル(15076349)。UTMの記述は確認できず
+OP11,✅,公式,https://support.posh.vip/en/articles/15091575-managing-your-organization-settings-public-profiles,組織の公開プロフィール(カバー・ロゴ・説明・SNS・カスタムURL)があり、累計GMV$10万で認証バッジ。フォロワー・過去イベントの表示は未確認
+OP12,✅,公式,https://support.posh.vip/en/articles/15091630-mailchimp-webhooks-connecting-external-tools,Mailchimp(購入者を自動同期)、Webhook(最大5宛先、Zapier経由)、広告ピクセルがある。公開APIの記述は確認できず
+AC01,？,なし,,無料RSVPイベントは作成できるが、手数料・固定費の有無は公式ヘルプ・ToS(terms-of-service)で言及がなく確認できず。Third-Party Linksは掲載無料(17299835)
+AC02,△,公式,https://posh.vip/university/post/posh-vs-dice,標準は購入者負担(consumer-paid by default)。チェックアウト設定で主催者独自の追加料金は付けられる(15076421)。全額を主催者負担にする設定の公式記述は確認できず
+AC03,✅,公式,https://support.posh.vip/en/articles/15267292-export-event-report-downloading-your-attendee-info,CSVに氏名・メール・電話・Instagram等を含められ、主催者が名簿を出力・保持できる。Mailchimp連携で購入者を自動同期(15091630)
+AC04,△,公式,https://posh.vip/university/post/switching-from-eventbrite-to-posh,Eventbrite移行をCSMが支援し、過去参加者のCSV取込を案内(2026-06)。一方サポート記事は「参加者リストのインポートは非対応」と明記(15267292)で食い違い
+AC05,✅,公式,https://support.posh.vip/en/articles/15091893-organizer-affiliate-program-earn-commissions-by-inviting-event-creators,Organizer Affiliate: 紹介した新規主催者の手数料の10%を最大12か月支払う。参加者向けKickbackもある。学生向けCampus Growth Ambassadorは求人票(二次)。グロース根拠あり(既存ノート)
+AC06,✅,公式,https://posh.vip/university,Posh University(イベントガイド、講座、機能ドキュメント、主催者スポットライト、P&Lテンプレート)がある
+AC07,△,公式,https://support.posh.vip/en/articles/15076349-set-up-ad-tracking-pixels-and-promote-your-event,Market My Event(Marketplaceフィードへの掲載)、SMSブラスト、Spotify上の告知(15281886の見出し)、広告ピクセル。有料掲載・広告枠の価格は確認できず
+AC08,？,なし,,Posh自身が主催・共催する公式イベントの記載は確認できず(platformページは主催者向けコミュニティイベントへのアクセスを記述)
+CR01,？,なし,,Homeタブの「For You」等はあるが、定期ダイジェスト・おすすめ通知(メール・プッシュ)の公式記述は確認できず
+CR02,✅,公式,https://support.posh.vip/en/articles/15089436-sms-campaigns-messaging-guidelines-best-practices,購入者・参加者は組織のSMS購読者リストに入り、過去参加者宛てに次回案内を配信できる(組織レベル)
+CR03,△,公式,https://support.posh.vip/en/articles/15075671-ticket-management-creating-ticket-tiers-groups-and-advanced-toggles,過去参加者へのSMSと、パスワード保護・非表示の券種を組み合わせれば先行販売ができる。自動の過去参加者優先の設定は確認できず
+CR04,✅,公式,https://support.posh.vip/en/articles/15089436-sms-campaigns-messaging-guidelines-best-practices,購読者リストから宛先を選んでSMS配信でき、Mailchimp同期(15091630)と参加者のタグ付け(15090297)もある
+CR05,△,公式,https://support.posh.vip/en/articles/10723775-take-control-of-your-privacy-settings,プロフィールに参加イベント(Event Attendance)を公開/非公開で設定できる。主催者の認証バッジはGMV$10万(15091575)。参加者のバッジは確認できず
+CR06,？,なし,,主催者・参加者・店舗への評価・レビュー機能は公式ヘルプで確認できず
+CR07,△,公式,https://support.posh.vip/en/articles/10723761-how-to-contact-your-event-organizer,参加者から主催者への問い合わせフォーム・メッセージがある。参加者同士のグループチャットは確認できず(CEOは「グループチャットは解決済み」と発言=二次。既存ノート03)
+CR08,？,なし,,Wrapped型の振り返り機能は公式ページ・ヘルプ・検索で確認できず(2026-10確認)
+TS01,✅,公式,https://support.posh.vip/en/articles/12005810-getting-started-on-posh-create-an-account-log-in,アカウントにはメールと電話番号の両方が必要で、ワンタイムコードで認証する。主催者はStripeオンボーディングがある(15090193の見出し)
+TS02,✅,公式,https://support.posh.vip/en/articles/15091575-managing-your-organization-settings-public-profiles,"認証バッジは累計GMV$10万で自動的に審査対象になる。機能も売上基準で段階解放(Atlas $500、Bulk CSV $2,500、Instant Payout $2,000)"
+TS03,△,公式,https://support.posh.vip/en/articles/10723769-blocking-users,ユーザーのブロック(主催者はブロック不可)、主催者による問題参加者のブロックと紛争管理(15090285)がある。通報機能の公式記述は確認できず
+TS04,✅,公式,https://support.posh.vip/en/articles/10723777-how-to-request-ticket-refunds,前払い購入、主催者が判断する返金申請、返却→再販時のみ自動返金、紛争手数料$15(15090285)。専用の欠席料・デポジットは確認できず
+TS05,✅,公式,https://support.posh.vip/en/articles/10723775-take-control-of-your-privacy-settings,ゲスト一覧・参加者数は主催者が非公開にできる(15089963)。個人はWho's Going表示とプロフィール公開を設定できる
+TS06,△,公式,https://support.posh.vip/en/articles/17299835-third-party-links-list-your-event-elsewhere-share-them-on-posh,Third-Party Linksで他社チケットも掲載でき外部誘導を許容する。独占契約の主催者のみPosh専用マーケを要求。ToSに明示の禁止規定は確認できず
+FD01,△,公式,https://support.posh.vip/en/articles/15076421-checkout-settings-customize-the-attendee-s-experience,メニュー注文機能はない。チェックアウト質問(サイズ等)と券種・卓パッケージで内容を選ばせる程度
+FD02,△,公式,https://support.posh.vip/en/articles/15076421-checkout-settings-customize-the-attendee-s-experience,専用機能なし。チェックアウト質問で任意の項目を収集できる(ヘルプの例は物販のサイズ等)
+FD03,？,なし,,店舗向けの管理画面は確認できず(会場パートナーにAdmin/Host権限を付ける運用はあるが、店舗専用の画面ではない=15090297)
+FD04,？,なし,,人数・注文を店舗へ自動通知・集計する機能は確認できず(Webhookで外部連携は可能=15091630)
+FD05,✅,公式,https://support.posh.vip/en/articles/15255266-offering-table-service-creating-your-seating-map,座席マップに卓(Table)ピンを置き、価格・席数・在庫を設定して購入者が卓を選ぶ。1卓1QR。ナイトライフ向けで卓購入に固定$5の手数料
+FD06,△,公式,https://support.posh.vip/en/articles/15255266-offering-table-service-creating-your-seating-map,卓パッケージ(例: ボトル3本付き)と券種グループ(Bottle Service等)を販売できる。固定コースの選択機能ではない
+FD07,？,なし,,Paylink(単発の高額決済)とAffirm分割払いはあるが、参加者ごとの割り勘・個別会計は確認できず(15075861、15090257の見出し)
+FD08,？,なし,,店探し・店選びを支援する機能は確認できず
+FD09,△,公式,https://support.posh.vip/en/articles/15075671-ticket-management-creating-ticket-tiers-groups-and-advanced-toggles,券種ごとの在庫上限、Mark as Sold Out、1注文の購入枚数の上下限はある。メニュー単位の在庫管理は確認できず
+FD10,？,なし,,イートイン・テイクアウト等の提供形態を選ぶ機能は確認できず(In-Person Onlyの切替のみ=15075671)
+MN01,✅,公式,https://posh.vip/university/post/posh-vs-dice,10%+$0.99/枚、購入者負担が既定で決済手数料込み(2026-06の自社記事)。公式の料金ページは本文を取得できず(posh.vip/pricing)。Luma比較ページも同額(競合発信)
+MN02,？,なし,,"主催者向けサブスクは確認できず(売上額で機能が解放される)。platformページに$640・$2,983・$8,395の金額表記があるが用途不明"
+MN03,？,なし,,チェックアウト設定に任意チップ・寄付の記載なし(15076421)
+MN04,✅,公式,https://support.posh.vip/en/articles/15075838-ticket-promotions-hospitality-guest-lists-comps-and-promo-codes,"プロモコード(割合・定額、利用上限、券種限定、共有リンク)とコンプチケット。CSV一括はGMV$2,500以上"
+MN05,△,公式,https://support.posh.vip/en/articles/10723760-start-earning-with-posh-kickback-program,Kickbackで紹介したチケット売上の一部を現金で受け取れる。ポイント・会員制度は確認できず
