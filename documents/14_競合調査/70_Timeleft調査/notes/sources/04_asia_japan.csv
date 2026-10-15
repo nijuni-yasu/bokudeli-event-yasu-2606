@@ -1,0 +1,59 @@
+outlet,country,language,date,url,type,key_points,reliability,read_depth
+Timeleft 東京ページ,日本,en,2026-10-14,https://timeleft.com/tokyo/,official,"東京の9月: 予約2856・新規259・イベント46。恵比寿・渋谷・丸の内・新宿。夕食は水金19:30・女性限定は月・卓4-6人・日本語/英語選択・紹介6店",中,本文
+Timeleft 大阪ページ,日本,en,2026-10-14,https://timeleft.com/osaka/,official,"大阪の9月: 予約237・新規29・夕食10回。梅田・天神橋・道頓堀・難波。水曜19:30",中,本文
+Timeleft 名古屋ページ,日本,en,2026-10-14,https://timeleft.com/nagoya/,official,"名古屋は地区名・月次値の記載なし。水曜19:30・卓4-6人・日本語/英語",中,本文
+Timeleft 日本語トップ,日本,ja,2026-10-14,https://timeleft.com/jp/,official,"4M+メンバー・80000+ディナー・1日720予約・52か国200都市超(全世界)。日本は名古屋・大阪・東京。夕食/乾杯ナイト/ランニング",中,本文
+Timeleft 日本語アフィリエイト,日本,ja,2026-10-14,https://timeleft.com/jp/affiliate/,official,"専用リンク経由の売上の50%を毎月自動払い・承認制・日本固有の条件記載なし",中,本文
+Timeleft ロケーション一覧,全世界,en,2026-10-14,https://timeleft.com/locations/,official,"APAC・中東・アフリカの提供都市一覧。中国/イスラエル/モロッコ/南ア/ナイジェリア/ケニアは掲載なし。エジプトはカイロのみ",中,本文
+Timeleft 台北ページ,台湾,en,2026-10-14,https://timeleft.com/taipei/,official,"9月: 予約4484・新規198・イベント37。中国語/英語。台湾6都市掲載",中,本文
+Timeleft ソウルページ,韓国,en,2026-10-14,https://timeleft.com/seoul/,official,"9月: 予約383・新規35・11回。夕食は水金19:00",中,本文
+Timeleft シンガポールページ,シンガポール,en,2026-10-14,https://timeleft.com/singapore/,official,"9月: 予約2744・新規188・26回。5店紹介(各4回開催)",中,本文
+Timeleft 香港ページ,香港,en,2026-10-14,https://timeleft.com/hong-kong/,official,"9月: 予約3220・新規207・36回。広東語/英語。香港島中心",中,本文
+Timeleft ドバイページ,UAE,en,2026-10-14,https://timeleft.com/dubai/,official,"9月: 予約3380・新規292・40回。夕食は水金20:00",中,本文
+Timeleft リヤドページ,サウジアラビア,en,2026-10-14,https://timeleft.com/riyadh/,official,"9月: 予約711・新規83・13回。夕食水金20:00",中,本文
+Timeleft カイロページ,エジプト,en,2026-10-14,https://timeleft.com/cairo/,official,"9月: 予約1388・新規129・26回。アフリカで確認できた唯一の現行都市",中,本文
+Timeleft イスタンブールページ,トルコ,en,2026-10-14,https://timeleft.com/istanbul/,official,"9月: 予約760・新規57・26回。ベシクタシュ・カドゥキョイ等",中,本文
+Timeleft ムンバイページ,インド,en,2026-10-14,https://timeleft.com/mumbai/,official,"9月: 予約564・新規37・15回。水曜20:00・女性限定は金曜",中,本文
+Timeleft シドニーページ,豪州,en,2026-10-14,https://timeleft.com/sydney/,official,"9月: 予約2670・新規270・27回",中,本文
+Timeleft バンコクページ,タイ,en,2026-10-14,https://timeleft.com/bangkok/,official,"9月: 予約1258・新規88・20回",中,本文
+Timeleft ジャカルタページ,インドネシア,en,2026-10-14,https://timeleft.com/jakarta/,official,"9月: 予約367・新規24・17回。水金19:30",中,本文
+Timeleft クアラルンプールページ,マレーシア,en,2026-10-14,https://timeleft.com/kuala-lumpur/,official,"9月: 予約298・新規38・14回。店のGoogle評価4.0以上",中,本文
+Timeleft ホーチミンページ,ベトナム,en,2026-10-14,https://timeleft.com/ho-chi-minh-city/,official,"9月の数字なし。1区・3区の店。水金19:00",中,本文
+Timeleft ヘルプ プラン(日本語API),日本,ja,2026-10-14,https://help.timeleft.com/api/v2/help_center/ja/articles/27963865308060.json,official,"プランは1・3・6か月。地域により異なる。価格の記載なし",高,本文
+Timeleft ヘルプ キャンセル(日本語API),日本,ja,2026-10-14,https://help.timeleft.com/api/v2/help_center/ja/articles/28536868572444.json,official,"48時間超は無料・24-48時間はペナルティ可能性・24時間未満は欠席料可能性。金額の記載なし",高,本文
+Timeleft ヘルプ 都市確認(日本語API),日本,ja,2026-10-14,https://help.timeleft.com/api/v2/help_center/ja/articles/28531853103772.json,official,"提供都市は増減する。アカウントは都市に紐づかない。ウェイトリストの記載なし",高,本文
+Timeleft ヘルプ 記事一覧(日本語API),日本,ja,2026-10-14,https://help.timeleft.com/api/v2/help_center/ja/articles.json?per_page=100,official,"日本語ヘルプ記事の一覧(45件確認)。日本・円・金額の記載なし",高,本文
+Timeleft ニュースルーム,全世界,en,2026-10-14,https://timeleft.com/newsroom/,official,"1ページ目は欧州記事中心。日本・アジア・中東・アフリカ関連の項目なし",中,本文
+App Store 日本,日本,ja,2026-10-14,https://apps.apple.com/jp/app/timeleft-make-new-friends-irl/id6466442949,data,"評価4.3(438件)・課金項目¥2290/¥5390/¥7190・v6.21.0・京都未対応と大阪週末予約不可のレビュー言及",中,本文
+Trustpilot Timeleft,全世界,en,2026-10-14,https://www.trustpilot.com/review/timeleft.com,review,"3.2/5(766件)・星5が48%/星1が26%・自動更新請求・サポート遅延・騒音。アジアの言及なし",中,本文
+Tokyo Weekender,日本,en,2025-07-10,https://www.tokyoweekender.com/?p=271573,press,"1回¥1890・月額¥2290・5人卓・火曜は女性限定・Instagram広告で獲得・2次会は渋谷のバーを貸切・LINEグループ・当たり外れ",中,本文
+note しゅ,日本,ja,2024-11-26,https://note.com/and_rad_/n/nc6916880d890,social,"2024-11-20渋谷・7人・20代後半-30歳・話題カードは途中でどうでもよくなった・あと2-3回参加したい・勧誘や闇バイトを懸念",低,本文
+note 遠野カポ,日本,ja,2025-02-09,https://note.com/tanuinu/n/na858e1c881ce,social,"4人(1人ドタキャン)・全員日本人女性・ビアバー・会計は現金・質問カードが重い・東京/横浜/大阪から選択",低,本文
+note mika_88,日本,ja,2025-03-20,https://note.com/mika_88/n/n5b4c31585377,social,"東京・6人(男2女4)・インドカレー・予算¥・店が当日朝まで不明・予算表示が出ずバグ疑い・自己紹介が面倒",低,本文
+note Shiba,日本,ja,2025-05-01,https://note.com/shibas1113/n/n5fc80da1a5df,social,"恵比寿・6人・1回¥1890/月¥2290/3か月¥5390/6か月¥7190・「¥」の店は一人約2000円・古参から面白い人は減ったと聞いた",低,本文
+kiyasi-jinsei(ブログ),日本,ja,2025-06-15,https://kiyasi-jinsei.com/report/timeleft/,social,"6人・肉とワインの店・¥¥¥誤選択でホテル鉄板焼き約1万円割り勘・店情報が16時に判明・公式情報が検索で少なく怪しい",低,本文
+note takumi,日本,ja,2025-09-30,https://note.com/see_pioneer/n/n411c2d23e7ac,social,"累計100人超・関係内訳 その会限り20%/連絡先のみ60%/Timeleft以外で会った15%/親友5%(自己集計)・Instagram広告で登録",低,本文
+tesstaiwan(日本語ブログ),台湾,ja,2025-05-17,https://tesstaiwan.com/timeleft/,social,"桃園在住・4回参加・1回330台湾ドル(約1500円)/月418台湾ドル・6-7人卓・店は外れなし・LINEグループ作成",低,本文
+Paragraph(Ren Stern),日本,en,2025-01-22,https://paragraph.com/@renstern.eth/my-review-of-timeleft,social,"東京・6人・20代半ば-30代半ば・近隣卓が集まる渋谷のバー約60人・デーティングアプリを装ったよう・1人と友人に",低,本文
+Everyday Japanese Podcast #253(podwise),日本,ja,2025-01-20,https://podwise.ai/episodes/2750743,podcast,"東京と大阪・AIが6人・良い点は日本の会社員経営者と話せた・不満は参加者少数/騒がしい店/店と時間を選べない・本人は今後使わない",低,本文
+Vulcan Post,マレーシア,en,2024-08-16,https://vulcanpost.com/?p=867937,press,"スポンサー記事・RM55/回・RM100/250/350のサブスク・6人卓・バンサー/市内/PJ・参加者は20代半ば-30代前半・価格は富裕層寄りを引きつける",低,本文
+Free Malaysia Today,マレーシア,en,2024-08-08,https://www.freemalaysiatoday.com/category/leisure/2024/08/08/heres-to-chilling-while-dining-with-total-strangers,press,"KLは2024年7月開始・同卓5-6人・マッチングは良好・多くが心の健康のため参加(カントリーマネージャー談)",中,本文
+MWN Lifestyle(Morocco World News),モロッコ,en,2024-07-01,https://mwnlifestyle.com/?p=1136,press,"マラケシュ・カサブランカ開始(アフリカ初・7月3日)・卓5人・累計参加98000人超・シンガポール開始も発表",中,本文
+Morocco World News,モロッコ,en,2024-07-01,https://www.moroccoworldnews.com/?p=17781,press,"モロッコ開始・25か国120都市超・毎週8500人超・会員40万人超(自社発表の転載)",中,本文
+Arab News,サウジアラビア,en,2025-01-22,https://www.arabnews.com/node/2587429,press,"リヤドで毎週水曜20時・卓は通常2つ・6か国の参加者・内向的30%/移住者50%/目的なし20%は参加者の観察",中,本文
+maily.so Josh,韓国,ko,2025-01-15,https://maily.so/josh/posts/2nznwml4zp5,newsletter,"創業者Q&Aの要約・65か国285都市・毎週16000人・月約20ドル・コメントで中東圏の反応が大きいと伝聞・韓国で通じるか不明",中,本文
+EO Planet(ティガー),韓国,ko,2025-02-11,https://eopla.net/magazines/26145,social,"韓国のブロガーの参加記・店は当日朝・質問カードは使わず・アプリは直感的・都市は明記なし",低,本文
+maily.so Eunhamansion,韓国,ko,2025-05-26,https://maily.so/eunhamansion/posts/32z8w1q4zn4,newsletter,"毎週水曜・卓6人・Google評価4.3以上の店・65か国300都市で毎週16000人・紹介色が強い",低,本文
+Newneek(뉴닉),韓国,ko,2025-04-15,https://newneek.co/@gosum_beat/article/31232,newsletter,"ソウルなどで提供中と紹介・利用者の約80%がシングルと創業者談・MUNTO/남의집/FRIP等を列挙・数値なし",中,本文
+LinkedIn Tu-Han Vincent-Sultan,日本,ja,2026-10-14,https://jp.linkedin.com/in/tu-han-vincent,social,"APAC地域責任者(2024-05〜2025-09)・5か月で13か国・78都市(別投稿76)・APACが売上の20%(自己申告)・日本は東京で開始し大阪が翌週",低,本文
+36氪(薯岛),中国,zh,2026-08-03,https://www.36kr.com/p/3923485499895427,press,"薯岛: 59元/79元月/219元季・累計1.6万人超・27問・5人・店舗手数料なし・模倣されやすい・Timeleftを原型として紹介",中,本文
+中新網(北京青年報),中国,zh,2025-08-06,https://www.chinanews.com/sh/2025/08-06/10459898.shtml,press,"整点薯条が2024-10開始・59元・27問・同卓5人・22-35歳中心・千人超で92%満点(運営側とみられる)",中,本文
+36氪(盲盒饭局体験),中国,zh,2026-05-27,https://www.36kr.com/p/3827391168700672,press,"北京・朝陽区・59元+AA・25問・5-6人・継続率の記載なし",中,本文
+虎嗅,中国,zh,2026-05-27,https://www.huxiu.com/article/4862047.html,press,"59元・25問・5人・19-22時・1998-2003年生まれ中心・筆者は半月で4回参加",中,本文
+eNCA(DinnerMatch),南アフリカ,en,2025-06-21,https://www.enca.com/lifestyle/new-way-meet-people-and-eat-well-cape-town,press,"ケープタウンのDinnerMatch・クイズで6人・創業者27歳・価格と開始時期の記載なし",中,本文
+Taiwan News,台湾,zh,2024-12-06,https://www.taiwannews.com.tw/zh/news/5985943,press,"Timeleftへの言及は陌生人共餐風潮の例示のみ。台湾の開始・価格の情報なし",中,本文
+Dcard,台湾,zh,2025,https://www.dcard.tw/f/mood/p/257237433,social,"台北の体験(検索要約): 330台湾ドル・男女3:3・19時から22時半まで・403で本文未取得",低,要約のみ
+aumo,日本,ja,2026,https://aumo.jp/articles/3777848,review,"ご飯友達アプリの紹介(Gourmate/Pairs/with/Dine/タップル)。検索結果の要約のみ",低,要約のみ
+Khaleej Times(Avli by tashas),UAE,en,2026-07-08,https://www.khaleejtimes.com/lifestyle/dubai-shared-table-dinner-strangers-avli-review?amp=1,press,"ドバイのレストラン主催の月次シェアドテーブル夕食(Timeleftではない)。検索結果の要約のみ",低,要約のみ
+Deccan Herald,インド,en,2025,https://www.deccanherald.com/india/karnataka/bengaluru/secret-food-clubs-offer-dinner-2168347,press,"ベンガルールの共同卓の食事クラブ(Timeleftではない)。検索結果の要約のみ",低,要約のみ
+Reddit(Tokyo ミラー),日本,en,不明,https://reddit.birdcat.cafe/r/Tokyo/new,social,"新宿の店で最初は1人だけだったという投稿(検索要約)。本文未取得",低,要約のみ

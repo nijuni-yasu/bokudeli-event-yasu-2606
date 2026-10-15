@@ -1,0 +1,32 @@
+outlet,country,language,date,url,type,key_points,reliability,read_depth
+societe.com,FR,fr,2026-10-14(閲覧日。BODACC最新2026-02-08),https://www.societe.com/societe/timeleft-889565206.html,data,"TIMELEFT SAS SIREN 889565206・設立2020-09-30・資本金€883.28・社長SPYRIDON・元DG De Oliveira/ADEOM・2021年度のみ財務(売上0・純損失約€145k・現金€776.6k)・商標2件",中,本文
+recherche-entreprises.api.gouv.fr (TIMELEFT),FR,fr,2026-10-14(閲覧日。更新2026-10-13),https://recherche-entreprises.api.gouv.fr/search?q=889565206,official,"公的API。社長SPYRIDON(SIREN 880002860)・2021年売上0/純損失€145218・従業員区分10-19人(2024)・事業開始2021-12-01・PME区分",高,本文
+recherche-entreprises.api.gouv.fr (SPYRIDON),FR,fr,2026-10-14(閲覧日),https://recherche-entreprises.api.gouv.fr/search?q=880002860,official,"SPYRIDON SAS=Barbier個人の持株会社(2019-12-17設立・64.20Z)・2024年売上€132547・純利益€1560265",高,本文
+recherche-entreprises.api.gouv.fr (ADEOM),FR,fr,2026-10-14(閲覧日),https://recherche-entreprises.api.gouv.fr/search?q=adeom,official,"ADEOM(SIREN 903453744)2021-09-16設立・2023-08-31閉鎖・清算人Adrien De Oliveira",高,本文
+recherche-entreprises.api.gouv.fr (timeleft),FR,fr,2026-10-14(閲覧日),https://recherche-entreprises.api.gouv.fr/search?q=timeleft,official,"TIMELEFTと無関係のSIDE TIMELEFT(SIREN 932145055)を除外確認",高,本文
+DailyMax (Maxime Barbier),FR,fr,2024-12-01,https://dailymax.substack.com/p/timeleft-de-0-a-1-million-deuros,newsletter,"創業者本人の回想。ピボット4回・seed $2M・2023-04現金9か月・2023-05-03初回・2024年300都市超/65か国・4→70人・2024-11売上€1.2M・MRR表記が混在",中,本文
+DailyMax #164 (Maxime Barbier),FR,fr,2023-10-22,https://dailymax.substack.com/p/combattre-la-solitude-dans-les-grandes,newsletter,"夕食モデル約5か月の数字。チケット22週で1万枚・会員3万人・リスボン500+/ポルト250+/パリ200+・Instagram約3.2万・月50万リーチ",中,本文
+DailyMax #149 (Maxime Barbier),FR,fr,2021-11-11,https://dailymax.substack.com/p/100-cafes-avec-100-inconnues-timeleft,newsletter,"2021年のseed $2M超(NY・パリ・リスボン)・米国先行ローンチ・Vertical Station時代の数字・夢リスト型アプリの機能",中,本文
+DailyMax #121 (Maxime Barbier),FR,fr,2021-03-17,https://dailymax.substack.com/p/aujourdhui-est-un-tres-grand-jour,newsletter,"夢リスト版Timeleft 2021の公開・初版2020-04-22・フランス/ベルギー/ベトナム混成チーム・資金調達の言及なし",中,本文
+Paperjam,LU,fr,不明(ページ表示2026-10-14は表示用。本文は2024-02頃と推測),https://paperjam.lu/article/timeleft-ou-comment-contrer-so,press,"約60都市/約10か国・参加5万人超・従業員15人・資金調達中・1回€13.99/月額€19.99・ルクセンブルク約2か月で80人強・毎週12卓・評価4.6/5・店選定基準",中,本文
+Le Déclic #324 (Alec Henry),FR,fr,2025-08-14,https://podcast.ausha.co/le-declic-podcast-par-alec-henry/vire-par-tf1-de-sa-propre-entreprise-il-revient-avec-une-startup-mondiale-maxime-barbier-maxime-barbier-declic-324,podcast,"1時間29分。紹介文のみ確認。月12万人超・275都市超・毎週7000回超と週15000卓の併記",中,要約のみ
+Face au vide,FR,fr,2026-01-04,https://podcast.ausha.co/face-au-vide/une-idee-simple-devenue-un-phenomene-mondial,podcast,"43分。紹介文のみ。ARR €17M・200都市超・毎週1都市・月15万人超・現地スタッフなしで数日で開設",中,要約のみ
+Little Big Things,FR,fr,2026-02-26,https://podcast.ausha.co/littlebigthings/maxime-barbier,podcast,"1時間52分。紹介文のみ。ARR €16M・米国が売上の45%・月額約€20のみ・開発者15人/社員100人超・200都市・累計100万人",中,要約のみ
+Itinéraires by ACL,FR,fr,2026-10-07,https://podcast.ausha.co/itineraires-by-acl/maxime-barbier,podcast,"1時間4分。紹介文のみ。月15万人超・約50か国・2020年設立。数値の追加なし",中,要約のみ
+Principes Fondamentaux #81 (Deezer掲載),FR,fr,不明,https://www.deezer.com/ja/show/759682,podcast,"エピソード題は「les restaurants, l'arme anti-solitude」・84分52秒。本文取得失敗で内容不明",低,要約のみ
+Tim Frin (How They Build),不明,en,2025-10-09,https://timfrin.substack.com/p/inside-timelefts-journey-to-connecting,newsletter,"CAC・LTV・広告費の数値は記載なし。広告のみで都市展開・月1.4→2.2回・都市あたり週50人目標・約100人・ARR €18M",中,本文
+le360.ma,MA,fr,2024-10-02,https://fr.le360.ma/lifestyle/timeleft-le-concept-de-diners-entre-inconnus-qui-cartonne-au-maroc_4RFTDPI5H5DUXEWRWGC2H5ACGU/,press,"モロッコ4都市・2024-07開始・登録約15000人・夕食参加1000人超・毎週水曜100人超・北アフリカ地域マネージャー",中,本文
+ParisZigZag,FR,fr,2023-12-13(更新),https://www.pariszigzag.fr/?p=179037,press,"「提携記事」明記。毎週850人超・累計13000人超・予約2350卓・Instagram 46500・パリ初回約120人・利用者は地元70%/海外30%",低,本文
+Timeleft 公式ブログ(パリ),FR,fr,ページ表示2025-12-15(内容は2023年のパリ開始),https://timeleft.com/fr/post/back-to-basics-timeleft-launches-its-unique-dinners-in-paris/,official,"14週間で会員17000人超・月額€19.90/お試し€12.90・€5割引コード・初回目標300人・世界で毎月100万人",中,本文
+Timeleft 公式ブログ(ジュネーブ),CH,fr,ページ表示2025-12-15,https://timeleft.com/post/timelefts-geneva-gatherings-lakeside-dinners-in-the-heart-of-europe/,official,"会員6万人・欧州2万人超が参加・月額CHF19.99から・200都市超/52か国・毎月100万人目標",中,本文
+Le Petit Journal (Valencia),ES,fr,2024-04-18,https://lepetitjournal.com/valence/a-voir-a-faire/jai-teste-timeleft-diner-inconnus-valencia-383532,review,"1年弱で6500回超・50都市16か国・登録€12.99・体験談で好意的・独立検証なし",中,本文
+Le Bonbon Paris,FR,en,2024-01-08,https://en.lebonbon.fr/paris/society/a-crazy-concept-of-dinners-between-strangers-for-singles-is-coming-to-paris,press,"会員約5万人・800人超/週・2350卓・月額€19.99で月4-5回・宣伝色が強い(提携表示は未確認)",低,本文
+Connexion France,FR,en,2024-12-08,https://www.connexionfrance.com/news/how-to-meet-new-people-over-dinner-in-france-we-try-out-new-app/682998,press,"278都市/61か国・水曜15000人超・累計44000回/236000人・提携店5100超・フランス14都市・パリ700人超/約80店・水曜最大€80万の貢献推計・1席€12.99から/月額€14.99から",中,本文
+Brussels Times,BE,en,2024-08-06,http://www.brusselstimes.com/1160308/table-for-six-strangers-fighting-urban-loneliness-over-dinner,press,"2024-02にアントワープ/ブリュッセル開始・1回€12.99・ベネルクス担当Aya Tohme・参加者がマッチング精度に言及・「パリが勢い不足」という要約は原文未確認で不採用",中,本文
+Noovo (Bell Média),CA,fr,2024-05-29,https://www.noovo.info/nouvelle/on-a-teste-une-app-qui-nous-fait-souper-avec-5-inconnus.html,press,"モントリオール体験記・予約22ドル(食事代別)・卓の全員24-27歳・明確な批判なし",中,本文
+J'ai un pote dans la…,FR,fr,2025-10-10,https://jai-un-pote-dans-la.com/timeleft-socialclub-campagne-impertinente-routine-sociale/,press,"Socialclub制作。2025-10-07〜15にパリの地下鉄+SNS。Timeleft初の一般向け広告と記載。予算・結果なし",中,本文
+LADN,FR,fr,2025-04-11,https://www.ladn.eu/?p=710121,press,"デーティング疲れ記事内の言及。300都市超・16か国・月約10万人(定義不明)・友情先行の位置づけ",低,本文
+Oniv(競合アプリのブログ),FR,fr,2026-07-18(更新2026-08-30),https://onivapp.com/blog/application-sorties-amicales,review,"フランス10都市・単発廃止/月額必須€17.99から・レビュー199件で約1/3が1-2星・年齢差/中止/男女比/食事制限の不満・公式162都市 vs ストア250+",低,本文
+Le Soleil (Sénégal),SN,fr,2025-11-30,https://lesoleil.sn/actualites/societe-fait-divers/diner-entre-inconnusle-banquet-des-nouvelles-rencontres/,press,"ダカールの類似サービス(Foodfriend等)の記事。Timeleftへの言及なし。参考外",低,本文
+CB Insights,US,en,2024-07-19(記録日),https://www.cbinsights.com/company/timeleft/financials,data,"Series A $7M・2024-07-19・投資家Redstone/Kima Ventures/FJ Labs/Play Ventures(検索結果の要約。ページ本文は未取得)",中,要約のみ
+Dealroom,US,en,2021-10(記録日),https://app.dealroom.co/companies/timeleft,data,"pre-seed $2M・2021-10(検索結果の要約のみ)",中,要約のみ
