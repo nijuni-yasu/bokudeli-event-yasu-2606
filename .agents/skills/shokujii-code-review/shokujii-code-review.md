@@ -80,11 +80,11 @@ description: Shokujiiプロジェクトのコーディング規約に従って�
 
 **方針（H-4 確定）**: 画面を base に **丸ごと移さない**。1 v-card / 1 タブパネル程度の UI 単位を `base` に置き、**各 app の shell（例: `user/src/components/profile/UserProfilePage.vue`）で組み立てる**。
 
-| レイヤ | 置き場所 | 例 |
-|:--|:--|:--|
-| preview v-card / タブパネル | `base/src/components/profile/` | `UserProfileEventsPreviewCard.vue`, `UserProfileFriendsTabPanel.vue` |
-| 認可・tab sync・store 束ね | `base/src/composable/` | `useUserProfileAuthState`, `useUserProfileTabSync` |
-| タブ・Bio・app 差分・props 注入 | `user` / `enterprise` shell | `profileFilter`, `hide-sns`, Callable ゲート |
+| レイヤ                          | 置き場所                       | 例                                                                   |
+| :------------------------------ | :----------------------------- | :------------------------------------------------------------------- |
+| preview v-card / タブパネル     | `base/src/components/profile/` | `UserProfileEventsPreviewCard.vue`, `UserProfileFriendsTabPanel.vue` |
+| 認可・tab sync・store 束ね      | `base/src/composable/`         | `useUserProfileAuthState`, `useUserProfileTabSync`                   |
+| タブ・Bio・app 差分・props 注入 | `user` / `enterprise` shell    | `profileFilter`, `hide-sns`, Callable ゲート                         |
 
 **先例**: manage パネル（`CommunityEventsPanel.vue`）、注文履歴（`orders.vue` + `profileFilter` 注入）。
 
@@ -269,6 +269,11 @@ RC 修正後と rebase 競合解消後にも、増えた差分へ同じ確認を
 - [ ] 1つの PR に複数の責務を混在させていないか
 - [ ] 無関係な修正を同じコミットに含めていないか
 - [ ] 動作的に大きな変更を別 PR または別 Issue に分けているか
+
+### アプリ内マニュアル
+
+- [ ] user（`/manage`）・partner・base の画面／操作／文言／機能を変えた PR で、`base/src/manual/organizerManual.ts` / `partnerManual.ts` の該当セクションと `updatedAt` を更新しているか（更新不要なら PR 本文に理由があるか。手順は [`/manual-update`](../manual-update/SKILL.md)）
+- [ ] マニュアルの表記（ボタン名・項目名）が `ja.ts` の文言と一致しているか
 
 ### アセット管理
 
@@ -559,8 +564,7 @@ vue-i18n の datetimeFormats は廃止済み。新規実装では `common` の L
 // NG: vue-i18n datetimeFormats に依存する
 {{ $d(event.event_start_datetime, 'datetime_weekday_short') }}
 
-// OK: common の convertToXxx を使う
-import { convertToDatetimeWeekdayShort } from '@shokujii/common/utils/datetime.js'
+// OK: common の convertToXxx を使う import { convertToDatetimeWeekdayShort } from '@shokujii/common/utils/datetime.js'
 
 {{ convertToDatetimeWeekdayShort(event.event_start_datetime) }}
 ```
@@ -953,11 +957,11 @@ const eventListStore = createEventListStore(props.communityAccount, PAGE_SIZE)
 
 `enterprise_id` の解釈は **文脈で 3 系統**ある。混同すると inject ラッパーを誤判定したり、partner の非スコープ検索を壊す。
 
-| 文脈 | `undefined` | `null` | 非空 string |
-|:--|:--|:--|:--|
-| inject スコープ付き store / App ラッパー（`resolveCommunityEnterpriseIdForQuery`） | scope 省略 → PF（`enterprise_id == null`） | PF 確定 | enterprise |
-| community ドキュメント + scope（`resolveEffectiveEnterpriseId`） | 未 materialize → scope に委ねる | PF 確定（scope で上書き不可） | enterprise |
-| スコープ未注入の lookup ヘルパー（`getCommunityData` 等） | フィルタなし（全テナント横断） | PF 確定 | enterprise |
+| 文脈                                                                               | `undefined`                                | `null`                        | 非空 string |
+| :--------------------------------------------------------------------------------- | :----------------------------------------- | :---------------------------- | :---------- |
+| inject スコープ付き store / App ラッパー（`resolveCommunityEnterpriseIdForQuery`） | scope 省略 → PF（`enterprise_id == null`） | PF 確定                       | enterprise  |
+| community ドキュメント + scope（`resolveEffectiveEnterpriseId`）                   | 未 materialize → scope に委ねる            | PF 確定（scope で上書き不可） | enterprise  |
+| スコープ未注入の lookup ヘルパー（`getCommunityData` 等）                          | フィルタなし（全テナント横断）             | PF 確定                       | enterprise  |
 
 ```typescript
 // OK: inject スコープから PF / enterprise を決める App ラッパー（communityScope.test.ts もこの契約）
@@ -1036,10 +1040,14 @@ onMounted(async () => {
 
 // OK: firebaseUser.uid をフォールバックに併用する
 const currentUserId = computed(() => loginUser.value?.user_id ?? firebaseUser.value?.uid ?? '')
-watch(currentUserId, async (userId) => {
-  if (userId === '') return // 空 ID で store 生成 / Callable を呼ばない
-  await loadBudget(userId)
-}, { immediate: true })
+watch(
+  currentUserId,
+  async (userId) => {
+    if (userId === '') return // 空 ID で store 生成 / Callable を呼ばない
+    await loadBudget(userId)
+  },
+  { immediate: true },
+)
 ```
 
 ### NG: 存在確認・重複チェックのクエリに `limit` がない
