@@ -38,6 +38,7 @@ export const getManageCommunitySettingsPath = (communityAccount: string) =>
   `/manage/community/${communityAccount}/settings`
 export const getManageCommunityListPath = () => '/manage/community'
 export const getManageEventListPath = () => '/manage/event'
+export const getManageManualPath = () => '/manage/manual'
 export const getManageCommunityPath = (communityAccount: string) => `/manage/community/${communityAccount}`
 export const getManageCommunityAlbumPath = (communityAccount: string) => `/manage/community/${communityAccount}/album`
 export const getManageCommunityInvoicePath = (communityAccount: string) =>

@@ -1,5 +1,5 @@
 import type { NavLink, NavGroup } from '@layouts/types'
-import { getManagePath, getManageCommunityListPath, getManageEventListPath } from '@/router/utils'
+import { getManagePath, getManageCommunityListPath, getManageEventListPath, getManageManualPath } from '@/router/utils'
 import {
   mdiHome,
   mdiCalendarHeart,
@@ -9,6 +9,7 @@ import {
   mdiBullhornVariant,
   mdiPalette,
   mdiNoteTextOutline,
+  mdiBookOpenPageVariantOutline,
 } from '@mdi/js'
 
 export const useNavItems = (): (NavLink | NavGroup)[] => {
@@ -58,6 +59,11 @@ export const useNavItems = (): (NavLink | NavGroup)[] => {
       href: 'https://shokujii.studio.site/',
       target: '_blank',
       icon: { icon: mdiHeart },
+    },
+    {
+      title: $t('manual.navigation'),
+      to: { path: getManageManualPath() },
+      icon: { icon: mdiBookOpenPageVariantOutline },
     },
   ]
 }

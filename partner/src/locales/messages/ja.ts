@@ -20,7 +20,6 @@ export default {
     menu: 'メニュー設定',
     option: 'オプション設定',
     order: '注文一覧',
-    manual: '店舗マニュアル',
     community: '店舗主催設定',
     event: '店舗主催イベント',
     shokujii: 'shokujii公式サイト',

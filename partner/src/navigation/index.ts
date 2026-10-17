@@ -1,12 +1,12 @@
 import type { HorizontalNavItems, VerticalNavItems } from '@layouts/types'
-import { getMenuPath, getOptionsPath, getOrderPath, getShopPath } from './utils'
+import { getManualPath, getMenuPath, getOptionsPath, getOrderPath, getShopPath } from './utils'
 import {
   mdiHome,
   mdiStorefrontOutline,
   mdiFoodForkDrink,
   mdiFormatListCheckbox,
   mdiTruckOutline,
-  mdiLightbulbOnOutline,
+  mdiBookOpenPageVariantOutline,
   mdiHeartOutline,
 } from '@mdi/js'
 
@@ -39,12 +39,6 @@ export const useNavItems = (): HorizontalNavItems | VerticalNavItems => {
       icon: { icon: mdiTruckOutline },
     },
     {
-      title: $t('navigation.manual'),
-      href: 'https://bit.ly/4fYBbiJ',
-      target: '_blank',
-      icon: { icon: mdiLightbulbOnOutline },
-    },
-    {
       title: $t('navigation.shokujii'),
       href: 'https://shokujii.jp/',
       target: '_blank',
@@ -55,6 +49,11 @@ export const useNavItems = (): HorizontalNavItems | VerticalNavItems => {
       href: 'https://about.shokujii.jp/',
       target: '_blank',
       icon: { icon: mdiHeartOutline },
+    },
+    {
+      title: $t('manual.navigation'),
+      to: { path: getManualPath() },
+      icon: { icon: mdiBookOpenPageVariantOutline },
     },
   ]
 }

@@ -9,3 +9,4 @@ export const getOrderDetailPath = (eventId: string) => `/order/${eventId}`
 export const getUserEventUrl = (communityAccount: string, eventId: string) =>
   `https://${import.meta.env.VITE_ORIGIN_HOST}/c/${communityAccount}/e/${eventId}`
 export const getNamesPrintPath = () => '/namesprint'
+export const getManualPath = () => '/manual'

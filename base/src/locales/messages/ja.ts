@@ -1313,6 +1313,15 @@ export default {
       },
     },
   },
+  manual: {
+    navigation: 'マニュアル',
+    toc: '目次',
+    search_label: 'マニュアル内を検索',
+    search_placeholder: '例: 請求書、公開',
+    no_result: '一致する項目がありませんでした。別のキーワードでお試しください。',
+    where: '開き方: {0}',
+    updated_at: '最終更新: {0}',
+  },
   chat: {
     title: 'チャット',
     search_placeholder: 'ルームを検索',
