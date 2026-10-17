@@ -6,13 +6,19 @@
  * （運用ルールは `.agents/skills/manual-update/SKILL.md`）。
  */
 
-/** 手順や箇条書きの 1 項目 */
+/** 用語（ボタン名・項目名・ステータスなど）と、その説明の組 */
+export type ManualTerm = { term: string; text: string }
+
 export type ManualBlock =
   | { type: 'paragraph'; text: string }
   /** 番号付きの操作手順 */
   | { type: 'steps'; title?: string; items: string[] }
   /** 番号なしの箇条書き */
   | { type: 'list'; title?: string; items: string[] }
+  /** 用語と説明の対応（定義リスト）。「ラベル: 説明」の形になる項目はこちらを使う */
+  | { type: 'terms'; title?: string; items: ManualTerm[] }
+  /** メニュー名・タブ名・ステータスなど、短い名称の並び（チップで表示する） */
+  | { type: 'tags'; title?: string; items: string[] }
   /** 補足(info) / 注意(warning) */
   | { type: 'note'; variant: 'info' | 'warning'; text: string }
   /** 画面スクリーンショット。`src` は公開 URL もしくは import した画像パス */
@@ -25,7 +31,11 @@ export type ManualSection = {
   title: string
   /** 何ができる機能か（1〜2 文） */
   summary: string
-  /** どのメニューから開くか。例: 「メニュー > イベント管理」 */
+  /**
+   * どこから開くか。画面の表示名を ` > ` でつなぐ（例: `メニュー > イベント管理 > 対象のイベント > 概要`）。
+   * 入り口が複数あるときは ` / ` で区切り、それぞれを `メニュー` などの起点から書く。
+   * 経路で説明できない場合（サイドメニューにない画面など）は、文で書いてよい。
+   */
   where: string
   /** 最終更新日 `YYYY-MM-DD` */
   updatedAt: string

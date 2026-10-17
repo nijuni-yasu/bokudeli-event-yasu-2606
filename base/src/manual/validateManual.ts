@@ -53,8 +53,14 @@ export const validateManual = (manual: ManualDocument): string[] => {
         errors.push(`セクション「${section.id}」の本文が空です`)
       }
       for (const block of section.blocks) {
-        if ((block.type === 'steps' || block.type === 'list') && block.items.length === 0) {
+        if (
+          (block.type === 'steps' || block.type === 'list' || block.type === 'terms' || block.type === 'tags') &&
+          block.items.length === 0
+        ) {
           errors.push(`セクション「${section.id}」に項目が空の ${block.type} があります`)
+        }
+        if (block.type === 'terms' && block.items.some((item) => item.term.trim() === '' || item.text.trim() === '')) {
+          errors.push(`セクション「${section.id}」に用語または説明が空の terms があります`)
         }
         if (block.type === 'image' && block.alt.trim() === '') {
           errors.push(`セクション「${section.id}」の画像に代替テキスト(alt)がありません`)
@@ -76,8 +82,13 @@ export const getSectionSearchText = (section: ManualDocument['categories'][numbe
         break
       case 'steps':
       case 'list':
+      case 'tags':
         if (block.title != null) parts.push(block.title)
         parts.push(...block.items)
+        break
+      case 'terms':
+        if (block.title != null) parts.push(block.title)
+        parts.push(...block.items.flatMap((item) => [item.term, item.text]))
         break
       case 'image':
         parts.push(block.alt)
