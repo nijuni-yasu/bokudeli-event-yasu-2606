@@ -16,6 +16,7 @@ description: 主催者画面（user の /manage）と飲食店画面（partner�
 
 - 型は `base/src/manual/types.ts`、整合性検証は `base/src/manual/validateManual.ts`、表示は `base/src/components/manual/`（`ManualViewer.vue` が全体、`ManualSection.vue` が各項目、`ManualToc.vue` が目次）
 - 本文は**平文のみ**（HTML 不可）。UI の固定文言（「目次」等）は `base/src/locales/messages/ja.ts` の `manual`
+- 両方のマニュアルに載せるミッションの文言と、紹介サイトの URL は `base/src/manual/mission.ts`。文言はホーム画面（user / partner の `ja.ts`）・紹介サイトに合わせる
 - 対象外: enterprise / support / 一般参加者向け画面（必要になったら別 Issue）
 
 ## 更新が必要になる変更
@@ -39,13 +40,18 @@ description: 主催者画面（user の /manage）と飲食店画面（partner�
    - メニュー名・タブ名・ステータスなど、短い名称を並べるだけのときは `tags`（チップで表示する）にする
    - 補足は `note`（`info`、画面では「ポイント」）、取り消せない操作・金額・締切は `note`（`warning`、画面では「注意」）にする。「注意:」などの前置きは本文に書かない
    - `where` は画面の表示名を `>` でつなぐ（例: `メニュー > イベント管理 > 対象のイベント > 概要`）。コミュニティやイベントを選んだあとの画面は、「対象のコミュニティ」「対象のイベント」と書く。入り口が複数あるときは `/` で区切り、それぞれを `メニュー` から書く
+   - 実際の画面を開くボタンは `links` に書く。アプリ内の画面は `{ screen: 'eventList', label: 'イベント管理画面を開く' }`、外部のページは `{ href: 'https://…', label: '…を開く' }`（`https://` から始める）。ボタンは別タブで開く
+   - `screen` に使う画面を増やすときは、マニュアルのファイルの `OrganizerScreen` / `PartnerScreen` に識別子を足し、`user/src/pages/manage/manual.vue` / `partner/src/pages/manual.vue` の `screenPaths` に、`router/utils`（partner は `navigation/utils`）のパス関数を足す。足し忘れは型エラーになる。マニュアルの本文（base）にパスを書かない
+   - 経路の途中でコミュニティやイベントを選ぶ画面（`対象のコミュニティ` など）は、選ぶ前の一覧画面（`コミュニティ管理` など）のボタンにする
+   - 特定の画面を持たない項目（ミッションなど）は `where` を省略してよい
+   - 大きく見せたい一言（ミッション）だけ `quote` を使う。多用しない
    - ボタンやカードを操作する動詞は「押す」にそろえる（「クリック」は使わない。スマホでも同じ文面で通じるため）
    - 実装で確認できないことは書かない
    - 金額・期限・条件は functions / common の実装と照合する（境界条件が「以上」か「未満」か、返金の対象、手数料の計算対象、支払い方法ごとの違い）
    - 画面から実行できない操作（一覧に出ないボタン等）を手順に書かない
 4. そのセクションの `updatedAt` を**今日の日付（YYYY-MM-DD）**に更新する
 5. 文章は [`/yomiyasu`](../yomiyasu/SKILL.md) に従う（意味・条件・金額は変えない）。1 文は短くし、括弧の補足は文に組み込む
-6. `npm -w base run test` で `manual.test.ts`（ID 重複・日付書式・空本文・`terms` と `tags` の検証）が通ることを確認する
+6. `npm -w base run test` で `manual.test.ts`（ID 重複・日付書式・空本文・`terms` と `tags` と `links` の検証）が通ることを確認する
 7. PR 本文の「マニュアル更新」欄に更新したセクションを書く
 
 ## スクリーンショット（将来対応）
