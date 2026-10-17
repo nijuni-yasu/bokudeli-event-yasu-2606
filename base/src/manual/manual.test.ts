@@ -130,6 +130,65 @@ describe('getManualAnchorId', () => {
   })
 })
 
+describe('validateManual（links・quote・where の省略）', () => {
+  const base = validManual.categories[0].sections[0]
+  const withSection = (section: Partial<typeof base> & { id: string }): ManualDocument => ({
+    ...validManual,
+    categories: [{ ...validManual.categories[0], sections: [{ ...base, ...section }] }],
+  })
+
+  it('where を省略した項目は、エラーにならない', () => {
+    expect(validateManual(withSection({ id: 'sec-a', where: undefined }))).toEqual([])
+  })
+
+  it('where が空文字の項目を検出する', () => {
+    expect(validateManual(withSection({ id: 'sec-a', where: ' ' })).some((e) => e.includes('使う画面'))).toBe(true)
+  })
+
+  it('正しい links はエラーにならない', () => {
+    const manual = withSection({
+      id: 'sec-a',
+      links: [
+        { label: '画面を開く', screen: 'eventList' },
+        { label: '紹介サイトを見る', href: 'https://example.com/' },
+      ],
+    })
+    expect(validateManual(manual)).toEqual([])
+  })
+
+  it('ラベルが空・画面の識別子が空・https でない外部リンクを検出する', () => {
+    const errors = validateManual(
+      withSection({
+        id: 'sec-a',
+        links: [
+          { label: '', screen: 'eventList' },
+          { label: '画面', screen: '' },
+          { label: '外部', href: 'http://example.com/' },
+        ],
+      }),
+    )
+    expect(errors.some((e) => e.includes('ラベルが空'))).toBe(true)
+    expect(errors.some((e) => e.includes('画面の識別子が空'))).toBe(true)
+    expect(errors.some((e) => e.includes('https://'))).toBe(true)
+  })
+
+  it('本文が空の quote を検出する', () => {
+    const errors = validateManual(withSection({ id: 'sec-a', blocks: [{ type: 'quote', text: ' ' }] }))
+    expect(errors.some((e) => e.includes('quote'))).toBe(true)
+  })
+
+  it('quote も検索対象になるが、どの項目にもある「〜を開く」のボタン名は対象にしない', () => {
+    const text = getSectionSearchText({
+      ...base,
+      links: [{ label: '管理画面を開く', screen: 'manageTop' }],
+      blocks: [{ type: 'quote', text: '孤食を減らし、団欒を増やす', caption: 'ミッション' }],
+    })
+    expect(text).toContain('団欒')
+    expect(text).toContain('ミッション')
+    expect(text).not.toContain('管理画面を開く')
+  })
+})
+
 describe('parseWhere', () => {
   it('経路を画面の表示名ごとに分解する', () => {
     expect(parseWhere('メニュー > イベント管理 > 概要')).toEqual([['メニュー', 'イベント管理', '概要']])

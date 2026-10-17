@@ -1,10 +1,14 @@
+import { MISSION_ORIGIN, MISSION_QUOTE, SHOKUJII_ABOUT_URL } from './mission.js'
 import type { ManualDocument } from './types.js'
+
+/** `links` で使う画面。実際のパスは、user の `manage/manual.vue` が `router/utils` から用意する */
+export type OrganizerScreen = 'manageTop' | 'communityList' | 'communityCreate' | 'eventList'
 
 /**
  * 主催者画面（user の /manage）のマニュアル本文。
  * 画面・操作・文言を変更したら、該当セクションと updatedAt を同じ PR で更新する（.agents/skills/manual-update/SKILL.md）。
  */
-export const organizerManual: ManualDocument = {
+export const organizerManual: ManualDocument<OrganizerScreen> = {
   title: '主催者マニュアル',
   intro:
     'コミュニティの作成から、イベントの開催、参加者への連絡、請求書の確認までを、機能ごとにまとめています。はじめての方は、「はじめに」から順に読み進めてください。',
@@ -14,10 +18,26 @@ export const organizerManual: ManualDocument = {
       title: 'はじめに',
       sections: [
         {
+          id: 'mission',
+          title: 'shokujii のミッション',
+          summary: 'shokujii が掲げているミッションと、サービスの考え方です。',
+          links: [{ label: '「shokujiiって？」を見る', href: SHOKUJII_ABOUT_URL }],
+          updatedAt: '2026-10-17',
+          blocks: [
+            MISSION_QUOTE,
+            MISSION_ORIGIN,
+            {
+              type: 'paragraph',
+              text: 'shokujii なら、飲食店選びから、参加者の出欠管理、料理の手配、決済までをひとまとめにできるので、幹事業務がらくらくになります。はじめて食事会を企画する方でも、安心してお使いいただけます。',
+            },
+          ],
+        },
+        {
           id: 'flow',
           title: 'イベント開催の流れ',
           summary: 'コミュニティの作成から、お店への予約申請、告知、当日のお届けまでの流れです。',
           where: 'メニュー > 管理画面TOP',
+          links: [{ screen: 'manageTop', label: '管理画面TOPを開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -52,25 +72,32 @@ export const organizerManual: ManualDocument = {
         },
         {
           id: 'screen-overview',
-          title: '画面の見かた',
-          summary: 'サイドメニューと、各管理画面のタブの一覧です。',
-          where: 'すべての管理画面',
+          title: 'どの画面で何ができるか',
+          summary: '管理画面の主な画面と、それぞれでできることです。ボタンから、実際の画面を別タブで開けます。',
+          links: [
+            { screen: 'manageTop', label: '管理画面TOPを開く' },
+            { screen: 'communityList', label: 'コミュニティ管理画面を開く' },
+            { screen: 'eventList', label: 'イベント管理画面を開く' },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {
-              type: 'tags',
-              title: 'サイドメニュー',
-              items: ['管理画面TOP', 'コミュニティ管理', 'イベント管理', 'マニュアル'],
-            },
-            {
-              type: 'tags',
-              title: '別タブで開くページ',
+              type: 'terms',
+              title: 'サイドメニューの画面',
               items: [
-                'コミュニティガイド',
-                '告知・集客のコツ',
-                'カバーのテンプレ',
-                'チラシのテンプレ',
-                'shokujiiって？',
+                {
+                  term: '管理画面TOP',
+                  text: '運営しているコミュニティの入り口です。イベント開催の流れ、機能一覧、料金、サポートも確認できます。',
+                },
+                {
+                  term: 'コミュニティ管理',
+                  text: '管理しているコミュニティを一覧します。コミュニティを選ぶと、そのコミュニティの管理画面が開きます。',
+                },
+                {
+                  term: 'イベント管理',
+                  text: 'コミュニティを切り替えて、イベントを一覧します。イベントを選ぶと、そのイベントの管理画面が開きます。',
+                },
+                { term: 'マニュアル', text: 'この画面です。' },
               ],
             },
             {
@@ -96,6 +123,17 @@ export const organizerManual: ManualDocument = {
               title: 'イベント管理画面のタブ',
               items: ['概要', '参加者', 'レター', 'チラシ', 'イベント設定'],
             },
+            {
+              type: 'tags',
+              title: '別タブで開くページ',
+              items: [
+                'コミュニティガイド',
+                '告知・集客のコツ',
+                'カバーのテンプレ',
+                'チラシのテンプレ',
+                'shokujiiって？',
+              ],
+            },
           ],
         },
         {
@@ -103,6 +141,7 @@ export const organizerManual: ManualDocument = {
           title: 'イベントのステータス',
           summary: 'イベントに表示されるステータスの意味です。',
           where: 'メニュー > イベント管理',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -136,6 +175,7 @@ export const organizerManual: ManualDocument = {
           title: 'コミュニティの一覧',
           summary: '自分が管理者になっているコミュニティを一覧し、管理画面を開きます。',
           where: 'メニュー > コミュニティ管理',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -158,6 +198,7 @@ export const organizerManual: ManualDocument = {
           title: 'コミュニティの新規作成',
           summary: 'コミュニティURL・名前・説明・画像・公開設定を入力して、新しいコミュニティを作ります。',
           where: 'メニュー > コミュニティ管理 > コミュニティ作成',
+          links: [{ screen: 'communityCreate', label: 'コミュニティ作成画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -193,6 +234,7 @@ export const organizerManual: ManualDocument = {
           title: 'コミュニティ設定',
           summary: 'コミュニティの基本情報、メール、SNS、運営者情報、請求先情報を編集します。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > コミュニティ設定',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -225,6 +267,7 @@ export const organizerManual: ManualDocument = {
           summary:
             'メンバーと管理者を一覧し、管理者の追加や解除、招待URLの発行、個別メールの送信、CSVのダウンロードができます。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > メンバー',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -261,6 +304,7 @@ export const organizerManual: ManualDocument = {
           title: 'アルバム',
           summary: 'コミュニティページとイベントページのカバー画像の下に並ぶ、追加写真を管理します。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > アルバム',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -285,6 +329,7 @@ export const organizerManual: ManualDocument = {
           title: 'Slack連携',
           summary: 'shokujii の SlackApp を追加すると、注文通知やリマインドがSlackに自動で投稿されます。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > Slack連携',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -324,6 +369,10 @@ export const organizerManual: ManualDocument = {
           title: 'イベント一覧',
           summary: 'イベントをカードで一覧し、新規作成・コピー・詳細管理に進みます。',
           where: 'メニュー > イベント管理 / メニュー > コミュニティ管理 > 対象のコミュニティ > イベント',
+          links: [
+            { screen: 'eventList', label: 'イベント管理画面を開く' },
+            { screen: 'communityList', label: 'コミュニティ管理画面を開く' },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -347,6 +396,7 @@ export const organizerManual: ManualDocument = {
           summary:
             '開催場所・日時、店舗、メニュー、イベント詳細、店舗への連絡事項を5つのステップで入力し、お店に予約申請します。',
           where: 'メニュー > イベント管理 > イベント作成 / メニュー > イベント管理 > 対象のイベント > イベント設定',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -414,6 +464,7 @@ export const organizerManual: ManualDocument = {
           title: '事前決済と請求書払い',
           summary: '参加者が事前に決済するか、主催者が請求書でまとめて支払うかを選びます。',
           where: 'メニュー > イベント管理 > 対象のイベント > イベント設定 > イベント詳細 > 支払い設定',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -447,6 +498,7 @@ export const organizerManual: ManualDocument = {
           title: '最小催行人数',
           summary: '店舗の食事を注文した参加者が最小催行人数に達しなかったとき、イベントを自動で中止します。',
           where: 'メニュー > イベント管理 > 対象のイベント > イベント設定 > イベント詳細',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -465,6 +517,7 @@ export const organizerManual: ManualDocument = {
           title: 'イベントの概要',
           summary: 'イベントの状況を確認し、公開ページを開いたり、編集・削除・コピー・キャンセルを行ったりします。',
           where: 'メニュー > イベント管理 > 対象のイベント > 概要',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -491,6 +544,7 @@ export const organizerManual: ManualDocument = {
           summary:
             '参加者の注文内容と状況を確認し、CSVで保存します。個別メールの送信や、事前アンケートの回答確認もできます。',
           where: 'メニュー > イベント管理 > 対象のイベント > 参加者',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -521,6 +575,7 @@ export const organizerManual: ManualDocument = {
           title: 'チラシの生成',
           summary: 'イベントのカバー画像・説明・QRコードを入れたチラシをPDFでダウンロードします。',
           where: 'メニュー > イベント管理 > 対象のイベント > チラシ',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -544,6 +599,7 @@ export const organizerManual: ManualDocument = {
           summary: '既存イベントの内容を引き継いだ下書きを、1件または繰り返しでまとめて作ります。',
           where:
             'メニュー > イベント管理 > イベントコピー / メニュー > イベント管理 > 対象のイベント > 概要 > イベントコピー',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -574,6 +630,7 @@ export const organizerManual: ManualDocument = {
           title: 'イベントのキャンセル',
           summary: '参加者がいないイベントについて、理由を選んでキャンセルします。',
           where: 'メニュー > イベント管理 > 対象のイベント > 概要 > イベントキャンセル',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -598,6 +655,7 @@ export const organizerManual: ManualDocument = {
           title: 'イベントの削除',
           summary: '下書きのイベントを削除します。',
           where: 'メニュー > イベント管理 > 対象のイベント > 概要 > イベント削除',
+          links: [{ screen: 'eventList', label: 'イベント管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -628,6 +686,10 @@ export const organizerManual: ManualDocument = {
             'コミュニティメンバーやイベント参加者などに、メールを一斉に配信します。予約配信、下書き保存、テスト配信もできます。',
           where:
             'メニュー > コミュニティ管理 > 対象のコミュニティ > レター / メニュー > イベント管理 > 対象のイベント > レター',
+          links: [
+            { screen: 'communityList', label: 'コミュニティ管理画面を開く' },
+            { screen: 'eventList', label: 'イベント管理画面を開く' },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -665,6 +727,7 @@ export const organizerManual: ManualDocument = {
           title: 'フォーム',
           summary: '参加者に聞きたい質問をまとめた事前アンケートを作り、イベントに設定します。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > フォーム',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -717,6 +780,7 @@ export const organizerManual: ManualDocument = {
           title: '請求書払い',
           summary: '「主催者請求書払い」を設定したイベントの請求金額を確認し、請求書をPDFでダウンロードします。',
           where: 'メニュー > コミュニティ管理 > 対象のコミュニティ > 請求書払い',
+          links: [{ screen: 'communityList', label: 'コミュニティ管理画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {

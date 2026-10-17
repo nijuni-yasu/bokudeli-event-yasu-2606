@@ -1,10 +1,23 @@
+import { LEGAL_URLS } from '@shokujii/base/constants/legalUrls.js'
+import { MISSION_ORIGIN, MISSION_QUOTE, SHOKUJII_ABOUT_URL } from './mission.js'
 import type { ManualDocument } from './types.js'
+
+/** `links` で使う画面。実際のパスは、partner の `manual.vue` が `navigation/utils` から用意する */
+export type PartnerScreen =
+  | 'home'
+  | 'shop'
+  | 'menu'
+  | 'options'
+  | 'order'
+  | 'hostCommunity'
+  | 'hostEvents'
+  | 'hostEventCreate'
 
 /**
  * 飲食店画面（partner）のマニュアル本文。
  * 画面・操作・文言を変更したら、該当セクションと updatedAt を同じ PR で更新する（.agents/skills/manual-update/SKILL.md）。
  */
-export const partnerManual: ManualDocument = {
+export const partnerManual: ManualDocument<PartnerScreen> = {
   title: '店舗管理画面マニュアル',
   intro:
     '店舗管理画面の機能ごとの使い方をまとめています。はじめての方は、「はじめに」の導入の流れから順に読み進めてください。画面の表記と異なる場合は、サポートチームまでご連絡ください。',
@@ -14,10 +27,33 @@ export const partnerManual: ManualDocument = {
       title: 'はじめに',
       sections: [
         {
+          id: 'mission',
+          title: 'shokujii のミッション',
+          summary: 'shokujii が掲げているミッションと、サービスの考え方です。',
+          links: [
+            { label: '「shokujiiって？」を見る', href: SHOKUJII_ABOUT_URL },
+            { label: 'shokujii公式サイトを開く', href: 'https://shokujii.jp/' },
+          ],
+          updatedAt: '2026-10-17',
+          blocks: [
+            MISSION_QUOTE,
+            {
+              type: 'paragraph',
+              text: 'コミュニティフードデリバリー「ぼくデリ」は、食事でつながる「shokujii」に生まれ変わりました。このミッションを掲げ、人と人を食事でつなぐサービスづくりに邁進してまいります。',
+            },
+            MISSION_ORIGIN,
+          ],
+        },
+        {
           id: 'flow',
           title: '導入の流れ',
           summary: '掲載の申し込みから、開店、予約の承認、商品のお届け、入金までの流れです。',
           where: 'メニュー > HOME',
+          links: [
+            { screen: 'home', label: 'HOME画面を開く' },
+            { label: '店舗掲載申し込みフォームを開く', href: 'https://form.run/@shokujii-entry' },
+            { label: '店舗利用規約を開く', href: LEGAL_URLS.partnerTerms },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -46,15 +82,41 @@ export const partnerManual: ManualDocument = {
         },
         {
           id: 'screen-overview',
-          title: '画面の見かたと共通の動作',
-          summary: 'サイドメニュー、ログアウト、保存の通知など、すべての画面に共通する動作です。',
-          where: 'すべての画面',
+          title: 'どの画面で何ができるか',
+          summary: 'サイドメニューの主な画面と、それぞれでできることです。ボタンから、実際の画面を別タブで開けます。',
+          links: [
+            { screen: 'home', label: 'HOME画面を開く' },
+            { screen: 'shop', label: '店舗設定画面を開く' },
+            { screen: 'menu', label: 'メニュー設定画面を開く' },
+            { screen: 'options', label: 'オプション設定画面を開く' },
+            { screen: 'order', label: '注文一覧画面を開く' },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {
-              type: 'tags',
-              title: 'サイドメニュー',
-              items: ['HOME', '店舗設定', 'メニュー設定', 'オプション設定', '注文一覧', 'マニュアル'],
+              type: 'terms',
+              title: 'サイドメニューの画面',
+              items: [
+                { term: 'HOME', text: '導入の流れ（TODOリスト）と、サポートの連絡先を確認できます。' },
+                {
+                  term: '店舗設定',
+                  text: '店舗情報、配送距離、営業曜日・時間、注文期限を設定し、開店・閉店を切り替えます。',
+                },
+                {
+                  term: 'メニュー設定',
+                  text: 'メニューの追加、編集、削除、並び替え、売り切れの切り替えをします。',
+                },
+                { term: 'オプション設定', text: 'メニューに付ける選択肢を作ります。' },
+                {
+                  term: '注文一覧',
+                  text: '予約の承認や変更依頼、注文内容の確認、お名前シートのダウンロードをします。',
+                },
+                { term: 'マニュアル', text: 'この画面です。' },
+              ],
+            },
+            {
+              type: 'paragraph',
+              text: '「店舗主催設定」と「店舗主催イベント」は、サイドメニューに表示されません。「店舗主催のイベント」の章のボタンから開きます。',
             },
             {
               type: 'tags',
@@ -84,6 +146,7 @@ export const partnerManual: ManualDocument = {
           title: '店舗設定',
           summary: '店舗情報、画像、配送距離と注文最小個数、営業曜日・時間、注文期限、開店・閉店を設定します。',
           where: 'メニュー > 店舗設定',
+          links: [{ screen: 'shop', label: '店舗設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -123,6 +186,7 @@ export const partnerManual: ManualDocument = {
           title: '配送距離と注文最小個数',
           summary: '配送できる距離と、その距離ごとの注文最小個数を、最大5段まで設定します。',
           where: 'メニュー > 店舗設定 > 配送距離＆注文最小個数',
+          links: [{ screen: 'shop', label: '店舗設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -147,6 +211,7 @@ export const partnerManual: ManualDocument = {
           title: '営業曜日・配送時間と注文期限',
           summary: '営業する曜日と時間帯、イベントの注文を締め切るタイミングを設定します。',
           where: 'メニュー > 店舗設定',
+          links: [{ screen: 'shop', label: '店舗設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -175,6 +240,7 @@ export const partnerManual: ManualDocument = {
           title: 'サブメールアドレス・適格請求書・開店設定',
           summary: '注文メールの宛先追加、領収書に表示する適格請求書登録番号、開店・閉店を設定します。',
           where: 'メニュー > 店舗設定',
+          links: [{ screen: 'shop', label: '店舗設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -209,6 +275,7 @@ export const partnerManual: ManualDocument = {
           title: 'メニュー設定',
           summary: 'メニューの追加、編集、削除、並び替え、売り切れの切り替えを行います。',
           where: 'メニュー > メニュー設定',
+          links: [{ screen: 'menu', label: 'メニュー設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -258,6 +325,7 @@ export const partnerManual: ManualDocument = {
           summary:
             '「大盛り」「トッピング」「ドリンクセット」など、メニューに付けられる選択肢を作成します。同じオプションを、複数のメニューで使えます。',
           where: 'メニュー > オプション設定',
+          links: [{ screen: 'options', label: 'オプション設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -299,6 +367,7 @@ export const partnerManual: ManualDocument = {
           title: '注文一覧',
           summary: '自店舗が選ばれたイベントを、開催日時の新しい順に一覧表示します。',
           where: 'メニュー > 注文一覧',
+          links: [{ screen: 'order', label: '注文一覧画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -322,6 +391,7 @@ export const partnerManual: ManualDocument = {
           title: '予約の承認と変更依頼',
           summary: '主催者からの予約申請に対して、「承認」か「変更依頼」を選び、メッセージを送ります。',
           where: 'メニュー > 注文一覧 > 対象のイベント',
+          links: [{ screen: 'order', label: '注文一覧画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -365,6 +435,7 @@ export const partnerManual: ManualDocument = {
           title: '注文内容の確認とお名前シート',
           summary: '確定した注文の明細・メニュー別小計・合計を確認し、お弁当箱に貼るお名前シートをダウンロードします。',
           where: 'メニュー > 注文一覧 > 対象のイベント',
+          links: [{ screen: 'order', label: '注文一覧画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -389,6 +460,7 @@ export const partnerManual: ManualDocument = {
           title: 'イベントのステータス',
           summary: '注文一覧・注文詳細に表示されるステータスの意味です。',
           where: 'メニュー > 注文一覧',
+          links: [{ screen: 'order', label: '注文一覧画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -418,7 +490,8 @@ export const partnerManual: ManualDocument = {
           id: 'host-community',
           title: '店舗主催設定',
           summary: '店舗自身が主催者としてイベントを開催するための「コミュニティ」を作成・編集します。',
-          where: 'サイドメニューには表示されません。/community を直接開きます',
+          where: 'サイドメニューには表示されません。下のボタンから開きます',
+          links: [{ screen: 'hostCommunity', label: '店舗主催設定画面を開く' }],
           updatedAt: '2026-10-17',
           blocks: [
             {
@@ -454,7 +527,11 @@ export const partnerManual: ManualDocument = {
           id: 'host-events',
           title: '店舗主催イベントの作成',
           summary: '店舗自身が主催するイベントを、下書きで保存したり、運営へ申請したりします。',
-          where: 'サイドメニューには表示されません。/events を直接開きます',
+          where: 'サイドメニューには表示されません。下のボタンから開きます',
+          links: [
+            { screen: 'hostEvents', label: '店舗主催イベント画面を開く' },
+            { screen: 'hostEventCreate', label: 'イベント作成画面を開く' },
+          ],
           updatedAt: '2026-10-17',
           blocks: [
             {

@@ -22,6 +22,11 @@ import type { ManualCategory, ManualDocument } from '@shokujii/base/manual/types
 
 const props = defineProps<{
   manual: ManualDocument
+  /**
+   * 各項目の `links` に書かれた画面（`screen`）を、アプリのパスに対応づける。
+   * パスの定義はアプリ側の `router/utils` を使い、ここにはパスを書かない
+   */
+  screenPaths?: Record<string, string>
 }>()
 
 const route = useRoute()
@@ -344,6 +349,7 @@ watch(() => route.hash, scrollToHash)
               :key="section.id"
               :section="section"
               :number="numbering[section.id]"
+              :screen-paths="screenPaths"
               @select="selectTarget"
             />
           </div>

@@ -6,6 +6,7 @@ import {
   mdiLightbulbOnOutline,
   mdiLink,
   mdiMapMarkerPath,
+  mdiOpenInNew,
 } from '@mdi/js'
 import { getManualAnchorId, parseWhere } from '@shokujii/base/manual/manualView.js'
 import type { ManualSection } from '@shokujii/base/manual/types.js'
@@ -14,14 +15,29 @@ const props = defineProps<{
   section: ManualSection
   /** 章内の通し番号（例: `2-3`） */
   number: string
+  /** `links` の `screen` ごとの画面のパス。マニュアルを表示するアプリが渡す */
+  screenPaths?: Record<string, string>
 }>()
 
 const emit = defineEmits<{
   select: [id: string]
 }>()
 
+const router = useRouter()
+
 const anchorId = computed(() => getManualAnchorId(props.section.id))
-const routes = computed(() => parseWhere(props.section.where))
+const routes = computed(() => (props.section.where == null ? [] : parseWhere(props.section.where)))
+
+/** 画面のリンクは、アプリが渡したパスから実際の URL にする。パスが渡されていない画面のリンクは出さない */
+const resolvedLinks = computed(() =>
+  (props.section.links ?? []).flatMap((link) => {
+    if ('href' in link) {
+      return [{ label: link.label, href: link.href }]
+    }
+    const path = props.screenPaths?.[link.screen]
+    return path == null ? [] : [{ label: link.label, href: router.resolve(path).href }]
+  }),
+)
 </script>
 
 <template>
@@ -39,20 +55,36 @@ const routes = computed(() => parseWhere(props.section.where))
       </a>
     </header>
 
-    <div class="manual-section__where">
-      <span class="manual-section__where-label">
-        <v-icon :icon="mdiMapMarkerPath" size="16" />
-        {{ $t('manual.where_label') }}
-      </span>
-      <ul class="manual-section__routes">
-        <li v-for="(route, i) of routes" :key="i">
-          <ol v-if="route.length > 1" class="manual-path">
-            <li v-for="(crumb, j) of route" :key="j" class="manual-path__crumb">
-              <span class="manual-path__name">{{ crumb }}</span>
-              <v-icon v-if="j < route.length - 1" :icon="mdiChevronRight" size="14" class="manual-path__sep" />
-            </li>
-          </ol>
-          <span v-else class="manual-section__where-text">{{ route[0] }}</span>
+    <div
+      v-if="routes.length > 0 || resolvedLinks.length > 0"
+      class="manual-guide"
+      :class="{ 'manual-guide--links-only': routes.length === 0 }"
+    >
+      <div v-if="routes.length > 0" class="manual-guide__where">
+        <span class="manual-guide__label">
+          <v-icon :icon="mdiMapMarkerPath" size="16" />
+          {{ $t('manual.where_label') }}
+        </span>
+        <ul class="manual-guide__routes">
+          <li v-for="(route, i) of routes" :key="i">
+            <ol v-if="route.length > 1" class="manual-path">
+              <li v-for="(crumb, j) of route" :key="j" class="manual-path__crumb">
+                <span class="manual-path__name">{{ crumb }}</span>
+                <v-icon v-if="j < route.length - 1" :icon="mdiChevronRight" size="14" class="manual-path__sep" />
+              </li>
+            </ol>
+            <span v-else class="manual-guide__text">{{ route[0] }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <ul v-if="resolvedLinks.length > 0" class="manual-guide__links">
+        <li v-for="(link, i) of resolvedLinks" :key="i">
+          <a class="manual-link" :href="link.href" target="_blank" rel="noopener noreferrer">
+            {{ link.label }}
+            <v-icon :icon="mdiOpenInNew" size="16" />
+            <span class="manual-sr-only">{{ $t('manual.opens_in_new_tab') }}</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -96,6 +128,11 @@ const routes = computed(() => parseWhere(props.section.where))
             <li v-for="(item, j) of block.items" :key="j" class="manual-tags__item">{{ item }}</li>
           </ul>
         </div>
+
+        <figure v-else-if="block.type === 'quote'" class="manual-quote">
+          <blockquote class="manual-quote__text">{{ block.text }}</blockquote>
+          <figcaption v-if="block.caption != null" class="manual-quote__caption">{{ block.caption }}</figcaption>
+        </figure>
 
         <aside
           v-else-if="block.type === 'note'"
@@ -217,45 +254,6 @@ const routes = computed(() => parseWhere(props.section.where))
     }
   }
 
-  &__where {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    align-items: flex-start;
-    margin-block-start: 14px;
-  }
-
-  &__where-label {
-    display: inline-flex;
-    flex: none;
-    gap: 4px;
-    align-items: center;
-    padding-block: 4px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: rgba(var(--v-theme-on-surface), 0.62);
-  }
-
-  &__routes {
-    display: grid;
-    flex: 1 1 280px;
-    gap: 6px;
-    min-inline-size: 0;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__where-text {
-    display: inline-block;
-    padding-block: 3px;
-    font-size: 0.8125rem;
-    line-height: 1.6;
-    color: rgba(var(--v-theme-on-surface), 0.78);
-    overflow-wrap: anywhere;
-  }
-
   &__summary {
     margin: 18px 0 0;
     font-size: 1rem;
@@ -281,6 +279,201 @@ const routes = computed(() => parseWhere(props.section.where))
     margin-block-start: 20px;
     font-size: 0.75rem;
     color: rgba(var(--v-theme-on-surface), 0.55);
+  }
+}
+
+// 使う画面（経路と、実際の画面を開くボタン）
+.manual-guide {
+  display: grid;
+  gap: 12px;
+  margin-block-start: 16px;
+  padding: 14px 16px;
+  background: rgba(var(--v-theme-primary), 0.06);
+  border: 1px solid rgba(var(--v-theme-primary), 0.24);
+  border-radius: 14px;
+
+  // 画面を持たない項目（ミッションなど）は、ボタンだけを置く
+  &--links-only {
+    margin-block-start: 18px;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  &__where {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: flex-start;
+  }
+
+  &__label {
+    display: inline-flex;
+    flex: none;
+    gap: 4px;
+    align-items: center;
+    padding-block: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--manual-accent-strong);
+  }
+
+  &__routes {
+    display: grid;
+    flex: 1 1 280px;
+    gap: 6px;
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__text {
+    display: inline-block;
+    padding-block: 3px;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: rgba(var(--v-theme-on-surface), 0.78);
+    overflow-wrap: anywhere;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// 別タブで開くボタン
+.manual-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px 8px 18px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: var(--manual-accent-strong);
+  text-decoration: none;
+  background: rgb(var(--v-theme-surface));
+  border: 1px solid rgba(var(--v-theme-primary), 0.55);
+  border-radius: 999px;
+  box-shadow: 0 8px 16px -12px rgba(var(--v-theme-primary), 0.9);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(var(--v-theme-primary), 0.14);
+    box-shadow: 0 10px 18px -10px rgba(var(--v-theme-primary), 1);
+    transform: translateY(-1px);
+  }
+}
+
+.manual-sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+// ミッションなど、大きく見せたい一言
+.manual-quote {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  padding: clamp(26px, 5vw, 40px) clamp(24px, 5vw, 44px);
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(var(--v-theme-primary), 0.18), transparent 58%),
+    radial-gradient(90% 120% at 100% 100%, rgba(var(--v-theme-warning), 0.16), transparent 62%),
+    rgb(var(--v-theme-surface));
+  border: 1px solid var(--manual-line);
+  border-radius: 20px;
+
+  // 輪郭だけの大きなかぎ括弧
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: -1;
+    font-family: var(--manual-font-numeric);
+    font-size: clamp(4rem, 12vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(var(--v-theme-primary), 0.5);
+    user-select: none;
+  }
+
+  &::before {
+    inset-block-start: 4px;
+    inset-inline-start: 14px;
+    content: '「';
+  }
+
+  &::after {
+    inset-block-end: 6px;
+    inset-inline-end: 16px;
+    content: '」';
+  }
+
+  &__text {
+    margin: 0;
+    font-size: clamp(1.5rem, 4.6vw, 2.25rem);
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    color: var(--manual-accent-strong);
+    font-feature-settings: 'palt' 1;
+    text-align: center;
+    text-wrap: balance;
+    word-break: auto-phrase;
+  }
+
+  &__caption {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-block-start: 14px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(var(--v-theme-on-surface), 0.7);
+    text-align: center;
+
+    // 短い線で、出どころを区切る
+    &::before,
+    &::after {
+      flex: none;
+      inline-size: 24px;
+      block-size: 2px;
+      content: '';
+      background: rgb(var(--v-theme-primary));
+      border-radius: 2px;
+    }
+
+    // 幅が狭い画面では、文が折り返すので、線は文の上に 1 本だけ置く
+    @media (max-width: 599px) {
+      flex-direction: column;
+      gap: 8px;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 

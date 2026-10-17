@@ -43,8 +43,19 @@ export const validateManual = (manual: ManualDocument): string[] => {
         errors.push(`ID が重複しています: ${section.id}`)
       }
       seenIds.add(section.id)
-      if (section.title.trim() === '' || section.summary.trim() === '' || section.where.trim() === '') {
-        errors.push(`セクション「${section.id}」のタイトル・概要・開き方のいずれかが空です`)
+      if (section.title.trim() === '' || section.summary.trim() === '' || section.where?.trim() === '') {
+        errors.push(`セクション「${section.id}」のタイトル・概要・使う画面のいずれかが空です`)
+      }
+      for (const link of section.links ?? []) {
+        if (link.label.trim() === '') {
+          errors.push(`セクション「${section.id}」にラベルが空のリンクがあります`)
+        }
+        if ('screen' in link && link.screen.trim() === '') {
+          errors.push(`セクション「${section.id}」に画面の識別子が空のリンクがあります`)
+        }
+        if ('href' in link && !link.href.startsWith('https://')) {
+          errors.push(`セクション「${section.id}」の外部リンクが https:// で始まっていません: ${link.href}`)
+        }
       }
       if (!isValidDateString(section.updatedAt)) {
         errors.push(`セクション「${section.id}」の updatedAt が YYYY-MM-DD ではありません: ${section.updatedAt}`)
@@ -62,6 +73,9 @@ export const validateManual = (manual: ManualDocument): string[] => {
         if (block.type === 'terms' && block.items.some((item) => item.term.trim() === '' || item.text.trim() === '')) {
           errors.push(`セクション「${section.id}」に用語または説明が空の terms があります`)
         }
+        if (block.type === 'quote' && block.text.trim() === '') {
+          errors.push(`セクション「${section.id}」に本文が空の quote があります`)
+        }
         if (block.type === 'image' && block.alt.trim() === '') {
           errors.push(`セクション「${section.id}」の画像に代替テキスト(alt)がありません`)
         }
@@ -73,12 +87,16 @@ export const validateManual = (manual: ManualDocument): string[] => {
 
 /** 検索用に、セクションの全文を 1 つの文字列にまとめる */
 export const getSectionSearchText = (section: ManualDocument['categories'][number]['sections'][number]): string => {
-  const parts = [section.title, section.summary, section.where]
+  const parts = [section.title, section.summary, section.where ?? '']
   for (const block of section.blocks) {
     switch (block.type) {
       case 'paragraph':
       case 'note':
         parts.push(block.text)
+        break
+      case 'quote':
+        parts.push(block.text)
+        if (block.caption != null) parts.push(block.caption)
         break
       case 'steps':
       case 'list':
