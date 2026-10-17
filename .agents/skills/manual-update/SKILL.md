@@ -14,7 +14,7 @@ description: 主催者画面（user の /manage）と飲食店画面（partner�
 | 主催者画面（user）    | `user/src/pages/manage/manual.vue`（`/manage/manual`） | `base/src/manual/organizerManual.ts` | `user/src/navigation/manage.ts` 最下部   |
 | 飲食店画面（partner） | `partner/src/pages/manual.vue`（`/manual`）            | `base/src/manual/partnerManual.ts`   | `partner/src/navigation/index.ts` 最下部 |
 
-- 型は `base/src/manual/types.ts`、整合性検証は `base/src/manual/validateManual.ts`、表示は `base/src/components/manual/ManualViewer.vue`
+- 型は `base/src/manual/types.ts`、整合性検証は `base/src/manual/validateManual.ts`、表示は `base/src/components/manual/`（`ManualViewer.vue` が全体、`ManualSection.vue` が各項目、`ManualToc.vue` が目次）
 - 本文は**平文のみ**（HTML 不可）。UI の固定文言（「目次」等）は `base/src/locales/messages/ja.ts` の `manual`
 - 対象外: enterprise / support / 一般参加者向け画面（必要になったら別 Issue）
 
@@ -34,13 +34,18 @@ description: 主催者画面（user の /manage）と飲食店画面（partner�
 2. 該当ファイルの `categories[].sections[]` から対象セクションを探す。無ければ最も近いカテゴリに新設する
 3. `blocks` を実装に合わせて書き換える
    - 画面上の表記は `ja.ts` の文言と一致させる（ボタン名・項目名を言い換えない）
-   - 手順は `steps`、補足は `note`（`info`）、取り消せない操作・金額・締切は `note`（`warning`）にする
+   - 順番に行う操作は `steps`、並列の説明は `list` にする
+   - 「ボタン名と説明」「ステータス名と意味」のように、名前と説明が対になる項目は `terms`（表で表示する）にする。`list` の中で「名前: 説明」と書かない
+   - メニュー名・タブ名・ステータスなど、短い名称を並べるだけのときは `tags`（チップで表示する）にする
+   - 補足は `note`（`info`、画面では「ポイント」）、取り消せない操作・金額・締切は `note`（`warning`、画面では「注意」）にする。「注意:」などの前置きは本文に書かない
+   - `where` は画面の表示名を `>` でつなぐ（例: `メニュー > イベント管理 > 対象のイベント > 概要`）。コミュニティやイベントを選んだあとの画面は、「対象のコミュニティ」「対象のイベント」と書く。入り口が複数あるときは `/` で区切り、それぞれを `メニュー` から書く
+   - ボタンやカードを操作する動詞は「押す」にそろえる（「クリック」は使わない。スマホでも同じ文面で通じるため）
    - 実装で確認できないことは書かない
    - 金額・期限・条件は functions / common の実装と照合する（境界条件が「以上」か「未満」か、返金の対象、手数料の計算対象、支払い方法ごとの違い）
    - 画面から実行できない操作（一覧に出ないボタン等）を手順に書かない
 4. そのセクションの `updatedAt` を**今日の日付（YYYY-MM-DD）**に更新する
-5. 文章は [`/yomiyasu`](../yomiyasu/SKILL.md) に従う（意味・条件・金額は変えない）
-6. `npm -w base run test` で `manual.test.ts`（ID 重複・日付書式・空本文の検証）が通ることを確認する
+5. 文章は [`/yomiyasu`](../yomiyasu/SKILL.md) に従う（意味・条件・金額は変えない）。1 文は短くし、括弧の補足は文に組み込む
+6. `npm -w base run test` で `manual.test.ts`（ID 重複・日付書式・空本文・`terms` と `tags` の検証）が通ることを確認する
 7. PR 本文の「マニュアル更新」欄に更新したセクションを書く
 
 ## スクリーンショット（将来対応）
