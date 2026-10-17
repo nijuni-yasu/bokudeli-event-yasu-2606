@@ -12,7 +12,8 @@ const { t: $t } = useI18n()
 const { mdAndUp } = useDisplay()
 const route = useRoute()
 
-const keyword = ref('')
+/** clearable の v-text-field はクリア時に null を設定する */
+const keyword = ref<string | null>('')
 const isTocOpen = ref<number[]>([])
 
 const SECTION_ANCHOR_PREFIX = 'manual-'
@@ -20,7 +21,7 @@ const anchorOf = (id: string) => `${SECTION_ANCHOR_PREFIX}${id}`
 
 /** 検索キーワードに一致するセクションだけを残したカテゴリ一覧 */
 const filteredCategories = computed<ManualCategory[]>(() => {
-  const word = keyword.value.trim().toLowerCase()
+  const word = (keyword.value ?? '').trim().toLowerCase()
   if (word === '') {
     return props.manual.categories
   }
@@ -47,6 +48,9 @@ const scrollToHash = async () => {
 }
 
 onMounted(scrollToHash)
+
+// 同じ画面内でハッシュだけが変わる遷移（リンク・戻る/進む）にも追従する
+watch(() => route.hash, scrollToHash)
 </script>
 
 <template>

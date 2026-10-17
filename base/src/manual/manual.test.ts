@@ -39,6 +39,19 @@ describe('validateManual', () => {
     expect(validateManual(manual).some((e) => e.includes('重複'))).toBe(true)
   })
 
+  it('実在しない更新日を検出する', () => {
+    const manual: ManualDocument = {
+      ...validManual,
+      categories: [
+        {
+          ...validManual.categories[0],
+          sections: [{ ...validManual.categories[0].sections[0], updatedAt: '2026-02-30' }],
+        },
+      ],
+    }
+    expect(validateManual(manual).some((e) => e.includes('updatedAt'))).toBe(true)
+  })
+
   it('更新日の書式不正・空の本文・空の手順を検出する', () => {
     const manual: ManualDocument = {
       ...validManual,

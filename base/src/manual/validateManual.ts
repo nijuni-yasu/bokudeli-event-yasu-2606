@@ -3,6 +3,15 @@ import type { ManualDocument } from './types.js'
 const ID_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/
 
+/** `YYYY-MM-DD` 形式で、実在する日付か（2026-02-30 のような繰り上がる日付は不可） */
+const isValidDateString = (value: string): boolean => {
+  if (!DATE_PATTERN.test(value)) {
+    return false
+  }
+  const date = new Date(`${value}T00:00:00Z`)
+  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
+}
+
 /**
  * マニュアルデータの整合性を検証し、問題点を日本語メッセージで返す（問題なければ空配列）。
  * テストから呼び出し、セクション ID の重複・更新日の書式・空の本文を検出する。
@@ -37,7 +46,7 @@ export const validateManual = (manual: ManualDocument): string[] => {
       if (section.title.trim() === '' || section.summary.trim() === '' || section.where.trim() === '') {
         errors.push(`セクション「${section.id}」のタイトル・概要・開き方のいずれかが空です`)
       }
-      if (!DATE_PATTERN.test(section.updatedAt) || Number.isNaN(Date.parse(section.updatedAt))) {
+      if (!isValidDateString(section.updatedAt)) {
         errors.push(`セクション「${section.id}」の updatedAt が YYYY-MM-DD ではありません: ${section.updatedAt}`)
       }
       if (section.blocks.length === 0) {

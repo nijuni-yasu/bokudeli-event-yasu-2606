@@ -8,30 +8,29 @@ AIエージェント向けプロジェクトガイド。
 
 **プロジェクトオリジナル**のスキル。以下のタスクを依頼された場合、対応するスキルファイルを読み込んで手順に従うこと。
 
-| タスク                                                                                        | スキル                        |
-| :-------------------------------------------------------------------------------------------- | :---------------------------- |
-| コミットして（確認不要。fixup / squash / 分割 / 新規 / amend を自律判断し、同じターンで実行） | `/git-commit-workflow`        |
-| コミット整理（fixup / squash / 分割 / 新規 / amend の自律判断。確認せず実行）                 | `/git-commit-workflow`        |
-| コミットメッセージ生成（一致する Issue があれば `#`、無ければ番号なし）                       | `/git-commit-message`         |
-| GitHub イシュー作成                                                                           | `/git-create-issue`           |
-| PR 本文生成                                                                                   | `/git-create-pull-request`    |
-| AI レビュー完了待ち → evaluate（watcher 起動時 Shell に notify_on_output 必須）               | `/wait-ai-pr-review`          |
-| コードレビュー（実装完了時は必ずセルフレビュー）                                              | `/shokujii-code-review`       |
-| lint・format・型・test チェック（PR / reflect 前。PR verify 相当）                            | `/lint-and-format`            |
-| fixup（追修正の統合・メッセージ維持。明示依頼時）                                             | `/git-fixup`                  |
-| squash（統合＋メッセージ更新。明示依頼時）                                                    | `/git-squash`                 |
-| レビューコメント検討                                                                          | `/review-comments-evaluate`   |
-| レビューコメント返信                                                                          | `/review-comments-reply`      |
-| コードレビュードキュメント更新                                                                | `/review-doc-update`          |
-| 分割コミット（「して」「分けて」は確認せず実行。「検討して」「案を出して」は案まで）          | `/git-split-commit`           |
-| スキル提案                                                                                    | `/skill-propose`              |
-| アプリ内マニュアル（主催者・飲食店画面）の更新。機能追加・変更の PR 前に必須                  | `/manual-update`              |
-| sandbox へ push + Actions デプロイ                                                            | `/github-actions-deploy`      |
-| sandbox WIP デプロイ                                                                          | `/github-sandbox-wip-deploy`  |
-| コミット後の反映（PR + sandbox）                                                              | `/git-reflect-after-commit`   |
-| GCP Cloud Logging ERROR 取得・解析（gcloud / JSON 添付）                                      | `/gcp-logging-error-analysis` |
-| サービスセキュリティ診断（CVE・Rules・認可・秘密情報。報告のみ）                              | `/shokujii-security-audit`    |
-| 日本語の推敲（UI文言・仕様・PR説明。意味と条件は変えない）                                    | `/yomiyasu`                   |
+| タスク                                                                                                              | スキル                       |
+| :------------------------------------------------------------------------------------------------------------------ | :--------------------------- |
+| コミットして（確認不要。fixup / squash / 分割 / 新規 / amend を自律判断し、同じターンで実行）                     | `/git-commit-workflow`       |
+| コミット整理（fixup / squash / 分割 / 新規 / amend の自律判断。確認せず実行）                                     | `/git-commit-workflow`       |
+| コミットメッセージ生成（一致する Issue があれば `#`、無ければ番号なし）       | `/git-commit-message`        |
+| GitHub イシュー作成                                                             | `/git-create-issue`          |
+| PR 本文生成                                                                     | `/git-create-pull-request`   |
+| AI レビュー完了待ち → evaluate（watcher 起動時 Shell に notify_on_output 必須） | `/wait-ai-pr-review`         |
+| コードレビュー（実装完了時は必ずセルフレビュー）                                 | `/shokujii-code-review`      |
+| lint・format・型・test チェック（PR / reflect 前。PR verify 相当）               | `/lint-and-format`           |
+| fixup（追修正の統合・メッセージ維持。明示依頼時）                               | `/git-fixup`                 |
+| squash（統合＋メッセージ更新。明示依頼時）                                      | `/git-squash`                |
+| レビューコメント検討                                                            | `/review-comments-evaluate`  |
+| レビューコメント返信                                                            | `/review-comments-reply`     |
+| コードレビュードキュメント更新                                                  | `/review-doc-update`         |
+| 分割コミット（「して」「分けて」は確認せず実行。「検討して」「案を出して」は案まで）                              | `/git-split-commit`          |
+| スキル提案                                                                      | `/skill-propose`             |
+| sandbox へ push + Actions デプロイ                                              | `/github-actions-deploy`     |
+| sandbox WIP デプロイ                                                            | `/github-sandbox-wip-deploy` |
+| コミット後の反映（PR + sandbox）                                                | `/git-reflect-after-commit`  |
+| GCP Cloud Logging ERROR 取得・解析（gcloud / JSON 添付）                        | `/gcp-logging-error-analysis` |
+| サービスセキュリティ診断（CVE・Rules・認可・秘密情報。報告のみ）                | `/shokujii-security-audit`   |
+| 日本語の推敲（UI文言・仕様・PR説明。意味と条件は変えない）                     | `/yomiyasu`                   |
 
 ## 推奨スキル（技術スタック別）
 
@@ -67,30 +66,30 @@ AIエージェント向けプロジェクトガイド。
 
 ## 関連リポジトリ
 
-| リポジトリ                                                                            | 役割                                                                               |
-| :------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------- |
+| リポジトリ | 役割 |
+| :-- | :-- |
 | [`nijuniinc/bokudeli-event-batch`](https://github.com/nijuniinc/bokudeli-event-batch) | Firestore 既存データの backfill / migration など、アプリ本体外で実行するバッチ処理 |
 
-既存 Firestore データへの backfill は、原則として本リポジトリの `functions/default` ではなく `bokudeli-event-batch` 側で実装・実行する。アプリ本体側は schema / converter / store / Rules / index / テストを整備する。エンプラ MVP の enterprise*id null materialize バックフィル手順は [documents/08*エンタープライズ/00*計画/02_developmentマージ.md](documents/08*エンタープライズ/00\_計画/02_developmentマージ.md) §2.4 を参照。
+既存 Firestore データへの backfill は、原則として本リポジトリの `functions/default` ではなく `bokudeli-event-batch` 側で実装・実行する。アプリ本体側は schema / converter / store / Rules / index / テストを整備する。エンプラ MVP の enterprise_id null materialize バックフィル手順は [documents/08_エンタープライズ/00_計画/02_developmentマージ.md](documents/08_エンタープライズ/00_計画/02_developmentマージ.md) §2.4 を参照。
 
 ## ディレクトリ構造
 
 ### アクティブ
 
-| パス                   | 概要                           | 技術スタック                                 |
-| :--------------------- | :----------------------------- | :------------------------------------------- |
-| **/user**              | 一般ユーザー向けアプリ         | Vue 3 + Vite + Vuetify 3                     |
-| **/partner**           | 飲食店向け管理画面             | Vue 3 + Vite + Vuetify 3                     |
-| **/enterprise**        | エンタープライズ向けアプリ     | Vue 3 + Vite + Vuetify 3                     |
-| **/support**           | 運営（サポーター）向け管理画面 | Vue 3 + Vite + Vuetify 3                     |
-| **/functions/default** | バックエンドロジック           | Firebase Functions v2 (Node 24) + TypeScript |
-| **/common**            | 共有コード                     | TypeScript (Schema, Utils)                   |
-| **/base**              | 共有UIコンポーネント           | Vue 3 (Materio Template)                     |
+| パス                   | 概要                   | 技術スタック                                 |
+| :--------------------- | :--------------------- | :------------------------------------------- |
+| **/user**              | 一般ユーザー向けアプリ       | Vue 3 + Vite + Vuetify 3                     |
+| **/partner**           | 飲食店向け管理画面           | Vue 3 + Vite + Vuetify 3                     |
+| **/enterprise**        | エンタープライズ向けアプリ   | Vue 3 + Vite + Vuetify 3                     |
+| **/support**           | 運営（サポーター）向け管理画面 | Vue 3 + Vite + Vuetify 3                   |
+| **/functions/default** | バックエンドロジック         | Firebase Functions v2 (Node 24) + TypeScript |
+| **/common**            | 共有コード             | TypeScript (Schema, Utils)                   |
+| **/base**              | 共有UIコンポーネント   | Vue 3 (Materio Template)                     |
 
 ### レガシー (Deprecated) — 新規コード生成時の参照禁止
 
-| パス         | 概要                                                                                  |
-| :----------- | :------------------------------------------------------------------------------------ |
+| パス         | 概要                      |
+| :----------- | :------------------------ |
 | **/manager** | 運営向け管理画面 (Legacy)。Vue 3 で `/support` に再実装済み（#2087）。削除はフェーズ5 |
 
 Slack / LINE bot および旧 legacy Functions は `functions/default` に統合済み（#2060 Phase 2/3）。
@@ -199,10 +198,6 @@ PR verify（`pr-verify.yml`）と同じ verify:functions-deploy / build / lint /
 - **xxxRef は必ず withConverter 付き**: DocumentReference を取得する際は store の `withConverter` 付き ref を使う（Zod バリデーションを維持するため）。
 - **Functions の Firestore 操作**: `functions/default` では `documents/実装メモ/functionsにおける store の使い方.md` を参照し、store 関数のみで読み書きすること。
 
-### アプリ内マニュアル（必須）
-
-主催者画面（user の `/manage`）と飲食店画面（partner）のグローバルメニュー最下部に「マニュアル」がある。**user / partner / base の画面・操作・文言・機能を追加・変更・削除したら、同じ PR で [`/manual-update`](.agents/skills/manual-update/SKILL.md) に従いマニュアルを更新する**（本文は `base/src/manual/organizerManual.ts` / `partnerManual.ts`、変更したセクションの `updatedAt` も更新）。更新不要なら PR 本文に理由を書く。
-
 ### スキーマの日付・時刻フィールド（common/src/schemas/firebase）
 
 - **DbSchema**: 日付・時刻フィールドには `TimestampSchema` を使う（Firestore に Timestamp 型で保存するため）
@@ -243,31 +238,31 @@ PR verify（`pr-verify.yml`）と同じ verify:functions-deploy / build / lint /
 
 **1 つの作業ブランチに複数 Issue のコミットが混在してもよい**（例: `feat/1774` に #1774 の実装と #2342 の `AGENTS.md` 更新）。ブランチ名は主たる Issue を表す番号でよい。各コミットメッセージは、そのコミットの変更内容に一致する Issue があるときだけ `#イシュー番号` を付ける。無いコミットは番号なし（`/git-commit-message` 参照）。
 
-| プレフィックス | 用途                                                 | 例              |
-| :------------- | :--------------------------------------------------- | :-------------- |
-| `feat/`        | 機能追加・仕様実装                                   | `feat/1774`     |
-| `fix/`         | バグ修正・不具合対応                                 | `fix/2306`      |
-| `dev/`         | 開発中・実験的作業                                   | `dev/favorites` |
-| `ai/`          | エージェント向け設定・スキル・hook（`AGENTS.md` 等） | `ai/2176`       |
-| `doc/`         | 仕様書・ドキュメントのみ                             | `doc/2500`      |
-| `ui/`          | UI 改善・見た目調整                                  | `ui/2093`       |
-| `refactor/`    | 挙動不変のリファクタ（Issue スコープが明確な場合）   | `refactor/2200` |
+| プレフィックス | 用途 | 例 |
+| :-- | :-- | :-- |
+| `feat/` | 機能追加・仕様実装 | `feat/1774` |
+| `fix/` | バグ修正・不具合対応 | `fix/2306` |
+| `dev/` | 開発中・実験的作業 | `dev/favorites` |
+| `ai/` | エージェント向け設定・スキル・hook（`AGENTS.md` 等） | `ai/2176` |
+| `doc/` | 仕様書・ドキュメントのみ | `doc/2500` |
+| `ui/` | UI 改善・見た目調整 | `ui/2093` |
+| `refactor/` | 挙動不変のリファクタ（Issue スコープが明確な場合） | `refactor/2200` |
 
 **リリース・同期**（[`03_branch_protection.md`](documents/AIエージェント/01_Loop_Engineering/03_branch_protection.md) 参照。エージェントは通常の feature 系と同様 PR 更新用に push 可）:
 
-| プレフィックス | 用途                                             |
-| :------------- | :----------------------------------------------- |
-| `release/`     | リリースブランチ（`npm version` 等は人間作業）   |
-| `sync/`        | ブランチ間同期（例: `sync/main-to-development`） |
-| `hotfix/`      | 本番 hotfix                                      |
+| プレフィックス | 用途 |
+| :-- | :-- |
+| `release/` | リリースブランチ（`npm version` 等は人間作業） |
+| `sync/` | ブランチ間同期（例: `sync/main-to-development`） |
+| `hotfix/` | 本番 hotfix |
 
 **コミット・push 禁止**（作業ブランチとして使わない）:
 
-| プレフィックス | 用途                          |
-| :------------- | :---------------------------- |
-| `tree/`        | git worktree 専用（下記参照） |
-| `backup/`      | バックアップ                  |
-| `dependabot/`  | Dependabot 自動生成           |
+| プレフィックス | 用途 |
+| :-- | :-- |
+| `tree/` | git worktree 専用（下記参照） |
+| `backup/` | バックアップ |
+| `dependabot/` | Dependabot 自動生成 |
 
 レガシーで `feature/` も残存するが、新規は **`feat/`** を使う。
 
@@ -308,12 +303,12 @@ PR・コードレビューのコメントは必ず日本語で行う。
 
 **RC-n の対応を依頼され実装を進めたタスク**では、コード変更と**同一作業内**（コミット前）に当該レビュー記録ファイル（新規は `review-<slug>.md`、既存 `pr-*.md` への追記依頼時はそのファイル）を必ず更新する（[`lint-and-format`](.agents/skills/lint-and-format/SKILL.md) と同様、完了報告の前提）。
 
-| 状況                                    | 対応列 | 評価                         | ステータス         | PRスコープ                  |
-| --------------------------------------- | ------ | ---------------------------- | ------------------ | --------------------------- |
-| コードで解消した                        | `[x]`  | 変更しない（🚨 / 🟡 のまま） | ✅ 対応済み        | 📌 スコープ内（変更なし可） |
-| 対応不要と確定                          | `[x]`  | 👌 修正不要                  | —                  | — または 📤 スコープ外      |
-| 本 PR では実装せず別 Issue へ切り出した | `[x]`  | 変更しない（🚨 / 🟡 のまま） | 📤 #NNNN 別Issue化 | 📤 スコープ外               |
-| 未着手                                  | `[ ]`  | 🟡 修正提案 / 🚨 必須修正    | 未着手             | 評価時のまま                |
+| 状況 | 対応列 | 評価 | ステータス | PRスコープ |
+| ---- | ------ | ---- | ---------- | ---------- |
+| コードで解消した | `[x]` | 変更しない（🚨 / 🟡 のまま） | ✅ 対応済み | 📌 スコープ内（変更なし可） |
+| 対応不要と確定 | `[x]` | 👌 修正不要 | — | — または 📤 スコープ外 |
+| 本 PR では実装せず別 Issue へ切り出した | `[x]` | 変更しない（🚨 / 🟡 のまま） | 📤 #NNNN 別Issue化 | 📤 スコープ外 |
+| 未着手 | `[ ]` | 🟡 修正提案 / 🚨 必須修正 | 未着手 | 評価時のまま |
 
 - **❌ 未対応は使わない**（[`review-comments-evaluate`](.agents/skills/review-comments-evaluate/SKILL.md) と共通）。未着手は `[ ]` + **ステータス** 未着手 + **評価** 🟡 / 🚨 で表す。
 - 「別 Issue で対応」「方針検討」等の**文言だけ**で Issue を作らない状態は禁止。切り出す場合は [`git-create-issue`](.agents/skills/git-create-issue/SKILL.md) で Issue を作成し、**ステータス**に **`📤 #NNNN 別Issue化`**、要約列 2 行目に Issue URL または番号を明記する。
