@@ -22,6 +22,10 @@ PR #2479（アプリ内マニュアルの追加）のレビュー記録。RC 番
 | [x] | RC-12 | 4301798732 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 👤 UX | 🔧 微修正 | S | 限定食数の注意書きが「イベントを差し戻して再度予約承認」と案内している<br>`partnerManual.ts:242`（メニュー設定）<br>注文受付中のイベントを店舗が差し戻す操作はなく、手順が実行できない<br>予約承認前に限定食数を含むメニュー設定を確認する案内に変更 |
 | [x] | RC-13 | 4301798750 | 🚨 必須修正 | ✅ 対応済み | 📌 スコープ内 | 💰 金銭, 👤 UX | 🔧 微修正 | S | 最小催行人数の中止条件が「以下」になっていた（実装は「未満」）<br>`partnerManual.ts:347`（予約の承認と変更依頼）<br>設定人数ちょうどでも中止されると店舗が誤解する。判定対象も店舗提供品目の注文者のみ<br>「店舗が提供する品目を注文済みの人数が最小催行人数に満たない場合」に修正し、ちょうどなら開催と明記 |
 | [x] | RC-14 | 4301804973 | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 🐛 実害 | 🔧 微修正 | S | `Date.parse` は `2026-02-30` を 3 月に繰り上げるため無効な更新日を通す<br>`validateManual.ts:40`（updatedAt の検証）<br>存在しない日付が検証とテストをすり抜けて画面に表示される<br>ISO 文字列へ往復変換して元の文字列と一致するかで検証し、テストを追加 |
+| [x] | RC-15 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | テーマ色を `#0f7a3b` などの 16 進数で直接指定している<br>`ManualViewer.vue` の `--manual-accent-strong` / `--manual-warning-strong`（ダークテーマ用を含む）<br>テーマの色を変えても、マニュアルの緑・琥珀色の文字だけが追従しない<br>テーマの色を `color-mix` で暗く・明るくした値に置き換える |
+| [x] | RC-16 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | アンカーの接頭辞 `manual-` を 3 つのコンポーネントがそれぞれ書いている<br>`ManualViewer.vue` の `ANCHOR_PREFIX`、`ManualToc.vue` の `ANCHOR_PREFIX`、`ManualSection.vue` の `manual-${id}`<br>どれか 1 つだけ変えると、目次のリンクと項目の `id` がずれて移動できなくなる<br>`manualView.ts` に `MANUAL_ANCHOR_PREFIX` と `getManualAnchorId` を置いて集約する |
+| [x] | RC-17 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | 待ち時間・回数が `20`・`30`・`50`・`0` の数値のまま書かれている<br>`ManualViewer.vue` の `waitForScrollUnlock` と、下から開く目次の送り処理<br>何のための数値か読み取れず、調整するときに意図が分からない<br>名前付きの定数と `sleep` 関数にまとめる |
+| [x] | RC-18 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | フォーカス表示のセレクタ `.manual-sheet a:focus-visible` が、どの要素にも当たらない<br>`ManualViewer.vue` の scoped スタイル末尾（下から開く目次の中のリンクは、子コンポーネント側の要素）<br>使われないスタイルが残り、キーボード操作の見た目を担っていると誤解される<br>削除し、章へのリンク（`.manual-chip`）のフォーカス表示に置き換える |
 
 ---
 
@@ -1403,5 +1407,209 @@ Useful? React with 👍 / 👎.
 **想定工数**: S
 
 **判断理由**: `new Date("2026-02-30T00:00:00Z")` は有効な Date（3/2）になるため往復比較が必要。manual.test.ts に実在しない日付のケースを追加した。
+
+---
+
+## 評価セッション（2026-10-17 16:45・shokujii-code-review）
+
+- **評価日時**: 2026-10-17 16:45 JST
+- **評価者**: Claude Code（`/shokujii-code-review`）
+- **ブランチ名**: `feat/2478`
+- **PR**: https://github.com/nijuniinc/bokudeli-event-new/pull/2479
+- **対象**: マニュアル本文の読みやすさの改善（yomiyasu）と、表示のデザイン改善（frontend-design）の差分
+- **Outdated 除外件数**: 該当なし
+- **レビュー非該当スキップ件数**: 該当なし
+- **重複除外**: なし
+- **確認して修正不要とした点**: イベントハンドラ・ライフサイクルから呼ぶ非同期関数（`selectTarget` / `scrollToHash` 等）に `try/catch` は付けていない。待つのは `nextTick` と待機だけで、失敗する処理を含まないため。
+
+### RC 一覧（サマリ）
+
+| 対応 | RC | GitHub id | 評価 | ステータス | PRスコープ | ラベル | 種別 | 工数 | 要約 |
+|:----:|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| [x] | RC-15 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | テーマ色を `#0f7a3b` などの 16 進数で直接指定している<br>`ManualViewer.vue` の `--manual-accent-strong` / `--manual-warning-strong`（ダークテーマ用を含む）<br>テーマの色を変えても、マニュアルの緑・琥珀色の文字だけが追従しない<br>テーマの色を `color-mix` で暗く・明るくした値に置き換える |
+| [x] | RC-16 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | アンカーの接頭辞 `manual-` を 3 つのコンポーネントがそれぞれ書いている<br>`ManualViewer.vue` の `ANCHOR_PREFIX`、`ManualToc.vue` の `ANCHOR_PREFIX`、`ManualSection.vue` の `manual-${id}`<br>どれか 1 つだけ変えると、目次のリンクと項目の `id` がずれて移動できなくなる<br>`manualView.ts` に `MANUAL_ANCHOR_PREFIX` と `getManualAnchorId` を置いて集約する |
+| [x] | RC-17 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | 待ち時間・回数が `20`・`30`・`50`・`0` の数値のまま書かれている<br>`ManualViewer.vue` の `waitForScrollUnlock` と、下から開く目次の送り処理<br>何のための数値か読み取れず、調整するときに意図が分からない<br>名前付きの定数と `sleep` 関数にまとめる |
+| [x] | RC-18 | なし | 🟡 修正提案 | ✅ 対応済み | 📌 スコープ内 | 📏 規約 | 🔧 微修正 | S | フォーカス表示のセレクタ `.manual-sheet a:focus-visible` が、どの要素にも当たらない<br>`ManualViewer.vue` の scoped スタイル末尾（下から開く目次の中のリンクは、子コンポーネント側の要素）<br>使われないスタイルが残り、キーボード操作の見た目を担っていると誤解される<br>削除し、章へのリンク（`.manual-chip`）のフォーカス表示に置き換える |
+
+---
+
+**識別子**: RC-15（GitHub id: なし・エージェントレビュー）
+
+**レビュワー**: Claude Code（shokujii-code-review）
+
+**指摘箇所**: `base/src/components/manual/ManualViewer.vue:390`
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+@@ -0,0 +384,18 @@
++<style lang="scss">
++// 画面の外（下から開く目次）にも同じ色・書体を使うため、スコープを付けずに定義する
++.manual-viewer,
++.manual-sheet {
++  --manual-line: rgba(var(--v-border-color), var(--v-border-opacity));
++  // 文字に使う緑・琥珀色は、背景に対して十分なコントラストが出る濃さにする
++  --manual-accent-strong: #0f7a3b;
++  --manual-warning-strong: #8a5a00;
++  ...
++}
++
++.v-theme--dark .manual-viewer,
++.v-theme--dark .manual-sheet {
++  --manual-accent-strong: #5fe08e;
++  --manual-warning-strong: #ffd166;
++}
+```
+
+**レビュワーのコメント（原文）**:
+
+🟡 **修正提案** [🔧微修正/S]: テーマ色を `#0f7a3b` などの 16 進数で直接指定している。`ManualViewer.vue` の `--manual-accent-strong` / `--manual-warning-strong`（ダークテーマ用を含む）（テーマの色を変えても、マニュアルの緑・琥珀色の文字だけが追従しない） → テーマの色を `color-mix` で暗く・明るくした値に置き換える
+
+**コメント要約**:
+- テーマ色を `#0f7a3b` などの 16 進数で直接指定している
+- `ManualViewer.vue` の `--manual-accent-strong` / `--manual-warning-strong`（ダークテーマ用を含む）
+- テーマの色を変えても、マニュアルの緑・琥珀色の文字だけが追従しない
+- テーマの色を `color-mix` で暗く・明るくした値に置き換える
+
+**評価**: 🟡 修正提案
+
+**ステータス**: ✅ 対応済み
+
+**PRスコープ**: 📌 スコープ内
+
+**ラベル**: 📏 規約
+
+**変更種別**: 🔧 微修正
+
+**想定工数**: S
+
+**判断理由**: チェックリスト「テーマカラーを直接指定していないか（Vuetify Theme を使う）」に該当する。コントラストのための濃淡は必要なので、テーマ変数から `color-mix` で導出する形にした（ライトは黒、ダークは白と混ぜる）。未対応ブラウザでは変数が無効になり、周囲の文字色で表示される（背景色には使っていないため読めなくなることはない）。画面で計算結果が `rgb(16,123,61)` になることを確認した。
+
+---
+
+**識別子**: RC-16（GitHub id: なし・エージェントレビュー）
+
+**レビュワー**: Claude Code（shokujii-code-review）
+
+**指摘箇所**: `base/src/components/manual/ManualSection.vue:22`
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+@@ -0,0 +22,1 @@
++const anchorId = computed(() => `manual-${props.section.id}`)
+```
+
+**レビュワーのコメント（原文）**:
+
+🟡 **修正提案** [🔧微修正/S]: アンカーの接頭辞 `manual-` を 3 つのコンポーネントがそれぞれ書いている。`ManualViewer.vue` の `ANCHOR_PREFIX`、`ManualToc.vue` の `ANCHOR_PREFIX`、`ManualSection.vue` の `manual-${id}`（どれか 1 つだけ変えると、目次のリンクと項目の `id` がずれて移動できなくなる） → `manualView.ts` に `MANUAL_ANCHOR_PREFIX` と `getManualAnchorId` を置いて集約する
+
+**コメント要約**:
+- アンカーの接頭辞 `manual-` を 3 つのコンポーネントがそれぞれ書いている
+- `ManualViewer.vue` の `ANCHOR_PREFIX`、`ManualToc.vue` の `ANCHOR_PREFIX`、`ManualSection.vue` の `manual-${id}`
+- どれか 1 つだけ変えると、目次のリンクと項目の `id` がずれて移動できなくなる
+- `manualView.ts` に `MANUAL_ANCHOR_PREFIX` と `getManualAnchorId` を置いて集約する
+
+**評価**: 🟡 修正提案
+
+**ステータス**: ✅ 対応済み
+
+**PRスコープ**: 📌 スコープ内
+
+**ラベル**: 📏 規約
+
+**変更種別**: 🔧 微修正
+
+**想定工数**: S
+
+**判断理由**: 同じ文字列の重複はずれの原因になる。純粋関数なので `manualView.ts` に置き、テスト（`getManualAnchorId`）を追加した。3 つのコンポーネントはこの関数を使う。
+
+---
+
+**識別子**: RC-17（GitHub id: なし・エージェントレビュー）
+
+**レビュワー**: Claude Code（shokujii-code-review）
+
+**指摘箇所**: `base/src/components/manual/ManualViewer.vue:176`
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+@@ -0,0 +176,7 @@
++/** 下から開く目次を閉じたあとは、画面のスクロール固定が外れるまで待つ（固定中は移動できない） */
++const waitForScrollUnlock = async () => {
++  await nextTick()
++  for (let i = 0; i < 20 && document.documentElement.classList.contains('v-overlay-scroll-blocked'); i++) {
++    await new Promise((resolve) => setTimeout(resolve, 30))
++  }
++}
+```
+
+**レビュワーのコメント（原文）**:
+
+🟡 **修正提案** [🔧微修正/S]: 待ち時間・回数が `20`・`30`・`50`・`0` の数値のまま書かれている。`ManualViewer.vue` の `waitForScrollUnlock` と、下から開く目次の送り処理（何のための数値か読み取れず、調整するときに意図が分からない） → 名前付きの定数と `sleep` 関数にまとめる
+
+**コメント要約**:
+- 待ち時間・回数が `20`・`30`・`50`・`0` の数値のまま書かれている
+- `ManualViewer.vue` の `waitForScrollUnlock` と、下から開く目次の送り処理
+- 何のための数値か読み取れず、調整するときに意図が分からない
+- 名前付きの定数と `sleep` 関数にまとめる
+
+**評価**: 🟡 修正提案
+
+**ステータス**: ✅ 対応済み
+
+**PRスコープ**: 📌 スコープ内
+
+**ラベル**: 📏 規約
+
+**変更種別**: 🔧 微修正
+
+**想定工数**: S
+
+**判断理由**: チェックリスト「マジックナンバーを定数に切り出す」に該当する。`SCROLL_UNLOCK_POLL_MS` / `SCROLL_UNLOCK_MAX_POLLS` / `SHEET_SCROLL_DELAY_MS` に名前を付け、`new Promise(setTimeout)` の繰り返しを `sleep` にまとめた。
+
+---
+
+**識別子**: RC-18（GitHub id: なし・エージェントレビュー）
+
+**レビュワー**: Claude Code（shokujii-code-review）
+
+**指摘箇所**: `base/src/components/manual/ManualViewer.vue:799`
+
+**該当コード（レビュー時点の diff）**:
+
+```diff
+@@ -0,0 +799,5 @@
++.manual-viewer :deep(a:focus-visible),
++.manual-sheet a:focus-visible {
++  outline: 2px solid rgb(var(--v-theme-primary));
++  outline-offset: 2px;
++}
+```
+
+**レビュワーのコメント（原文）**:
+
+🟡 **修正提案** [🔧微修正/S]: フォーカス表示のセレクタ `.manual-sheet a:focus-visible` が、どの要素にも当たらない。`ManualViewer.vue` の scoped スタイル末尾（下から開く目次の中のリンクは、子コンポーネント側の要素）（使われないスタイルが残り、キーボード操作の見た目を担っていると誤解される） → 削除し、章へのリンク（`.manual-chip`）のフォーカス表示に置き換える
+
+**コメント要約**:
+- フォーカス表示のセレクタ `.manual-sheet a:focus-visible` が、どの要素にも当たらない
+- `ManualViewer.vue` の scoped スタイル末尾（下から開く目次の中のリンクは、子コンポーネント側の要素）
+- 使われないスタイルが残り、キーボード操作の見た目を担っていると誤解される
+- 削除し、章へのリンク（`.manual-chip`）のフォーカス表示に置き換える
+
+**評価**: 🟡 修正提案
+
+**ステータス**: ✅ 対応済み
+
+**PRスコープ**: 📌 スコープ内
+
+**ラベル**: 📏 規約
+
+**変更種別**: 🔧 微修正
+
+**想定工数**: S
+
+**判断理由**: scoped スタイルの属性は、このコンポーネントの要素にだけ付く。目次のリンクは `ManualToc.vue` の要素なので当たらず、`ManualToc.vue` 側に同じ指定がすでにある。チェックリスト「置換・刷新後に未使用のものが残っていないか」に該当するため、削除して `.manual-chip:focus-visible` に置き換えた。
 
 ---
