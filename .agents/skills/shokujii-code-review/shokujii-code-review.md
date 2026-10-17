@@ -270,6 +270,12 @@ RC 修正後と rebase 競合解消後にも、増えた差分へ同じ確認を
 - [ ] 無関係な修正を同じコミットに含めていないか
 - [ ] 動作的に大きな変更を別 PR または別 Issue に分けているか
 
+### アプリ内マニュアル
+
+- [ ] user（`/manage`）・partner・base の画面／操作／文言／機能を変えた PR で、`base/src/manual/organizerManual.ts` / `partnerManual.ts` の該当セクションと `updatedAt` を更新しているか（更新不要なら PR 本文に理由があるか。手順は [`/manual-update`](../manual-update/SKILL.md)）
+- [ ] マニュアルの表記（ボタン名・項目名）が `ja.ts` の文言と一致しているか
+- [ ] マニュアルの金額・期限・条件の記述が実装（functions / common）と一致しているか（境界条件・返金対象・手数料の計算対象・支払い方法ごとの違い）
+
 ### アセット管理
 
 - [ ] 画像・バナー等のアセットをコード内にハードコードしていないか（Firestore / Storage で管理する）

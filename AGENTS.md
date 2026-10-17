@@ -25,6 +25,7 @@ AIエージェント向けプロジェクトガイド。
 | コードレビュードキュメント更新                                                  | `/review-doc-update`         |
 | 分割コミット（「して」「分けて」は確認せず実行。「検討して」「案を出して」は案まで）                              | `/git-split-commit`          |
 | スキル提案                                                                      | `/skill-propose`             |
+| アプリ内マニュアル（主催者・飲食店画面）の更新。機能追加・変更の PR 前に必須    | `/manual-update`             |
 | sandbox へ push + Actions デプロイ                                              | `/github-actions-deploy`     |
 | sandbox WIP デプロイ                                                            | `/github-sandbox-wip-deploy` |
 | コミット後の反映（PR + sandbox）                                                | `/git-reflect-after-commit`  |
@@ -197,6 +198,10 @@ PR verify（`pr-verify.yml`）と同じ verify:functions-deploy / build / lint /
 - **DB 操作は必ず store 経由**: `db.collection()`、`update`、`set`、`delete` 等を直接呼ばない。`base/src/stores/` または `functions/default/src/stores/` の関数を経由すること。
 - **xxxRef は必ず withConverter 付き**: DocumentReference を取得する際は store の `withConverter` 付き ref を使う（Zod バリデーションを維持するため）。
 - **Functions の Firestore 操作**: `functions/default` では `documents/実装メモ/functionsにおける store の使い方.md` を参照し、store 関数のみで読み書きすること。
+
+### アプリ内マニュアル（必須）
+
+主催者画面（user の `/manage`）と飲食店画面（partner）のグローバルメニュー最下部に「マニュアル」がある。**user / partner / base の画面・操作・文言・機能を追加・変更・削除したら、同じ PR で [`/manual-update`](.agents/skills/manual-update/SKILL.md) に従いマニュアルを更新する**（本文は `base/src/manual/organizerManual.ts` / `partnerManual.ts`、変更したセクションの `updatedAt` も更新）。更新不要なら PR 本文に理由を書く。
 
 ### スキーマの日付・時刻フィールド（common/src/schemas/firebase）
 
